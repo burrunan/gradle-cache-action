@@ -1,0 +1,22 @@
+root = true
+
+[*]
+trim_trailing_whitespace = true
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 2
+max_line_length = 140
+
+[*.md]
+trim_trailing_whitespace = false
+
+[{*.sh,gradlew}]
+end_of_line = lf
+
+[{*.bat,*.cmd}]
+end_of_line = crlf
+
+[{*.kts,*.kt}]
+indent_size = 4
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
