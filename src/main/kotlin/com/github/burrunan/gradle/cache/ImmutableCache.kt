@@ -2,6 +2,7 @@ package com.github.burrunan.gradle.cache
 
 import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.github.toBoolean
+import com.github.burrunan.gradle.hashFiles
 import github.actions.cache.restoreAndLog
 import github.actions.cache.saveAndLog
 import github.actions.core.info
@@ -27,6 +28,7 @@ abstract class ImmutableCache(
             return
         }
         info("Saving $name")
+        hashFiles(*paths)
         saveAndLog(paths, primaryKey)
     }
 }
