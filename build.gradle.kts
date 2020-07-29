@@ -1,15 +1,18 @@
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.RootPackageJsonTask
+
 plugins {
     kotlin("js") version "1.4.0-rc"
 }
 
-repositories {
-    maven ("https://dl.bintray.com/kotlin/kotlin-eap") {
-        content {
-            includeGroupByRegex("^org\\.jetbrains\\.kotlin\\..*")
+allprojects {
+    repositories {
+        jcenter()
+    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEach {
+        kotlinOptions {
+            moduleKind = "commonjs"
         }
     }
-    mavenCentral()
-    jcenter()
 }
 
 val distributionJs by configurations.creating {
@@ -26,19 +29,27 @@ kotlin {
 
 val String.v: String get() = rootProject.extra["$this.version"] as String
 
+//tasks.withType<RootPackageJsonTask>().configureEach {
+//    doLast {
+//        // Ensure all the nested packages use the updated versions of node-fetch
+//        rootPackageJson.writeText(
+//            rootPackageJson.readText()
+//                .replaceFirst(
+//                    "{", """
+//                    {
+//                      "resolutions": {
+//                        "**/node-fetch": "3.0.0-beta.7"
+//                      },
+//                """.trimIndent()
+//                )
+//        )
+//    }
+//}
+
 dependencies {
-    implementation(kotlin("stdlib-js"))
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${"kotlinx-coroutines".v}")
-    implementation(npm("@actions/core", "1.2.4"))
-    implementation(npm("@actions/github", "4.0.0"))
-    implementation(npm("@actions/cache", "1.0.1"))
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJsCompile>().configureEach {
-    kotlinOptions {
-        moduleKind = "commonjs"
-    }
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${"kotlinx-coroutines".v}")
+//    implementation("org.jetbrains:kotlin-extensions:")
+    implementation(project(":lib"))
 }
 
 //val browserProductionWebpack by tasks.existing(org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack::class)

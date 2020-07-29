@@ -1,0 +1,15 @@
+name: 'Gradle Cache'
+description: 'Caches .gradle folder (dependencies, local build cache, ...)'
+author: 'Vladimir Sitnikov'
+inputs:
+  job-id:
+    description: 'A job identifier to avoid cache pollution from different jobs'
+    required: false
+runs:
+  using: node12
+  main: dist/gradle-cache-action.js
+  post: dist/gradle-cache-action.js
+  post-if: success()
+branding:
+  icon: archive
+  color: gray-dark
