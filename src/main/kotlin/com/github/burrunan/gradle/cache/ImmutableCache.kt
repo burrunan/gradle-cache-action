@@ -19,16 +19,17 @@ abstract class ImmutableCache(
         info("Restoring $name")
         return restoreAndLog(paths, primaryKey).also {
             isExactMatch.set(it == RestoreType.EXACT)
+            hashFiles(*paths)
         }
     }
 
     override suspend fun save() {
+        hashFiles(*paths)
         if (isExactMatch.get()) {
             info("$name loaded from exact match, so avoid storing it")
             return
         }
         info("Saving $name")
-        hashFiles(*paths)
         saveAndLog(paths, primaryKey)
     }
 }
