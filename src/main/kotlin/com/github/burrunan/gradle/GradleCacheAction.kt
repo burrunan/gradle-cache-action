@@ -3,6 +3,7 @@ package com.github.burrunan.gradle
 import com.github.burrunan.gradle.cache.Cache
 import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.github.suspendingStateVariable
+import com.github.burrunan.gradle.github.toBoolean
 import github.actions.core.info
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
@@ -15,8 +16,6 @@ class GradleCacheAction(refName: String) {
     private val stage: Stage
 
     private val caches = mutableListOf<Cache>()
-    private lateinit var generatedJarsCache: GradleGeneratedJarsCache
-    private lateinit var buildCache: LocalBuildCache
 
     init {
         info("ref: $refName")
@@ -44,24 +43,18 @@ class GradleCacheAction(refName: String) {
         }
     }
 
-    suspend fun pre() {
-        info("running pre")
-        supervisorScope {
-            for (cache in caches) {
-                launch {
-                    cache.restore()
-                }
+    suspend fun pre() = supervisorScope {
+        for (cache in caches) {
+            launch {
+                cache.restore()
             }
         }
     }
 
-    suspend fun post() {
-        info("running post")
-        supervisorScope {
-            for (cache in caches) {
-                launch {
-                    cache.save()
-                }
+    suspend fun post() = supervisorScope {
+        for (cache in caches) {
+            launch {
+                cache.save()
             }
         }
     }
