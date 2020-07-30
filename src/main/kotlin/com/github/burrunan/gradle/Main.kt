@@ -13,6 +13,10 @@ suspend fun main() {
         warning("$RefKey is needed for the action to work. GitHub event was ${process.env["GITHUB_EVENT_NAME"]}")
         return
     }
-    info(process.env["GITHUB_EVENT_PATH"] ?: "no event")
+    val s = process.env["GITHUB_EVENT_PATH"]
+    info("ref: ${process.env[RefKey]}")
+    info("event path: $s")
+    info("event: " + fs.readFileSync(s ?: "unknown"))
+
     GradleCacheAction(process.env[RefKey] ?: "").run()
 }
