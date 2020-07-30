@@ -43,4 +43,4 @@ jobs:
     - name: Build/
       run: |
         ./gradlew --no-parallel --no-daemon build
-        du -k --max-depth 1 ~/.gradle
+        du -k --max-depth 1 ~/.gradle/caches
