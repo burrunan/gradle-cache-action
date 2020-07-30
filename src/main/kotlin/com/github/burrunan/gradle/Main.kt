@@ -14,7 +14,7 @@ suspend fun main() {
         return
     }
     val s = process.env["GITHUB_EVENT_PATH"]
-    info("ref: ${process.env[RefKey]}")
+    info("  ref: ${process.env[RefKey]}")
     info("event path: $s")
     info("event: " + fs.readFileSync(s ?: "unknown"))
 
