@@ -14,13 +14,26 @@
  * limitations under the License.
  *
  */
-@file:JsModule("@actions/cache")
-@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
+package com.github.burrunan.gradle
 
-package github.actions.cache
+import NodeJS.ReadableStream
+import NodeJS.WritableStream
+import stream.Duplex
+import stream.internal
 
-import kotlin.js.Promise
+suspend fun <T : ReadableStream, R : Any> T.use(action: suspend (T) -> R): R {
+    try {
+        return action(this)
+    } finally {
+        finished()
+    }
+}
 
-external fun restoreCache(paths: Array<String>, primaryKey: String, restoreKeys: Array<String> = definedExternally, options: DownloadOptions = definedExternally): Promise<String?>
+suspend fun ReadableStream.finished() =
+    suspendWithCallback {
+        internal.finished(this@finished, it)
+    }
 
-external fun saveCache(paths: Array<String>, key: String, options: UploadOptions = definedExternally): Promise<Number>
+@Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
+fun <T : Duplex> ReadableStream.pipe(duplex: T, end: Boolean = true): WritableStream =
+    pipe(duplex as WritableStream, jsObject { this.end = end })

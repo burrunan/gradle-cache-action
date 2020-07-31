@@ -14,13 +14,18 @@
  * limitations under the License.
  *
  */
-@file:JsModule("@actions/cache")
-@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
-
-package github.actions.cache
+@file:JsModule("fs")
+@file:JsQualifier("promises")
+package fs2.promises
 
 import kotlin.js.Promise
 
-external fun restoreCache(paths: Array<String>, primaryKey: String, restoreKeys: Array<String> = definedExternally, options: DownloadOptions = definedExternally): Promise<String?>
+external fun unlink(paths: String): Promise<Unit>
 
-external fun saveCache(paths: Array<String>, key: String, options: UploadOptions = definedExternally): Promise<Number>
+external fun readFile(path: String, encoding: String): Promise<String>
+
+external fun writeFile(path: String, data: Any, encoding: String): Promise<Unit>
+
+external fun stat(path: String): Promise<fs.Stats>
+
+external fun rename(oldPath: String, newPath: String): Promise<Unit>

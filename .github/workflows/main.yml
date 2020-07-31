@@ -1,0 +1,58 @@
+# The default workflow for GitHub Actions that is used for continuous
+# integration. A configuration file that is used to control when, where,
+# and how different CI jobs are executed.
+# For more information on how to modify this file check the following link:
+# https://help.github.com/en/actions/automating-your-workflow-with-github-actions
+
+name: CI
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 50
+    - name: Install Java 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Build
+      run: ./gradlew --no-parallel --no-daemon --build-cache build
+    - name: Publish release
+      if: ${{ github.ref == 'refs/heads/main' }}
+      env:
+        PUSH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git fetch origin refs/heads/release:release
+        git checkout release
+        cp build/distributions/gradle-cache-action.js* dist/
+        git checkout main action.yml
+        git add dist/ action.yml
+        if git diff --staged --quiet; then
+          echo Everything is UP-TO-DATE
+        else
+          echo Pushing the new release
+          git fetch origin 'refs/tags/v*:refs/tags/v*'
+          if [[ $(git tag --points-at HEAD) ]] || [[ "$(git log --format=%B -n 1 origin/release)" != 'Publish release from'* ]]; then
+            AMEND=
+            FORCE=
+          else
+            AMEND=--amend
+            FORCE=--force
+          fi
+          git config --global user.email "sitnikov.vladimir@gmail.com"
+          git config --global user.name "CI"
+          git commit $AMEND -m "Publish release from $GITHUB_SHA"
+          remote_repo="https://${GITHUB_ACTOR}:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push $remote_repo $FORCE release
+        fi

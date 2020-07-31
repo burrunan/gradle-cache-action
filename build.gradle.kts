@@ -1,7 +1,6 @@
-import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.RootPackageJsonTask
-
 plugins {
-    kotlin("js") version "1.4.0-rc"
+    kotlin("js")
+    kotlin("plugin.serialization")
 }
 
 allprojects {
@@ -15,11 +14,6 @@ allprojects {
     }
 }
 
-val distributionJs by configurations.creating {
-    isCanBeConsumed = true
-    isCanBeResolved = false
-}
-
 kotlin {
     js {
         browser()
@@ -31,5 +25,6 @@ val String.v: String get() = rootProject.extra["$this.version"] as String
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${"kotlinx-coroutines".v}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${"kotlinx-serialization".v}")
     implementation(project(":lib"))
 }
