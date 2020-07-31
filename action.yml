@@ -1,0 +1,21 @@
+name: 'Gradle Cache'
+description: 'Caches .gradle folder (dependencies, local build cache, ...)'
+author: 'Vladimir Sitnikov'
+inputs:
+  job-id:
+    description: A job identifier to avoid cache pollution from different jobs
+    required: false
+  path:
+    description: Relative path under $GITHUB_WORKSPACE where Git repository is placed
+    required: false
+  debug:
+    description: Shows extra logging to debug the action
+    required: true
+runs:
+  using: node12
+  main: dist/gradle-cache-action.js
+  post: dist/gradle-cache-action.js
+  post-if: success()
+branding:
+  icon: archive
+  color: gray-dark
