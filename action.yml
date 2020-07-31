@@ -1,0 +1,26 @@
+name: 'Gradle Cache'
+description: 'Caches .gradle folder (dependencies, local build cache, ...)'
+author: 'Vladimir Sitnikov'
+inputs:
+  job-id:
+    description: A job identifier to avoid cache pollution from different jobs
+    required: false
+  path:
+    description: Relative path under $GITHUB_WORKSPACE where Git repository is placed
+    required: false
+  gradle-version:
+    description: (wrapper | or explicit version) Caches often depend on the Gradle version, so this parameter sets the ID to use for cache keys. It does not affect the Gradle version used for build
+    required: false
+  debug:
+    description: Shows extra logging to debug the action
+    required: false
+  concurrent:
+    description: Enables concurent cache download and upload (disabled by default for better log output)
+    required: false
+runs:
+  using: node12
+  main: dist/gradle-cache-action.js
+  post: dist/gradle-cache-action.js
+branding:
+  icon: archive
+  color: gray-dark
