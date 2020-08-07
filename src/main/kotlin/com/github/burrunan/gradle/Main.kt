@@ -19,11 +19,16 @@ package com.github.burrunan.gradle
 import com.github.burrunan.gradle.github.env.ActionsEnvironment
 import com.github.burrunan.gradle.github.event.currentTrigger
 import github.actions.core.info
+import process
 
 internal fun getInput(name: String, required: Boolean = false): String =
     github.actions.core.getInput(name, jsObject { this.required = required })
 
 suspend fun main() {
+    if (process.env["GITHUB_ACTIONS"].isNullOrBlank()) {
+        // Ignore if called outside of GitHub Actions (e.g. tests)
+        return
+    }
     val params = Parameters(
         jobId = ActionsEnvironment.RUNNER_OS + "-" + getInput("job-id"),
         path = getInput("path").trimEnd('/', '\\').ifBlank { "." },

@@ -16,7 +16,14 @@ allprojects {
 
 kotlin {
     js {
-        browser()
+        browser {
+            testTask {
+                useMocha()
+                testLogging {
+                    showStandardStreams = true
+                }
+            }
+        }
         binaries.executable()
     }
 }
@@ -27,4 +34,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${"kotlinx-coroutines".v}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${"kotlinx-serialization".v}")
     implementation(project(":lib"))
+
+    testImplementation(kotlin("test-js"))
 }

@@ -29,3 +29,7 @@ external fun writeFile(path: String, data: Any, encoding: String): Promise<Unit>
 external fun stat(path: String): Promise<fs.Stats>
 
 external fun rename(oldPath: String, newPath: String): Promise<Unit>
+
+external fun mkdir(path: String): Promise<Unit>
+
+external fun writeFile(path: String, data: Any, options: String? = definedExternally): Promise<Unit>
