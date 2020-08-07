@@ -31,6 +31,7 @@ suspend fun main() {
         generatedGradleJars = getInput("save-generated-gradle-jars").ifBlank { "true" }.toBoolean(),
         localBuildCache = getInput("save-local-build-cache").ifBlank { "true" }.toBoolean(),
         gradleDependenciesCache = getInput("save-gradle-dependencies-cache").ifBlank { "true" }.toBoolean(),
+        gradleDependenciesCacheKey = getInput("gradle-dependencies-cache-key"),
         mavenDependenciesCache = getInput("save-maven-dependencies-cache").ifBlank { "true" }.toBoolean(),
         concurrent = getInput("concurrent").ifBlank { "false" }.toBoolean(),
     )

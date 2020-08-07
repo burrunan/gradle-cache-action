@@ -11,6 +11,18 @@ inputs:
   gradle-version:
     description: (wrapper | or explicit version) Caches often depend on the Gradle version, so this parameter sets the ID to use for cache keys. It does not affect the Gradle version used for build
     required: false
+  save-generated-gradle-jars:
+    description: Enables caching of $HOME/.gradle/caches/*.*/generated-gradle-jars
+    required: false
+  save-gradle-dependencies-cache:
+    description: Enables caching of ~/.gradle/caches/modules-*
+    required: false
+  gradle-dependencies-cache-key:
+    description: Extra files to take into account for ~/.gradle/caches dependencies
+    required: false
+  save-maven-dependencies-cache:
+    description: Enables caching of ~/.m2/repository/
+    required: false
   debug:
     description: Shows extra logging to debug the action
     required: false

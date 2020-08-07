@@ -38,7 +38,7 @@ suspend fun dependenciesCache(
     )
 }
 
-suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String): Cache =
+suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradleDependenciesCacheKey: String): Cache =
     dependenciesCache(
         "gradle",
         trigger,
@@ -54,7 +54,10 @@ suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String): Cach
             // We do not want .gradle folder, so we want to have at least one character before .gradle
             "$path/**/?*.gradle",
             "$path/**/*.properties",
-        ),
+        ) + gradleDependenciesCacheKey.split(Regex("[\r\n]+")).map {
+            (if (it.startsWith("!")) "!" else "") +
+                "$path/**/" + it.trim().trimStart('!')
+        },
     )
 
 suspend fun mavenDependenciesCache(trigger: ActionsTrigger, path: String): Cache =

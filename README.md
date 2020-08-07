@@ -64,6 +64,11 @@ The default configuration should suit for most of the cases, however, there are 
     # Disable caching of ~/.gradle/caches/modules-*
     save-gradle-dependencies-cache: false
 
+    # Extra files to take into account for ~/.gradle/caches dependencies
+    gradle-dependencies-cache-key: |
+      gradle/dependencies.kt
+      buildSrc/**/Version.kt
+
     # Disable caching of ~/.m2/repository/
     save-maven-dependencies-cache: false
 

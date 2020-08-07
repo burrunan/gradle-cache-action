@@ -46,7 +46,7 @@ class GradleCacheAction(val trigger: ActionsTrigger, val params: Parameters) {
         }
 
         if (params.gradleDependenciesCache) {
-            caches.add(gradleDependenciesCache(trigger, params.path))
+            caches.add(gradleDependenciesCache(trigger, params.path, params.gradleDependenciesCacheKey))
         }
 
         if (params.mavenDependenciesCache) {

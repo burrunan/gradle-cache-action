@@ -23,6 +23,7 @@ data class Parameters(
     val generatedGradleJars: Boolean,
     val localBuildCache: Boolean,
     val gradleDependenciesCache: Boolean,
+    val gradleDependenciesCacheKey: String,
     val mavenDependenciesCache: Boolean,
     val concurrent: Boolean,
 )
