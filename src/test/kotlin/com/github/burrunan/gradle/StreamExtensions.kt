@@ -16,11 +16,17 @@
  */
 package com.github.burrunan.gradle
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.promise
-import process
+import Buffer
+import NodeJS.ReadableStream
 
-fun runTest(block: suspend () -> Unit): dynamic = GlobalScope.promise {
-    process.env["RUNNER_OS"] = "macos"
-    block()
+suspend fun <T> ReadableStream.readJson(): T = JSON.parse<T>(readToBuffer().toString("utf8"))
+
+suspend fun ReadableStream.readToBuffer(): Buffer {
+    val data = mutableListOf<Buffer>()
+    use {
+        it.on("data") { chunk: Any ->
+            data += chunk as Buffer
+        }
+    }
+    return Buffer.concat(data.toTypedArray())
 }

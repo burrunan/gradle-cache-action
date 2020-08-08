@@ -19,6 +19,7 @@ package com.github.burrunan.gradle
 import com.github.burrunan.gradle.github.env.ActionsEnvironment
 import com.github.burrunan.gradle.github.event.currentTrigger
 import github.actions.core.info
+import kotlinext.js.jsObject
 import process
 
 internal fun getInput(name: String, required: Boolean = false): String =

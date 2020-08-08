@@ -19,6 +19,7 @@ package github.actions.cache
 import com.github.burrunan.gradle.cache.RestoreType
 import github.actions.core.info
 import github.actions.core.warning
+import kotlinext.js.jsObject
 import kotlinx.coroutines.await
 
 suspend fun restoreAndLog(
@@ -44,8 +45,8 @@ suspend fun restoreAndLog(
             }
         }
     }
-    if (result != null) {
-        return if (result == primaryKey) RestoreType.Exact(result) else RestoreType.Partial(result)
+    result?.removePrefix(version)?.let {
+        return if (it.endsWith(primaryKey)) RestoreType.Exact(it) else RestoreType.Partial(it)
     }
     info("Cache was not found for $primaryKey, restore keys: ${restoreKeys.joinToString(", ")}")
     return RestoreType.None

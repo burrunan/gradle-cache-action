@@ -14,13 +14,13 @@
  * limitations under the License.
  *
  */
-package com.github.burrunan.gradle
+package com.github.burrunan.gradle.cache
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.promise
-import process
-
-fun runTest(block: suspend () -> Unit): dynamic = GlobalScope.promise {
-    process.env["RUNNER_OS"] = "macos"
-    block()
+class HttpException(val code: Int, message: String) : Throwable(message) {
+    companion object {
+        fun noContent(message: String) = HttpException(204, message)
+        fun notImplemented(message: String) = HttpException(501, message)
+        fun notFound(message: String) = HttpException(404, message)
+        fun badRequest(message: String) = HttpException(400, message)
+    }
 }

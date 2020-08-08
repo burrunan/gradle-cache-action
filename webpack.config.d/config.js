@@ -2,6 +2,8 @@ config.output = config.output || {}
 config.output.globalObject = "this"
 config.target = "node"
 
+config.resolve.modules.unshift("src/test/resources")
+
 const TerserPlugin = require('terser-webpack-plugin');
 
 // keep_classnames is required to workaround node-fetch Expected signal to be an instanceof AbortSignal

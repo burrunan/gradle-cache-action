@@ -20,9 +20,6 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-inline fun <T : Any> jsObject(builder: T.() -> Unit = {}): T =
-    (js("({})") as T).apply(builder)
-
 suspend inline fun suspendWithCallback(crossinline block: ((Error?) -> Unit) -> Unit) =
     suspendCoroutine<Nothing?> { cont ->
         block.invoke { error ->

@@ -14,13 +14,23 @@
  * limitations under the License.
  *
  */
-package com.github.burrunan.gradle
+package com.github.burrunan.gradle.cache
 
+import http.ServerResponse
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.promise
-import process
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 
-fun runTest(block: suspend () -> Unit): dynamic = GlobalScope.promise {
-    process.env["RUNNER_OS"] = "macos"
-    block()
-}
+fun ServerResponse.handle(action: suspend CoroutineScope.() -> Unit) =
+    GlobalScope.launch {
+        try {
+            supervisorScope {
+                action()
+            }
+        } catch (e: HttpException) {
+            writeHead(e.code, e.message ?: "no message")
+        } finally {
+            end()
+        }
+    }

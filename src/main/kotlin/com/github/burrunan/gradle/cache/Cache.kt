@@ -26,6 +26,10 @@ interface Cache {
 sealed class RestoreType {
     data class Exact(val path: String) : RestoreType()
     data class Partial(val path: String) : RestoreType()
-    object None : RestoreType()
-    object Unknown : RestoreType()
+    object None : RestoreType() {
+        override fun toString() = "None"
+    }
+    object Unknown : RestoreType() {
+        override fun toString() = "Unknown"
+    }
 }

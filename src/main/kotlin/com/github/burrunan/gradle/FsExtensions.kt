@@ -39,6 +39,12 @@ suspend fun removeFiles(files: List<String>) {
     }
 }
 
+suspend fun mkdir(path: String) {
+    if (!exists(path)) {
+        fs2.promises.mkdir(path)
+    }
+}
+
 suspend fun exists(path: String) =
     suspendCoroutine<Boolean> { cont ->
         fs.exists(path.normalizedPath) {

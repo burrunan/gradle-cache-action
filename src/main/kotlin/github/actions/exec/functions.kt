@@ -16,7 +16,7 @@
  */
 package github.actions.exec
 
-import com.github.burrunan.gradle.jsObject
+import kotlinext.js.jsObject
 import kotlinx.coroutines.await
 
 class ExecResult(

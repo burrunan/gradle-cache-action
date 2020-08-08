@@ -18,6 +18,7 @@ package com.github.burrunan.gradle
 
 import NodeJS.ReadableStream
 import NodeJS.WritableStream
+import kotlinext.js.jsObject
 import stream.Duplex
 import stream.internal
 
