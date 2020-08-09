@@ -12,16 +12,15 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.hashing
 
-import com.github.burrunan.gradle.pipe
-import com.github.burrunan.gradle.use
 import crypto.createHash
 import fs.createReadStream
 import fs2.promises.stat
-import github.actions.glob.create
+import actions.glob.create
+import com.github.burrunan.wrappers.nodejs.pipe
+import com.github.burrunan.wrappers.nodejs.use
 import kotlinx.coroutines.await
 import kotlinx.serialization.Serializable
 import process

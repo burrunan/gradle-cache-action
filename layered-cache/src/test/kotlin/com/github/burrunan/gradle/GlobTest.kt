@@ -18,6 +18,9 @@ package com.github.burrunan.gradle
 
 import com.github.burrunan.gradle.github.formatBytes
 import com.github.burrunan.gradle.hashing.hashFilesDetailed
+import com.github.burrunan.test.runTest
+import com.github.burrunan.wrappers.nodejs.mkdir
+import kotlinx.coroutines.await
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -26,8 +29,8 @@ class GlobTest {
     fun glob() = runTest {
         val dirName = "globTest"
         mkdir(dirName)
-        fs2.promises.writeFile("$dirName/good.txt", "a", "utf8")
-        fs2.promises.writeFile("$dirName/bad.txt", "a", "utf8")
+        fs2.promises.writeFile("$dirName/good.txt", "a", "utf8").await()
+        fs2.promises.writeFile("$dirName/bad.txt", "a", "utf8").await()
 
         val hash = hashFilesDetailed(
             "$dirName/**/*.txt",

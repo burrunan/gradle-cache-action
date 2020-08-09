@@ -2,5 +2,7 @@
 /.gradle/
 /build/
 /*/build/
+/*/*/build/
 /externals/
 /*/externals/
+/*/*/externals/

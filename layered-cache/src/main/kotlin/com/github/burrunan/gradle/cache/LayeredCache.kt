@@ -12,17 +12,17 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.cache
 
+import actions.cache.RestoreType
 import com.github.burrunan.gradle.github.formatBytes
 import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.github.toBoolean
 import com.github.burrunan.gradle.hashing.*
-import com.github.burrunan.gradle.removeFiles
-import github.actions.core.debug
-import github.actions.core.info
+import com.github.burrunan.wrappers.nodejs.removeFiles
+import actions.core.debug
+import actions.core.info
 import kotlinx.serialization.Serializable
 
 @Serializable

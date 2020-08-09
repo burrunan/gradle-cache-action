@@ -12,7 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle
 
@@ -22,8 +21,8 @@ import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.github.suspendingStateVariable
 import com.github.burrunan.gradle.github.toBoolean
 import fs2.promises.readFile
-import github.actions.core.ext.getInput
-import github.actions.exec.exec
+import actions.core.ext.getInput
+import actions.exec.exec
 import kotlinx.coroutines.await
 
 class GradleCacheAction(val trigger: ActionsTrigger, val params: Parameters) {

@@ -12,24 +12,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.cache
+
+import actions.cache.RestoreType
 
 interface Cache {
     val name: String
 
     suspend fun save()
     suspend fun restore(): RestoreType
-}
-
-sealed class RestoreType {
-    data class Exact(val path: String) : RestoreType()
-    data class Partial(val path: String) : RestoreType()
-    object None : RestoreType() {
-        override fun toString() = "None"
-    }
-    object Unknown : RestoreType() {
-        override fun toString() = "Unknown"
-    }
 }

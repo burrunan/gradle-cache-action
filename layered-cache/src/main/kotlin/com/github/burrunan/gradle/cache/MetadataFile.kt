@@ -12,14 +12,13 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.cache
 
-import com.github.burrunan.gradle.exists
-import com.github.burrunan.gradle.normalizedPath
+import com.github.burrunan.wrappers.nodejs.exists
+import com.github.burrunan.wrappers.nodejs.normalizedPath
 import fs2.promises.readFile
-import github.actions.core.warning
+import actions.core.warning
 import kotlinx.coroutines.await
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException

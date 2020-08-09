@@ -1,13 +1,3 @@
-plugins {
-    kotlin("js")
-}
-
-kotlin {
-    js {
-        nodejs()
-    }
-}
-
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEach {
     kotlinOptions.suppressWarnings = true
 }

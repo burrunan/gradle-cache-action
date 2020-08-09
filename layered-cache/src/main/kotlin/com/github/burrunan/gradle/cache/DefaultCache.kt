@@ -12,10 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.cache
 
+import actions.cache.RestoreType
 import com.github.burrunan.gradle.github.formatBytes
 import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.github.toBoolean
@@ -24,11 +24,11 @@ import com.github.burrunan.gradle.hashing.HashContents
 import com.github.burrunan.gradle.hashing.HashDetails
 import com.github.burrunan.gradle.hashing.HashInfo
 import com.github.burrunan.gradle.hashing.hashFilesDetailed
-import com.github.burrunan.gradle.removeFiles
-import github.actions.cache.restoreAndLog
-import github.actions.cache.saveAndLog
-import github.actions.core.debug
-import github.actions.core.info
+import com.github.burrunan.wrappers.nodejs.removeFiles
+import actions.cache.restoreAndLog
+import actions.cache.saveAndLog
+import actions.core.debug
+import actions.core.info
 import kotlin.math.absoluteValue
 
 class DefaultCache(

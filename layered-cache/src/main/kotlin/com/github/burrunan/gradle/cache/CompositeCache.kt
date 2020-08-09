@@ -12,11 +12,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 package com.github.burrunan.gradle.cache
 
-import github.actions.core.ext.group
+import actions.cache.RestoreType
+import actions.core.ext.group
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 

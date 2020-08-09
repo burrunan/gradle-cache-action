@@ -16,10 +16,12 @@
  */
 package com.github.burrunan.gradle
 
+import actions.cache.RestoreType
 import com.github.burrunan.gradle.cache.CacheService
-import com.github.burrunan.gradle.cache.RestoreType
-import github.actions.cache.restoreAndLog
-import github.actions.cache.saveAndLog
+import com.github.burrunan.test.runTest
+import com.github.burrunan.wrappers.nodejs.mkdir
+import actions.cache.restoreAndLog
+import actions.cache.saveAndLog
 import kotlinx.coroutines.await
 import kotlin.test.Test
 import kotlin.test.assertEquals
