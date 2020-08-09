@@ -10,4 +10,8 @@ pluginManagement {
 
 rootProject.name = "gradle-cache-action"
 
-include("lib")
+include(
+    "lib",
+    "layered-cache",
+    "cache-action-entrypoint"
+)

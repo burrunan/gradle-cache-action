@@ -31,8 +31,8 @@ inputs:
     required: false
 runs:
   using: node12
-  main: dist/gradle-cache-action.js
-  post: dist/gradle-cache-action.js
+  main: dist/cache-action-entrypoint.js
+  post: dist/cache-action-entrypoint.js
 branding:
   icon: archive
   color: gray-dark

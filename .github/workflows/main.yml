@@ -37,7 +37,8 @@ jobs:
       run: |
         git fetch origin refs/heads/release:release
         git checkout release
-        cp build/distributions/gradle-cache-action.js* dist/
+        cp cache-action-entrypoint/build/distributions/cache-action-entrypoint.js* dist/
+        rm dist/gradle-cache-action.js*
         git checkout main action.yml
         git add dist/ action.yml
         if git diff --staged --quiet; then
