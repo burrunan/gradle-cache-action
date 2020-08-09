@@ -19,11 +19,14 @@ plugins {
 }
 
 dependencies {
-    api(project(":lib"))
-    implementation(project(":wrappers:nodejs"))
+    implementation(project(":gradle-launcher"))
+    implementation(project(":hashing"))
     implementation(project(":wrappers:actions-cache"))
     implementation(project(":wrappers:actions-core"))
     implementation(project(":wrappers:actions-exec"))
+    implementation(project(":wrappers:actions-glob"))
+    implementation(project(":wrappers:nodejs"))
+    implementation(project(":wrappers:octokit-webhooks"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime")
 

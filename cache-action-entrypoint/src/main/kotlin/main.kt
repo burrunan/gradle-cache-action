@@ -14,36 +14,144 @@
  * limitations under the License.
  */
 
+import actions.core.*
 import actions.core.ext.getInput
-import actions.core.info
+import actions.core.ext.getListInput
+import actions.io.mkdirP
 import com.github.burrunan.gradle.GradleCacheAction
 import com.github.burrunan.gradle.Parameters
-import com.github.burrunan.gradle.github.env.ActionsEnvironment
-import com.github.burrunan.gradle.github.event.currentTrigger
+import com.github.burrunan.gradle.github.stateVariable
+import com.github.burrunan.gradle.proxy.CacheProxy
+import com.github.burrunan.launcher.LaunchParams
+import com.github.burrunan.launcher.install
+import com.github.burrunan.launcher.launchGradle
+import com.github.burrunan.launcher.resolveDistribution
+import fs2.promises.writeFile
+import octokit.currentTrigger
+import path.path
+
+fun String.splitLines() =
+    split(Regex("\\s*[\r\n]+\\s*"))
+        .filter { !it.startsWith("#") && it.contains("=") }
+        .associate {
+            val values = it.split(Regex("\\s*=\\s*"), limit = 2)
+            values[0] to (values.getOrNull(1) ?: "")
+        }
+
+fun isMochaRunning() =
+    arrayOf("afterEach", "after", "beforeEach", "before", "describe", "it").all {
+        global.asDynamic()[it] is Function<*>
+    }
 
 suspend fun main() {
-    if (process.env["GITHUB_ACTIONS"].isNullOrBlank()) {
-        // Ignore if called outside of GitHub Actions (e.g. tests)
+    if (isMochaRunning()) {
+        // Ignore if called from tests
         return
     }
+    val stageVar = stateVariable("stage") { "MAIN" }
+    val stage = ActionStage.values().firstOrNull { it.name == stageVar.get() }
+    // Set next stage
+    stageVar.set(
+        when (stage) {
+            ActionStage.MAIN -> ActionStage.POST
+            null -> {
+                setFailed("Unable to find action stage: ${stageVar.get()}")
+                return
+            }
+            else -> null
+        }?.name ?: "FINAL",
+    )
+    try {
+        mainInternal(stage)
+    } catch (e: ActionFailedException) {
+        setFailed(e.message)
+    }
+}
+
+suspend fun mainInternal(stage: ActionStage) {
+    val gradleStartArguments = parseArgsStringToArgv(getInput("arguments")).toList()
+    val cacheProxyEnabled = getInput("remote-build-cache-proxy-enabled").ifBlank { "true" }.toBoolean()
+
+    val executionOnlyCaches = getInput("execution-only-caches").ifBlank { "false" }.toBoolean()
+
+    val buildRootDirectory = getInput("build-root-directory").trimEnd('/', '\\')
+    if (buildRootDirectory != "") {
+        info("changing working directory to $buildRootDirectory")
+        process.chdir(buildRootDirectory)
+    }
+
     val params = Parameters(
         jobId = ActionsEnvironment.RUNNER_OS + "-" + getInput("job-id"),
-        path = getInput("path").trimEnd('/', '\\').ifBlank { "." },
+        path = ".",
         debug = getInput("debug").toBoolean(),
         generatedGradleJars = getInput("save-generated-gradle-jars").ifBlank { "true" }.toBoolean(),
-        localBuildCache = getInput("save-local-build-cache").ifBlank { "true" }.toBoolean(),
-        gradleDependenciesCache = getInput("save-gradle-dependencies-cache").ifBlank { "true" }.toBoolean(),
-        gradleDependenciesCacheKey = getInput("gradle-dependencies-cache-key"),
-        mavenDependenciesCache = getInput("save-maven-dependencies-cache").ifBlank { "true" }.toBoolean(),
+        localBuildCache = (!cacheProxyEnabled || gradleStartArguments.isEmpty()) && getInput("save-local-build-cache").ifBlank { "true" }
+            .toBoolean(),
+        gradleDependenciesCache = !executionOnlyCaches && getInput("save-gradle-dependencies-cache").ifBlank { "true" }.toBoolean(),
+        gradleDependenciesCacheKey = getListInput("gradle-dependencies-cache-key"),
+        mavenDependenciesCache = !executionOnlyCaches && getInput("save-maven-dependencies-cache").ifBlank { "true" }.toBoolean(),
+        mavenLocalIgnorePaths = getListInput("maven-local-ignore-paths"),
         concurrent = getInput("concurrent").ifBlank { "false" }.toBoolean(),
     )
 
-    if (!params.generatedGradleJars && !params.localBuildCache &&
-        !params.gradleDependenciesCache && !params.mavenDependenciesCache
-    ) {
-        info("All the caches are disabled, skipping the action")
-        return
+    val gradleDistribution = resolveDistribution(
+        versionSpec = getInput("gradle-version").ifBlank { "wrapper" },
+        projectPath = params.path,
+        distributionUrl = getInput("gradle-distribution-url").ifBlank { null },
+        distributionSha256Sum = getInput("gradle-distribution-sha-256-sum").ifBlank { null },
+    )
+
+    if (stage == ActionStage.MAIN || stage == ActionStage.POST) {
+        val cacheAction = GradleCacheAction(currentTrigger(), params, gradleDistribution)
+
+        if (params.generatedGradleJars || params.localBuildCache ||
+            params.gradleDependenciesCache || params.mavenDependenciesCache
+        ) {
+            cacheAction.execute(stage)
+        }
     }
 
-    GradleCacheAction(currentTrigger(), params).run()
+    if (stage == ActionStage.MAIN && gradleStartArguments.isNotEmpty()) {
+        val args = when (params.localBuildCache || cacheProxyEnabled) {
+            true -> listOf("--build-cache") + gradleStartArguments
+            else -> gradleStartArguments
+        }
+        val launchParams = LaunchParams(
+            gradle = install(gradleDistribution),
+            projectPath = params.path,
+            arguments = args,
+            properties = getInput("arguments").splitLines(),
+        )
+
+        val cacheProxy = CacheProxy()
+
+        if (cacheProxyEnabled) {
+            info("Starting remote cache proxy, adding it via ~/.gradle/init.gradle")
+            cacheProxy.start()
+            val gradleHome = path.join(os.homedir(), ".gradle")
+            mkdirP(gradleHome)
+            writeFile(
+                path.join(gradleHome, "init.gradle"),
+                cacheProxy.getMultiCacheConfiguration(
+                    multiCacheEnabled = getInput("multi-cache-enabled").ifBlank { "true" }.toBoolean(),
+                    multiCacheVersion = getInput("multi-cache-version").ifBlank { "1.0" },
+                    multiCacheRepository = getInput("multi-cache-repository"),
+                    multiCacheGroupIdFilter = getInput("multi-cache-group-id-filter").ifBlank { "com[.]github[.]burrunan[.]multi-?cache" },
+                ),
+            )
+        }
+
+        try {
+            val result = launchGradle(launchParams)
+            result.buildScanUrl?.let {
+                warning("Gradle Build Scan: $it")
+                setOutput("build-scan-url", it)
+            }
+        } finally {
+            if (cacheProxyEnabled) {
+                cacheProxy.stop()
+            }
+        }
+    }
+    return
 }

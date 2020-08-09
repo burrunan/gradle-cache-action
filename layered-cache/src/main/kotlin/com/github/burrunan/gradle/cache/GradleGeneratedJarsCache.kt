@@ -18,9 +18,10 @@ package com.github.burrunan.gradle.cache
 fun gradleGeneratedJarsCache(gradleVersion: String): Cache =
     DefaultCache(
         name = "gradle-generated-jars",
-        primaryKey = "generated-gradle-jars-$gradleVersion",
+        primaryKey = "generated-gradle-jars-gradle-$gradleVersion",
         paths = listOf(
-            "~/.gradle/caches/*.*/generated-gradle-jars",
-            "!~/.gradle/caches/*.*/generated-gradle-jars/*.lock",
+            "~/.gradle/caches/$gradleVersion/generated-gradle-jars",
+            "!~/.gradle/caches/$gradleVersion/generated-gradle-jars/*.lock",
         ),
+        skipRestoreIfPathExists = "~/.gradle/caches/$gradleVersion/generated-gradle-jars",
     )

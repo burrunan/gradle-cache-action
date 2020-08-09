@@ -16,5 +16,5 @@
 
 dependencies {
     api(kotlin("test-js"))
-    implementation(project(":lib"))
+    implementation(project(":wrappers:nodejs"))
 }

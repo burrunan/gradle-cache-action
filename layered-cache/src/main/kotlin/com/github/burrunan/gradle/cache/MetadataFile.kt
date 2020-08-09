@@ -15,11 +15,11 @@
  */
 package com.github.burrunan.gradle.cache
 
+import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import fs2.promises.readFile
-import actions.core.warning
-import kotlinx.coroutines.await
+import fs2.promises.rename
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
@@ -51,21 +51,23 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
         val path = cachedName.normalizedPath
         if (exists(path)) {
             prepare(key)
-            fs2.promises.rename(path, uniqueName).await()
+            rename(path, uniqueName)
         } else {
             warning("$cachedName: $path does not exist")
         }
     }
 
-    suspend fun decode(): T? {
+    suspend fun decode(warnOnMissing: Boolean = true): T? {
         if (!exists(uniqueName)) {
-            warning("$cachedName: $uniqueName does not exist")
+            if (warnOnMissing) {
+                warning("$cachedName: $uniqueName does not exist")
+            }
             return null
         }
         return try {
             Json.decodeFromString(
                 serializer,
-                readFile(uniqueName, "utf8").await(),
+                readFile(uniqueName)
             )
         } catch (e: SerializationException) {
             warning("$cachedName: error deserializing $uniqueName with ${serializer.descriptor.serialName}, message: $e")
@@ -78,6 +80,6 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
             cachedName.normalizedPath,
             Json.encodeToString(serializer, value),
             "utf8",
-        ).await()
+        )
     }
 }

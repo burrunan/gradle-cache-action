@@ -16,11 +16,12 @@
  */
 package com.github.burrunan.gradle
 
-import com.github.burrunan.gradle.github.formatBytes
-import com.github.burrunan.gradle.hashing.hashFilesDetailed
+import com.github.burrunan.formatBytes
+import com.github.burrunan.hashing.hashFilesDetailed
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import kotlinx.coroutines.await
+import fs2.promises.writeFile
+import path.path
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -28,17 +29,29 @@ class GlobTest {
     @Test
     fun glob() = runTest {
         val dirName = "globTest"
+        val dotGradle = path.join(dirName, ".gradle")
         mkdir(dirName)
-        fs2.promises.writeFile("$dirName/good.txt", "a", "utf8").await()
-        fs2.promises.writeFile("$dirName/bad.txt", "a", "utf8").await()
+        mkdir(dotGradle)
+        writeFile(path.join(dirName, "settings.gradle"), "a")
+        writeFile(path.join(dirName, "good.txt"), "a")
+        writeFile(path.join(dirName, "bad.txt"), "a")
+        writeFile(path.join(dotGradle, "extra.txt"), "a")
 
         val hash = hashFilesDetailed(
+            "$dirName/**/*.gradle",
             "$dirName/**/*.txt",
+            "!$dirName/**/.gradle/",
             "!$dirName/**/*bad**",
         )
-        val actual = hash.contents.files.entries.joinToString { (file, details) ->
+        val actual = hash.contents.files.entries.joinToString("\n") { (file, details) ->
             "${details.fileSize.formatBytes()} ${details.hash} $file"
         }
-        assertEquals("1 B 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8 ws:///globTest/good.txt", actual)
+        assertEquals(
+            """
+            1 B 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8 ws:///globTest/good.txt
+            1 B 86f7e437faa5a7fce15d1ddcb9eaeaea377667b8 ws:///globTest/settings.gradle
+            """.trimIndent(),
+            actual,
+        )
     }
 }

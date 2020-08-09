@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.burrunan.gradle.hashing
+package com.github.burrunan.hashing
 
-import com.github.burrunan.gradle.github.formatBytes
+import com.github.burrunan.formatBytes
 
 class Diff(
     val newFiles: Int,

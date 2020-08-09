@@ -16,8 +16,7 @@
 package com.github.burrunan.gradle.cache
 
 import com.github.burrunan.gradle.GradleCacheAction
-import com.github.burrunan.gradle.github.event.ActionsTrigger
-import com.github.burrunan.gradle.github.event.cacheKey
+import octokit.ActionsTrigger
 
 fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: String, treeId: String): Cache {
     val buildCacheLocation = "~/.gradle/caches/build-cache-1"
@@ -38,7 +37,7 @@ fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: Strin
         "master",
         "main",
     )
-    val prefix = "gradle-build-cache-$jobId-$gradleVersion"
+    val prefix = "gradle-build-cache-$jobId-gradle-$gradleVersion"
     return LayeredCache(
         name = "local-build-cache",
         baseline = "$prefix-$defaultBranch",

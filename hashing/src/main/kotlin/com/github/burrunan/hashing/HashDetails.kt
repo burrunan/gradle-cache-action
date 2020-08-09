@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.burrunan.gradle.hashing
+package com.github.burrunan.hashing
 
+import actions.core.ActionFailedException
 import actions.core.warning
+import actions.glob.Globber
+import actions.glob.glob
+import com.github.burrunan.wrappers.nodejs.pipe
+import com.github.burrunan.wrappers.nodejs.use
 import crypto.createHash
 import fs.createReadStream
 import fs2.promises.stat
-import actions.glob.create
-import com.github.burrunan.wrappers.nodejs.pipe
-import com.github.burrunan.wrappers.nodejs.use
-import kotlinx.coroutines.await
 import kotlinx.serialization.Serializable
 import process
 
@@ -59,9 +60,13 @@ private fun sha1FromModulesFileName(key: String): String {
     return key.substring(hashStart, lastSlash).padStart(40, '0')
 }
 
-suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"): HashDetails = try {
-    val globber = create(paths.joinToString("\n")).await()
-    val fileNames = globber.glob().await()
+suspend fun hashFilesDetailed(
+    vararg paths: String,
+    algorithm: String = "sha1",
+    includeFileName: Boolean = true,
+): HashDetails = try {
+    val globber = Globber(paths.joinToString("\n"))
+    val fileNames = globber.glob()
     // Sorting is needed for stable overall hash
     fileNames.sort()
 
@@ -72,7 +77,7 @@ suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"):
     val files = mutableMapOf<String, FileDetails>()
     val overallHash = createHash(algorithm)
     for (name in fileNames) {
-        val statSync = stat(name).await()
+        val statSync = stat(name)
         if (statSync.isDirectory()) {
             continue
         }
@@ -106,7 +111,9 @@ suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"):
         }
         files[key] = FileDetails(fileSize, digest)
         // Add filename
-        overallHash.update(key)
+        if (includeFileName) {
+            overallHash.update(key)
+        }
         overallHash.update(digest)
     }
     HashDetails(
@@ -114,5 +121,5 @@ suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"):
         HashContents(files),
     )
 } catch (e: Throwable) {
-    throw IllegalArgumentException("Unable to hash ${paths.joinToString(", ")}", e)
+    throw ActionFailedException("Unable to hash ${paths.joinToString(", ")}: $e", e)
 }

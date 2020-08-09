@@ -16,13 +16,12 @@
 
 package com.github.burrunan.gradle.cache
 
+import actions.core.ActionsEnvironment
 import actions.core.debug
 import com.github.burrunan.gradle.GradleCacheAction
-import com.github.burrunan.gradle.github.env.ActionsEnvironment
-import com.github.burrunan.gradle.github.event.ActionsTrigger
-import com.github.burrunan.gradle.github.event.cacheKey
 import com.github.burrunan.gradle.github.suspendingStateVariable
-import com.github.burrunan.gradle.hashFiles
+import com.github.burrunan.hashing.hashFiles
+import octokit.ActionsTrigger
 
 /**
  * Populate cache only when building a default branch, otherwise treat the cache as read-only.
@@ -57,7 +56,7 @@ suspend fun dependenciesCache(
     )
 }
 
-suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradleDependenciesCacheKey: String): Cache =
+suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradleDependenciesCacheKey: List<String>): Cache =
     dependenciesCache(
         "gradle",
         trigger,
@@ -67,26 +66,23 @@ suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradl
             "!~/.gradle/caches/modules-2/modules-2.lock",
         ),
         pathDependencies = listOf(
-            "!$path/**/.gradle/",
-            "$path/**/*.gradle.kts",
+            "$path/**/*.gradle",
             "$path/**/gradle/dependency-locking/**",
-            // We do not want .gradle folder, so we want to have at least one character before .gradle
-            "$path/**/?*.gradle",
             "$path/**/*.properties",
-        ) + gradleDependenciesCacheKey.split(Regex("[\r\n]+"))
-            .map { it.trim() }
-            .filterNot { it.isEmpty() }
-            .map {
+        ) + gradleDependenciesCacheKey.map {
                 (if (it.startsWith("!")) "!" else "") +
                     "$path/**/" + it.trim().trimStart('!')
-            },
+            } +
+            // Excludes must go the last so they win
+            listOf("!$path/**/.gradle/"),
     )
 
-suspend fun mavenDependenciesCache(trigger: ActionsTrigger, path: String): Cache =
+suspend fun mavenDependenciesCache(trigger: ActionsTrigger, path: String, mavenLocalIgnorePaths: List<String>): Cache =
     dependenciesCache(
         "maven",
         trigger,
-        cacheLocation = listOf("~/.m2/repository"),
+        cacheLocation = listOf("~/.m2/repository") +
+            mavenLocalIgnorePaths.map { "!~/.m2/repository/$it" },
         pathDependencies = listOf(
             "$path/**/pom.xml",
         ),

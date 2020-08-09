@@ -16,13 +16,14 @@
 package com.github.burrunan.gradle.cache
 
 import actions.cache.RestoreType
-import com.github.burrunan.gradle.github.formatBytes
-import com.github.burrunan.gradle.github.stateVariable
-import com.github.burrunan.gradle.github.toBoolean
-import com.github.burrunan.gradle.hashing.*
-import com.github.burrunan.wrappers.nodejs.removeFiles
+import actions.core.ActionFailedException
 import actions.core.debug
 import actions.core.info
+import actions.glob.removeFiles
+import com.github.burrunan.formatBytes
+import com.github.burrunan.gradle.github.stateVariable
+import com.github.burrunan.gradle.github.toBoolean
+import com.github.burrunan.hashing.*
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -51,7 +52,6 @@ class LayeredCache(
     private val layers = MetadataFile("layer-$name", CacheLayers.serializer())
 
     private val isExactMatch = stateVariable("${name}_exact").toBoolean()
-    private val pathsWithoutNegativeGlobs = paths.filterNot { it.startsWith("!") && it.contains("*") }
 
     private val index = DefaultCache(
         name = "$version-index-$name",
@@ -66,7 +66,7 @@ class LayeredCache(
             stateKey = stateKey,
             primaryKey = primaryKey,
             restoreKeys = if (paths.isNotEmpty()) listOf() else restoreKeys.map { "$version-$it" },
-            paths = paths.ifEmpty { pathsWithoutNegativeGlobs },
+            paths = this@toCache.paths.ifEmpty { this@LayeredCache.paths },
         )
 
     private fun Diff.toLayer(): CacheLayer {
@@ -83,7 +83,7 @@ class LayeredCache(
         if (indexRestoreType == RestoreType.None) {
             return RestoreType.None
         }
-        val cacheIndex = layers.decode() ?: throw IllegalStateException("${layers.cachedName} is not found")
+        val cacheIndex = layers.decode() ?: throw ActionFailedException("${layers.cachedName} is not found")
 
         var restoreType: RestoreType = when (indexRestoreType) {
             is RestoreType.Exact -> RestoreType.Exact(indexRestoreType.path.removePrefix("index-"))
@@ -117,13 +117,7 @@ class LayeredCache(
             return
         }
 
-        // @actions/glob does not support negative wildcards, so we remove the files before caching
-        removeFiles(
-            paths.filter { it.startsWith("!") && it.contains("*") }
-                .map { it.substring(1) },
-        )
-
-        val cacheIndex = layers.decode()
+        val cacheIndex = layers.decode(warnOnMissing = false)
         val isBaseline = primaryKey.startsWith(baseline)
         if (cacheIndex == null) {
             if (!isBaseline) {

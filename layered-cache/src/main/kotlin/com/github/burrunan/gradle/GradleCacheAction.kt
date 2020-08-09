@@ -15,38 +15,41 @@
  */
 package com.github.burrunan.gradle
 
-import com.github.burrunan.gradle.cache.*
-import com.github.burrunan.gradle.github.event.ActionsTrigger
-import com.github.burrunan.gradle.github.stateVariable
-import com.github.burrunan.gradle.github.suspendingStateVariable
-import com.github.burrunan.gradle.github.toBoolean
-import fs2.promises.readFile
-import actions.core.ext.getInput
+import actions.core.ActionFailedException
+import actions.core.ActionStage
+import actions.core.info
 import actions.exec.exec
-import kotlinx.coroutines.await
+import com.github.burrunan.gradle.cache.*
+import com.github.burrunan.gradle.github.suspendingStateVariable
+import com.github.burrunan.launcher.GradleDistribution
+import octokit.ActionsTrigger
+import kotlin.js.Date
+import kotlin.math.roundToInt
 
-class GradleCacheAction(val trigger: ActionsTrigger, val params: Parameters) {
+class GradleCacheAction(
+    val trigger: ActionsTrigger,
+    val params: Parameters,
+    val gradleDistribution: GradleDistribution,
+) {
     companion object {
         const val DEFAULT_BRANCH_VAR = "defaultbranch"
     }
 
     private val treeId = suspendingStateVariable("tree_id") {
-        exec("git", "log", "-1", "--quiet", "--format=%T").stdout
+        exec("git", "log", "-1", "--quiet", "--format=%T", captureOutput = true).stdout
     }
 
-    suspend fun run() {
-        val gradleVersion = suspendingStateVariable("gradleVersion") {
-            determineGradleVersion(params.path)
-        }
+    suspend fun execute(stage: ActionStage) {
+        val gradleVersion = gradleDistribution.version
 
         val caches = mutableListOf<Cache>()
 
         if (params.generatedGradleJars) {
-            caches.add(gradleGeneratedJarsCache(gradleVersion.get()))
+            caches.add(gradleGeneratedJarsCache(gradleVersion))
         }
 
         if (params.localBuildCache) {
-            caches.add(localBuildCache(params.jobId, trigger, gradleVersion.get(), treeId.get()))
+            caches.add(localBuildCache(params.jobId, trigger, gradleVersion, treeId.get()))
         }
 
         if (params.gradleDependenciesCache) {
@@ -54,42 +57,20 @@ class GradleCacheAction(val trigger: ActionsTrigger, val params: Parameters) {
         }
 
         if (params.mavenDependenciesCache) {
-            caches.add(mavenDependenciesCache(trigger, params.path))
+            caches.add(mavenDependenciesCache(trigger, params.path, params.mavenLocalIgnorePaths))
         }
 
         val cache = CompositeCache("all-caches", caches, concurrent = params.concurrent)
-        val post = stateVariable("POST").toBoolean()
-        if (post.get()) {
-            cache.save()
-        } else {
-            post.set(true)
-            cache.restore()
-        }
-    }
-
-    private suspend fun determineGradleVersion(path: String): String {
-        val gradleWrapperProperties = "$path/gradle/wrapper/gradle-wrapper.properties"
-        val gradleVersion = getInput("gradle-version").ifBlank { "wrapper" }
-        if (!gradleVersion.equals("wrapper", ignoreCase = true)) {
-            return gradleVersion
-        }
-        val props = readFile(gradleWrapperProperties, "utf8").await()
-        val distributionUrlRegex = Regex("\\s*distributionUrl\\s*=\\s*([^#]+)")
-        val distributionUrl = props.split(Regex("[\r\n]+"))
-            .filter { !it.startsWith("#") && it.contains("distributionUrl") }
-            .mapNotNull { distributionUrlRegex.matchEntire(it)?.groupValues?.get(1) }
-            .firstOrNull()
-        return if (distributionUrl
-                ?.removePrefix("https")?.removePrefix("http")
-                ?.startsWith("\\://services.gradle.org/") == true
-        ) {
-            // Official release, use shorter version
-            //   https://services.gradle.org/distributions-snapshots/gradle-6.7-20200730220045+0000-all.zip
-            //   https://services.gradle.org/distributions/gradle-6.6-rc-4-all.zip
-            //   https://services.gradle.org/distributions/gradle-6.5.1-all.zip
-            distributionUrl.substringAfterLast("/").substringBefore(".zip")
-        } else {
-            hashFiles(gradleWrapperProperties, algorithm = "sha1").hash
+        when (stage) {
+            ActionStage.MAIN -> {
+                val started = Date.now()
+                val restore = cache.restore()
+                val elapsed = Date.now() - started
+                info("Cache restore took ${(elapsed / 1000).roundToInt()} seconds")
+            }
+            ActionStage.POST -> cache.save()
+            else -> throw ActionFailedException("Cache action should be called in PRE or POST stages only. " +
+                "Current stage is $stage")
         }
     }
 }

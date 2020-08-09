@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.burrunan.gradle
+package com.github.burrunan.hashing
 
+import actions.core.ActionFailedException
 import actions.core.warning
-import crypto.createHash
-import actions.glob.create
+import actions.glob.Globber
+import actions.glob.glob
 import com.github.burrunan.wrappers.nodejs.pipe
 import com.github.burrunan.wrappers.nodejs.use
-import kotlinx.coroutines.await
+import crypto.createHash
 import process
 
 data class HashResult(
@@ -29,9 +30,13 @@ data class HashResult(
     val totalBytes: Int,
 )
 
-suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashResult = try {
-    val globber = create(paths.joinToString("\n")).await()
-    val fileNames = globber.glob().await()
+suspend fun hashFiles(
+    vararg paths: String,
+    algorithm: String = "sha1",
+    includeFileName: Boolean = true,
+): HashResult = try {
+    val globber = Globber(paths.joinToString("\n"))
+    val fileNames = globber.glob()
     fileNames.sort()
 
     val githubWorkspace = process.cwd()
@@ -41,7 +46,7 @@ suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashRes
     var totalBytes = 0
     var numFiles = 0
     for (name in fileNames) {
-        val statSync = fs2.promises.stat(name).await()
+        val statSync = fs2.promises.stat(name)
         if (statSync.isDirectory()) {
             continue
         }
@@ -66,7 +71,9 @@ suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashRes
             continue
         }
 
-        hash.update(key, "utf8")
+        if (includeFileName) {
+            hash.update(key, "utf8")
+        }
     }
     hash.end()
     HashResult(
@@ -75,5 +82,5 @@ suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashRes
         totalBytes = totalBytes,
     )
 } catch (e: Throwable) {
-    throw IllegalArgumentException("Unable to hash ${paths.joinToString(", ")}", e)
+    throw ActionFailedException("Unable to hash ${paths.joinToString(", ")}: $e", e)
 }

@@ -17,12 +17,13 @@
 package com.github.burrunan.gradle
 
 import actions.cache.RestoreType
+import actions.cache.restoreAndLog
+import actions.cache.saveAndLog
 import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import actions.cache.restoreAndLog
-import actions.cache.saveAndLog
-import kotlinx.coroutines.await
+import fs2.promises.readFile
+import fs2.promises.writeFile
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -35,7 +36,7 @@ class CacheServerTest {
         mkdir(dir)
         val file = "$dir/cached.txt"
         val contents = "hello, world"
-        fs2.promises.writeFile(file, contents, "utf8").await()
+        writeFile(file, contents)
         val patterns = listOf("$dir/**")
 
         val primaryKey = "linux-gradle-123123"
@@ -57,7 +58,7 @@ class CacheServerTest {
             )
 
             assertEquals(
-                fs2.promises.readFile(file, "utf8").await(),
+                readFile(file),
                 contents,
                 "Contents after restore should match",
             )
@@ -74,7 +75,7 @@ class CacheServerTest {
             )
 
             assertEquals(
-                fs2.promises.readFile(file, "utf8").await(),
+                readFile(file),
                 contents,
                 "Contents after restore should match",
             )

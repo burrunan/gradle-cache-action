@@ -15,6 +15,12 @@
  */
 
 dependencies {
+    implementation(project(":cache-proxy"))
+    implementation(project(":gradle-launcher"))
     implementation(project(":layered-cache"))
     implementation(project(":wrappers:actions-core"))
+    implementation(project(":wrappers:actions-io"))
+    implementation(project(":wrappers:nodejs"))
+    implementation(project(":wrappers:octokit-webhooks"))
+    implementation(npm("string-argv", "0.3.1"))
 }

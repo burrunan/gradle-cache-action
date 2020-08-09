@@ -62,10 +62,22 @@ allprojects {
         configure<org.jetbrains.kotlin.gradle.dsl.KotlinJsProjectExtension> {
             js {
                 if (project.name.endsWith("-entrypoint")) {
-                    browser()
+                    browser {
+                        testTask {
+                            useMocha {
+                                timeout = "10000"
+                            }
+                        }
+                    }
                     binaries.executable()
                 } else {
-                    nodejs()
+                    nodejs {
+                        testTask {
+                            useMocha {
+                                timeout = "10000"
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -16,19 +16,20 @@
 package com.github.burrunan.gradle.cache
 
 import actions.cache.RestoreType
-import com.github.burrunan.gradle.github.formatBytes
-import com.github.burrunan.gradle.github.stateVariable
-import com.github.burrunan.gradle.github.toBoolean
-import com.github.burrunan.gradle.github.toInt
-import com.github.burrunan.gradle.hashing.HashContents
-import com.github.burrunan.gradle.hashing.HashDetails
-import com.github.burrunan.gradle.hashing.HashInfo
-import com.github.burrunan.gradle.hashing.hashFilesDetailed
-import com.github.burrunan.wrappers.nodejs.removeFiles
 import actions.cache.restoreAndLog
 import actions.cache.saveAndLog
 import actions.core.debug
 import actions.core.info
+import actions.glob.removeFiles
+import com.github.burrunan.formatBytes
+import com.github.burrunan.gradle.github.stateVariable
+import com.github.burrunan.gradle.github.toBoolean
+import com.github.burrunan.gradle.github.toInt
+import com.github.burrunan.hashing.HashContents
+import com.github.burrunan.hashing.HashDetails
+import com.github.burrunan.hashing.HashInfo
+import com.github.burrunan.hashing.hashFilesDetailed
+import com.github.burrunan.wrappers.nodejs.exists
 import kotlin.math.absoluteValue
 
 class DefaultCache(
@@ -38,6 +39,7 @@ class DefaultCache(
     private val paths: List<String>,
     private val readOnlyMessage: String? = null,
     stateKey: String = "",
+    private val skipRestoreIfPathExists: String? = null
 ) : Cache {
     @Suppress("CanBePrimaryConstructorProperty")
     override val name: String = name
@@ -51,6 +53,7 @@ class DefaultCache(
     private val saveRestorePaths = paths + cacheInfo.cachedName + cacheContents.cachedName
 
     private val isExactMatch = stateVariable("${name}_${stateKey}_exact").toBoolean()
+    private val isSkipped = stateVariable("${name}_${stateKey}_skip").toBoolean()
     private val restoredKeyIndex = stateVariable("${name}_${stateKey}_key").toInt(-1)
 
     private val restoredKey: String?
@@ -83,6 +86,12 @@ class DefaultCache(
     }
 
     override suspend fun restore(): RestoreType {
+        skipRestoreIfPathExists?.let {
+            if (exists(it)) {
+                debug { "$name: $it already exists, so the cache restore and upload will be skipped" }
+                isSkipped.set(true)
+            }
+        }
         debug { "$name: restoring $primaryKey, $restoreKeys, $saveRestorePaths" }
         return restoreAndLog(saveRestorePaths, primaryKey, restoreKeys, version = version).also {
             isExactMatch.set(it is RestoreType.Exact)
@@ -103,6 +112,10 @@ class DefaultCache(
 
     override suspend fun save() {
         debug { "$name: saving ${isExactMatch.get()} ${restoredKeyIndex.get()} $primaryKey, $restoreKeys, $saveRestorePaths" }
+        if (isSkipped.get()) {
+            debug { "$name: cache save skipped" }
+            return
+        }
         if (isExactMatch.get()) {
             info("$name loaded from exact match, no need to update the cache entry")
             return
@@ -111,12 +124,6 @@ class DefaultCache(
             info("$name is configured as read-only: $it")
             return
         }
-
-        // @actions/glob does not support negative wildcards, so we remove the files before caching
-        removeFiles(
-            paths.filter { it.startsWith("!") && it.contains("*") }
-                .map { it.substring(1) },
-        )
 
         restoredKey?.let { key ->
             cacheInfo.prepare(key)

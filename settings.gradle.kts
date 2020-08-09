@@ -28,6 +28,9 @@ rootProject.name = "gradle-cache-action"
 
 include(
     "cache-service-mock",
+    "cache-proxy",
+    "gradle-launcher",
+    "hashing",
     "layered-cache",
     "cache-action-entrypoint",
     "test-library",
