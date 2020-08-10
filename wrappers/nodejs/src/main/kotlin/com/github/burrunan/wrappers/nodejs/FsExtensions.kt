@@ -40,7 +40,7 @@ suspend fun removeFiles(files: List<String>) {
 
 suspend fun mkdir(path: String) {
     if (!exists(path)) {
-        fs2.promises.mkdir(path)
+        fs2.promises.mkdir(path).await()
     }
 }
 
