@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:JsModule("@actions/cache/lib/internal/constants")
 package com.github.burrunan.gradle.cache
 
 external interface GetCacheParams {
@@ -41,7 +42,7 @@ external interface CommitCacheRequest {
 }
 
 external interface InternalCacheOptions {
-    val compressionMethod: CompressionMethod?
+    var compressionMethod: CompressionMethod?
 }
 
 external enum class CompressionMethod {
