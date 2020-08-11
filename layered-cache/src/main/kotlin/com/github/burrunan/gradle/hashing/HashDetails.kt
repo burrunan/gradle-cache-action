@@ -58,7 +58,7 @@ private fun sha1FromModulesFileName(key: String): String {
     return key.substring(hashStart, lastSlash).padStart(40, '0')
 }
 
-suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"): HashDetails {
+suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"): HashDetails = try {
     val globber = create(paths.joinToString("\n")).await()
     val fileNames = globber.glob().await()
     // Sorting is needed for stable overall hash
@@ -103,8 +103,10 @@ suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"):
         overallHash.update(key)
         overallHash.update(digest)
     }
-    return HashDetails(
+    HashDetails(
         HashInfo(totalBytes, overallHash.digest("hex"), files.size),
         HashContents(files),
     )
+} catch (e: Throwable) {
+    throw IllegalArgumentException("Unable to hash ${paths.joinToString(", ")}", e)
 }

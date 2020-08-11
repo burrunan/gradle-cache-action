@@ -28,7 +28,7 @@ data class HashResult(
     val totalBytes: Int,
 )
 
-suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashResult {
+suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashResult = try {
     val globber = create(paths.joinToString("\n")).await()
     val fileNames = globber.glob().await()
     fileNames.sort()
@@ -62,9 +62,11 @@ suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashRes
         }
     }
     hash.end()
-    return HashResult(
+    HashResult(
         hash = hash.digest("hex"),
         numFiles = numFiles,
         totalBytes = totalBytes,
     )
+} catch (e: Throwable) {
+    throw IllegalArgumentException("Unable to hash ${paths.joinToString(", ")}", e)
 }
