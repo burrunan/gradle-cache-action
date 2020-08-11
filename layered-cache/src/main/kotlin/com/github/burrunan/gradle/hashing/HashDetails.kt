@@ -15,6 +15,7 @@
  */
 package com.github.burrunan.gradle.hashing
 
+import actions.core.warning
 import crypto.createHash
 import fs.createReadStream
 import fs2.promises.stat
@@ -92,8 +93,13 @@ suspend fun hashFilesDetailed(vararg paths: String, algorithm: String = "sha1"):
                 key.substringAfterLast('/')
             else -> {
                 val hash = createHash(algorithm)
-                createReadStream(name).use {
-                    it.pipe(hash)
+                try {
+                    createReadStream(name).use {
+                        it.pipe(hash)
+                    }
+                } catch (e: Throwable) {
+                    warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
+                    continue
                 }
                 hash.digest().toString("hex")
             }

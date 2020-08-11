@@ -15,6 +15,7 @@
  */
 package com.github.burrunan.gradle
 
+import actions.core.warning
 import crypto.createHash
 import actions.glob.create
 import com.github.burrunan.wrappers.nodejs.pipe
@@ -55,11 +56,17 @@ suspend fun hashFiles(vararg paths: String, algorithm: String = "sha1"): HashRes
         numFiles += 1
         totalBytes += statSync.size.toInt()
         // Add filename
-        hash.update(key, "utf8")
 
-        fs.createReadStream(name).use {
-            it.pipe(hash, end = false)
+        try {
+            fs.createReadStream(name).use {
+                it.pipe(hash, end = false)
+            }
+        } catch (e: Throwable) {
+            warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
+            continue
         }
+
+        hash.update(key, "utf8")
     }
     hash.end()
     HashResult(
