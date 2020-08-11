@@ -15161,7 +15161,7 @@
   !function(_, Kotlin, $module$gradle_cache_action_actions_core, $module$fs, $module$kotlinx_coroutines_core, $module$gradle_cache_action_actions_exec, $module$gradle_cache_action_actions_cache, $module$_actions_core, $module$gradle_cache_action_nodejs, $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy, $module$_actions_glob, $module$os, $module$crypto) {
    "use strict";
    var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {}), COROUTINE_SUSPENDED = Kotlin.kotlin.coroutines.intrinsics.COROUTINE_SUSPENDED, CoroutineImpl = Kotlin.kotlin.coroutines.CoroutineImpl, getInput = $module$gradle_cache_action_actions_core.actions.core.ext.getInput_ivxn3r$, equals = Kotlin.kotlin.text.equals_igcy3c$, readFile = $module$fs.promises.readFile, await_0 = $module$kotlinx_coroutines_core.kotlinx.coroutines.await_t11jrl$, Regex_init = Kotlin.kotlin.text.Regex_init_61zpoe$, startsWith = Kotlin.kotlin.text.startsWith_7epoxm$, contains = Kotlin.kotlin.text.contains_li3zpu$, firstOrNull = Kotlin.kotlin.collections.firstOrNull_2p1efm$, removePrefix = Kotlin.kotlin.text.removePrefix_gsj5wt$, substringAfterLast = Kotlin.kotlin.text.substringAfterLast_j4ogox$, substringBefore = Kotlin.kotlin.text.substringBefore_j4ogox$, exec = $module$gradle_cache_action_actions_exec.actions.exec.exec_jpl90f$, Kind_CLASS = Kotlin.Kind.CLASS, ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$, isBlank = Kotlin.kotlin.text.isBlank_gw00vp$, Kind_INTERFACE = Kotlin.Kind.INTERFACE, Unit = Kotlin.kotlin.Unit, launch = $module$kotlinx_coroutines_core.kotlinx.coroutines.launch_s496o7$, supervisorScope = $module$kotlinx_coroutines_core.kotlinx.coroutines.supervisorScope_awg8ri$, RestoreType = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType, startGroup = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].startGroup, endGroup = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].endGroup, restoreAndLog = $module$gradle_cache_action_actions_cache.actions.cache.restoreAndLog_oiec0y$, RestoreType$Exact = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType.Exact, RestoreType$Partial = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType.Partial, info = $module$_actions_core.info, removeFiles = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.removeFiles_mhpeer$, equals_0 = Kotlin.equals, saveAndLog = $module$gradle_cache_action_actions_cache.actions.cache.saveAndLog_xhsml3$, plus = Kotlin.kotlin.collections.plus_qloxvw$, emptyList = Kotlin.kotlin.collections.emptyList_287e2$, isDebug = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].isDebug, debug = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].debug, collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$, ArrayList_init_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$, copyToArray = Kotlin.kotlin.collections.copyToArray, abs = Kotlin.kotlin.math.abs_s8cxhz$, listOf = Kotlin.kotlin.collections.listOf_i5x0yv$, Kind_OBJECT = Kotlin.Kind.OBJECT, PluginGeneratedSerialDescriptor = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.PluginGeneratedSerialDescriptor, ArrayListSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.ArrayListSerializer, internal = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal, UnknownFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.UnknownFieldException, GeneratedSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.GeneratedSerializer, MissingFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.MissingFieldException, IllegalStateException_init = Kotlin.kotlin.IllegalStateException_init_pdl1vj$, joinToString = Kotlin.kotlin.collections.joinToString_fmv235$, firstOrNull_0 = Kotlin.kotlin.collections.firstOrNull_7wnvza$, toString = Kotlin.toString, zip = Kotlin.kotlin.collections.zip_45mdf7$, L0 = Kotlin.Long.ZERO, toList = Kotlin.kotlin.collections.toList_7wnvza$, listOf_0 = Kotlin.kotlin.collections.listOf_mh5how$, checkIndexOverflow = Kotlin.kotlin.collections.checkIndexOverflow_za3lpa$, mapCapacity = Kotlin.kotlin.collections.mapCapacity_za3lpa$, coerceAtLeast = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$, LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_bwtc7$, LinkedHashMap_init_0 = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$, LinkedHashSet_init = Kotlin.kotlin.collections.LinkedHashSet_init_287e2$, Map = Kotlin.kotlin.collections.Map, throwCCE = Kotlin.throwCCE, addAll = Kotlin.kotlin.collections.addAll_ipc267$, get_normalizedPath = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.get_normalizedPath_pdl1vz$, existsSync = $module$fs.existsSync, mkdirSync = $module$fs.mkdirSync, Throwable = Error, exists = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.exists_61zpoe$, rename = $module$fs.promises.rename, warning = $module$_actions_core.warning, Json = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.json.Json, SerializationException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.SerializationException, writeFile = $module$fs.promises.writeFile, trimStart = Kotlin.kotlin.text.trimStart_wqw3xr$, plus_0 = Kotlin.kotlin.collections.plus_mydzjv$, trim = Kotlin.kotlin.text.trim_gw00vp$, saveState = $module$_actions_core.saveState, getState = $module$_actions_core.getState, toInt = Kotlin.kotlin.text.toInt_pdl1vz$, PropertyMetadata = (Kotlin.kotlin.text.toLong_pdl1vz$, 
-   Kotlin.PropertyMetadata), L512 = Kotlin.Long.fromInt(512), L1024 = Kotlin.Long.fromInt(1024), L524288 = Kotlin.Long.fromInt(524288), L1048576 = Kotlin.Long.fromInt(1048576), L6312427520 = new Kotlin.Long(2017460224, 1), L536870912 = Kotlin.Long.fromInt(536870912), L1073741824 = Kotlin.Long.fromInt(1073741824), joinToString_0 = Kotlin.kotlin.collections.joinToString_cgipc5$, create = $module$_actions_glob.create, sort = Kotlin.kotlin.collections.sort_pbinho$, homedir = $module$os.homedir, createHash = $module$crypto.createHash, stat = $module$fs.promises.stat, replace = Kotlin.kotlin.text.replace_r2fvfm$, numberToInt = Kotlin.numberToInt, createReadStream = $module$fs.createReadStream, pipe = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.pipe_30385z$, use = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.use_r9z2jd$, LinkedHashMapSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.LinkedHashMapSerializer, lastIndexOf = Kotlin.kotlin.text.lastIndexOf_8eortd$, padStart = Kotlin.kotlin.text.padStart_vrc1nu$, numberToLong = Kotlin.numberToLong, substringAfterLast_0 = Kotlin.kotlin.text.substringAfterLast_8cymmc$;
+   Kotlin.PropertyMetadata), L512 = Kotlin.Long.fromInt(512), L1024 = Kotlin.Long.fromInt(1024), L524288 = Kotlin.Long.fromInt(524288), L1048576 = Kotlin.Long.fromInt(1048576), L6312427520 = new Kotlin.Long(2017460224, 1), L536870912 = Kotlin.Long.fromInt(536870912), L1073741824 = Kotlin.Long.fromInt(1073741824), joinToString_0 = Kotlin.kotlin.collections.joinToString_cgipc5$, create = $module$_actions_glob.create, sort = Kotlin.kotlin.collections.sort_pbinho$, homedir = $module$os.homedir, createHash = $module$crypto.createHash, stat = $module$fs.promises.stat, replace = Kotlin.kotlin.text.replace_r2fvfm$, numberToInt = Kotlin.numberToInt, createReadStream = $module$fs.createReadStream, pipe = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.pipe_30385z$, use = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.use_r9z2jd$, IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException, LinkedHashMapSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.LinkedHashMapSerializer, lastIndexOf = Kotlin.kotlin.text.lastIndexOf_8eortd$, padStart = Kotlin.kotlin.text.padStart_vrc1nu$, numberToLong = Kotlin.numberToLong, substringAfterLast_0 = Kotlin.kotlin.text.substringAfterLast_8cymmc$;
    function GradleCacheAction(trigger, params) {
     this.trigger = trigger, this.params = params, this.treeId_0 = suspendingStateVariable("tree_id", GradleCacheAction$treeId$lambda);
    }
@@ -17124,7 +17124,7 @@
     };
    }
    function Coroutine$hashFiles(paths_0, algorithm_0, continuation_0) {
-    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 1, this.local$tmp$ = void 0, 
+    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 11, this.local$tmp$ = void 0, 
     this.local$fileNames = void 0, this.local$githubWorkspace = void 0, this.local$homeDir = void 0, 
     this.local$hash = void 0, this.local$totalBytes = void 0, this.local$numFiles = void 0, 
     this.local$name = void 0, this.local$statSync = void 0, this.local$paths = paths_0, 
@@ -17258,42 +17258,40 @@
      switch (this.state_0) {
      case 0:
       var tmp$;
-      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.state_0 = 2, 
-      this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
-      continue;
-
-     case 1:
-      throw this.exception_0;
-
-     case 2:
-      var globber = this.result_0;
-      if (this.state_0 = 3, this.result_0 = await_0(globber.glob(), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
-      continue;
-
-     case 3:
-      this.local$fileNames = this.result_0, sort(this.local$fileNames), this.local$githubWorkspace = process.cwd(), 
-      this.local$homeDir = homedir(), this.local$hash = createHash(this.local$algorithm), 
-      this.local$totalBytes = 0, this.local$numFiles = 0, this.local$tmp$ = 0, this.state_0 = 4;
-      continue;
-
-     case 4:
-      if (this.local$tmp$ === this.local$fileNames.length) {
-       this.state_0 = 9;
-       continue;
-      }
-      if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 5, this.result_0 = await_0(stat(this.local$name), this), 
+      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 9, 
+      this.state_0 = 1, this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
-     case 5:
-      if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
+     case 1:
+      var globber = this.result_0;
+      if (this.state_0 = 2, this.result_0 = await_0(globber.glob(), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
+      continue;
+
+     case 2:
+      this.local$fileNames = this.result_0, sort(this.local$fileNames), this.local$githubWorkspace = process.cwd(), 
+      this.local$homeDir = homedir(), this.local$hash = createHash(this.local$algorithm), 
+      this.local$totalBytes = 0, this.local$numFiles = 0, this.local$tmp$ = 0, this.state_0 = 3;
+      continue;
+
+     case 3:
+      if (this.local$tmp$ === this.local$fileNames.length) {
        this.state_0 = 8;
        continue;
       }
-      this.state_0 = 6;
+      if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 4, this.result_0 = await_0(stat(this.local$name), this), 
+      this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
-     case 6:
+     case 4:
+      if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
+       this.state_0 = 7;
+       continue;
+      }
+      this.state_0 = 5;
+      continue;
+
+     case 5:
       if (startsWith(this.local$name, this.local$githubWorkspace)) {
        var startIndex = this.local$githubWorkspace.length;
        tmp$ = "ws://" + this.local$name.substring(startIndex);
@@ -17303,26 +17301,37 @@
       } else tmp$ = this.local$name;
       var key = replace(tmp$, 92, 47);
       if (this.local$numFiles = this.local$numFiles + 1 | 0, this.local$totalBytes = this.local$totalBytes + numberToInt(this.local$statSync.size) | 0, 
-      this.local$hash.update(key, "utf8"), this.state_0 = 7, this.result_0 = use(createReadStream(this.local$name), hashFiles$lambda(this.local$hash), this), 
+      this.local$hash.update(key, "utf8"), this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFiles$lambda(this.local$hash), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
+     case 6:
+      this.state_0 = 7;
+      continue;
+
      case 7:
-      this.state_0 = 8;
+      ++this.local$tmp$, this.state_0 = 3;
       continue;
 
      case 8:
-      ++this.local$tmp$, this.state_0 = 4;
-      continue;
-
-     case 9:
       return this.local$hash.end(), new HashResult(this.local$hash.digest("hex"), this.local$numFiles, this.local$totalBytes);
 
+     case 9:
+      this.exceptionState_0 = 11;
+      var e = this.exception_0;
+      throw Kotlin.isType(e, Throwable) ? new IllegalArgumentException("Unable to hash " + joinToString_0(this.local$paths, ", "), e) : e;
+
+     case 10:
+      return;
+
+     case 11:
+      throw this.exception_0;
+
      default:
-      throw this.state_0 = 1, new Error("State Machine Unreachable execution");
+      throw this.state_0 = 11, new Error("State Machine Unreachable execution");
      }
     } catch (e) {
-     if (1 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
+     if (11 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
      this.state_0 = this.exceptionState_0, this.exception_0 = e;
     }
    }, HashDetails$Companion.prototype.serializer = function() {
@@ -17613,7 +17622,7 @@
     };
    }
    function Coroutine$hashFilesDetailed(paths_0, algorithm_0, continuation_0) {
-    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 1, this.local$tmp$ = void 0, 
+    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 13, this.local$tmp$ = void 0, 
     this.local$tmp$_1 = void 0, this.local$fileNames = void 0, this.local$githubWorkspace = void 0, 
     this.local$homeDir = void 0, this.local$totalBytes = void 0, this.local$files = void 0, 
     this.local$overallHash = void 0, this.local$name = void 0, this.local$statSync = void 0, 
@@ -17684,43 +17693,41 @@
      switch (this.state_0) {
      case 0:
       var tmp$;
-      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.state_0 = 2, 
-      this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
-      continue;
-
-     case 1:
-      throw this.exception_0;
-
-     case 2:
-      var globber = this.result_0;
-      if (this.state_0 = 3, this.result_0 = await_0(globber.glob(), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
-      continue;
-
-     case 3:
-      this.local$fileNames = this.result_0, sort(this.local$fileNames), this.local$githubWorkspace = process.cwd(), 
-      this.local$homeDir = homedir(), this.local$totalBytes = L0, this.local$files = LinkedHashMap_init_0(), 
-      this.local$overallHash = createHash(this.local$algorithm), this.local$tmp$ = 0, 
-      this.state_0 = 4;
-      continue;
-
-     case 4:
-      if (this.local$tmp$ === this.local$fileNames.length) {
-       this.state_0 = 11;
-       continue;
-      }
-      if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 5, this.result_0 = await_0(stat(this.local$name), this), 
+      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 11, 
+      this.state_0 = 1, this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
-     case 5:
-      if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
+     case 1:
+      var globber = this.result_0;
+      if (this.state_0 = 2, this.result_0 = await_0(globber.glob(), this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
+      continue;
+
+     case 2:
+      this.local$fileNames = this.result_0, sort(this.local$fileNames), this.local$githubWorkspace = process.cwd(), 
+      this.local$homeDir = homedir(), this.local$totalBytes = L0, this.local$files = LinkedHashMap_init_0(), 
+      this.local$overallHash = createHash(this.local$algorithm), this.local$tmp$ = 0, 
+      this.state_0 = 3;
+      continue;
+
+     case 3:
+      if (this.local$tmp$ === this.local$fileNames.length) {
        this.state_0 = 10;
        continue;
       }
-      this.state_0 = 6;
+      if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 4, this.result_0 = await_0(stat(this.local$name), this), 
+      this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
-     case 6:
+     case 4:
+      if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
+       this.state_0 = 9;
+       continue;
+      }
+      this.state_0 = 5;
+      continue;
+
+     case 5:
       if (this.local$fileSize = numberToLong(this.local$statSync.size), this.local$totalBytes = this.local$totalBytes.add(this.local$fileSize), 
       startsWith(this.local$name, this.local$githubWorkspace)) {
        var startIndex = this.local$githubWorkspace.length;
@@ -17732,43 +17739,54 @@
       if (this.local$key = replace(tmp$, 92, 47), equals_0(this.local$algorithm, "sha1") && startsWith(this.local$key, "~/.gradle/caches/modules-2/files-2.1/")) {
        this.local$tmp$_1 = (key = this.local$key, lastSlash = void 0, hashStart = void 0, 
        lastSlash = lastIndexOf(key, 47), hashStart = lastIndexOf(key, 47, lastSlash - 1 | 0) + 1 | 0, 
-       padStart(key.substring(hashStart, lastSlash), 40, 48)), this.state_0 = 9;
+       padStart(key.substring(hashStart, lastSlash), 40, 48)), this.state_0 = 8;
        continue;
       }
       if (startsWith(this.local$key, "~/.gradle/caches/build-cache-1/")) {
-       this.local$tmp$_1 = substringAfterLast_0(this.local$key, 47), this.state_0 = 8;
+       this.local$tmp$_1 = substringAfterLast_0(this.local$key, 47), this.state_0 = 7;
        continue;
       }
-      if (this.local$hash = createHash(this.local$algorithm), this.state_0 = 7, this.result_0 = use(createReadStream(this.local$name), hashFilesDetailed$lambda(this.local$hash), this), 
+      if (this.local$hash = createHash(this.local$algorithm), this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFilesDetailed$lambda(this.local$hash), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
+     case 6:
+      this.local$tmp$_1 = this.local$hash.digest().toString("hex"), this.state_0 = 7;
+      continue;
+
      case 7:
-      this.local$tmp$_1 = this.local$hash.digest().toString("hex"), this.state_0 = 8;
+      this.state_0 = 8;
       continue;
 
      case 8:
-      this.state_0 = 9;
+      var digest = this.local$tmp$_1, value = new FileDetails(this.local$fileSize, digest);
+      this.local$files.put_xwzc9p$(this.local$key, value), this.local$overallHash.update(this.local$key), 
+      this.local$overallHash.update(digest), this.state_0 = 9;
       continue;
 
      case 9:
-      var digest = this.local$tmp$_1, value = new FileDetails(this.local$fileSize, digest);
-      this.local$files.put_xwzc9p$(this.local$key, value), this.local$overallHash.update(this.local$key), 
-      this.local$overallHash.update(digest), this.state_0 = 10;
+      ++this.local$tmp$, this.state_0 = 3;
       continue;
 
      case 10:
-      ++this.local$tmp$, this.state_0 = 4;
-      continue;
-
-     case 11:
       return new HashDetails(new HashInfo(this.local$totalBytes, this.local$overallHash.digest("hex"), this.local$files.size), new HashContents(this.local$files));
 
+     case 11:
+      this.exceptionState_0 = 13;
+      var e = this.exception_0;
+      throw Kotlin.isType(e, Throwable) ? new IllegalArgumentException("Unable to hash " + joinToString_0(this.local$paths, ", "), e) : e;
+
+     case 12:
+      return;
+
+     case 13:
+      throw this.exception_0;
+
      default:
-      throw this.state_0 = 1, new Error("State Machine Unreachable execution");
+      throw this.state_0 = 13, new Error("State Machine Unreachable execution");
      }
     } catch (e) {
-     if (1 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
+     if (13 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
      this.state_0 = this.exceptionState_0, this.exception_0 = e;
     }
     var key, lastSlash, hashStart;
