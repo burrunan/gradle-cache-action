@@ -1439,6 +1439,14 @@
      if (!(n >= 0)) throw IllegalArgumentException_init_0(("Requested character count " + n + " is less than zero.").toString());
      return $receiver.substring(coerceAtMost_2(n, $receiver.length));
     }
+    function dropLast_10($receiver, n) {
+     if (!(n >= 0)) throw IllegalArgumentException_init_0(("Requested character count " + n + " is less than zero.").toString());
+     return take_11($receiver, coerceAtLeast_2($receiver.length - n | 0, 0));
+    }
+    function take_11($receiver, n) {
+     if (!(n >= 0)) throw IllegalArgumentException_init_0(("Requested character count " + n + " is less than zero.").toString());
+     return $receiver.substring(0, coerceAtMost_2(n, $receiver.length));
+    }
     function Annotation() {}
     function CharSequence() {}
     function Iterable() {}
@@ -1568,6 +1576,7 @@
     CoroutineSingletons.prototype = Object.create(Enum.prototype), CoroutineSingletons.prototype.constructor = CoroutineSingletons, 
     Random$Default.prototype = Object.create(Random.prototype), Random$Default.prototype.constructor = Random$Default, 
     XorWowRandom.prototype = Object.create(Random.prototype), XorWowRandom.prototype.constructor = XorWowRandom, 
+    iterator$ObjectLiteral.prototype = Object.create(CharIterator.prototype), iterator$ObjectLiteral.prototype.constructor = iterator$ObjectLiteral, 
     NotImplementedError.prototype = Object.create(Error_0.prototype), NotImplementedError.prototype.constructor = NotImplementedError, 
     Sequence$ObjectLiteral_0.prototype.iterator = function() {
      return this.closure$iterator();
@@ -4050,6 +4059,14 @@
     function regionMatches($receiver, thisOffset, other, otherOffset, length, ignoreCase) {
      return void 0 === ignoreCase && (ignoreCase = !1), regionMatchesImpl($receiver, thisOffset, other, otherOffset, length, ignoreCase);
     }
+    function get_suppressedExceptions($receiver) {
+     var tmp$, tmp$_0;
+     return null != (tmp$_0 = null != (tmp$ = $receiver._suppressed) ? tmp$ : null) ? tmp$_0 : emptyList();
+    }
+    function ExceptionTraceBuilder() {
+     this.target_0 = StringBuilder_init_1(), this.visited_0 = [], this.topStack_0 = "", 
+     this.topStackStart_0 = 0;
+    }
     function AbstractCollection() {}
     function AbstractList() {
      AbstractList$Companion_getInstance(), AbstractCollection.call(this);
@@ -4126,6 +4143,78 @@
     }, findNext$ObjectLiteral.$metadata$ = {
      kind: Kind_CLASS,
      interfaces: [ MatchResult ]
+    }, ExceptionTraceBuilder.prototype.buildFor_tcv7n7$ = function(exception) {
+     return this.dumpFullTrace_0(exception, "", ""), this.target_0.toString();
+    }, ExceptionTraceBuilder.prototype.hasSeen_0 = function(exception) {
+     var any$result, $receiver = this.visited_0;
+     any$break: do {
+      var tmp$;
+      for (tmp$ = 0; tmp$ !== $receiver.length; ++tmp$) if ($receiver[tmp$] === exception) {
+       any$result = !0;
+       break any$break;
+      }
+      any$result = !1;
+     } while (0);
+     return any$result;
+    }, ExceptionTraceBuilder.prototype.dumpFullTrace_0 = function($receiver, indent, qualifier) {
+     if (this.dumpSelfTrace_0($receiver, indent, qualifier)) for (var cause = $receiver.cause; null != cause; ) {
+      if (!this.dumpSelfTrace_0(cause, indent, "Caused by: ")) return;
+      cause = cause.cause;
+     }
+    }, ExceptionTraceBuilder.prototype.dumpSelfTrace_0 = function($receiver, indent, qualifier) {
+     var tmp$, tmp$_0;
+     this.target_0.append_pdl1vj$(indent).append_pdl1vj$(qualifier);
+     var shortInfo = $receiver.toString();
+     if (this.hasSeen_0($receiver)) return this.target_0.append_pdl1vj$("[CIRCULAR REFERENCE, SEE ABOVE: ").append_pdl1vj$(shortInfo).append_pdl1vj$("]\n"), 
+     !1;
+     this.visited_0.push($receiver);
+     var stack = null == (tmp$ = $receiver.stack) || "string" == typeof tmp$ ? tmp$ : throwCCE_0();
+     if (null != stack) {
+      var it = indexOf_17(stack, shortInfo), stackStart = it < 0 ? 0 : it + shortInfo.length | 0;
+      if (0 === stackStart && this.target_0.append_pdl1vj$(shortInfo).append_pdl1vj$("\n"), 
+      0 === this.topStack_0.length ? (this.topStack_0 = stack, this.topStackStart_0 = stackStart) : stack = this.dropCommonFrames_0(stack, stackStart), 
+      indent.length > 0) {
+       var tmp$_1;
+       if (0 === stackStart) tmp$_1 = 0; else {
+        var tmp$_2, count = 0;
+        for (tmp$_2 = iterator_4(shortInfo); tmp$_2.hasNext(); ) {
+         var element = unboxChar(tmp$_2.next());
+         10 === unboxChar(toBoxedChar(element)) && (count = count + 1 | 0);
+        }
+        tmp$_1 = 1 + count | 0;
+       }
+       var tmp$_3, tmp$_4, messageLines = tmp$_1, index = 0;
+       for (tmp$_3 = lineSequence(stack).iterator(); tmp$_3.hasNext(); ) {
+        var item = tmp$_3.next();
+        checkIndexOverflow((index = (tmp$_4 = index) + 1 | 0, tmp$_4)) >= messageLines && this.target_0.append_pdl1vj$(indent), 
+        this.target_0.append_pdl1vj$(item).append_pdl1vj$("\n");
+       }
+      } else this.target_0.append_pdl1vj$(stack).append_pdl1vj$("\n");
+     } else this.target_0.append_pdl1vj$(shortInfo).append_pdl1vj$("\n");
+     var suppressed = get_suppressedExceptions($receiver);
+     if (!suppressed.isEmpty()) {
+      var suppressedIndent = indent + "    ";
+      for (tmp$_0 = suppressed.iterator(); tmp$_0.hasNext(); ) {
+       var s = tmp$_0.next();
+       this.dumpFullTrace_0(s, suppressedIndent, "Suppressed: ");
+      }
+     }
+     return !0;
+    }, ExceptionTraceBuilder.prototype.dropCommonFrames_0 = function(stack, stackStart) {
+     var tmp$, commonFrames = 0, lastBreak = 0, preLastBreak = 0;
+     tmp$ = Math_0.min(this.topStack_0.length - this.topStackStart_0 | 0, stack.length - stackStart | 0);
+     for (var pos = 0; pos < tmp$; pos++) {
+      var c = stack.charCodeAt(get_lastIndex_13(stack) - pos | 0);
+      if (c !== this.topStack_0.charCodeAt(get_lastIndex_13(this.topStack_0) - pos | 0)) break;
+      10 === c && (commonFrames = commonFrames + 1 | 0, preLastBreak = lastBreak, lastBreak = pos);
+     }
+     if (commonFrames <= 1) return stack;
+     for (;preLastBreak > 0 && 32 === stack.charCodeAt(get_lastIndex_13(stack) - (preLastBreak - 1) | 0); ) preLastBreak = preLastBreak - 1 | 0;
+     return dropLast_10(stack, preLastBreak) + "... and " + (commonFrames - 1 | 0) + " more common stack frames skipped";
+    }, ExceptionTraceBuilder.$metadata$ = {
+     kind: Kind_CLASS,
+     simpleName: "ExceptionTraceBuilder",
+     interfaces: []
     }, AbstractCollection.prototype.contains_11rb$ = function(element) {
      var any$result;
      any$break: do {
@@ -5766,6 +5855,12 @@
      for (var i = 1; i <= tmp$; i++) sb.append_s8itvh$(padChar);
      return sb.append_gw00v9$($receiver), sb;
     }
+    function iterator$ObjectLiteral(this$iterator) {
+     this.this$iterator = this$iterator, CharIterator.call(this), this.index_0 = 0;
+    }
+    function iterator_4($receiver) {
+     return new iterator$ObjectLiteral($receiver);
+    }
     function get_indices_13($receiver) {
      return new IntRange(0, $receiver.length - 1 | 0);
     }
@@ -5935,6 +6030,14 @@
      kind: Kind_INTERFACE,
      simpleName: "KClassifier",
      interfaces: []
+    }, iterator$ObjectLiteral.prototype.nextChar = function() {
+     var tmp$, tmp$_0;
+     return tmp$ = this.index_0, this.index_0 = tmp$ + 1 | 0, tmp$_0 = tmp$, this.this$iterator.charCodeAt(tmp$_0);
+    }, iterator$ObjectLiteral.prototype.hasNext = function() {
+     return this.index_0 < this.this$iterator.length;
+    }, iterator$ObjectLiteral.$metadata$ = {
+     kind: Kind_CLASS,
+     interfaces: [ CharIterator ]
     }, DelimitedRangesSequence$iterator$ObjectLiteral.prototype.calcNext_0 = function() {
      if (this.nextSearchIndex < 0) this.nextState = 0, this.nextItem = null; else {
       if (this.this$DelimitedRangesSequence.limit_0 > 0 && (this.counter = this.counter + 1 | 0, 
@@ -6297,8 +6400,8 @@
     package$sequences.toCollection_gtszxp$ = toCollection_9, package$sequences.toList_veqyi0$ = toList_10, 
     package$sequences.toMutableList_veqyi0$ = toMutableList_10, package$sequences.map_z5avom$ = map_10;
     var package$text = package$kotlin.text || (package$kotlin.text = {});
-    package$text.get_lastIndex_gw00vp$ = get_lastIndex_13, package$text.get_indices_gw00vp$ = get_indices_13, 
-    package$text.single_gw00vp$ = function($receiver) {
+    package$text.get_lastIndex_gw00vp$ = get_lastIndex_13, package$text.iterator_gw00vp$ = iterator_4, 
+    package$text.get_indices_gw00vp$ = get_indices_13, package$text.single_gw00vp$ = function($receiver) {
      var tmp$;
      switch ($receiver.length) {
      case 0:
@@ -6312,7 +6415,8 @@
       throw IllegalArgumentException_init_0("Char sequence has more than one element.");
      }
      return tmp$;
-    }, package$text.drop_6ic1pp$ = drop_11, package$text.StringBuilder_init = StringBuilder_init_1, 
+    }, package$text.drop_6ic1pp$ = drop_11, package$text.dropLast_6ic1pp$ = dropLast_10, 
+    package$text.StringBuilder_init = StringBuilder_init_1, package$text.take_6ic1pp$ = take_11, 
     package$collections.copyOf_c03ot6$ = function($receiver, newSize) {
      if (!(newSize >= 0)) throw IllegalArgumentException_init_0(("Invalid new array size: " + newSize + ".").toString());
      return fillFrom($receiver, new Int32Array(newSize));
@@ -6601,7 +6705,10 @@
      return $receiver.length > 0 ? $receiver.substring(0, 1).toUpperCase() + $receiver.substring(1) : $receiver;
     }, package$text.replace_r2fvfm$ = function($receiver, oldChar, newChar, ignoreCase) {
      return void 0 === ignoreCase && (ignoreCase = !1), $receiver.replace(new RegExp(Regex$Companion_getInstance().escape_61zpoe$(String.fromCharCode(oldChar)), ignoreCase ? "gi" : "g"), String.fromCharCode(newChar));
-    }, package$collections.AbstractCollection = AbstractCollection, Object.defineProperty(AbstractList, "Companion", {
+    }, package$kotlin.stackTraceToString_dbl4o4$ = function($receiver) {
+     return (new ExceptionTraceBuilder).buildFor_tcv7n7$($receiver);
+    }, package$kotlin.get_suppressedExceptions_dbl4o4$ = get_suppressedExceptions, package$collections.AbstractCollection = AbstractCollection, 
+    Object.defineProperty(AbstractList, "Companion", {
      get: AbstractList$Companion_getInstance
     }), package$collections.AbstractList = AbstractList, Object.defineProperty(AbstractMap, "Companion", {
      get: AbstractMap$Companion_getInstance
@@ -15161,7 +15268,7 @@
   !function(_, Kotlin, $module$gradle_cache_action_actions_core, $module$fs, $module$kotlinx_coroutines_core, $module$gradle_cache_action_actions_exec, $module$gradle_cache_action_actions_cache, $module$_actions_core, $module$gradle_cache_action_nodejs, $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy, $module$_actions_glob, $module$os, $module$crypto) {
    "use strict";
    var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {}), COROUTINE_SUSPENDED = Kotlin.kotlin.coroutines.intrinsics.COROUTINE_SUSPENDED, CoroutineImpl = Kotlin.kotlin.coroutines.CoroutineImpl, getInput = $module$gradle_cache_action_actions_core.actions.core.ext.getInput_ivxn3r$, equals = Kotlin.kotlin.text.equals_igcy3c$, readFile = $module$fs.promises.readFile, await_0 = $module$kotlinx_coroutines_core.kotlinx.coroutines.await_t11jrl$, Regex_init = Kotlin.kotlin.text.Regex_init_61zpoe$, startsWith = Kotlin.kotlin.text.startsWith_7epoxm$, contains = Kotlin.kotlin.text.contains_li3zpu$, firstOrNull = Kotlin.kotlin.collections.firstOrNull_2p1efm$, removePrefix = Kotlin.kotlin.text.removePrefix_gsj5wt$, substringAfterLast = Kotlin.kotlin.text.substringAfterLast_j4ogox$, substringBefore = Kotlin.kotlin.text.substringBefore_j4ogox$, exec = $module$gradle_cache_action_actions_exec.actions.exec.exec_jpl90f$, Kind_CLASS = Kotlin.Kind.CLASS, ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$, isBlank = Kotlin.kotlin.text.isBlank_gw00vp$, Kind_INTERFACE = Kotlin.Kind.INTERFACE, Unit = Kotlin.kotlin.Unit, launch = $module$kotlinx_coroutines_core.kotlinx.coroutines.launch_s496o7$, supervisorScope = $module$kotlinx_coroutines_core.kotlinx.coroutines.supervisorScope_awg8ri$, RestoreType = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType, startGroup = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].startGroup, endGroup = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].endGroup, restoreAndLog = $module$gradle_cache_action_actions_cache.actions.cache.restoreAndLog_oiec0y$, RestoreType$Exact = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType.Exact, RestoreType$Partial = $module$gradle_cache_action_actions_cache.actions.cache.RestoreType.Partial, info = $module$_actions_core.info, removeFiles = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.removeFiles_mhpeer$, equals_0 = Kotlin.equals, saveAndLog = $module$gradle_cache_action_actions_cache.actions.cache.saveAndLog_xhsml3$, plus = Kotlin.kotlin.collections.plus_qloxvw$, emptyList = Kotlin.kotlin.collections.emptyList_287e2$, isDebug = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].isDebug, debug = $module$gradle_cache_action_actions_core.$$importsForInline$$["@actions/core"].debug, collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$, ArrayList_init_0 = Kotlin.kotlin.collections.ArrayList_init_ww73n8$, copyToArray = Kotlin.kotlin.collections.copyToArray, abs = Kotlin.kotlin.math.abs_s8cxhz$, listOf = Kotlin.kotlin.collections.listOf_i5x0yv$, Kind_OBJECT = Kotlin.Kind.OBJECT, PluginGeneratedSerialDescriptor = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.PluginGeneratedSerialDescriptor, ArrayListSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.ArrayListSerializer, internal = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal, UnknownFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.UnknownFieldException, GeneratedSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.GeneratedSerializer, MissingFieldException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.MissingFieldException, IllegalStateException_init = Kotlin.kotlin.IllegalStateException_init_pdl1vj$, joinToString = Kotlin.kotlin.collections.joinToString_fmv235$, firstOrNull_0 = Kotlin.kotlin.collections.firstOrNull_7wnvza$, toString = Kotlin.toString, zip = Kotlin.kotlin.collections.zip_45mdf7$, L0 = Kotlin.Long.ZERO, toList = Kotlin.kotlin.collections.toList_7wnvza$, listOf_0 = Kotlin.kotlin.collections.listOf_mh5how$, checkIndexOverflow = Kotlin.kotlin.collections.checkIndexOverflow_za3lpa$, mapCapacity = Kotlin.kotlin.collections.mapCapacity_za3lpa$, coerceAtLeast = Kotlin.kotlin.ranges.coerceAtLeast_dqglrj$, LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_bwtc7$, LinkedHashMap_init_0 = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$, LinkedHashSet_init = Kotlin.kotlin.collections.LinkedHashSet_init_287e2$, Map = Kotlin.kotlin.collections.Map, throwCCE = Kotlin.throwCCE, addAll = Kotlin.kotlin.collections.addAll_ipc267$, get_normalizedPath = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.get_normalizedPath_pdl1vz$, existsSync = $module$fs.existsSync, mkdirSync = $module$fs.mkdirSync, Throwable = Error, exists = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.exists_61zpoe$, rename = $module$fs.promises.rename, warning = $module$_actions_core.warning, Json = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.json.Json, SerializationException = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.SerializationException, writeFile = $module$fs.promises.writeFile, trimStart = Kotlin.kotlin.text.trimStart_wqw3xr$, plus_0 = Kotlin.kotlin.collections.plus_mydzjv$, trim = Kotlin.kotlin.text.trim_gw00vp$, saveState = $module$_actions_core.saveState, getState = $module$_actions_core.getState, toInt = Kotlin.kotlin.text.toInt_pdl1vz$, PropertyMetadata = (Kotlin.kotlin.text.toLong_pdl1vz$, 
-   Kotlin.PropertyMetadata), L512 = Kotlin.Long.fromInt(512), L1024 = Kotlin.Long.fromInt(1024), L524288 = Kotlin.Long.fromInt(524288), L1048576 = Kotlin.Long.fromInt(1048576), L6312427520 = new Kotlin.Long(2017460224, 1), L536870912 = Kotlin.Long.fromInt(536870912), L1073741824 = Kotlin.Long.fromInt(1073741824), joinToString_0 = Kotlin.kotlin.collections.joinToString_cgipc5$, create = $module$_actions_glob.create, sort = Kotlin.kotlin.collections.sort_pbinho$, homedir = $module$os.homedir, createHash = $module$crypto.createHash, stat = $module$fs.promises.stat, replace = Kotlin.kotlin.text.replace_r2fvfm$, numberToInt = Kotlin.numberToInt, createReadStream = $module$fs.createReadStream, pipe = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.pipe_30385z$, use = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.use_r9z2jd$, IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException, LinkedHashMapSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.LinkedHashMapSerializer, lastIndexOf = Kotlin.kotlin.text.lastIndexOf_8eortd$, padStart = Kotlin.kotlin.text.padStart_vrc1nu$, numberToLong = Kotlin.numberToLong, substringAfterLast_0 = Kotlin.kotlin.text.substringAfterLast_8cymmc$;
+   Kotlin.PropertyMetadata), L512 = Kotlin.Long.fromInt(512), L1024 = Kotlin.Long.fromInt(1024), L524288 = Kotlin.Long.fromInt(524288), L1048576 = Kotlin.Long.fromInt(1048576), L6312427520 = new Kotlin.Long(2017460224, 1), L536870912 = Kotlin.Long.fromInt(536870912), L1073741824 = Kotlin.Long.fromInt(1073741824), joinToString_0 = Kotlin.kotlin.collections.joinToString_cgipc5$, create = $module$_actions_glob.create, sort = Kotlin.kotlin.collections.sort_pbinho$, homedir = $module$os.homedir, createHash = $module$crypto.createHash, stat = $module$fs.promises.stat, replace = Kotlin.kotlin.text.replace_r2fvfm$, numberToInt = Kotlin.numberToInt, createReadStream = $module$fs.createReadStream, pipe = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.pipe_30385z$, use = $module$gradle_cache_action_nodejs.com.github.burrunan.wrappers.nodejs.use_r9z2jd$, stackTraceToString = Kotlin.kotlin.stackTraceToString_dbl4o4$, IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException, LinkedHashMapSerializer = $module$kotlinx_serialization_kotlinx_serialization_runtime_jsLegacy.kotlinx.serialization.internal.LinkedHashMapSerializer, lastIndexOf = Kotlin.kotlin.text.lastIndexOf_8eortd$, padStart = Kotlin.kotlin.text.padStart_vrc1nu$, numberToLong = Kotlin.numberToLong, substringAfterLast_0 = Kotlin.kotlin.text.substringAfterLast_8cymmc$;
    function GradleCacheAction(trigger, params) {
     this.trigger = trigger, this.params = params, this.treeId_0 = suspendingStateVariable("tree_id", GradleCacheAction$treeId$lambda);
    }
@@ -16564,9 +16671,19 @@
     var tmp$_1, tmp$ = listOf([ "~/.gradle/caches/modules-2", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp$_0 = listOf([ "!" + path + "/**/.gradle/", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/?*.gradle", path + "/**/*.properties" ]), $receiver = Regex_init("[\r\n]+").split_905azu$(gradleDependenciesCacheKey, 0), destination = ArrayList_init_0(collectionSizeOrDefault($receiver, 10));
     for (tmp$_1 = $receiver.iterator(); tmp$_1.hasNext(); ) {
      var tmp$_2, item = tmp$_1.next();
-     destination.add_11rb$((startsWith(item, "!") ? "!" : "") + path + "/**/" + trimStart(trim(Kotlin.isCharSequence(tmp$_2 = item) ? tmp$_2 : throwCCE()).toString(), Kotlin.charArrayOf(33)));
+     destination.add_11rb$(trim(Kotlin.isCharSequence(tmp$_2 = item) ? tmp$_2 : throwCCE()).toString());
     }
-    return dependenciesCache("gradle", trigger, tmp$, plus_0(tmp$_0, destination), continuation);
+    var tmp$_3, destination_0 = ArrayList_init();
+    for (tmp$_3 = destination.iterator(); tmp$_3.hasNext(); ) {
+     var element = tmp$_3.next();
+     0 !== element.length && destination_0.add_11rb$(element);
+    }
+    var tmp$_4, destination_1 = ArrayList_init_0(collectionSizeOrDefault(destination_0, 10));
+    for (tmp$_4 = destination_0.iterator(); tmp$_4.hasNext(); ) {
+     var tmp$_5, item_0 = tmp$_4.next();
+     destination_1.add_11rb$((startsWith(item_0, "!") ? "!" : "") + path + "/**/" + trimStart(trim(Kotlin.isCharSequence(tmp$_5 = item_0) ? tmp$_5 : throwCCE()).toString(), Kotlin.charArrayOf(33)));
+    }
+    return dependenciesCache("gradle", trigger, tmp$, plus_0(tmp$_0, destination_1), continuation);
    }
    function mavenDependenciesCache(trigger, path, continuation) {
     return dependenciesCache("maven", trigger, listOf_0("~/.m2/repository"), listOf_0(path + "/**/pom.xml"), continuation);
@@ -17124,11 +17241,11 @@
     };
    }
    function Coroutine$hashFiles(paths_0, algorithm_0, continuation_0) {
-    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 11, this.local$tmp$ = void 0, 
+    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 14, this.local$tmp$ = void 0, 
     this.local$fileNames = void 0, this.local$githubWorkspace = void 0, this.local$homeDir = void 0, 
     this.local$hash = void 0, this.local$totalBytes = void 0, this.local$numFiles = void 0, 
-    this.local$name = void 0, this.local$statSync = void 0, this.local$paths = paths_0, 
-    this.local$algorithm = algorithm_0;
+    this.local$name = void 0, this.local$statSync = void 0, this.local$key = void 0, 
+    this.local$paths = paths_0, this.local$algorithm = algorithm_0;
    }
    function hashFiles(paths_0, algorithm_0, continuation_0, suspended) {
     var instance = new Coroutine$hashFiles(paths_0, algorithm_0, continuation_0);
@@ -17258,7 +17375,7 @@
      switch (this.state_0) {
      case 0:
       var tmp$;
-      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 9, 
+      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 12, 
       this.state_0 = 1, this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
@@ -17276,7 +17393,7 @@
 
      case 3:
       if (this.local$tmp$ === this.local$fileNames.length) {
-       this.state_0 = 8;
+       this.state_0 = 11;
        continue;
       }
       if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 4, this.result_0 = await_0(stat(this.local$name), this), 
@@ -17285,7 +17402,7 @@
 
      case 4:
       if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
-       this.state_0 = 7;
+       this.state_0 = 10;
        continue;
       }
       this.state_0 = 5;
@@ -17299,39 +17416,57 @@
        var startIndex_0 = this.local$homeDir.length;
        tmp$ = "~" + this.local$name.substring(startIndex_0);
       } else tmp$ = this.local$name;
-      var key = replace(tmp$, 92, 47);
-      if (this.local$numFiles = this.local$numFiles + 1 | 0, this.local$totalBytes = this.local$totalBytes + numberToInt(this.local$statSync.size) | 0, 
-      this.local$hash.update(key, "utf8"), this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFiles$lambda(this.local$hash), this), 
+      if (this.local$key = replace(tmp$, 92, 47), this.local$numFiles = this.local$numFiles + 1 | 0, 
+      this.local$totalBytes = this.local$totalBytes + numberToInt(this.local$statSync.size) | 0, 
+      this.exceptionState_0 = 7, this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFiles$lambda(this.local$hash), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
      case 6:
-      this.state_0 = 7;
+      this.exceptionState_0 = 12, this.state_0 = 9;
       continue;
 
      case 7:
+      this.exceptionState_0 = 12;
+      var e = this.exception_0;
+      if (Kotlin.isType(e, Throwable)) {
+       warning("Unable to hash " + this.local$name + ", will ignore the file: " + stackTraceToString(e)), 
+       this.exceptionState_0 = 7, this.state_0 = 10;
+       continue;
+      }
+      throw e;
+
+     case 8:
+      this.state_0 = 9;
+      continue;
+
+     case 9:
+      this.local$hash.update(this.local$key, "utf8"), this.state_0 = 10;
+      continue;
+
+     case 10:
       ++this.local$tmp$, this.state_0 = 3;
       continue;
 
-     case 8:
+     case 11:
       return this.local$hash.end(), new HashResult(this.local$hash.digest("hex"), this.local$numFiles, this.local$totalBytes);
 
-     case 9:
-      this.exceptionState_0 = 11;
-      var e = this.exception_0;
+     case 12:
+      this.exceptionState_0 = 14;
+      e = this.exception_0;
       throw Kotlin.isType(e, Throwable) ? new IllegalArgumentException("Unable to hash " + joinToString_0(this.local$paths, ", "), e) : e;
 
-     case 10:
+     case 13:
       return;
 
-     case 11:
+     case 14:
       throw this.exception_0;
 
      default:
-      throw this.state_0 = 11, new Error("State Machine Unreachable execution");
+      throw this.state_0 = 14, new Error("State Machine Unreachable execution");
      }
     } catch (e) {
-     if (11 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
+     if (14 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
      this.state_0 = this.exceptionState_0, this.exception_0 = e;
     }
    }, HashDetails$Companion.prototype.serializer = function() {
@@ -17622,7 +17757,7 @@
     };
    }
    function Coroutine$hashFilesDetailed(paths_0, algorithm_0, continuation_0) {
-    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 13, this.local$tmp$ = void 0, 
+    CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 16, this.local$tmp$ = void 0, 
     this.local$tmp$_1 = void 0, this.local$fileNames = void 0, this.local$githubWorkspace = void 0, 
     this.local$homeDir = void 0, this.local$totalBytes = void 0, this.local$files = void 0, 
     this.local$overallHash = void 0, this.local$name = void 0, this.local$statSync = void 0, 
@@ -17693,7 +17828,7 @@
      switch (this.state_0) {
      case 0:
       var tmp$;
-      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 11, 
+      if (void 0 === this.local$algorithm && (this.local$algorithm = "sha1"), this.exceptionState_0 = 14, 
       this.state_0 = 1, this.result_0 = await_0(create(joinToString_0(this.local$paths, "\n")), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
@@ -17712,7 +17847,7 @@
 
      case 3:
       if (this.local$tmp$ === this.local$fileNames.length) {
-       this.state_0 = 10;
+       this.state_0 = 13;
        continue;
       }
       if (this.local$name = this.local$fileNames[this.local$tmp$], this.state_0 = 4, this.result_0 = await_0(stat(this.local$name), this), 
@@ -17721,7 +17856,7 @@
 
      case 4:
       if (this.local$statSync = this.result_0, this.local$statSync.isDirectory()) {
-       this.state_0 = 9;
+       this.state_0 = 12;
        continue;
       }
       this.state_0 = 5;
@@ -17739,54 +17874,73 @@
       if (this.local$key = replace(tmp$, 92, 47), equals_0(this.local$algorithm, "sha1") && startsWith(this.local$key, "~/.gradle/caches/modules-2/files-2.1/")) {
        this.local$tmp$_1 = (key = this.local$key, lastSlash = void 0, hashStart = void 0, 
        lastSlash = lastIndexOf(key, 47), hashStart = lastIndexOf(key, 47, lastSlash - 1 | 0) + 1 | 0, 
-       padStart(key.substring(hashStart, lastSlash), 40, 48)), this.state_0 = 8;
+       padStart(key.substring(hashStart, lastSlash), 40, 48)), this.state_0 = 11;
        continue;
       }
       if (startsWith(this.local$key, "~/.gradle/caches/build-cache-1/")) {
-       this.local$tmp$_1 = substringAfterLast_0(this.local$key, 47), this.state_0 = 7;
+       this.local$tmp$_1 = substringAfterLast_0(this.local$key, 47), this.state_0 = 10;
        continue;
       }
-      if (this.local$hash = createHash(this.local$algorithm), this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFilesDetailed$lambda(this.local$hash), this), 
+      if (this.local$hash = createHash(this.local$algorithm), this.exceptionState_0 = 7, 
+      this.state_0 = 6, this.result_0 = use(createReadStream(this.local$name), hashFilesDetailed$lambda(this.local$hash), this), 
       this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
       continue;
 
      case 6:
-      this.local$tmp$_1 = this.local$hash.digest().toString("hex"), this.state_0 = 7;
+      this.exceptionState_0 = 14, this.state_0 = 9;
       continue;
 
      case 7:
-      this.state_0 = 8;
-      continue;
+      this.exceptionState_0 = 14;
+      var e = this.exception_0;
+      if (Kotlin.isType(e, Throwable)) {
+       warning("Unable to hash " + this.local$name + ", will ignore the file: " + stackTraceToString(e)), 
+       this.exceptionState_0 = 7, this.state_0 = 12;
+       continue;
+      }
+      throw e;
 
      case 8:
-      var digest = this.local$tmp$_1, value = new FileDetails(this.local$fileSize, digest);
-      this.local$files.put_xwzc9p$(this.local$key, value), this.local$overallHash.update(this.local$key), 
-      this.local$overallHash.update(digest), this.state_0 = 9;
+      this.state_0 = 9;
       continue;
 
      case 9:
-      ++this.local$tmp$, this.state_0 = 3;
+      this.local$tmp$_1 = this.local$hash.digest().toString("hex"), this.state_0 = 10;
       continue;
 
      case 10:
-      return new HashDetails(new HashInfo(this.local$totalBytes, this.local$overallHash.digest("hex"), this.local$files.size), new HashContents(this.local$files));
+      this.state_0 = 11;
+      continue;
 
      case 11:
-      this.exceptionState_0 = 13;
-      var e = this.exception_0;
-      throw Kotlin.isType(e, Throwable) ? new IllegalArgumentException("Unable to hash " + joinToString_0(this.local$paths, ", "), e) : e;
+      var digest = this.local$tmp$_1, value = new FileDetails(this.local$fileSize, digest);
+      this.local$files.put_xwzc9p$(this.local$key, value), this.local$overallHash.update(this.local$key), 
+      this.local$overallHash.update(digest), this.state_0 = 12;
+      continue;
 
      case 12:
-      return;
+      ++this.local$tmp$, this.state_0 = 3;
+      continue;
 
      case 13:
+      return new HashDetails(new HashInfo(this.local$totalBytes, this.local$overallHash.digest("hex"), this.local$files.size), new HashContents(this.local$files));
+
+     case 14:
+      this.exceptionState_0 = 16;
+      e = this.exception_0;
+      throw Kotlin.isType(e, Throwable) ? new IllegalArgumentException("Unable to hash " + joinToString_0(this.local$paths, ", "), e) : e;
+
+     case 15:
+      return;
+
+     case 16:
       throw this.exception_0;
 
      default:
-      throw this.state_0 = 13, new Error("State Machine Unreachable execution");
+      throw this.state_0 = 16, new Error("State Machine Unreachable execution");
      }
     } catch (e) {
-     if (13 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
+     if (16 === this.state_0) throw this.exceptionState_0 = this.state_0, e;
      this.state_0 = this.exceptionState_0, this.exception_0 = e;
     }
     var key, lastSlash, hashStart;
@@ -23118,7 +23272,8 @@
    Kotlin.kotlin.collections.copyOf_rblqex$), copyOf_4 = (Kotlin.kotlin.js.internal.DoubleCompanionObject, 
    Kotlin.kotlin.collections.copyOf_xgrzbe$), unboxChar = Kotlin.unboxChar, copyOf_5 = (Kotlin.kotlin.js.internal.CharCompanionObject, 
    Kotlin.kotlin.collections.copyOf_gtcw5h$), copyOf_6 = (Kotlin.kotlin.js.internal.BooleanCompanionObject, 
-   Kotlin.kotlin.collections.copyOf_1qu12l$), PrimitiveClasses$stringClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.stringClass, Char = Kotlin.BoxedChar, PrimitiveClasses$charArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.charArrayClass, PrimitiveClasses$doubleClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.doubleClass, PrimitiveClasses$doubleArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.doubleArrayClass, PrimitiveClasses$floatClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.floatClass, PrimitiveClasses$floatArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.floatArrayClass, Long = Kotlin.Long, PrimitiveClasses$longArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.longArrayClass, PrimitiveClasses$intClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.intClass, PrimitiveClasses$intArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.intArrayClass, PrimitiveClasses$shortClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.shortClass, PrimitiveClasses$shortArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.shortArrayClass, PrimitiveClasses$byteClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.byteClass, PrimitiveClasses$byteArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.byteArrayClass, PrimitiveClasses$booleanClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.booleanClass, PrimitiveClasses$booleanArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.booleanArrayClass, kotlin = Kotlin.kotlin, mapOf = Kotlin.kotlin.collections.mapOf_qfcya0$, capitalize = Kotlin.kotlin.text.capitalize_pdl1vz$, equals_0 = Kotlin.kotlin.text.equals_igcy3c$, trimIndent = Kotlin.kotlin.text.trimIndent_pdl1vz$, last = Kotlin.kotlin.collections.last_2p1efm$, lastOrNull = Kotlin.kotlin.collections.lastOrNull_2p1efm$, get_lastIndex = Kotlin.kotlin.collections.get_lastIndex_55thoc$, StringBuilder_init_0 = Kotlin.kotlin.text.StringBuilder_init, toInt = Kotlin.kotlin.text.toInt_pdl1vz$, toLongOrNull = Kotlin.kotlin.text.toLongOrNull_pdl1vz$, toDouble = Kotlin.kotlin.text.toDouble_pdl1vz$, toDoubleOrNull = Kotlin.kotlin.text.toDoubleOrNull_pdl1vz$, coerceAtMost = Kotlin.kotlin.ranges.coerceAtMost_dqglrj$, toChar = Kotlin.toChar, concatToString = Kotlin.kotlin.text.concatToString_wlitf7$, toByte_0 = Kotlin.kotlin.text.toByte_pdl1vz$, toShort = Kotlin.kotlin.text.toShort_pdl1vz$, single = Kotlin.kotlin.text.single_gw00vp$, Throwable = Error, isFinite = Kotlin.kotlin.isFinite_81szk$, isFinite_0 = Kotlin.kotlin.isFinite_yrwdxr$, toShort_0 = Kotlin.toShort, toList_0 = Kotlin.kotlin.collections.toList_7wnvza$, throwUPAE = Kotlin.throwUPAE, emptyMap = (Kotlin.kotlin.NotImplementedError, 
+   Kotlin.kotlin.collections.copyOf_1qu12l$), PrimitiveClasses$stringClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.stringClass, Char = Kotlin.BoxedChar, PrimitiveClasses$charArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.charArrayClass, PrimitiveClasses$doubleClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.doubleClass, PrimitiveClasses$doubleArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.doubleArrayClass, PrimitiveClasses$floatClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.floatClass, PrimitiveClasses$floatArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.floatArrayClass, Long = Kotlin.Long, PrimitiveClasses$longArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.longArrayClass, PrimitiveClasses$intClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.intClass, PrimitiveClasses$intArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.intArrayClass, PrimitiveClasses$shortClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.shortClass, PrimitiveClasses$shortArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.shortArrayClass, PrimitiveClasses$byteClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.byteClass, PrimitiveClasses$byteArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.byteArrayClass, PrimitiveClasses$booleanClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.booleanClass, PrimitiveClasses$booleanArrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.booleanArrayClass, kotlin = Kotlin.kotlin, mapOf = Kotlin.kotlin.collections.mapOf_qfcya0$, capitalize = Kotlin.kotlin.text.capitalize_pdl1vz$, equals_0 = Kotlin.kotlin.text.equals_igcy3c$, trimIndent = Kotlin.kotlin.text.trimIndent_pdl1vz$, last = Kotlin.kotlin.collections.last_2p1efm$, lastOrNull = Kotlin.kotlin.collections.lastOrNull_2p1efm$, get_lastIndex = Kotlin.kotlin.collections.get_lastIndex_55thoc$, StringBuilder_init_0 = Kotlin.kotlin.text.StringBuilder_init, toInt = Kotlin.kotlin.text.toInt_pdl1vz$, toLongOrNull = Kotlin.kotlin.text.toLongOrNull_pdl1vz$, toDouble = Kotlin.kotlin.text.toDouble_pdl1vz$, toDoubleOrNull = Kotlin.kotlin.text.toDoubleOrNull_pdl1vz$, coerceAtMost = Kotlin.kotlin.ranges.coerceAtMost_dqglrj$, toChar = Kotlin.toChar, concatToString = Kotlin.kotlin.text.concatToString_wlitf7$, toByte_0 = Kotlin.kotlin.text.toByte_pdl1vz$, toShort = Kotlin.kotlin.text.toShort_pdl1vz$, single = Kotlin.kotlin.text.single_gw00vp$, Throwable = Error, isFinite = Kotlin.kotlin.isFinite_81szk$, isFinite_0 = Kotlin.kotlin.isFinite_yrwdxr$, toShort_0 = (Kotlin.kotlin.text.iterator_gw00vp$, 
+   Kotlin.toShort), toList_0 = Kotlin.kotlin.collections.toList_7wnvza$, throwUPAE = Kotlin.throwUPAE, emptyMap = (Kotlin.kotlin.NotImplementedError, 
    Kotlin.kotlin.collections.emptyMap_q3lmfv$), PrimitiveClasses$anyClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.anyClass, L9007199254740991 = new Kotlin.Long(-1, 2097151), get_indices_0 = (Math, 
    Kotlin.kotlin.math.abs_s8cxhz$, Kotlin.kotlin.collections.get_indices_l1lu5t$), get_js = Kotlin.kotlin.js.get_js_1yb8b7$, PrimitiveClasses$arrayClass = Kotlin.kotlin.reflect.js.internal.PrimitiveClasses.arrayClass, findAssociatedObject = Kotlin.findAssociatedObject_yjf3nl$;
    function ContextualSerializer(serializableClass, fallbackSerializer, typeParametersSerializers) {
