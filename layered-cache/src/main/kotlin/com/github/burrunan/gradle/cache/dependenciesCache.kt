@@ -17,6 +17,7 @@
 package com.github.burrunan.gradle.cache
 
 import actions.core.debug
+import com.github.burrunan.gradle.GradleCacheAction
 import com.github.burrunan.gradle.github.env.ActionsEnvironment
 import com.github.burrunan.gradle.github.event.ActionsTrigger
 import com.github.burrunan.gradle.github.event.cacheKey
@@ -32,7 +33,7 @@ suspend fun dependenciesCache(
     cacheLocation: List<String>,
     pathDependencies: List<String>,
 ): Cache {
-    val defaultBranch = trigger.event.repository.default_branch
+    val defaultBranch = GradleCacheAction.DEFAULT_BRANCH_VAR
     val pkPrefix = trigger.cacheKey
     val cacheName = "dependencies-$name"
 
@@ -49,6 +50,8 @@ suspend fun dependenciesCache(
         restoreKeys = listOf(
             "$prefix-$pkPrefix",
             "$prefix-$defaultBranch",
+            "$prefix-master",
+            "$prefix-main",
         ),
         paths = cacheLocation,
     )

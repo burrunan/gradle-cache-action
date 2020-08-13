@@ -15,12 +15,13 @@
  */
 package com.github.burrunan.gradle.cache
 
+import com.github.burrunan.gradle.GradleCacheAction
 import com.github.burrunan.gradle.github.event.ActionsTrigger
 import com.github.burrunan.gradle.github.event.cacheKey
 
 fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: String, treeId: String): Cache {
     val buildCacheLocation = "~/.gradle/caches/build-cache-1"
-    val defaultBranch = trigger.event.repository.default_branch
+    val defaultBranch = GradleCacheAction.DEFAULT_BRANCH_VAR
     val pkPrefix = trigger.cacheKey
 
     val restoreKeys = when (trigger) {
@@ -28,12 +29,20 @@ fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: Strin
             pkPrefix,
             trigger.event.pull_request.base.ref.removePrefix("refs/heads/"),
             defaultBranch,
+            "master",
+            "main",
         )
         is ActionsTrigger.BranchPush -> arrayOf(
             pkPrefix,
             defaultBranch,
+            "master",
+            "main",
         )
-        is ActionsTrigger.Other -> throw IllegalStateException("Unknown event ${trigger.name}")
+        is ActionsTrigger.Other -> arrayOf(
+            defaultBranch,
+            "master",
+            "main",
+        )
     }
     val prefix = "gradle-build-cache-$jobId-$gradleVersion"
     return LayeredCache(

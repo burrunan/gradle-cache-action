@@ -26,6 +26,10 @@ import actions.exec.exec
 import kotlinx.coroutines.await
 
 class GradleCacheAction(val trigger: ActionsTrigger, val params: Parameters) {
+    companion object {
+        const val DEFAULT_BRANCH_VAR = "defaultbranch"
+    }
+
     private val treeId = suspendingStateVariable("tree_id") {
         exec("git", "log", "-1", "--quiet", "--format=%T").stdout
     }

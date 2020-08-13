@@ -15,6 +15,7 @@
  */
 package com.github.burrunan.gradle.github.event
 
+import com.github.burrunan.gradle.GradleCacheAction
 import com.github.burrunan.gradle.github.env.ActionsEnvironment
 import fs2.promises.readFile
 import kotlinx.coroutines.await
@@ -28,7 +29,11 @@ sealed class ActionsTrigger(val name: String, open val event: Event) {
 val ActionsTrigger.cacheKey: String
     get() = when (this) {
         is ActionsTrigger.PullRequest -> "PR${event.pull_request.number}"
-        is ActionsTrigger.BranchPush -> event.ref.removePrefix("refs/heads/")
+        is ActionsTrigger.BranchPush -> when (val ref = event.ref.removePrefix("refs/heads/")) {
+            event.repository.default_branch.removePrefix("refs/heads/") ->
+                GradleCacheAction.DEFAULT_BRANCH_VAR
+            else -> ref
+        }
         is ActionsTrigger.Other -> "$name-${ActionsEnvironment.GITHUB_WORKFLOW}-${ActionsEnvironment.GITHUB_SHA}"
     }
 

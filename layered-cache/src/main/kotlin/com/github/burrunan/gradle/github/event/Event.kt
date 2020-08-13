@@ -16,13 +16,13 @@
 package com.github.burrunan.gradle.github.event
 
 external interface Event {
-    var repository: Repository
 }
 
 /**
  * See https://docs.github.com/en/developers/webhooks-and-events/webhook-events-and-payloads#push
  */
 external interface BranchPushEvent : Event {
+    var repository: Repository
     var action: String
     var ref: String
     var commits: List<Commit>
@@ -38,6 +38,7 @@ external interface BranchPushEvent : Event {
  * See https://docs.github.com/en/developers/webhooks-and-events/webhook-events-and-payloads#pull_request
  */
 external interface PullRequestEvent : Event {
+    var repository: Repository
     var url: String
     var id: Number
     var number: Int
