@@ -24,6 +24,7 @@ sealed class ActionsTrigger(val name: String, open val event: Event) {
     class PullRequest(override val event: PullRequestEvent) : ActionsTrigger("pull_request", event)
     class BranchPush(override val event: BranchPushEvent) : ActionsTrigger("push", event)
     class Schedule(name: String, event: Event) : ActionsTrigger(name, event)
+    class WorkflowDispatch(name: String, event: Event) : ActionsTrigger(name, event)
     class Other(name: String, event: Event) : ActionsTrigger(name, event)
 }
 
@@ -35,7 +36,8 @@ val ActionsTrigger.cacheKey: String
                 GradleCacheAction.DEFAULT_BRANCH_VAR
             else -> ref
         }
-        is ActionsTrigger.Schedule -> GradleCacheAction.DEFAULT_BRANCH_VAR
+        is ActionsTrigger.Schedule, is ActionsTrigger.WorkflowDispatch ->
+            GradleCacheAction.DEFAULT_BRANCH_VAR
         is ActionsTrigger.Other -> "$name-${ActionsEnvironment.GITHUB_WORKFLOW}-${ActionsEnvironment.GITHUB_SHA}"
     }
 
@@ -47,6 +49,7 @@ suspend fun currentTrigger(): ActionsTrigger {
         "pull_request" -> ActionsTrigger.PullRequest(event as PullRequestEvent)
         "push" -> ActionsTrigger.BranchPush(event as BranchPushEvent)
         "schedule" -> ActionsTrigger.Schedule(eventName, event)
+        "workflow_dispatch" -> ActionsTrigger.WorkflowDispatch(eventName, event)
         else -> ActionsTrigger.Other(eventName, event)
     }
 }
