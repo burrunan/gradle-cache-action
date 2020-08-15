@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
+
+package actions.glob
+
+import AsyncGenerator__2
+import kotlin.js.Promise
+
+external interface Globber {
+    fun getSearchPaths(): Array<String>
+    @JsName("glob")
+    fun globAsync(): Promise<Array<String>>
+    fun globGenerator(): AsyncGenerator__2<String, Unit>
 }

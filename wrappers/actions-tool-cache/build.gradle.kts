@@ -15,6 +15,5 @@
  */
 
 dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+    api(npm("@actions/tool-cache", "1.6.0"))
 }

@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
+
+package octokit.requesterror
+
+import octokit.types.RequestOptions
+import octokit.types.ResponseHeaders
+
+external interface RequestErrorOptions {
+    var headers: ResponseHeaders?
+    var request: RequestOptions
 }

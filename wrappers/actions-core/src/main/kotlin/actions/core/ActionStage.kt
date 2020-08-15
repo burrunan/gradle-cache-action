@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+package actions.core
+
+enum class ActionStage {
+    PRE, MAIN, POST
 }

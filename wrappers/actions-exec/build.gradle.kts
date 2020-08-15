@@ -15,6 +15,6 @@
  */
 
 dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+    api(project(":wrappers:nodejs"))
+    api(npm("@actions/exec", "1.0.4"))
 }

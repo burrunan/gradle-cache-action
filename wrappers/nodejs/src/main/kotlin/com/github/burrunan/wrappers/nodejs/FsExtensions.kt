@@ -15,32 +15,12 @@
  */
 package com.github.burrunan.wrappers.nodejs
 
-import fs2.promises.unlink
-import actions.glob.create
-import kotlinx.coroutines.await
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.supervisorScope
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-suspend fun removeFiles(files: List<String>) {
-    if (files.isEmpty()) {
-        return
-    }
-    val globber = create(files.joinToString("\n")).await()
-    val fileNames = globber.glob().await()
-    supervisorScope {
-        for (file in fileNames) {
-            launch {
-                unlink(file).await()
-            }
-        }
-    }
-}
-
 suspend fun mkdir(path: String) {
     if (!exists(path)) {
-        fs2.promises.mkdir(path).await()
+        fs2.promises.mkdir(path)
     }
 }
 

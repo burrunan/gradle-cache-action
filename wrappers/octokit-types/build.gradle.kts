@@ -15,6 +15,6 @@
  */
 
 dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+    api(project(":wrappers:nodejs"))
+    api(npm("@octokit/types", "5.4.0"))
 }

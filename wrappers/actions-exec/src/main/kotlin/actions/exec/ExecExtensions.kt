@@ -25,15 +25,19 @@ class ExecResult(
 
 suspend fun exec(
     commandLine: String, vararg args: String,
+    captureOutput: Boolean = false,
     options: ExecOptions.() -> Unit = {}
 ): ExecResult {
     val stdout = mutableListOf<String>()
     val exitCode = exec(
         commandLine,
         args.copyOf(),
-        jsObject(options).apply {
-            listeners = jsObject {
-                this.stdout = {
+        jsObject {
+            // TODO: add custom interface for ExecOptions for [captureOutput]
+            listeners = jsObject()
+            options()
+            if (captureOutput) {
+                listeners!!.stdout = {
                     stdout.add(it.toString())
                 }
             }

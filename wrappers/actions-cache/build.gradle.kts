@@ -15,6 +15,6 @@
  */
 
 dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+    api(npm("@actions/cache", "1.0.1"))
+    implementation(project(":wrappers:actions-core"))
 }

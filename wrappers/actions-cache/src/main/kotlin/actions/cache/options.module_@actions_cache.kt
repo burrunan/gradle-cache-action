@@ -14,7 +14,17 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
+
+package actions.cache
+
+external interface UploadOptions {
+    var uploadConcurrency: Number?
+    var uploadChunkSize: Number?
+}
+
+external interface DownloadOptions {
+    var useAzureSdk: Boolean?
+    var downloadConcurrency: Number?
+    var timeoutInMs: Number?
 }

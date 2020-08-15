@@ -14,7 +14,23 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+package actions.glob
+
+import fs2.promises.unlink
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
+
+suspend fun removeFiles(files: List<String>) {
+    if (files.isEmpty()) {
+        return
+    }
+    val globber = Globber(files.joinToString("\n"))
+    val fileNames = globber.glob()
+    supervisorScope {
+        for (file in fileNames) {
+            launch {
+                unlink(file)
+            }
+        }
+    }
 }

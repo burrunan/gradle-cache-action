@@ -32,12 +32,6 @@ subprojects {
     }
 }
 
-project(":wrappers").subprojects {
-    dependencies {
-        "implementation"(project(":lib"))
-    }
-}
-
 allprojects {
     repositories {
         jcenter()

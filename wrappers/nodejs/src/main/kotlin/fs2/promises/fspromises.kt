@@ -19,16 +19,26 @@ package fs2.promises
 
 import kotlin.js.Promise
 
-external fun unlink(paths: String): Promise<Unit>
+@JsName("unlink")
+external fun unlinkAsync(paths: String): Promise<Unit>
 
-external fun readFile(path: String, encoding: String): Promise<String>
+@JsName("readFile")
+external fun readFileAsync(path: String, encoding: String = definedExternally): Promise<String>
 
-external fun writeFile(path: String, data: Any, encoding: String): Promise<Unit>
+@JsName("writeFile")
+external fun writeFileAsync(path: String, data: Any, encoding: String = definedExternally): Promise<Unit>
 
-external fun stat(path: String): Promise<fs.Stats>
+@JsName("stat")
+external fun statAsync(path: String): Promise<fs.Stats>
 
-external fun rename(oldPath: String, newPath: String): Promise<Unit>
+@JsName("rename")
+external fun renameAsync(oldPath: String, newPath: String): Promise<Unit>
 
-external fun mkdir(path: String): Promise<Unit>
+@JsName("mkdir")
+external fun mkdirAsync(path: String): Promise<Unit>
 
-external fun writeFile(path: String, data: Any, options: String? = definedExternally): Promise<Unit>
+@JsName("chmod")
+external fun chmodAsync(path: String, mode: Number): Promise<Unit>
+
+@JsName("chmod")
+external fun chmodAsync(path: String, mode: String): Promise<Unit>

@@ -27,7 +27,6 @@ pluginManagement {
 rootProject.name = "gradle-cache-action"
 
 include(
-    "lib",
     "cache-service-mock",
     "layered-cache",
     "cache-action-entrypoint",
@@ -36,5 +35,13 @@ include(
     "wrappers:nodejs",
     "wrappers:actions-cache",
     "wrappers:actions-core",
-    "wrappers:actions-exec"
+    "wrappers:actions-exec",
+    "wrappers:actions-glob",
+    "wrappers:actions-http-client",
+    "wrappers:actions-io",
+    "wrappers:actions-tool-cache",
+    "wrappers:java-properties",
+    "wrappers:octokit-request-error",
+    "wrappers:octokit-types",
+    "wrappers:octokit-webhooks"
 )

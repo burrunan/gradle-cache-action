@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
-}
+package actions.glob
+
+import kotlinx.coroutines.await
+
+suspend fun Globber(patterns: String) =
+    createAsync(patterns).await()
+
+suspend fun Globber(patterns: String, options: GlobOptions) =
+    createAsync(patterns, options).await()
+
+suspend fun Globber.glob() = globAsync().await()

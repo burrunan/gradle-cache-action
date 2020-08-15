@@ -15,6 +15,7 @@
  */
 
 dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+    api(project(":wrappers:octokit-request-error"))
+    api(npm("@octokit/webhooks", "7.9.3"))
+    implementation(project(":wrappers:actions-core"))
 }

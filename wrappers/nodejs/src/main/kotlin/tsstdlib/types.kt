@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
-}
+@file:Suppress("UNUSED_TYPEALIAS_PARAMETER")
+
+package tsstdlib
+
+typealias InstanceType<@Suppress("unused") T> = Any
+
+typealias ReturnType<@Suppress("unused") T> = Any

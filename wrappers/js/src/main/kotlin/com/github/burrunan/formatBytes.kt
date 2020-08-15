@@ -13,8 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.github.burrunan
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+fun Long.formatBytes() = when {
+    this < 5 * 1024 -> "${this} B"
+    this < 5 * 1024 * 1204 -> "${(this + 512L) / (1024L)} KiB"
+    this < 5L * 1024 * 1204 * 1024 -> "${(this + 512L * 1024) / (1024L * 1024)} MiB"
+    else -> "${(this + 512L * 1024 * 1024) / (1024L * 1024 * 1024)} GiB"
 }

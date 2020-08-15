@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlinx:kotlinx-nodejs:0.0.4")
+package javaproperties
+
+private val NEWLINE = Regex("\\s*[\r\n]+\\s*")
+
+fun parseString(text: String) = PropertiesFile().apply {
+    for(line in text.split(NEWLINE)) {
+        makeKeys(line)
+    }
 }
