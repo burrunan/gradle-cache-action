@@ -15282,8 +15282,10 @@
    ActionsTrigger$PullRequest.prototype = Object.create(ActionsTrigger.prototype), 
    ActionsTrigger$PullRequest.prototype.constructor = ActionsTrigger$PullRequest, ActionsTrigger$BranchPush.prototype = Object.create(ActionsTrigger.prototype), 
    ActionsTrigger$BranchPush.prototype.constructor = ActionsTrigger$BranchPush, ActionsTrigger$Schedule.prototype = Object.create(ActionsTrigger.prototype), 
-   ActionsTrigger$Schedule.prototype.constructor = ActionsTrigger$Schedule, ActionsTrigger$Other.prototype = Object.create(ActionsTrigger.prototype), 
-   ActionsTrigger$Other.prototype.constructor = ActionsTrigger$Other, GradleCacheAction$Companion.$metadata$ = {
+   ActionsTrigger$Schedule.prototype.constructor = ActionsTrigger$Schedule, ActionsTrigger$WorkflowDispatch.prototype = Object.create(ActionsTrigger.prototype), 
+   ActionsTrigger$WorkflowDispatch.prototype.constructor = ActionsTrigger$WorkflowDispatch, 
+   ActionsTrigger$Other.prototype = Object.create(ActionsTrigger.prototype), ActionsTrigger$Other.prototype.constructor = ActionsTrigger$Other, 
+   GradleCacheAction$Companion.$metadata$ = {
     kind: Kind_OBJECT,
     simpleName: "Companion",
     interfaces: []
@@ -17228,6 +17230,9 @@
    function ActionsTrigger$Schedule(name, event) {
     ActionsTrigger.call(this, name, event);
    }
+   function ActionsTrigger$WorkflowDispatch(name, event) {
+    ActionsTrigger.call(this, name, event);
+   }
    function ActionsTrigger$Other(name, event) {
     ActionsTrigger.call(this, name, event);
    }
@@ -17237,7 +17242,7 @@
      var ref = removePrefix($receiver.event.ref, "refs/heads/");
      return equals_0(ref, removePrefix($receiver.event.repository.default_branch, "refs/heads/")) ? GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR : ref;
     }
-    return Kotlin.isType($receiver, ActionsTrigger$Schedule) ? GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR : Kotlin.isType($receiver, ActionsTrigger$Other) ? $receiver.name + "-" + ActionsEnvironment_getInstance().GITHUB_WORKFLOW + "-" + ActionsEnvironment_getInstance().GITHUB_SHA : Kotlin.noWhenBranchMatched();
+    return Kotlin.isType($receiver, ActionsTrigger$Schedule) || Kotlin.isType($receiver, ActionsTrigger$WorkflowDispatch) ? GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR : Kotlin.isType($receiver, ActionsTrigger$Other) ? $receiver.name + "-" + ActionsEnvironment_getInstance().GITHUB_WORKFLOW + "-" + ActionsEnvironment_getInstance().GITHUB_SHA : Kotlin.noWhenBranchMatched();
    }
    function Coroutine$currentTrigger(continuation_0) {
     CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 1;
@@ -17299,6 +17304,10 @@
     kind: Kind_CLASS,
     simpleName: "Schedule",
     interfaces: [ ActionsTrigger ]
+   }, ActionsTrigger$WorkflowDispatch.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: "WorkflowDispatch",
+    interfaces: [ ActionsTrigger ]
    }, ActionsTrigger$Other.$metadata$ = {
     kind: Kind_CLASS,
     simpleName: "Other",
@@ -17337,6 +17346,10 @@
 
       case "schedule":
        tmp$_1 = new ActionsTrigger$Schedule(eventName, event);
+       break;
+
+      case "workflow_dispatch":
+       tmp$_1 = new ActionsTrigger$WorkflowDispatch(eventName, event);
        break;
 
       default:
@@ -18013,7 +18026,8 @@
    Object.defineProperty(package$env, "ActionsEnvironment", {
     get: ActionsEnvironment_getInstance
    }), ActionsTrigger.PullRequest = ActionsTrigger$PullRequest, ActionsTrigger.BranchPush = ActionsTrigger$BranchPush, 
-   ActionsTrigger.Schedule = ActionsTrigger$Schedule, ActionsTrigger.Other = ActionsTrigger$Other;
+   ActionsTrigger.Schedule = ActionsTrigger$Schedule, ActionsTrigger.WorkflowDispatch = ActionsTrigger$WorkflowDispatch, 
+   ActionsTrigger.Other = ActionsTrigger$Other;
    var package$event = package$github_0.event || (package$github_0.event = {});
    package$event.ActionsTrigger = ActionsTrigger, package$event.get_cacheKey_t7lr9h$ = get_cacheKey, 
    package$event.currentTrigger = function(continuation_0, suspended) {
