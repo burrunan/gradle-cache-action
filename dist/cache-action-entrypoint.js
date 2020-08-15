@@ -15281,7 +15281,8 @@
    DefaultStateVariable.prototype = Object.create(BaseStateVariable.prototype), DefaultStateVariable.prototype.constructor = DefaultStateVariable, 
    ActionsTrigger$PullRequest.prototype = Object.create(ActionsTrigger.prototype), 
    ActionsTrigger$PullRequest.prototype.constructor = ActionsTrigger$PullRequest, ActionsTrigger$BranchPush.prototype = Object.create(ActionsTrigger.prototype), 
-   ActionsTrigger$BranchPush.prototype.constructor = ActionsTrigger$BranchPush, ActionsTrigger$Other.prototype = Object.create(ActionsTrigger.prototype), 
+   ActionsTrigger$BranchPush.prototype.constructor = ActionsTrigger$BranchPush, ActionsTrigger$Schedule.prototype = Object.create(ActionsTrigger.prototype), 
+   ActionsTrigger$Schedule.prototype.constructor = ActionsTrigger$Schedule, ActionsTrigger$Other.prototype = Object.create(ActionsTrigger.prototype), 
    ActionsTrigger$Other.prototype.constructor = ActionsTrigger$Other, GradleCacheAction$Companion.$metadata$ = {
     kind: Kind_OBJECT,
     simpleName: "Companion",
@@ -16703,7 +16704,7 @@
     return dependenciesCache("maven", trigger, listOf_0("~/.m2/repository"), listOf_0(path + "/**/pom.xml"), continuation);
    }
    function localBuildCache(jobId, trigger, gradleVersion, treeId) {
-    var tmp$_3, defaultBranch = GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR, pkPrefix = get_cacheKey(trigger), restoreKeys = Kotlin.isType(trigger, ActionsTrigger$PullRequest) ? [ pkPrefix, removePrefix(trigger.event.pull_request.base.ref, "refs/heads/"), defaultBranch, "master", "main" ] : Kotlin.isType(trigger, ActionsTrigger$BranchPush) ? [ pkPrefix, defaultBranch, "master", "main" ] : Kotlin.isType(trigger, ActionsTrigger$Other) ? [ defaultBranch, "master", "main" ] : Kotlin.noWhenBranchMatched(), prefix = "gradle-build-cache-" + jobId + "-" + gradleVersion, tmp$_0 = prefix + "-" + defaultBranch, tmp$_2 = prefix + "-" + pkPrefix + "-" + treeId, destination = ArrayList_init_0(restoreKeys.length);
+    var tmp$_3, defaultBranch = GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR, pkPrefix = get_cacheKey(trigger), elements = [ defaultBranch, "master", "main" ], restoreKeys = (Kotlin.isType(trigger, ActionsTrigger$PullRequest) ? [ pkPrefix, removePrefix(trigger.event.pull_request.base.ref, "refs/heads/") ] : Kotlin.isType(trigger, ActionsTrigger$BranchPush) ? [ pkPrefix ] : []).concat(elements), prefix = "gradle-build-cache-" + jobId + "-" + gradleVersion, tmp$_0 = prefix + "-" + defaultBranch, tmp$_2 = prefix + "-" + pkPrefix + "-" + treeId, destination = ArrayList_init_0(restoreKeys.length);
     for (tmp$_3 = 0; tmp$_3 !== restoreKeys.length; ++tmp$_3) {
      var item = restoreKeys[tmp$_3];
      destination.add_11rb$(prefix + "-" + item);
@@ -17224,6 +17225,9 @@
    function ActionsTrigger$BranchPush(event) {
     ActionsTrigger.call(this, "push", event), this.event_5tjvsi$_0 = event;
    }
+   function ActionsTrigger$Schedule(name, event) {
+    ActionsTrigger.call(this, name, event);
+   }
    function ActionsTrigger$Other(name, event) {
     ActionsTrigger.call(this, name, event);
    }
@@ -17233,7 +17237,7 @@
      var ref = removePrefix($receiver.event.ref, "refs/heads/");
      return equals_0(ref, removePrefix($receiver.event.repository.default_branch, "refs/heads/")) ? GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR : ref;
     }
-    return Kotlin.isType($receiver, ActionsTrigger$Other) ? $receiver.name + "-" + ActionsEnvironment_getInstance().GITHUB_WORKFLOW + "-" + ActionsEnvironment_getInstance().GITHUB_SHA : Kotlin.noWhenBranchMatched();
+    return Kotlin.isType($receiver, ActionsTrigger$Schedule) ? GradleCacheAction$Companion_getInstance().DEFAULT_BRANCH_VAR : Kotlin.isType($receiver, ActionsTrigger$Other) ? $receiver.name + "-" + ActionsEnvironment_getInstance().GITHUB_WORKFLOW + "-" + ActionsEnvironment_getInstance().GITHUB_SHA : Kotlin.noWhenBranchMatched();
    }
    function Coroutine$currentTrigger(continuation_0) {
     CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 1;
@@ -17291,6 +17295,10 @@
     kind: Kind_CLASS,
     simpleName: "BranchPush",
     interfaces: [ ActionsTrigger ]
+   }, ActionsTrigger$Schedule.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: "Schedule",
+    interfaces: [ ActionsTrigger ]
    }, ActionsTrigger$Other.$metadata$ = {
     kind: Kind_CLASS,
     simpleName: "Other",
@@ -17325,6 +17333,10 @@
 
       case "push":
        tmp$_1 = new ActionsTrigger$BranchPush(Kotlin.isType(tmp$_0 = event, Object) ? tmp$_0 : throwCCE());
+       break;
+
+      case "schedule":
+       tmp$_1 = new ActionsTrigger$Schedule(eventName, event);
        break;
 
       default:
@@ -18001,7 +18013,7 @@
    Object.defineProperty(package$env, "ActionsEnvironment", {
     get: ActionsEnvironment_getInstance
    }), ActionsTrigger.PullRequest = ActionsTrigger$PullRequest, ActionsTrigger.BranchPush = ActionsTrigger$BranchPush, 
-   ActionsTrigger.Other = ActionsTrigger$Other;
+   ActionsTrigger.Schedule = ActionsTrigger$Schedule, ActionsTrigger.Other = ActionsTrigger$Other;
    var package$event = package$github_0.event || (package$github_0.event = {});
    package$event.ActionsTrigger = ActionsTrigger, package$event.get_cacheKey_t7lr9h$ = get_cacheKey, 
    package$event.currentTrigger = function(continuation_0, suspended) {
