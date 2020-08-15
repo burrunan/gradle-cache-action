@@ -23,6 +23,7 @@ import kotlinx.coroutines.await
 sealed class ActionsTrigger(val name: String, open val event: Event) {
     class PullRequest(override val event: PullRequestEvent) : ActionsTrigger("pull_request", event)
     class BranchPush(override val event: BranchPushEvent) : ActionsTrigger("push", event)
+    class Schedule(name: String, event: Event) : ActionsTrigger(name, event)
     class Other(name: String, event: Event) : ActionsTrigger(name, event)
 }
 
@@ -34,6 +35,7 @@ val ActionsTrigger.cacheKey: String
                 GradleCacheAction.DEFAULT_BRANCH_VAR
             else -> ref
         }
+        is ActionsTrigger.Schedule -> GradleCacheAction.DEFAULT_BRANCH_VAR
         is ActionsTrigger.Other -> "$name-${ActionsEnvironment.GITHUB_WORKFLOW}-${ActionsEnvironment.GITHUB_SHA}"
     }
 
@@ -44,6 +46,7 @@ suspend fun currentTrigger(): ActionsTrigger {
     return when (val eventName = ActionsEnvironment.GITHUB_EVENT_NAME) {
         "pull_request" -> ActionsTrigger.PullRequest(event as PullRequestEvent)
         "push" -> ActionsTrigger.BranchPush(event as BranchPushEvent)
+        "schedule" -> ActionsTrigger.Schedule(eventName, event)
         else -> ActionsTrigger.Other(eventName, event)
     }
 }

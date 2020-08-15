@@ -28,22 +28,16 @@ fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: Strin
         is ActionsTrigger.PullRequest -> arrayOf(
             pkPrefix,
             trigger.event.pull_request.base.ref.removePrefix("refs/heads/"),
-            defaultBranch,
-            "master",
-            "main",
         )
         is ActionsTrigger.BranchPush -> arrayOf(
             pkPrefix,
-            defaultBranch,
-            "master",
-            "main",
         )
-        is ActionsTrigger.Other -> arrayOf(
-            defaultBranch,
-            "master",
-            "main",
-        )
-    }
+        else -> arrayOf()
+    } + arrayOf(
+        defaultBranch,
+        "master",
+        "main",
+    )
     val prefix = "gradle-build-cache-$jobId-$gradleVersion"
     return LayeredCache(
         name = "local-build-cache",
