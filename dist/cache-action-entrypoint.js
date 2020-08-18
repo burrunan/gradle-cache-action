@@ -23362,7 +23362,7 @@
       continue;
 
      case 6:
-      if (this.local$launchParams = new LaunchParams(this.result_0, this.local$params.path, this.local$args, splitLines(getInput("arguments"))), 
+      if (this.local$launchParams = new LaunchParams(this.result_0, this.local$params.path, this.local$args, splitLines(getInput("properties"))), 
       this.local$cacheProxy = new CacheProxy, this.local$cacheProxyEnabled) {
        if (info("Starting remote cache proxy, adding it via ~/.gradle/init.gradle"), this.state_0 = 7, 
        this.result_0 = this.local$cacheProxy.start(this), this.result_0 === COROUTINE_SUSPENDED) return COROUTINE_SUSPENDED;
