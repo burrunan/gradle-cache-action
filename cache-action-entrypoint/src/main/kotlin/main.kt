@@ -120,7 +120,7 @@ suspend fun mainInternal(stage: ActionStage) {
             gradle = install(gradleDistribution),
             projectPath = params.path,
             arguments = args,
-            properties = getInput("arguments").splitLines(),
+            properties = getInput("properties").splitLines(),
         )
 
         val cacheProxy = CacheProxy()
