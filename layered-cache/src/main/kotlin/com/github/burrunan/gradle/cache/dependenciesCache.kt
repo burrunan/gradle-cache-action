@@ -67,6 +67,7 @@ suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradl
         ),
         pathDependencies = listOf(
             "$path/**/*.gradle",
+            "$path/**/*.gradle.kts",
             "$path/**/gradle/dependency-locking/**",
             "$path/**/*.properties",
         ) + gradleDependenciesCacheKey.map {
