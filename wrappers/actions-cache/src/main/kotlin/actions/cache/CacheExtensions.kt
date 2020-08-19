@@ -61,7 +61,12 @@ suspend fun saveAndLog(
         when (t.asDynamic().name) {
             "ValidationError" -> throw t
             "ReserveCacheError" -> info(t.message ?: "Unknown ReserveCacheError")
-            else -> warning("Error while uploading $key: ${t.message}")
+            else -> when {
+                t.message?.contains("Cache already exists") == true ->
+                    info("Error while uploading $key: ${t.message}")
+                else ->
+                    warning("Error while uploading $key: ${t.message}")
+            }
         }
     }
 }
