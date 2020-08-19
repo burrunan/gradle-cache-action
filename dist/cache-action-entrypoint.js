@@ -25357,7 +25357,7 @@
  }, function(module, exports, __webpack_require__) {
   !function(_, Kotlin, $module$_actions_cache, $module$kotlinx_coroutines_core, $module$gradle_cache_action_actions_core, $module$_actions_core) {
    "use strict";
-   var COROUTINE_SUSPENDED = Kotlin.kotlin.coroutines.intrinsics.COROUTINE_SUSPENDED, CoroutineImpl = Kotlin.kotlin.coroutines.CoroutineImpl, restoreCache = $module$_actions_cache.restoreCache, await_0 = $module$kotlinx_coroutines_core.kotlinx.coroutines.await_t11jrl$, equals = Kotlin.equals, toString = Kotlin.toString, warning = $module$gradle_cache_action_actions_core.actions.core.warning_e3fzgx$, Throwable = Error, removePrefix = Kotlin.kotlin.text.removePrefix_gsj5wt$, endsWith = Kotlin.kotlin.text.endsWith_7epoxm$, joinToString = Kotlin.kotlin.collections.joinToString_fmv235$, info = $module$_actions_core.info, saveCache = $module$_actions_cache.saveCache, emptyList = Kotlin.kotlin.collections.emptyList_287e2$, copyToArray = Kotlin.kotlin.collections.copyToArray, collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$, ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_ww73n8$, Kind_CLASS = Kotlin.Kind.CLASS, Kind_OBJECT = Kotlin.Kind.OBJECT;
+   var COROUTINE_SUSPENDED = Kotlin.kotlin.coroutines.intrinsics.COROUTINE_SUSPENDED, CoroutineImpl = Kotlin.kotlin.coroutines.CoroutineImpl, restoreCache = $module$_actions_cache.restoreCache, await_0 = $module$kotlinx_coroutines_core.kotlinx.coroutines.await_t11jrl$, equals = Kotlin.equals, toString = Kotlin.toString, warning = $module$gradle_cache_action_actions_core.actions.core.warning_e3fzgx$, Throwable = Error, removePrefix = Kotlin.kotlin.text.removePrefix_gsj5wt$, endsWith = Kotlin.kotlin.text.endsWith_7epoxm$, joinToString = Kotlin.kotlin.collections.joinToString_fmv235$, info = $module$_actions_core.info, saveCache = $module$_actions_cache.saveCache, contains = Kotlin.kotlin.text.contains_li3zpu$, emptyList = Kotlin.kotlin.collections.emptyList_287e2$, copyToArray = Kotlin.kotlin.collections.copyToArray, collectionSizeOrDefault = Kotlin.kotlin.collections.collectionSizeOrDefault_ba2ldo$, ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_ww73n8$, Kind_CLASS = Kotlin.Kind.CLASS, Kind_OBJECT = Kotlin.Kind.OBJECT;
    function Coroutine$restoreAndLog(paths_0, primaryKey_0, restoreKeys_0, version_0, continuation_0) {
     CoroutineImpl.call(this, continuation_0), this.exceptionState_0 = 7, this.local$tmp$_0 = void 0, 
     this.local$paths = paths_0, this.local$primaryKey = primaryKey_0, this.local$restoreKeys = restoreKeys_0, 
@@ -25476,7 +25476,8 @@
        break;
 
       default:
-       warning("Error while uploading " + this.local$key + ": " + toString(t.message));
+       var tmp$_0;
+       !0 === (null != (tmp$_0 = t.message) ? contains(tmp$_0, "Cache already exists") : null) ? info("Error while uploading " + this.local$key + ": " + toString(t.message)) : warning("Error while uploading " + this.local$key + ": " + toString(t.message));
       }
       this.state_0 = 3;
       continue;
