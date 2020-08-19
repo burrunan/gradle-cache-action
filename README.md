@@ -71,6 +71,16 @@ buildCache {
 }
 ```
 
+## Sample integrations
+
+Here's how you can integrate build cache to existing projects:
+
+* Apache Calcite: https://github.com/apache/calcite/pull/2114
+* Apache JMeter: https://github.com/apache/jmeter/pull/611
+* pgjdbc: https://github.com/pgjdbc/pgjdbc/pull/1862
+* junit-pioneer: https://github.com/junit-pioneer/junit-pioneer/pull/325
+* opentelemetry-java-instrumentation: https://github.com/open-telemetry/opentelemetry-java-instrumentation/pull/1054
+
 ## Configuration
 
 The default configuration should suit for most of the cases, however, there are extra knobs.
