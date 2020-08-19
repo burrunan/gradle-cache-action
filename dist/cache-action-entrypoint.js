@@ -24729,7 +24729,7 @@
     return suspended ? instance : instance.doResume(null);
    }
    function gradleDependenciesCache(trigger, path, gradleDependenciesCacheKey, continuation) {
-    var tmp$_1, tmp$ = listOf([ "~/.gradle/caches/modules-2", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp$_0 = listOf([ path + "/**/*.gradle", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties" ]), destination = ArrayList_init_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10));
+    var tmp$_1, tmp$ = listOf([ "~/.gradle/caches/modules-2", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp$_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties" ]), destination = ArrayList_init_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10));
     for (tmp$_1 = gradleDependenciesCacheKey.iterator(); tmp$_1.hasNext(); ) {
      var tmp$_2, item = tmp$_1.next();
      destination.add_11rb$((startsWith(item, "!") ? "!" : "") + path + "/**/" + trimStart(trim(Kotlin.isCharSequence(tmp$_2 = item) ? tmp$_2 : throwCCE()).toString(), Kotlin.charArrayOf(33)));
