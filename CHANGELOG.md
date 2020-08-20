@@ -1,3 +1,10 @@
+## 2020-08-20 🙈 silence insecure protocols warning
+
+Modern Gradle versions issue a warning when users configure `http://` build cache.
+In practice, GitHub-based cache is located on localhost, so it is fine to use http.
+
+The plugin adds the relevant configuration to silence Gradle warning.
+
 ## 2020-08-19 🚀 Unlock Gradle remote build caching
 
 * Add HTTP caching proxy that implements Gradle HTTP cache API [effb04a](https://github.com/burrunan/gradle-cache-action/commit/effb04a)

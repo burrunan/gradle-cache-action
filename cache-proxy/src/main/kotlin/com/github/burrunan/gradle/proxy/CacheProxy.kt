@@ -161,6 +161,10 @@ class CacheProxy {
                     remote(HttpBuildCache) {
                         url = '$cacheUrl'
                         push = true
+                        // Build cache is located on localhost, so it is fine to use http protocol
+                        if (org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')) {
+                            allowInsecureProtocol = true
+                        }
                     }
                     if (needMulticache) {
                         settings.multicache.pushAndConfigure('actions-cache') {
