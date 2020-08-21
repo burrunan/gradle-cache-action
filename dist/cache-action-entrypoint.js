@@ -23550,7 +23550,7 @@
     this.local$oldHash = void 0, this.local$newHash = void 0;
    }
    function gradleGeneratedJarsCache(gradleVersion) {
-    return new DefaultCache("gradle-generated-jars", "generated-gradle-jars-gradle-" + gradleVersion, void 0, listOf([ "~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars", "!~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars/*.lock" ]), void 0, void 0, "~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars");
+    return new DefaultCache("gradle-generated-jars", "generated-gradle-jars-gradle-" + gradleVersion, void 0, listOf([ "~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars/*", "!~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars/*.lock" ]), void 0, void 0, "~/.gradle/caches/" + gradleVersion + "/generated-gradle-jars");
    }
    function CacheLayers(layers, deletedFiles) {
     CacheLayers$Companion_getInstance(), this.layers = layers, this.deletedFiles = deletedFiles;
@@ -24729,7 +24729,7 @@
     return suspended ? instance : instance.doResume(null);
    }
    function gradleDependenciesCache(trigger, path, gradleDependenciesCacheKey, continuation) {
-    var tmp$_1, tmp$ = listOf([ "~/.gradle/caches/modules-2", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp$_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties" ]), destination = ArrayList_init_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10));
+    var tmp$_1, tmp$ = listOf([ "~/.gradle/caches/modules-2/*", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp$_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties" ]), destination = ArrayList_init_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10));
     for (tmp$_1 = gradleDependenciesCacheKey.iterator(); tmp$_1.hasNext(); ) {
      var tmp$_2, item = tmp$_1.next();
      destination.add_11rb$((startsWith(item, "!") ? "!" : "") + path + "/**/" + trimStart(trim(Kotlin.isCharSequence(tmp$_2 = item) ? tmp$_2 : throwCCE()).toString(), Kotlin.charArrayOf(33)));
@@ -24750,7 +24750,7 @@
      var item = restoreKeys[tmp$_3];
      destination.add_11rb$(prefix + "-" + item);
     }
-    return new LayeredCache("local-build-cache", tmp$_0, void 0, tmp$_2, destination, listOf([ "~/.gradle/caches/build-cache-1/", "!~/.gradle/caches/build-cache-1/gc.properties", "!~/.gradle/caches/build-cache-1/build-cache-1.lock" ]));
+    return new LayeredCache("local-build-cache", tmp$_0, void 0, tmp$_2, destination, listOf([ "~/.gradle/caches/build-cache-1/*", "!~/.gradle/caches/build-cache-1/gc.properties", "!~/.gradle/caches/build-cache-1/build-cache-1.lock" ]));
    }
    function MutableStateVariable() {}
    function BaseStateVariable(name) {
