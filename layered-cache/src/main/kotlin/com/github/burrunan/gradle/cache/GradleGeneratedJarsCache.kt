@@ -20,7 +20,7 @@ fun gradleGeneratedJarsCache(gradleVersion: String): Cache =
         name = "gradle-generated-jars",
         primaryKey = "generated-gradle-jars-gradle-$gradleVersion",
         paths = listOf(
-            "~/.gradle/caches/$gradleVersion/generated-gradle-jars",
+            "~/.gradle/caches/$gradleVersion/generated-gradle-jars/*",
             "!~/.gradle/caches/$gradleVersion/generated-gradle-jars/*.lock",
         ),
         skipRestoreIfPathExists = "~/.gradle/caches/$gradleVersion/generated-gradle-jars",

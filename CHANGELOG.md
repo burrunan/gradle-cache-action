@@ -1,3 +1,17 @@
+## 2020-08-20 🚑 better exclusions for *.lock files
+
+It turns out caching action can't apply exclude if user included of the parent folders.
+
+See https://github.com/actions/cache/issues/364#issuecomment-678118231
+
+It should fix errors like
+
+```
+C:\windows\System32\tar.exe -z -cf cache.tgz -P -C D:/a/... --files-from manifest.txt
+tar.exe: Couldn't open C:/Users/runneradmin/.gradle/caches/6.6/generated-gradle-jars/generated-gradle-jars.lock: Permission denied
+tar.exe: Error exit delayed from previous errors.
+```
+
 ## 2020-08-20 🙈 silence insecure protocols warning
 
 Modern Gradle versions issue a warning when users configure `http://` build cache.

@@ -61,7 +61,7 @@ suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradl
         "gradle",
         trigger,
         cacheLocation = listOf(
-            "~/.gradle/caches/modules-2",
+            "~/.gradle/caches/modules-2/*",
             "!~/.gradle/caches/modules-2/gc.properties",
             "!~/.gradle/caches/modules-2/modules-2.lock",
         ),

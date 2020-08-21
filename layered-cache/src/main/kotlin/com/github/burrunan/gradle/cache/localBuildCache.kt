@@ -44,7 +44,7 @@ fun localBuildCache(jobId: String, trigger: ActionsTrigger, gradleVersion: Strin
         primaryKey = "$prefix-$pkPrefix-$treeId",
         restoreKeys = restoreKeys.map { "$prefix-$it" },
         paths = listOf(
-            "$buildCacheLocation/",
+            "$buildCacheLocation/*",
             "!$buildCacheLocation/gc.properties",
             "!$buildCacheLocation/build-cache-1.lock",
         ),
