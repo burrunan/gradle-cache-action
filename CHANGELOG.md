@@ -1,3 +1,8 @@
+## 2020-09-24 🚑 support branch names with slashes
+
+`feature/branch` is a valid branch name in Git, so `gradle-cache-action` now escapes `/` when
+using branch name as a part of the cache key.
+
 ## 2020-08-20 🚑 better exclusions for *.lock files
 
 It turns out caching action can't apply exclude if user included of the parent folders.

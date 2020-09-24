@@ -86,8 +86,8 @@ class LayeredCache(
         val cacheIndex = layers.decode() ?: throw ActionFailedException("${layers.cachedName} is not found")
 
         var restoreType: RestoreType = when (indexRestoreType) {
-            is RestoreType.Exact -> RestoreType.Exact(indexRestoreType.path.removePrefix("index-"))
-            is RestoreType.Partial -> RestoreType.Partial(indexRestoreType.path.removePrefix("index-"))
+            is RestoreType.Exact -> RestoreType.Exact(indexRestoreType.path.removePrefix("$version-index-"))
+            is RestoreType.Partial -> RestoreType.Partial(indexRestoreType.path.removePrefix("$version-index-"))
             else -> indexRestoreType
         }
 

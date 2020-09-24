@@ -20,6 +20,7 @@ import actions.cache.RestoreType
 import actions.cache.restoreAndLog
 import actions.cache.saveAndLog
 import com.github.burrunan.gradle.cache.CacheService
+import com.github.burrunan.gradle.cache.LayeredCache
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
 import fs2.promises.readFile
@@ -39,7 +40,7 @@ class CacheServerTest {
         writeFile(file, contents)
         val patterns = listOf("$dir/**")
 
-        val primaryKey = "linux-gradle-123123"
+        val primaryKey = "linux-gradle-feature/123123"
 
         cacheService {
             saveAndLog(patterns, primaryKey, "1-")
@@ -78,6 +79,45 @@ class CacheServerTest {
                 readFile(file),
                 contents,
                 "Contents after restore should match",
+            )
+        }
+    }
+
+    @Test
+    fun layeredCacheTest() = runTest {
+        val dir = "saveCache"
+        mkdir(dir)
+        val file = "$dir/cached.txt"
+        val contents = "hello, world"
+        writeFile(file, contents)
+        val patterns = listOf("$dir/**")
+
+        val primaryKey = "prefix-gradle-features/cool/123123"
+
+        val cache = LayeredCache(
+            "test-cache",
+            "prefix-",
+            primaryKey = primaryKey,
+            restoreKeys = listOf(
+                "prefix-gradle-",
+                "prefix-",
+            ),
+            paths = patterns
+        )
+
+        cacheService {
+            assertEquals(
+                RestoreType.None,
+                cache.restore(),
+                "No data -> RestoreType.None"
+            )
+
+            cache.save()
+
+            assertEquals(
+                RestoreType.Exact(primaryKey),
+                cache.restore(),
+                "Restore after saving exact cache -> RestoreType.Exact"
             )
         }
     }

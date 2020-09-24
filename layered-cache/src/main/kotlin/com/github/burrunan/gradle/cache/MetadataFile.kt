@@ -44,7 +44,7 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
     private var uniqueName = cachedName.normalizedPath
 
     fun prepare(key: String) {
-        uniqueName = "${cachedName.normalizedPath}.$key"
+        uniqueName = "${cachedName.normalizedPath}.${key.replace('/', '-')}"
     }
 
     suspend fun restore(key: String) {
