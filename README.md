@@ -162,6 +162,9 @@ The default configuration should suit for most of the cases, however, there are 
     # Enable concurrent cache save and restore
     # Default is concurrent=false for better log readability
     concurrent: true
+
+    # Disable warning about missing distributionSha256Sum property in gradle-wrapper.properties
+    gradle-distribution-sha-256-sum-warning: false
 ```
 
 ## How does dependency caching work?
