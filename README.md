@@ -162,6 +162,9 @@ The default configuration should suit for most of the cases, however, there are 
     # Enable concurrent cache save and restore
     # Default is concurrent=false for better log readability
     concurrent: true
+
+    # Disable publishing Gradle Build Scan URL to job report
+    gradle-build-scan-report: false
 ```
 
 ## How does dependency caching work?
