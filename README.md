@@ -163,6 +163,9 @@ The default configuration should suit for most of the cases, however, there are 
     # Default is concurrent=false for better log readability
     concurrent: true
 
+    # Disable publishing Gradle Build Scan URL to job report
+    gradle-build-scan-report: false
+
     # Disable warning about missing distributionSha256Sum property in gradle-wrapper.properties
     gradle-distribution-sha-256-sum-warning: false
 ```

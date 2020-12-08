@@ -80,6 +80,10 @@ inputs:
   properties:
     description: Extra Gradle properties (multiline) which would be passed as -Pname=value arguments
     required: false
+  gradle-build-scan-report:
+    description: Publishes Gradle Build Scan URL to job report.
+    required: false
+    default: 'true'
   gradle-distribution-sha-256-sum-warning:
     description: Enables warning when distributionSha256Sum property is missing in gradle-wrapper.properties
     required: false
