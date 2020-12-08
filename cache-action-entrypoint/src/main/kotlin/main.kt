@@ -73,6 +73,7 @@ suspend fun mainInternal(stage: ActionStage) {
     val cacheProxyEnabled = getInput("remote-build-cache-proxy-enabled").ifBlank { "true" }.toBoolean()
 
     val executionOnlyCaches = getInput("execution-only-caches").ifBlank { "false" }.toBoolean()
+    val enableBuildScanReport = getInput("gradle-build-scan-report").ifBlank { "true" }.toBoolean()
 
     val buildRootDirectory = getInput("build-root-directory").trimEnd('/', '\\')
     if (buildRootDirectory != "") {
@@ -143,9 +144,11 @@ suspend fun mainInternal(stage: ActionStage) {
 
         try {
             val result = launchGradle(launchParams)
-            result.buildScanUrl?.let {
-                warning("Gradle Build Scan: $it")
-                setOutput("build-scan-url", it)
+            if(enableBuildScanReport) {
+                result.buildScanUrl?.let {
+                    warning("Gradle Build Scan: $it")
+                    setOutput("build-scan-url", it)
+                }
             }
         } finally {
             if (cacheProxyEnabled) {
