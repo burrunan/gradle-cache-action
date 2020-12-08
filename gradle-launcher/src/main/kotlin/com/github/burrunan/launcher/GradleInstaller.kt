@@ -103,7 +103,7 @@ suspend fun GradleVersionResponse.resolveChecksum() =
         distributionSha256Sum = HttpClient().get(checksumUrl, HTTP_AGENT).await().readBody().await().trim(),
     )
 
-suspend fun findVersionFromWrapper(projectPath: String): GradleDistribution {
+suspend fun findVersionFromWrapper(projectPath: String, enableDistributionSha256SumWarning: Boolean): GradleDistribution {
     val gradleWrapperProperties = path.join(projectPath, "gradle", "wrapper", "gradle-wrapper.properties")
     if (!exists(gradleWrapperProperties)) {
         warning("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.\nWill use the current release Gradle version")
@@ -123,7 +123,7 @@ suspend fun findVersionFromWrapper(projectPath: String): GradleDistribution {
         .removeSuffix("-bin.zip")
         .removeSuffix(".zip")
 
-    if (distributionSha256Sum == null) {
+    if (enableDistributionSha256SumWarning && distributionSha256Sum == null) {
         warning(
             "distributionSha256Sum is not set in $gradleWrapperProperties.\n" +
                 "Please consider adding the checksum, " +

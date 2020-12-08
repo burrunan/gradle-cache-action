@@ -84,6 +84,10 @@ inputs:
     description: Publishes Gradle Build Scan URL to job report.
     required: false
     default: 'true'
+  gradle-distribution-sha-256-sum-warning:
+    description: Enables warning when distributionSha256Sum property is missing in gradle-wrapper.properties
+    required: false
+    default: 'true'
 runs:
   using: node12
   main: dist/cache-action-entrypoint.js
