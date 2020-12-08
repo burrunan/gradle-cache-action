@@ -144,7 +144,7 @@ suspend fun mainInternal(stage: ActionStage) {
 
         try {
             val result = launchGradle(launchParams)
-            if(enableBuildScanReport) {
+            if (enableBuildScanReport) {
                 result.buildScanUrl?.let {
                     warning("Gradle Build Scan: $it")
                     setOutput("build-scan-url", it)
