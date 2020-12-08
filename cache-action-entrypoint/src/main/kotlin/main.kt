@@ -99,6 +99,7 @@ suspend fun mainInternal(stage: ActionStage) {
         projectPath = params.path,
         distributionUrl = getInput("gradle-distribution-url").ifBlank { null },
         distributionSha256Sum = getInput("gradle-distribution-sha-256-sum").ifBlank { null },
+        enableDistributionSha256SumWarning = getInput("gradle-distribution-sha-256-sum-warning").ifBlank { "true" }.toBoolean(),
     )
 
     if (stage == ActionStage.MAIN || stage == ActionStage.POST) {

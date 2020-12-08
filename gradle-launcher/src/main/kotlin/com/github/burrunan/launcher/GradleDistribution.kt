@@ -27,12 +27,13 @@ suspend fun resolveDistribution(
     projectPath: String,
     distributionUrl: String? = null,
     distributionSha256Sum: String? = null,
+    enableDistributionSha256SumWarning: Boolean = true
 ): GradleDistribution {
     return if (distributionUrl == null) {
         when (val version = GradleVersion(versionSpec)) {
             is GradleVersion.Official -> version.findUrl()
             is GradleVersion.Dynamic -> version.findUrl()
-            is GradleVersion.Wrapper -> findVersionFromWrapper(projectPath)
+            is GradleVersion.Wrapper -> findVersionFromWrapper(projectPath, enableDistributionSha256SumWarning)
         }
     } else {
         GradleDistribution(
