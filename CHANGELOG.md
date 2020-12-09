@@ -1,9 +1,16 @@
-## 2020-09-24 🚑 support branch names with slashes
+## 2020-12-09: v1.6 🚀 support branch names with slashes
+
+Add `gradle-distribution-sha-256-sum-warning` option to silence warning in case checksum is missing.
+Add `gradle-build-scan-report` to skip publishing Gradle Build Scan URL to the job report.
+
+Thanks to [Przemysław Jakubczyk](https://github.com/pjakubczyk) for the contributions.
+
+## 2020-09-24: v1.5 🚑 support branch names with slashes
 
 `feature/branch` is a valid branch name in Git, so `gradle-cache-action` now escapes `/` when
 using branch name as a part of the cache key.
 
-## 2020-08-20 🚑 better exclusions for *.lock files
+## 2020-08-20: v1.4 🚑 better exclusions for *.lock files
 
 It turns out caching action can't apply exclude if user included of the parent folders.
 
