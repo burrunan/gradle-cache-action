@@ -119,27 +119,32 @@ class CacheProxy {
             def multiCacheGroupIdFilter = 'com[.]github[.]burrunan[.]multi-?cache'
             boolean multiCacheEnabled = $multiCacheEnabled
             String multiCacheRepository = '$multiCacheRepository'
-            beforeSettings { settings ->
-                if (!multiCacheEnabled) {
-                    return
-                }
-                def repos = settings.buildscript.repositories
-                if (multiCacheRepository != '') {
-                    repos.add(
-                        repos.maven {
-                            url = multiCacheRepository
-                            if ('$multiCacheGroupIdFilterEscaped' != '') {
-                                content {
-                                    includeGroupByRegex('$multiCacheGroupIdFilterEscaped')
+            boolean gradle6Plus = org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')
+            // beforeSettings is Gradle 6.0+
+            if (multiCacheEnabled && !gradle6Plus) {
+                println("Multiple remote build caches ($pluginId) are supported in Gradle 6.0+ only")
+                multiCacheEnabled = false
+            }
+            if (multiCacheEnabled) {
+                beforeSettings { settings ->
+                    def repos = settings.buildscript.repositories
+                    if (multiCacheRepository != '') {
+                        repos.add(
+                            repos.maven {
+                                url = multiCacheRepository
+                                if ('$multiCacheGroupIdFilterEscaped' != '') {
+                                    content {
+                                        includeGroupByRegex('$multiCacheGroupIdFilterEscaped')
+                                    }
                                 }
                             }
-                        }
-                    )
-                } else if (repos.isEmpty()) {
-                    repos.add(repos.gradlePluginPortal())
-                }
-                settings.buildscript.dependencies {
-                    classpath("$pluginId:${pluginId}.gradle.plugin:$multiCacheVersion")
+                        )
+                    } else if (repos.isEmpty()) {
+                        repos.add(repos.gradlePluginPortal())
+                    }
+                    settings.buildscript.dependencies {
+                        classpath("$pluginId:${pluginId}.gradle.plugin:$multiCacheVersion")
+                    }
                 }
             }
 
@@ -162,7 +167,7 @@ class CacheProxy {
                         url = '$cacheUrl'
                         push = true
                         // Build cache is located on localhost, so it is fine to use http protocol
-                        if (org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')) {
+                        if (gradle6Plus) {
                             allowInsecureProtocol = true
                         }
                     }

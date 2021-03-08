@@ -1,3 +1,13 @@
+## 2021-03-09: v1.8 🚑 support Gradle 5
+
+Support Gradle 5 (and possibly even earlier versions).
+Previously the plugin added `init.gradle` script to activate remote build cache aggregator.
+However, `beforeSettings` is Gradle 6.0+ only, so in previous Gradle versions
+`gradle-cache-action` skips `com.github.burrunan.multi-cache` plugin.
+
+The impact is old Gradle versions would not be able to use both GitHub cache and
+custom remote build cache at the same time (only project-defined remote build cache would be used).
+
 ## 2021-03-08: v1.7 🚀 support read-only cache operation
 
 The following configuration would make all non-main branch builds to use read-only caching:
