@@ -15,6 +15,10 @@ inputs:
     description: (wrapper | or explicit version) Caches often depend on the Gradle version, so this parameter sets the ID to use for cache keys. It does not affect the Gradle version used for build
     required: false
     default: wrapper
+  read-only:
+    description: Configures caches for read-only opreration (e.g. to save GitHub Actions storage limit)
+    required: false
+    default: false
   save-generated-gradle-jars:
     description: Enables caching of $HOME/.gradle/caches/*.*/generated-gradle-jars
     required: false
