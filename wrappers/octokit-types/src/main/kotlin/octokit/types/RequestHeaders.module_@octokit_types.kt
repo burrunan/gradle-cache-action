@@ -3,8 +3,6 @@
 package octokit.types
 
 external interface RequestHeaders {
-    operator fun get(key: String): String?
-    operator fun set(key: String, value: String?)
     var accept: String?
     var authorization: String?
     @nativeGetter

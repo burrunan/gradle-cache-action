@@ -3,9 +3,6 @@
 package octokit.types
 
 external interface ResponseHeaders {
-    operator fun get(key: String): Any?
-    operator fun set(key: String, value: String?)
-    operator fun set(key: String, value: Number?)
     var date: String?
     var etag: String?
     var link: String?
