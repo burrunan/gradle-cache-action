@@ -24,5 +24,5 @@ dependencies {
     implementation(project(":wrappers:java-properties"))
     implementation(project(":wrappers:nodejs"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
 }

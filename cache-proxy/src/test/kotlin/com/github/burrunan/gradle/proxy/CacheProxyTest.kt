@@ -22,7 +22,7 @@ import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
 import fs2.promises.writeFile
-import kotlinx.serialization.encodeToDynamic
+import kotlinx.serialization.json.encodeToDynamic
 import kotlinx.serialization.json.Json
 import process
 import kotlin.test.Test

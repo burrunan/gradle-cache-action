@@ -28,7 +28,8 @@ dependencies {
     implementation(project(":wrappers:nodejs"))
     implementation(project(":wrappers:octokit-webhooks"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
 
     testImplementation(project(":cache-service-mock"))
 }

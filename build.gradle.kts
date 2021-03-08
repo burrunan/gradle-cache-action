@@ -51,10 +51,11 @@ allprojects {
         }
         dependencies {
             constraints {
-                "api"("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${"kotlinx-serialization".v}")
+                "api"("org.jetbrains.kotlinx:kotlinx-serialization-core:${"kotlinx-serialization".v}")
+                "api"("org.jetbrains.kotlinx:kotlinx-serialization-json:${"kotlinx-serialization".v}")
             }
             "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:${"kotlinx-coroutines".v}")
-            "implementation"("org.jetbrains:kotlin-extensions:${"kotlin-wrappers".v}-kotlin-${"kotlin".v}")
+            "implementation"("org.jetbrains:kotlin-extensions:${"kotlin-wrappers".v}")
             if (project.path != ":test-library") {
                 "testImplementation"(project(":test-library"))
             }

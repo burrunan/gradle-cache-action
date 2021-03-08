@@ -22,5 +22,5 @@ dependencies {
     implementation(project(":wrappers:actions-glob"))
     implementation(project(":wrappers:js"))
     implementation(project(":wrappers:nodejs"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
 }
