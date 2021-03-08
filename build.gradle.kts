@@ -34,7 +34,15 @@ subprojects {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
+        jcenter {
+            content {
+                // https://github.com/JetBrains/kotlin-wrappers/issues/279
+                includeModule("org.jetbrains", "kotlin-extensions")
+                // https://github.com/Kotlin/kotlinx-nodejs/issues/16
+                includeModule("org.jetbrains.kotlinx", "kotlinx-nodejs")
+            }
+        }
     }
     plugins.withId("org.jetbrains.kotlin.js") {
         tasks {
