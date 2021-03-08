@@ -123,6 +123,9 @@ The default configuration should suit for most of the cases, however, there are 
     #   versions like 6.6 (see https://services.gradle.org/versions/all)
     gradle-version: 6.5.1-custom
 
+    # Makes all non-main branch builds to use read-only caching
+    read-only: ${{ github.ref != 'refs/heads/main' }}
+
     # Arguments for Gradle execution
     arguments: build jacocoReport
 

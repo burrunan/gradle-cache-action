@@ -93,6 +93,7 @@ suspend fun mainInternal(stage: ActionStage) {
         mavenDependenciesCache = !executionOnlyCaches && getInput("save-maven-dependencies-cache").ifBlank { "true" }.toBoolean(),
         mavenLocalIgnorePaths = getListInput("maven-local-ignore-paths"),
         concurrent = getInput("concurrent").ifBlank { "false" }.toBoolean(),
+        readOnly = getInput("read-only").ifBlank { "false" }.toBoolean(),
     )
 
     val gradleDistribution = resolveDistribution(

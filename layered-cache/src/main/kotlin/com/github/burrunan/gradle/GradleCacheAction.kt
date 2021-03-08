@@ -68,7 +68,13 @@ class GradleCacheAction(
                 val elapsed = Date.now() - started
                 info("Cache restore took ${(elapsed / 1000).roundToInt()} seconds")
             }
-            ActionStage.POST -> cache.save()
+            ActionStage.POST -> {
+                if (params.readOnly) {
+                    info("read-only == true, so will skip cache upload")
+                } else {
+                    cache.save()
+                }
+            }
             else -> throw ActionFailedException("Cache action should be called in PRE or POST stages only. " +
                 "Current stage is $stage")
         }

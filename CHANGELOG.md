@@ -1,4 +1,18 @@
-## 2020-12-09: v1.6 🚀 support branch names with slashes
+## 2021-03-08: v1.7 🚀 support read-only cache operation
+
+The following configuration would make all non-main branch builds to use read-only caching:
+`read-only: ${{ github.ref != 'refs/heads/main' }}`.
+It would save GitHub space usage for PR builds, however, they would still use
+caches from the main branch.
+
+Bump Gradle: 6.5.1 -> 6.8.3
+Bump Kotlin: 1.4.0-rc -> 1.4.31
+Bump kotlinx-serialization: 1.0-M1-1.4.0-rc -> 1.1.0
+Bump kotlinx-serialization: 1.0-M1-1.4.0-rc -> 1.1.0
+Bump kotlinx-coroutines: 1.3.8-1.4.0-rc -> 1.4.3
+Bump kotlin-wrappers: 1.0.1-pre.110 -> 1.0.1-pre.148
+
+## 2020-12-09: v1.6 🚀 added option to silence warnings
 
 Add `gradle-distribution-sha-256-sum-warning` option to silence warning in case checksum is missing.
 Add `gradle-build-scan-report` to skip publishing Gradle Build Scan URL to the job report.

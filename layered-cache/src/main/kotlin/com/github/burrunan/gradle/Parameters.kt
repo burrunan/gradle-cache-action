@@ -26,4 +26,5 @@ data class Parameters(
     val mavenDependenciesCache: Boolean,
     val mavenLocalIgnorePaths: List<String>,
     val concurrent: Boolean,
+    val readOnly: Boolean,
 )
