@@ -1,3 +1,8 @@
+## 2021-03-09: v1.9 🚀 optimize remote build cache with mark push=false
+
+Previously `read-only` was implemented as "skip saving the caches",
+however it makes sense to configure `push=false` so Gradle skips cache entry preparation as well.
+
 ## 2021-03-09: v1.8 🚑 support Gradle 5
 
 Support Gradle 5 (and possibly even earlier versions).

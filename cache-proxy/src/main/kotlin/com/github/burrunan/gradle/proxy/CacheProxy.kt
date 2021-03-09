@@ -109,7 +109,8 @@ class CacheProxy {
         multiCacheEnabled: Boolean = true,
         multiCacheVersion: String = "1.0",
         multiCacheRepository: String = "",
-        multiCacheGroupIdFilter: String = "com[.]github[.]burrunan[.]multi-?cache"
+        multiCacheGroupIdFilter: String = "com[.]github[.]burrunan[.]multi-?cache",
+        push: Boolean = true,
     ): String {
         val multiCacheGroupIdFilterEscaped = multiCacheGroupIdFilter.replace("\\", "\\\\")
         //language=Groovy
@@ -165,7 +166,7 @@ class CacheProxy {
                     }
                     remote(HttpBuildCache) {
                         url = '$cacheUrl'
-                        push = true
+                        push = $push
                         // Build cache is located on localhost, so it is fine to use http protocol
                         if (gradle6Plus) {
                             allowInsecureProtocol = true

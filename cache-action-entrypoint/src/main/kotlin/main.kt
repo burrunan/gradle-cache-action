@@ -140,6 +140,7 @@ suspend fun mainInternal(stage: ActionStage) {
                     multiCacheVersion = getInput("multi-cache-version").ifBlank { "1.0" },
                     multiCacheRepository = getInput("multi-cache-repository"),
                     multiCacheGroupIdFilter = getInput("multi-cache-group-id-filter").ifBlank { "com[.]github[.]burrunan[.]multi-?cache" },
+                    push = !params.readOnly,
                 ),
             )
         }
