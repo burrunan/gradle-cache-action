@@ -45,7 +45,7 @@
    return __webpack_require__.d(getter, "a", getter), getter;
   }, __webpack_require__.o = function(object, property) {
    return Object.prototype.hasOwnProperty.call(object, property);
-  }, __webpack_require__.p = "", __webpack_require__(__webpack_require__.s = 110);
+  }, __webpack_require__.p = "", __webpack_require__(__webpack_require__.s = 109);
  }([ function(module, exports, __webpack_require__) {
   "use strict";
   var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
@@ -63,25 +63,25 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.propagation = exports.metrics = exports.trace = exports.context = void 0, 
-  __exportStar(__webpack_require__(135), exports), __exportStar(__webpack_require__(136), exports), 
-  __exportStar(__webpack_require__(69), exports), __exportStar(__webpack_require__(137), exports), 
+  __exportStar(__webpack_require__(134), exports), __exportStar(__webpack_require__(135), exports), 
+  __exportStar(__webpack_require__(69), exports), __exportStar(__webpack_require__(136), exports), 
   __exportStar(__webpack_require__(70), exports), __exportStar(__webpack_require__(71), exports), 
-  __exportStar(__webpack_require__(138), exports), __exportStar(__webpack_require__(139), exports), 
-  __exportStar(__webpack_require__(140), exports), __exportStar(__webpack_require__(141), exports), 
-  __exportStar(__webpack_require__(142), exports), __exportStar(__webpack_require__(143), exports), 
-  __exportStar(__webpack_require__(144), exports), __exportStar(__webpack_require__(72), exports), 
-  __exportStar(__webpack_require__(73), exports), __exportStar(__webpack_require__(145), exports), 
-  __exportStar(__webpack_require__(146), exports), __exportStar(__webpack_require__(147), exports), 
-  __exportStar(__webpack_require__(148), exports), __exportStar(__webpack_require__(149), exports), 
-  __exportStar(__webpack_require__(150), exports), __exportStar(__webpack_require__(151), exports), 
+  __exportStar(__webpack_require__(137), exports), __exportStar(__webpack_require__(138), exports), 
+  __exportStar(__webpack_require__(139), exports), __exportStar(__webpack_require__(140), exports), 
+  __exportStar(__webpack_require__(141), exports), __exportStar(__webpack_require__(142), exports), 
+  __exportStar(__webpack_require__(143), exports), __exportStar(__webpack_require__(72), exports), 
+  __exportStar(__webpack_require__(73), exports), __exportStar(__webpack_require__(144), exports), 
+  __exportStar(__webpack_require__(145), exports), __exportStar(__webpack_require__(146), exports), 
+  __exportStar(__webpack_require__(147), exports), __exportStar(__webpack_require__(148), exports), 
+  __exportStar(__webpack_require__(149), exports), __exportStar(__webpack_require__(150), exports), 
   __exportStar(__webpack_require__(74), exports), __exportStar(__webpack_require__(76), exports), 
-  __exportStar(__webpack_require__(77), exports), __exportStar(__webpack_require__(152), exports), 
-  __exportStar(__webpack_require__(153), exports), __exportStar(__webpack_require__(154), exports), 
-  __exportStar(__webpack_require__(155), exports), __exportStar(__webpack_require__(156), exports), 
-  __exportStar(__webpack_require__(157), exports), __exportStar(__webpack_require__(158), exports), 
-  __exportStar(__webpack_require__(159), exports), __exportStar(__webpack_require__(75), exports), 
-  __exportStar(__webpack_require__(160), exports), __exportStar(__webpack_require__(161), exports), 
-  __exportStar(__webpack_require__(162), exports);
+  __exportStar(__webpack_require__(77), exports), __exportStar(__webpack_require__(151), exports), 
+  __exportStar(__webpack_require__(152), exports), __exportStar(__webpack_require__(153), exports), 
+  __exportStar(__webpack_require__(154), exports), __exportStar(__webpack_require__(155), exports), 
+  __exportStar(__webpack_require__(156), exports), __exportStar(__webpack_require__(157), exports), 
+  __exportStar(__webpack_require__(158), exports), __exportStar(__webpack_require__(75), exports), 
+  __exportStar(__webpack_require__(159), exports), __exportStar(__webpack_require__(160), exports), 
+  __exportStar(__webpack_require__(161), exports);
   var context_base_1 = __webpack_require__(78);
   Object.defineProperty(exports, "Context", {
    enumerable: !0,
@@ -91,20 +91,20 @@
   });
   var context_1 = __webpack_require__(80);
   exports.context = context_1.ContextAPI.getInstance();
-  var trace_1 = __webpack_require__(168);
+  var trace_1 = __webpack_require__(167);
   exports.trace = trace_1.TraceAPI.getInstance();
-  var metrics_1 = __webpack_require__(169);
+  var metrics_1 = __webpack_require__(168);
   exports.metrics = metrics_1.MetricsAPI.getInstance();
-  var propagation_1 = __webpack_require__(170);
+  var propagation_1 = __webpack_require__(169);
   exports.propagation = propagation_1.PropagationAPI.getInstance(), exports.default = {
    trace: exports.trace,
    metrics: exports.metrics,
    context: exports.context,
    propagation: exports.propagation
   };
- }, function(module, exports) {
-  module.exports = require("stream");
  }, , function(module, exports) {
+  module.exports = require("stream");
+ }, function(module, exports) {
   module.exports = require("path");
  }, function(module, exports) {
   module.exports = require("os");
@@ -8008,7 +8008,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const command_1 = __webpack_require__(60), file_command_1 = __webpack_require__(113), utils_1 = __webpack_require__(32), os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3));
+  const command_1 = __webpack_require__(60), file_command_1 = __webpack_require__(112), utils_1 = __webpack_require__(33), os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3));
   var ExitCode;
   function error(message) {
    command_1.issue("error", message instanceof Error ? message.toString() : message);
@@ -8086,12 +8086,12 @@
    DocumentPosition = null, module.exports = function() {
     function XMLNode(parent1) {
      this.parent = parent1, this.parent && (this.options = this.parent.options, this.stringify = this.parent.stringify), 
-     this.value = null, this.children = [], this.baseURI = null, XMLElement || (XMLElement = __webpack_require__(39), 
-     XMLCData = __webpack_require__(41), XMLComment = __webpack_require__(42), XMLDeclaration = __webpack_require__(43), 
-     XMLDocType = __webpack_require__(44), XMLRaw = __webpack_require__(49), XMLText = __webpack_require__(50), 
-     XMLProcessingInstruction = __webpack_require__(51), XMLDummy = __webpack_require__(84), 
-     NodeType = __webpack_require__(6), XMLNodeList = __webpack_require__(177), __webpack_require__(40), 
-     DocumentPosition = __webpack_require__(178));
+     this.value = null, this.children = [], this.baseURI = null, XMLElement || (XMLElement = __webpack_require__(40), 
+     XMLCData = __webpack_require__(42), XMLComment = __webpack_require__(43), XMLDeclaration = __webpack_require__(44), 
+     XMLDocType = __webpack_require__(45), XMLRaw = __webpack_require__(50), XMLText = __webpack_require__(51), 
+     XMLProcessingInstruction = __webpack_require__(52), XMLDummy = __webpack_require__(84), 
+     NodeType = __webpack_require__(6), XMLNodeList = __webpack_require__(176), __webpack_require__(41), 
+     DocumentPosition = __webpack_require__(177));
     }
     return Object.defineProperty(XMLNode.prototype, "nodeName", {
      get: function() {
@@ -13642,9 +13642,9 @@
    }, package$promises.mkdir_61zpoe$ = mkdir_0, package$promises.chmod_puj7f4$ = function(path, mode, continuation) {
     return await_0(chmodAsync(path, mode), continuation);
    };
-  }(module.exports, __webpack_require__(5), __webpack_require__(7), __webpack_require__(4), __webpack_require__(1), __webpack_require__(27), __webpack_require__(22), __webpack_require__(13));
+  }(module.exports, __webpack_require__(5), __webpack_require__(7), __webpack_require__(4), __webpack_require__(2), __webpack_require__(28), __webpack_require__(22), __webpack_require__(13));
  }, function(module, exports, __webpack_require__) {
-  module.exports = __webpack_require__(130);
+  module.exports = __webpack_require__(129);
  }, function(module, exports) {
   module.exports = require("zlib");
  }, function(module, exports, __webpack_require__) {
@@ -13963,7 +13963,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const childProcess = __webpack_require__(33), path = __webpack_require__(3), util_1 = __webpack_require__(9), ioUtil = __webpack_require__(62), exec = util_1.promisify(childProcess.exec);
+  const childProcess = __webpack_require__(34), path = __webpack_require__(3), util_1 = __webpack_require__(9), ioUtil = __webpack_require__(62), exec = util_1.promisify(childProcess.exec);
   function rmRF(inputPath) {
    return __awaiter(this, void 0, void 0, (function*() {
     if (ioUtil.IS_WINDOWS) {
@@ -14086,7 +14086,7 @@
    CompressionMethod.Gzip = "gzip", CompressionMethod.ZstdWithoutLong = "zstd-without-long", 
    CompressionMethod.Zstd = "zstd";
   }(exports.CompressionMethod || (exports.CompressionMethod = {})), exports.SocketTimeout = 5e3;
- }, function(module, exports, __webpack_require__) {
+ }, , function(module, exports, __webpack_require__) {
   "use strict";
   var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
    return new (P || (P = Promise))((function(resolve, reject) {
@@ -14121,7 +14121,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const tr = __importStar(__webpack_require__(114));
+  const tr = __importStar(__webpack_require__(113));
   exports.exec = function(commandLine, args, options) {
    return __awaiter(this, void 0, void 0, (function*() {
     const commandArgs = tr.argStringToArray(commandLine);
@@ -14245,7 +14245,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), exec = __importStar(__webpack_require__(26)), glob = __importStar(__webpack_require__(117)), io = __importStar(__webpack_require__(24)), fs = __importStar(__webpack_require__(7)), path = __importStar(__webpack_require__(3)), semver = __importStar(__webpack_require__(36)), util = __importStar(__webpack_require__(9)), uuid_1 = __webpack_require__(127), constants_1 = __webpack_require__(25);
+  const core = __importStar(__webpack_require__(8)), exec = __importStar(__webpack_require__(27)), glob = __importStar(__webpack_require__(116)), io = __importStar(__webpack_require__(24)), fs = __importStar(__webpack_require__(7)), path = __importStar(__webpack_require__(3)), semver = __importStar(__webpack_require__(37)), util = __importStar(__webpack_require__(9)), uuid_1 = __webpack_require__(126), constants_1 = __webpack_require__(25);
   function getVersion(app) {
    return __awaiter(this, void 0, void 0, (function*() {
     core.debug(`Checking ${app} --version`);
@@ -14329,7 +14329,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.API_BACKWARDS_COMPATIBILITY_VERSION = exports.makeGetter = exports._global = exports.GLOBAL_TRACE_API_KEY = exports.GLOBAL_PROPAGATION_API_KEY = exports.GLOBAL_METRICS_API_KEY = exports.GLOBAL_CONTEXT_MANAGER_API_KEY = void 0;
-  var platform_1 = __webpack_require__(165);
+  var platform_1 = __webpack_require__(164);
   exports.GLOBAL_CONTEXT_MANAGER_API_KEY = Symbol.for("io.opentelemetry.js.api.context"), 
   exports.GLOBAL_METRICS_API_KEY = Symbol.for("io.opentelemetry.js.api.metrics"), 
   exports.GLOBAL_PROPAGATION_API_KEY = Symbol.for("io.opentelemetry.js.api.propagation"), 
@@ -15031,7 +15031,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(129);
+  const http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(128);
   let tunnel;
   var HttpCodes, Headers, MediaTypes;
   !function(HttpCodes) {
@@ -15376,7 +15376,7 @@
    var NodeType, XMLAttribute, XMLNamedNodeMap, XMLNode, getValue, isFunction, isObject, ref, hasProp = {}.hasOwnProperty;
    ref = __webpack_require__(16), isObject = ref.isObject, isFunction = ref.isFunction, 
    getValue = ref.getValue, XMLNode = __webpack_require__(11), NodeType = __webpack_require__(6), 
-   XMLAttribute = __webpack_require__(83), XMLNamedNodeMap = __webpack_require__(40), 
+   XMLAttribute = __webpack_require__(83), XMLNamedNodeMap = __webpack_require__(41), 
    module.exports = function(superClass) {
     function XMLElement(parent, name, attributes) {
      var child, j, len, ref1;
@@ -15541,7 +15541,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, XMLCharacterData, hasProp = {}.hasOwnProperty;
-   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(30), module.exports = function(superClass) {
+   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(31), module.exports = function(superClass) {
     function XMLCData(parent, text) {
      if (XMLCData.__super__.constructor.call(this, parent), null == text) throw new Error("Missing CDATA text. " + this.debugInfo());
      this.name = "#cdata-section", this.type = NodeType.CData, this.value = this.stringify.cdata(text);
@@ -15562,7 +15562,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, XMLCharacterData, hasProp = {}.hasOwnProperty;
-   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(30), module.exports = function(superClass) {
+   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(31), module.exports = function(superClass) {
     function XMLComment(parent, text) {
      if (XMLComment.__super__.constructor.call(this, parent), null == text) throw new Error("Missing comment text. " + this.debugInfo());
      this.name = "#comment", this.type = NodeType.Comment, this.value = this.stringify.comment(text);
@@ -15607,9 +15607,9 @@
   (function() {
    var NodeType, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLNamedNodeMap, XMLNode, isObject, hasProp = {}.hasOwnProperty;
    isObject = __webpack_require__(16).isObject, XMLNode = __webpack_require__(11), 
-   NodeType = __webpack_require__(6), XMLDTDAttList = __webpack_require__(45), XMLDTDEntity = __webpack_require__(46), 
-   XMLDTDElement = __webpack_require__(47), XMLDTDNotation = __webpack_require__(48), 
-   XMLNamedNodeMap = __webpack_require__(40), module.exports = function(superClass) {
+   NodeType = __webpack_require__(6), XMLDTDAttList = __webpack_require__(46), XMLDTDEntity = __webpack_require__(47), 
+   XMLDTDElement = __webpack_require__(48), XMLDTDNotation = __webpack_require__(49), 
+   XMLNamedNodeMap = __webpack_require__(41), module.exports = function(superClass) {
     function XMLDocType(parent, pubID, sysID) {
      var child, i, len, ref, ref1, ref2;
      if (XMLDocType.__super__.constructor.call(this, parent), this.type = NodeType.DocType, 
@@ -15844,7 +15844,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, XMLCharacterData, hasProp = {}.hasOwnProperty;
-   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(30), module.exports = function(superClass) {
+   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(31), module.exports = function(superClass) {
     function XMLText(parent, text) {
      if (XMLText.__super__.constructor.call(this, parent), null == text) throw new Error("Missing element text. " + this.debugInfo());
      this.name = "#text", this.type = NodeType.Text, this.value = this.stringify.text(text);
@@ -15880,7 +15880,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, XMLCharacterData, hasProp = {}.hasOwnProperty;
-   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(30), module.exports = function(superClass) {
+   NodeType = __webpack_require__(6), XMLCharacterData = __webpack_require__(31), module.exports = function(superClass) {
     function XMLProcessingInstruction(parent, target, value) {
      if (XMLProcessingInstruction.__super__.constructor.call(this, parent), null == target) throw new Error("Missing instruction target. " + this.debugInfo());
      this.type = NodeType.ProcessingInstruction, this.target = this.stringify.insTarget(target), 
@@ -19387,7 +19387,7 @@
     var instance = new Coroutine$removeFiles(files_0, continuation_0);
     return suspended ? instance : instance.doResume(null);
    };
-  }(module.exports, __webpack_require__(5), __webpack_require__(202), __webpack_require__(13), __webpack_require__(18));
+  }(module.exports, __webpack_require__(5), __webpack_require__(201), __webpack_require__(13), __webpack_require__(18));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   Object.defineProperty(exports, "__esModule", {
@@ -19447,7 +19447,7 @@
   (function() {
    "use strict";
    var builder, defaults, parser, processors, hasProp = {}.hasOwnProperty;
-   defaults = __webpack_require__(38), builder = __webpack_require__(172), parser = __webpack_require__(181), 
+   defaults = __webpack_require__(39), builder = __webpack_require__(171), parser = __webpack_require__(180), 
    processors = __webpack_require__(87), exports.defaults = defaults.defaults, exports.processors = processors, 
    exports.ValidationError = function(superClass) {
     function ValidationError(message) {
@@ -19463,7 +19463,7 @@
    }(), exports.Builder = builder.Builder, exports.Parser = parser.Parser, exports.parseString = parser.parseString, 
    exports.parseStringPromise = parser.parseStringPromise;
   }).call(this);
- }, , , function(module, exports, __webpack_require__) {
+ }, , function(module, exports, __webpack_require__) {
   "use strict";
   var __importStar = this && this.__importStar || function(mod) {
    if (mod && mod.__esModule) return mod;
@@ -19474,7 +19474,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const os = __importStar(__webpack_require__(4)), utils_1 = __webpack_require__(32);
+  const os = __importStar(__webpack_require__(4)), utils_1 = __webpack_require__(33);
   function issueCommand(command, properties, message) {
    const cmd = new Command(command, properties, message);
    process.stdout.write(cmd.toString() + os.EOL);
@@ -19566,7 +19566,7 @@
     var instance = new Coroutine$exec(commandLine_0, args_0, captureOutput_0, options_0, continuation_0);
     return suspended ? instance : instance.doResume(null);
    };
-  }(module.exports, __webpack_require__(5), __webpack_require__(22), __webpack_require__(26), __webpack_require__(13));
+  }(module.exports, __webpack_require__(5), __webpack_require__(22), __webpack_require__(27), __webpack_require__(13));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var _a, __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
@@ -19823,7 +19823,7 @@
   try {
    path = __webpack_require__(3);
   } catch (er) {}
-  var GLOBSTAR = minimatch.GLOBSTAR = Minimatch.GLOBSTAR = {}, expand = __webpack_require__(122), plTypes = {
+  var GLOBSTAR = minimatch.GLOBSTAR = Minimatch.GLOBSTAR = {}, expand = __webpack_require__(121), plTypes = {
    "!": {
     open: "(?:(?!(?:",
     close: "))[^/]*?)"
@@ -20200,7 +20200,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(37), auth_1 = __webpack_require__(133), crypto = __importStar(__webpack_require__(17)), fs = __importStar(__webpack_require__(7)), url_1 = __webpack_require__(12), utils = __importStar(__webpack_require__(28)), constants_1 = __webpack_require__(25), downloadUtils_1 = __webpack_require__(134), options_1 = __webpack_require__(200), requestUtils_1 = __webpack_require__(101);
+  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(38), auth_1 = __webpack_require__(132), crypto = __importStar(__webpack_require__(17)), fs = __importStar(__webpack_require__(7)), url_1 = __webpack_require__(12), utils = __importStar(__webpack_require__(29)), constants_1 = __webpack_require__(25), downloadUtils_1 = __webpack_require__(133), options_1 = __webpack_require__(199), requestUtils_1 = __webpack_require__(101);
   function getCacheApiUrl(resource) {
    const baseUrl = (process.env.ACTIONS_CACHE_URL || process.env.ACTIONS_RUNTIME_URL || "").replace("pipelines", "artifactcache");
    if (!baseUrl) throw new Error("Cache Service Url not found, unable to restore cache.");
@@ -20532,8 +20532,8 @@
   };
   Object.defineProperty(exports, "__esModule", {
    value: !0
-  }), __exportStar(__webpack_require__(163), exports), __exportStar(__webpack_require__(79), exports), 
-  __exportStar(__webpack_require__(164), exports);
+  }), __exportStar(__webpack_require__(162), exports), __exportStar(__webpack_require__(79), exports), 
+  __exportStar(__webpack_require__(163), exports);
  }, function(module, exports, __webpack_require__) {
   "use strict";
   Object.defineProperty(exports, "__esModule", {
@@ -20561,7 +20561,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.ContextAPI = void 0;
-  var context_base_1 = __webpack_require__(78), global_utils_1 = __webpack_require__(29), NOOP_CONTEXT_MANAGER = new context_base_1.NoopContextManager, ContextAPI = function() {
+  var context_base_1 = __webpack_require__(78), global_utils_1 = __webpack_require__(30), NOOP_CONTEXT_MANAGER = new context_base_1.NoopContextManager, ContextAPI = function() {
    function ContextAPI() {}
    return ContextAPI.getInstance = function() {
     return this._instance || (this._instance = new ContextAPI), this._instance;
@@ -20603,8 +20603,8 @@
   (function() {
    var NodeType, XMLDOMConfiguration, XMLDOMImplementation, XMLNode, XMLStringWriter, XMLStringifier, isPlainObject, hasProp = {}.hasOwnProperty;
    isPlainObject = __webpack_require__(16).isPlainObject, XMLDOMImplementation = __webpack_require__(81), 
-   XMLDOMConfiguration = __webpack_require__(174), XMLNode = __webpack_require__(11), 
-   NodeType = __webpack_require__(6), XMLStringifier = __webpack_require__(85), XMLStringWriter = __webpack_require__(52), 
+   XMLDOMConfiguration = __webpack_require__(173), XMLNode = __webpack_require__(11), 
+   NodeType = __webpack_require__(6), XMLStringifier = __webpack_require__(85), XMLStringWriter = __webpack_require__(53), 
    module.exports = function(superClass) {
     function XMLDocument(options) {
      XMLDocument.__super__.constructor.call(this, null), this.name = "#document", this.type = NodeType.Document, 
@@ -20886,11 +20886,11 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, WriterState, assign, hasProp = {}.hasOwnProperty;
-   assign = __webpack_require__(16).assign, NodeType = __webpack_require__(6), __webpack_require__(43), 
-   __webpack_require__(44), __webpack_require__(41), __webpack_require__(42), __webpack_require__(39), 
-   __webpack_require__(49), __webpack_require__(50), __webpack_require__(51), __webpack_require__(84), 
-   __webpack_require__(45), __webpack_require__(47), __webpack_require__(46), __webpack_require__(48), 
-   WriterState = __webpack_require__(31), module.exports = function() {
+   assign = __webpack_require__(16).assign, NodeType = __webpack_require__(6), __webpack_require__(44), 
+   __webpack_require__(45), __webpack_require__(42), __webpack_require__(43), __webpack_require__(40), 
+   __webpack_require__(50), __webpack_require__(51), __webpack_require__(52), __webpack_require__(84), 
+   __webpack_require__(46), __webpack_require__(48), __webpack_require__(47), __webpack_require__(49), 
+   WriterState = __webpack_require__(32), module.exports = function() {
     function XMLWriterBase(options) {
      var key, ref, value;
      for (key in options || (options = {}), this.options = options, ref = options.writer || {}) hasProp.call(ref, key) && (value = ref[key], 
@@ -21090,7 +21090,7 @@
   module.exports = require("punycode");
  }, function(module, exports, __webpack_require__) {
   "use strict";
-  const psl = __webpack_require__(186);
+  const psl = __webpack_require__(185);
   exports.getPublicSuffix = function(domain) {
    return psl.get(domain);
   };
@@ -21189,7 +21189,7 @@
    }));
   };
  }, function(module, exports, __webpack_require__) {
-  var defer = __webpack_require__(197);
+  var defer = __webpack_require__(196);
   module.exports = function(callback) {
    var isAsync = !1;
    return defer((function() {
@@ -21277,7 +21277,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(37);
+  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(38);
   function isServerErrorStatusCode(statusCode) {
    return !statusCode || statusCode >= 500;
   }
@@ -22002,7 +22002,7 @@
    HashInfo$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers, 
    HashContents$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers, 
    FileDetails$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers;
-  }(module.exports, __webpack_require__(5), __webpack_require__(53), __webpack_require__(54), __webpack_require__(4), __webpack_require__(17), __webpack_require__(18), __webpack_require__(7), __webpack_require__(21), __webpack_require__(27));
+  }(module.exports, __webpack_require__(5), __webpack_require__(54), __webpack_require__(55), __webpack_require__(4), __webpack_require__(17), __webpack_require__(18), __webpack_require__(7), __webpack_require__(21), __webpack_require__(28));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   (function(__dirname) {
@@ -22043,7 +22043,7 @@
    Object.defineProperty(exports, "__esModule", {
     value: !0
    });
-   const core = __importStar(__webpack_require__(8)), io = __importStar(__webpack_require__(24)), fs = __importStar(__webpack_require__(7)), mm = __importStar(__webpack_require__(212)), os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3)), httpm = __importStar(__webpack_require__(213)), semver = __importStar(__webpack_require__(36)), stream = __importStar(__webpack_require__(1)), util = __importStar(__webpack_require__(9)), v4_1 = __importDefault(__webpack_require__(67)), exec_1 = __webpack_require__(26), assert_1 = __webpack_require__(15), retry_helper_1 = __webpack_require__(215);
+   const core = __importStar(__webpack_require__(8)), io = __importStar(__webpack_require__(24)), fs = __importStar(__webpack_require__(7)), mm = __importStar(__webpack_require__(211)), os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3)), httpm = __importStar(__webpack_require__(212)), semver = __importStar(__webpack_require__(37)), stream = __importStar(__webpack_require__(2)), util = __importStar(__webpack_require__(9)), v4_1 = __importDefault(__webpack_require__(67)), exec_1 = __webpack_require__(27), assert_1 = __webpack_require__(15), retry_helper_1 = __webpack_require__(214);
    class HTTPError extends Error {
     constructor(httpStatusCode) {
      super("Unexpected HTTP response: " + httpStatusCode), this.httpStatusCode = httpStatusCode, 
@@ -22308,7 +22308,7 @@
   }(module.exports, __webpack_require__(5), __webpack_require__(22), __webpack_require__(24), __webpack_require__(13));
  }, function(module, exports, __webpack_require__) {
   "use strict";
-  const punycode = __webpack_require__(88), urlParse = __webpack_require__(12).parse, util = __webpack_require__(9), pubsuffix = __webpack_require__(89), Store = __webpack_require__(90).Store, MemoryCookieStore = __webpack_require__(188).MemoryCookieStore, pathMatch = __webpack_require__(93).pathMatch, VERSION = __webpack_require__(189), {fromCallback: fromCallback} = __webpack_require__(91), COOKIE_OCTETS = /^[\x21\x23-\x2B\x2D-\x3A\x3C-\x5B\x5D-\x7E]+$/, CONTROL_CHARS = /[\x00-\x1F]/, TERMINATORS = [ "\n", "\r", "\0" ], PATH_VALUE = /[\x20-\x3A\x3C-\x7E]+/, DATE_DELIM = /[\x09\x20-\x2F\x3B-\x40\x5B-\x60\x7B-\x7E]/, MONTH_TO_NUM = {
+  const punycode = __webpack_require__(88), urlParse = __webpack_require__(12).parse, util = __webpack_require__(9), pubsuffix = __webpack_require__(89), Store = __webpack_require__(90).Store, MemoryCookieStore = __webpack_require__(187).MemoryCookieStore, pathMatch = __webpack_require__(93).pathMatch, VERSION = __webpack_require__(188), {fromCallback: fromCallback} = __webpack_require__(91), COOKIE_OCTETS = /^[\x21\x23-\x2B\x2D-\x3A\x3C-\x5B\x5D-\x7E]+$/, CONTROL_CHARS = /[\x00-\x1F]/, TERMINATORS = [ "\n", "\r", "\0" ], PATH_VALUE = /[\x20-\x3A\x3C-\x7E]+/, DATE_DELIM = /[\x09\x20-\x2F\x3B-\x40\x5B-\x60\x7B-\x7E]/, MONTH_TO_NUM = {
    jan: 0,
    feb: 1,
    mar: 2,
@@ -22851,7 +22851,7 @@
    return permutations.push("/"), permutations;
   }, exports.canonicalDomain = canonicalDomain, exports.PrefixSecurityEnum = PrefixSecurityEnum;
  }, function(module, exports, __webpack_require__) {
-  var CombinedStream = __webpack_require__(190), util = __webpack_require__(9), path = __webpack_require__(3), http = __webpack_require__(10), https = __webpack_require__(14), parseUrl = __webpack_require__(12).parse, fs = __webpack_require__(7), mime = __webpack_require__(192), asynckit = __webpack_require__(195), populate = __webpack_require__(199);
+  var CombinedStream = __webpack_require__(189), util = __webpack_require__(9), path = __webpack_require__(3), http = __webpack_require__(10), https = __webpack_require__(14), parseUrl = __webpack_require__(12).parse, fs = __webpack_require__(7), mime = __webpack_require__(191), asynckit = __webpack_require__(194), populate = __webpack_require__(198);
   function FormData(options) {
    if (!(this instanceof FormData)) return new FormData(options);
    for (var option in this._overheadLength = 0, this._valueLength = 0, this._valuesToMeasure = [], 
@@ -22964,8 +22964,8 @@
   }, FormData.prototype.toString = function() {
    return "[object FormData]";
   };
- }, , , , function(module, exports, __webpack_require__) {
-  module.exports = __webpack_require__(111);
+ }, , , function(module, exports, __webpack_require__) {
+  module.exports = __webpack_require__(110);
  }, function(module, exports, __webpack_require__) {
   !function(_, Kotlin, $module$gradle_cache_action_layered_cache, $module$gradle_cache_action_actions_core, $module$_actions_core, $module$string_argv, $module$gradle_cache_action_gradle_launcher, $module$gradle_cache_action_octokit_webhooks, $module$gradle_cache_action_cache_proxy, $module$path, $module$os, $module$gradle_cache_action_actions_io, $module$gradle_cache_action_nodejs) {
    "use strict";
@@ -23231,7 +23231,7 @@
     }
    }, _.splitLines_pdl1vz$ = splitLines, _.isMochaRunning = isMochaRunning, _.main = main, 
    _.mainInternal_5xkhx2$ = mainInternal, main(internal.EmptyContinuation, !1);
-  }(module.exports, __webpack_require__(5), __webpack_require__(112), __webpack_require__(21), __webpack_require__(8), __webpack_require__(210), __webpack_require__(211), __webpack_require__(63), __webpack_require__(221), __webpack_require__(3), __webpack_require__(4), __webpack_require__(104), __webpack_require__(18));
+  }(module.exports, __webpack_require__(5), __webpack_require__(111), __webpack_require__(21), __webpack_require__(8), __webpack_require__(209), __webpack_require__(210), __webpack_require__(63), __webpack_require__(220), __webpack_require__(3), __webpack_require__(4), __webpack_require__(104), __webpack_require__(18));
  }, function(module, exports, __webpack_require__) {
   !function(_, Kotlin, $module$_actions_core, $module$gradle_cache_action_actions_core, $module$gradle_cache_action_actions_exec, $module$gradle_cache_action_octokit_webhooks, $module$kotlinx_coroutines_core, $module$gradle_cache_action_actions_cache, $module$gradle_cache_action_nodejs, $module$gradle_cache_action_hashing, $module$gradle_cache_action_js, $module$kotlinx_serialization_kotlinx_serialization_core_jsLegacy, $module$gradle_cache_action_actions_glob, $module$fs, $module$kotlinx_serialization_kotlinx_serialization_json_jsLegacy) {
    "use strict";
@@ -24944,7 +24944,7 @@
    package$github_0.transform_mpewfa$ = transform, package$github_0.toBoolean_xdghaz$ = toBoolean, 
    package$github_0.toInt_7uijjt$ = toInt_0, CacheLayers$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers, 
    CacheLayer$$serializer.prototype.typeParametersSerializers = GeneratedSerializer.prototype.typeParametersSerializers;
-  }(module.exports, __webpack_require__(5), __webpack_require__(8), __webpack_require__(21), __webpack_require__(61), __webpack_require__(63), __webpack_require__(13), __webpack_require__(115), __webpack_require__(18), __webpack_require__(102), __webpack_require__(27), __webpack_require__(53), __webpack_require__(54), __webpack_require__(7), __webpack_require__(209));
+  }(module.exports, __webpack_require__(5), __webpack_require__(8), __webpack_require__(21), __webpack_require__(61), __webpack_require__(63), __webpack_require__(13), __webpack_require__(114), __webpack_require__(18), __webpack_require__(102), __webpack_require__(28), __webpack_require__(54), __webpack_require__(55), __webpack_require__(7), __webpack_require__(208));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var __importStar = this && this.__importStar || function(mod) {
@@ -24956,7 +24956,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const fs = __importStar(__webpack_require__(7)), os = __importStar(__webpack_require__(4)), utils_1 = __webpack_require__(32);
+  const fs = __importStar(__webpack_require__(7)), os = __importStar(__webpack_require__(4)), utils_1 = __webpack_require__(33);
   exports.issueCommand = function(command, message) {
    const filePath = process.env["GITHUB_" + command];
    if (!filePath) throw new Error("Unable to find environment variable for file command " + command);
@@ -25000,7 +25000,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const os = __importStar(__webpack_require__(4)), events = __importStar(__webpack_require__(23)), child = __importStar(__webpack_require__(33)), path = __importStar(__webpack_require__(3)), io = __importStar(__webpack_require__(24)), ioUtil = __importStar(__webpack_require__(62)), IS_WINDOWS = "win32" === process.platform;
+  const os = __importStar(__webpack_require__(4)), events = __importStar(__webpack_require__(23)), child = __importStar(__webpack_require__(34)), path = __importStar(__webpack_require__(3)), io = __importStar(__webpack_require__(24)), ioUtil = __importStar(__webpack_require__(62)), IS_WINDOWS = "win32" === process.platform;
   class ToolRunner extends events.EventEmitter {
    constructor(toolPath, args, options) {
     if (super(), !toolPath) throw new Error("Parameter 'toolPath' cannot be null or empty.");
@@ -25402,7 +25402,7 @@
      return null === RestoreType$Unknown_instance && new RestoreType$Unknown, RestoreType$Unknown_instance;
     }
    }), package$cache.RestoreType = RestoreType;
-  }(module.exports, __webpack_require__(5), __webpack_require__(116), __webpack_require__(13), __webpack_require__(21), __webpack_require__(8));
+  }(module.exports, __webpack_require__(5), __webpack_require__(115), __webpack_require__(13), __webpack_require__(21), __webpack_require__(8));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
@@ -25438,7 +25438,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), path = __importStar(__webpack_require__(3)), utils = __importStar(__webpack_require__(28)), cacheHttpClient = __importStar(__webpack_require__(68)), tar_1 = __webpack_require__(201);
+  const core = __importStar(__webpack_require__(8)), path = __importStar(__webpack_require__(3)), utils = __importStar(__webpack_require__(29)), cacheHttpClient = __importStar(__webpack_require__(68)), tar_1 = __webpack_require__(200);
   class ValidationError extends Error {
    constructor(message) {
     super(message), this.name = "ValidationError", Object.setPrototypeOf(this, ValidationError.prototype);
@@ -25533,7 +25533,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const internal_globber_1 = __webpack_require__(118);
+  const internal_globber_1 = __webpack_require__(117);
   exports.create = function(patterns, options) {
    return __awaiter(this, void 0, void 0, (function*() {
     return yield internal_globber_1.DefaultGlobber.create(patterns, options);
@@ -25627,7 +25627,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), fs = __importStar(__webpack_require__(7)), globOptionsHelper = __importStar(__webpack_require__(119)), path = __importStar(__webpack_require__(3)), patternHelper = __importStar(__webpack_require__(120)), internal_match_kind_1 = __webpack_require__(35), internal_pattern_1 = __webpack_require__(121), internal_search_state_1 = __webpack_require__(126), IS_WINDOWS = "win32" === process.platform;
+  const core = __importStar(__webpack_require__(8)), fs = __importStar(__webpack_require__(7)), globOptionsHelper = __importStar(__webpack_require__(118)), path = __importStar(__webpack_require__(3)), patternHelper = __importStar(__webpack_require__(119)), internal_match_kind_1 = __webpack_require__(36), internal_pattern_1 = __webpack_require__(120), internal_search_state_1 = __webpack_require__(125), IS_WINDOWS = "win32" === process.platform;
   class DefaultGlobber {
    constructor(options) {
     this.patterns = [], this.searchPaths = [], this.options = globOptionsHelper.getOptions(options);
@@ -25753,7 +25753,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const pathHelper = __importStar(__webpack_require__(34)), internal_match_kind_1 = __webpack_require__(35), IS_WINDOWS = "win32" === process.platform;
+  const pathHelper = __importStar(__webpack_require__(35)), internal_match_kind_1 = __webpack_require__(36), IS_WINDOWS = "win32" === process.platform;
   exports.getSearchPaths = function(patterns) {
    patterns = patterns.filter(x => !x.negate);
    const searchPathMap = {};
@@ -25797,7 +25797,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3)), pathHelper = __importStar(__webpack_require__(34)), assert_1 = __importDefault(__webpack_require__(15)), minimatch_1 = __webpack_require__(64), internal_match_kind_1 = __webpack_require__(35), internal_path_1 = __webpack_require__(125), IS_WINDOWS = "win32" === process.platform;
+  const os = __importStar(__webpack_require__(4)), path = __importStar(__webpack_require__(3)), pathHelper = __importStar(__webpack_require__(35)), assert_1 = __importDefault(__webpack_require__(15)), minimatch_1 = __webpack_require__(64), internal_match_kind_1 = __webpack_require__(36), internal_path_1 = __webpack_require__(124), IS_WINDOWS = "win32" === process.platform;
   class Pattern {
    constructor(patternOrNegate, segments, homedir) {
     let pattern;
@@ -25887,7 +25887,7 @@
   }
   exports.Pattern = Pattern;
  }, function(module, exports, __webpack_require__) {
-  var concatMap = __webpack_require__(123), balanced = __webpack_require__(124);
+  var concatMap = __webpack_require__(122), balanced = __webpack_require__(123);
   module.exports = function(str) {
    if (!str) return [];
    "{}" === str.substr(0, 2) && (str = "\\{\\}" + str.substr(2));
@@ -26014,7 +26014,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const path = __importStar(__webpack_require__(3)), pathHelper = __importStar(__webpack_require__(34)), assert_1 = __importDefault(__webpack_require__(15)), IS_WINDOWS = "win32" === process.platform;
+  const path = __importStar(__webpack_require__(3)), pathHelper = __importStar(__webpack_require__(35)), assert_1 = __importDefault(__webpack_require__(15)), IS_WINDOWS = "win32" === process.platform;
   exports.Path = class {
    constructor(itemPath) {
     if (this.segments = [], "string" == typeof itemPath) if (assert_1.default(itemPath, "Parameter 'itemPath' must not be empty"), 
@@ -26055,7 +26055,7 @@
    }
   };
  }, function(module, exports, __webpack_require__) {
-  var v1 = __webpack_require__(128), v4 = __webpack_require__(67), uuid = v4;
+  var v1 = __webpack_require__(127), v4 = __webpack_require__(67), uuid = v4;
   uuid.v1 = v1, uuid.v4 = v4, module.exports = uuid;
  }, function(module, exports, __webpack_require__) {
   var _nodeId, _clockseq, rng = __webpack_require__(65), bytesToUuid = __webpack_require__(66), _lastMSecs = 0, _lastNSecs = 0;
@@ -26099,8 +26099,8 @@
   }, exports.checkBypass = checkBypass;
  }, function(module, exports, __webpack_require__) {
   "use strict";
-  __webpack_require__(131);
-  var debug, tls = __webpack_require__(132), http = __webpack_require__(10), https = __webpack_require__(14), events = __webpack_require__(23), util = (__webpack_require__(15), 
+  __webpack_require__(130);
+  var debug, tls = __webpack_require__(131), http = __webpack_require__(10), https = __webpack_require__(14), events = __webpack_require__(23), util = (__webpack_require__(15), 
   __webpack_require__(9));
   function TunnelingAgent(options) {
    var self = this;
@@ -26305,7 +26305,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(37), storage_blob_1 = __webpack_require__(223), buffer = __importStar(__webpack_require__(100)), fs = __importStar(__webpack_require__(7)), stream = __importStar(__webpack_require__(1)), util = __importStar(__webpack_require__(9)), utils = __importStar(__webpack_require__(28)), constants_1 = __webpack_require__(25), requestUtils_1 = __webpack_require__(101);
+  const core = __importStar(__webpack_require__(8)), http_client_1 = __webpack_require__(38), storage_blob_1 = __webpack_require__(222), buffer = __importStar(__webpack_require__(100)), fs = __importStar(__webpack_require__(7)), stream = __importStar(__webpack_require__(2)), util = __importStar(__webpack_require__(9)), utils = __importStar(__webpack_require__(29)), constants_1 = __webpack_require__(25), requestUtils_1 = __webpack_require__(101);
   class DownloadProgress {
    constructor(contentLength) {
     this.contentLength = contentLength, this.segmentIndex = 0, this.segmentSize = 0, 
@@ -26596,7 +26596,7 @@
   };
   Object.defineProperty(exports, "__esModule", {
    value: !0
-  }), __exportStar(__webpack_require__(166), exports);
+  }), __exportStar(__webpack_require__(165), exports);
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var __createBinding = this && this.__createBinding || (Object.create ? function(o, m, k, k2) {
@@ -26613,7 +26613,7 @@
   };
   Object.defineProperty(exports, "__esModule", {
    value: !0
-  }), __exportStar(__webpack_require__(167), exports);
+  }), __exportStar(__webpack_require__(166), exports);
  }, function(module, exports, __webpack_require__) {
   "use strict";
   Object.defineProperty(exports, "__esModule", {
@@ -26624,7 +26624,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.TraceAPI = void 0;
-  var NoopTracerProvider_1 = __webpack_require__(77), global_utils_1 = __webpack_require__(29), TraceAPI = function() {
+  var NoopTracerProvider_1 = __webpack_require__(77), global_utils_1 = __webpack_require__(30), TraceAPI = function() {
    function TraceAPI() {}
    return TraceAPI.getInstance = function() {
     return this._instance || (this._instance = new TraceAPI), this._instance;
@@ -26646,7 +26646,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.MetricsAPI = void 0;
-  var NoopMeterProvider_1 = __webpack_require__(73), global_utils_1 = __webpack_require__(29), MetricsAPI = function() {
+  var NoopMeterProvider_1 = __webpack_require__(73), global_utils_1 = __webpack_require__(30), MetricsAPI = function() {
    function MetricsAPI() {}
    return MetricsAPI.getInstance = function() {
     return this._instance || (this._instance = new MetricsAPI), this._instance;
@@ -26668,7 +26668,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   }), exports.PropagationAPI = void 0;
-  var getter_1 = __webpack_require__(69), NoopHttpTextPropagator_1 = __webpack_require__(70), setter_1 = __webpack_require__(71), context_1 = __webpack_require__(80), global_utils_1 = __webpack_require__(29), contextApi = context_1.ContextAPI.getInstance(), PropagationAPI = function() {
+  var getter_1 = __webpack_require__(69), NoopHttpTextPropagator_1 = __webpack_require__(70), setter_1 = __webpack_require__(71), context_1 = __webpack_require__(80), global_utils_1 = __webpack_require__(30), contextApi = context_1.ContextAPI.getInstance(), PropagationAPI = function() {
    function PropagationAPI() {}
    return PropagationAPI.getInstance = function() {
     return this._instance || (this._instance = new PropagationAPI), this._instance;
@@ -26696,7 +26696,7 @@
   (function() {
    "use strict";
    var builder, defaults, escapeCDATA, requiresCDATA, wrapCDATA, hasProp = {}.hasOwnProperty;
-   builder = __webpack_require__(173), defaults = __webpack_require__(38).defaults, 
+   builder = __webpack_require__(172), defaults = __webpack_require__(39).defaults, 
    requiresCDATA = function(entry) {
     return "string" == typeof entry && (entry.indexOf("&") >= 0 || entry.indexOf(">") >= 0 || entry.indexOf("<") >= 0);
    }, wrapCDATA = function(entry) {
@@ -26735,8 +26735,8 @@
    var NodeType, WriterState, XMLDOMImplementation, XMLDocument, XMLDocumentCB, XMLStreamWriter, XMLStringWriter, assign, isFunction, ref;
    ref = __webpack_require__(16), assign = ref.assign, isFunction = ref.isFunction, 
    XMLDOMImplementation = __webpack_require__(81), XMLDocument = __webpack_require__(82), 
-   XMLDocumentCB = __webpack_require__(179), XMLStringWriter = __webpack_require__(52), 
-   XMLStreamWriter = __webpack_require__(180), NodeType = __webpack_require__(6), WriterState = __webpack_require__(31), 
+   XMLDocumentCB = __webpack_require__(178), XMLStringWriter = __webpack_require__(53), 
+   XMLStreamWriter = __webpack_require__(179), NodeType = __webpack_require__(6), WriterState = __webpack_require__(32), 
    module.exports.create = function(name, xmldec, doctype, options) {
     var doc, root;
     if (null == name) throw new Error("Root element needs a name.");
@@ -26757,7 +26757,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var XMLDOMErrorHandler, XMLDOMStringList;
-   XMLDOMErrorHandler = __webpack_require__(175), XMLDOMStringList = __webpack_require__(176), 
+   XMLDOMErrorHandler = __webpack_require__(174), XMLDOMStringList = __webpack_require__(175), 
    module.exports = function() {
     function XMLDOMConfiguration() {
      this.defaultParams = {
@@ -26852,13 +26852,13 @@
    var NodeType, WriterState, XMLAttribute, XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDeclaration, XMLDocType, XMLDocument, XMLElement, XMLProcessingInstruction, XMLRaw, XMLStringWriter, XMLStringifier, XMLText, getValue, isFunction, isObject, isPlainObject, ref, hasProp = {}.hasOwnProperty;
    ref = __webpack_require__(16), isObject = ref.isObject, isFunction = ref.isFunction, 
    isPlainObject = ref.isPlainObject, getValue = ref.getValue, NodeType = __webpack_require__(6), 
-   XMLDocument = __webpack_require__(82), XMLElement = __webpack_require__(39), XMLCData = __webpack_require__(41), 
-   XMLComment = __webpack_require__(42), XMLRaw = __webpack_require__(49), XMLText = __webpack_require__(50), 
-   XMLProcessingInstruction = __webpack_require__(51), XMLDeclaration = __webpack_require__(43), 
-   XMLDocType = __webpack_require__(44), XMLDTDAttList = __webpack_require__(45), XMLDTDEntity = __webpack_require__(46), 
-   XMLDTDElement = __webpack_require__(47), XMLDTDNotation = __webpack_require__(48), 
+   XMLDocument = __webpack_require__(82), XMLElement = __webpack_require__(40), XMLCData = __webpack_require__(42), 
+   XMLComment = __webpack_require__(43), XMLRaw = __webpack_require__(50), XMLText = __webpack_require__(51), 
+   XMLProcessingInstruction = __webpack_require__(52), XMLDeclaration = __webpack_require__(44), 
+   XMLDocType = __webpack_require__(45), XMLDTDAttList = __webpack_require__(46), XMLDTDEntity = __webpack_require__(47), 
+   XMLDTDElement = __webpack_require__(48), XMLDTDNotation = __webpack_require__(49), 
    XMLAttribute = __webpack_require__(83), XMLStringifier = __webpack_require__(85), 
-   XMLStringWriter = __webpack_require__(52), WriterState = __webpack_require__(31), 
+   XMLStringWriter = __webpack_require__(53), WriterState = __webpack_require__(32), 
    module.exports = function() {
     function XMLDocumentCB(options, onData, onEnd) {
      var writerOptions;
@@ -27073,7 +27073,7 @@
  }, function(module, exports, __webpack_require__) {
   (function() {
    var NodeType, WriterState, XMLWriterBase, hasProp = {}.hasOwnProperty;
-   NodeType = __webpack_require__(6), XMLWriterBase = __webpack_require__(86), WriterState = __webpack_require__(31), 
+   NodeType = __webpack_require__(6), XMLWriterBase = __webpack_require__(86), WriterState = __webpack_require__(32), 
    module.exports = function(superClass) {
     function XMLStreamWriter(stream, options) {
      this.stream = stream, XMLStreamWriter.__super__.constructor.call(this, options);
@@ -27158,9 +27158,9 @@
      return fn.apply(me, arguments);
     };
    }, hasProp = {}.hasOwnProperty;
-   sax = __webpack_require__(182), events = __webpack_require__(23), bom = __webpack_require__(184), 
-   processors = __webpack_require__(87), setImmediate = __webpack_require__(185).setImmediate, 
-   defaults = __webpack_require__(38).defaults, isEmpty = function(thing) {
+   sax = __webpack_require__(181), events = __webpack_require__(23), bom = __webpack_require__(183), 
+   processors = __webpack_require__(87), setImmediate = __webpack_require__(184).setImmediate, 
+   defaults = __webpack_require__(39).defaults, isEmpty = function(thing) {
     return "object" == typeof thing && null != thing && 0 === Object.keys(thing).length;
    }, processItem = function(processors, item, key) {
     var i, len;
@@ -27601,7 +27601,7 @@
     }
    };
    try {
-    Stream = __webpack_require__(1).Stream;
+    Stream = __webpack_require__(2).Stream;
    } catch (ex) {
     Stream = function() {};
    }
@@ -27638,7 +27638,7 @@
    }), SAXStream.prototype.write = function(data) {
     if ("function" == typeof Buffer && "function" == typeof Buffer.isBuffer && Buffer.isBuffer(data)) {
      if (!this._decoder) {
-      var SD = __webpack_require__(183).StringDecoder;
+      var SD = __webpack_require__(182).StringDecoder;
       this._decoder = new SD("utf8");
      }
      data = this._decoder.write(data);
@@ -28148,7 +28148,7 @@
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var Punycode = __webpack_require__(88), internals = {};
-  internals.rules = __webpack_require__(187).map((function(rule) {
+  internals.rules = __webpack_require__(186).map((function(rule) {
    return {
     rule: rule,
     suffix: rule.replace(/^(\*\.|\!)/, ""),
@@ -28297,7 +28297,7 @@
  }, function(module, exports) {
   module.exports = "4.0.0";
  }, function(module, exports, __webpack_require__) {
-  var util = __webpack_require__(9), Stream = __webpack_require__(1).Stream, DelayedStream = __webpack_require__(191);
+  var util = __webpack_require__(9), Stream = __webpack_require__(2).Stream, DelayedStream = __webpack_require__(190);
   function CombinedStream() {
    this.writable = !1, this.readable = !0, this.dataSize = 0, this.maxDataSize = 2097152, 
    this.pauseStreams = !0, this._released = !1, this._streams = [], this._currentStream = null, 
@@ -28381,7 +28381,7 @@
    this._reset(), this.emit("error", err);
   };
  }, function(module, exports, __webpack_require__) {
-  var Stream = __webpack_require__(1).Stream, util = __webpack_require__(9);
+  var Stream = __webpack_require__(2).Stream, util = __webpack_require__(9);
   function DelayedStream() {
    this.source = null, this.dataSize = 0, this.maxDataSize = 1048576, this.pauseStream = !0, 
    this._maxDataSizeExceeded = !1, this._released = !1, this._bufferedEvents = [];
@@ -28426,7 +28426,7 @@
   };
  }, function(module, exports, __webpack_require__) {
   "use strict";
-  var extensions, types, preference, db = __webpack_require__(193), extname = __webpack_require__(3).extname, EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/, TEXT_TYPE_REGEXP = /^text\//i;
+  var extensions, types, preference, db = __webpack_require__(192), extname = __webpack_require__(3).extname, EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/, TEXT_TYPE_REGEXP = /^text\//i;
   function charset(type) {
    if (!type || "string" != typeof type) return !1;
    var match = EXTRACT_TYPE_REGEXP.exec(type), mime = match && db[match[1].toLowerCase()];
@@ -28469,13 +28469,13 @@
    }
   }));
  }, function(module, exports, __webpack_require__) {
-  module.exports = __webpack_require__(194);
+  module.exports = __webpack_require__(193);
  }, function(module) {
   module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/3gpp-ims+xml":{"source":"iana","compressible":true},"application/a2l":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/activity+json":{"source":"iana","compressible":true},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/alto-updatestreamcontrol+json":{"source":"iana","compressible":true},"application/alto-updatestreamparams+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","compressible":true,"extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana","compressible":true,"extensions":["atomdeleted"]},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","compressible":true,"extensions":["atomsvc"]},"application/atsc-dwd+xml":{"source":"iana","compressible":true,"extensions":["dwd"]},"application/atsc-dynamic-event-message":{"source":"iana"},"application/atsc-held+xml":{"source":"iana","compressible":true,"extensions":["held"]},"application/atsc-rdt+json":{"source":"iana","compressible":true},"application/atsc-rsat+xml":{"source":"iana","compressible":true,"extensions":["rsat"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana","compressible":true},"application/bacnet-xdd+zip":{"source":"iana","compressible":false},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana","compressible":true,"extensions":["xcs"]},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/captive+json":{"source":"iana","compressible":true},"application/cbor":{"source":"iana"},"application/cbor-seq":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana","compressible":true},"application/ccxml+xml":{"source":"iana","compressible":true,"extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana","compressible":true,"extensions":["cdfx"]},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana","compressible":true},"application/cellml+xml":{"source":"iana","compressible":true},"application/cfw":{"source":"iana"},"application/clr":{"source":"iana"},"application/clue+xml":{"source":"iana","compressible":true},"application/clue_info+xml":{"source":"iana","compressible":true},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana","compressible":true},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana","compressible":true},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana","compressible":true},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana","compressible":true},"application/cstadata+xml":{"source":"iana","compressible":true},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cwt":{"source":"iana"},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","compressible":true,"extensions":["mpd"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","compressible":true,"extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana","compressible":true},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana","compressible":true},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/dns+json":{"source":"iana","compressible":true},"application/dns-message":{"source":"iana"},"application/docbook+xml":{"source":"apache","compressible":true,"extensions":["dbk"]},"application/dots+cbor":{"source":"iana"},"application/dskpp+xml":{"source":"iana","compressible":true},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","compressible":true,"extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["ecma","es"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/elm+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/elm+xml":{"source":"iana","compressible":true},"application/emergencycalldata.cap+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/emergencycalldata.comment+xml":{"source":"iana","compressible":true},"application/emergencycalldata.control+xml":{"source":"iana","compressible":true},"application/emergencycalldata.deviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.serviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.veds+xml":{"source":"iana","compressible":true},"application/emma+xml":{"source":"iana","compressible":true,"extensions":["emma"]},"application/emotionml+xml":{"source":"iana","compressible":true,"extensions":["emotionml"]},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana","compressible":true},"application/epub+zip":{"source":"iana","compressible":false,"extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/expect-ct-report+json":{"source":"iana","compressible":true},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana","compressible":true,"extensions":["fdt"]},"application/fhir+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/fhir+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/flexfec":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false},"application/framework-attributes+xml":{"source":"iana","compressible":true},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geopackage+sqlite3":{"source":"iana"},"application/geoxacml+xml":{"source":"iana","compressible":true},"application/gltf-buffer":{"source":"iana"},"application/gml+xml":{"source":"iana","compressible":true,"extensions":["gml"]},"application/gpx+xml":{"source":"apache","compressible":true,"extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana","compressible":true},"application/hjson":{"extensions":["hjson"]},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana","compressible":true},"application/ibe-pkg-reply+xml":{"source":"iana","compressible":true},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","compressible":true,"extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana","compressible":true,"extensions":["its"]},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/jscalendar+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana","compressible":true},"application/kpml-response+xml":{"source":"iana","compressible":true},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana","compressible":true,"extensions":["lgr"]},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana","compressible":true},"application/lost+xml":{"source":"iana","compressible":true,"extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana","compressible":true},"application/lpf+zip":{"source":"iana","compressible":false},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","compressible":true,"extensions":["mads"]},"application/manifest+json":{"charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","compressible":true,"extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","compressible":true,"extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana","compressible":true},"application/mathml-presentation+xml":{"source":"iana","compressible":true},"application/mbms-associated-procedure-description+xml":{"source":"iana","compressible":true},"application/mbms-deregister+xml":{"source":"iana","compressible":true},"application/mbms-envelope+xml":{"source":"iana","compressible":true},"application/mbms-msk+xml":{"source":"iana","compressible":true},"application/mbms-msk-response+xml":{"source":"iana","compressible":true},"application/mbms-protection-description+xml":{"source":"iana","compressible":true},"application/mbms-reception-report+xml":{"source":"iana","compressible":true},"application/mbms-register+xml":{"source":"iana","compressible":true},"application/mbms-register-response+xml":{"source":"iana","compressible":true},"application/mbms-schedule+xml":{"source":"iana","compressible":true},"application/mbms-user-service-description+xml":{"source":"iana","compressible":true},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana","compressible":true},"application/media_control+xml":{"source":"iana","compressible":true},"application/mediaservercontrol+xml":{"source":"iana","compressible":true,"extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","compressible":true,"extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","compressible":true,"extensions":["meta4"]},"application/mets+xml":{"source":"iana","compressible":true,"extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mipc":{"source":"iana"},"application/mmt-aei+xml":{"source":"iana","compressible":true,"extensions":["maei"]},"application/mmt-usd+xml":{"source":"iana","compressible":true,"extensions":["musd"]},"application/mods+xml":{"source":"iana","compressible":true,"extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana","compressible":true,"extensions":["xdf"]},"application/mrb-publish+xml":{"source":"iana","compressible":true,"extensions":["xdf"]},"application/msc-ivr+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msc-mixer+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/multipart-core":{"source":"iana"},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana","extensions":["nq"]},"application/n-triples":{"source":"iana","extensions":["nt"]},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana","charset":"US-ASCII"},"application/news-groupinfo":{"source":"iana","charset":"US-ASCII"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana","compressible":true},"application/node":{"source":"iana","extensions":["cjs"]},"application/nss":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odm+xml":{"source":"iana","compressible":true},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","compressible":true,"extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","compressible":true,"extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/opc-nodeset+xml":{"source":"iana","compressible":true},"application/oscore":{"source":"iana"},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p2p-overlay+xml":{"source":"iana","compressible":true,"extensions":["relo"]},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","compressible":true,"extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pem-certificate-chain":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana"},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pidf-diff+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkcs8-encrypted":{"source":"iana"},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","compressible":true,"extensions":["pls"]},"application/poc-settings+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana","compressible":true},"application/provenance+xml":{"source":"iana","compressible":true,"extensions":["provx"]},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.cyn":{"source":"iana","charset":"7-BIT"},"application/prs.hpub+zip":{"source":"iana","compressible":false},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana","compressible":true},"application/pskc+xml":{"source":"iana","compressible":true,"extensions":["pskcxml"]},"application/pvd+json":{"source":"iana","compressible":true},"application/qsig":{"source":"iana"},"application/raml+yaml":{"compressible":true,"extensions":["raml"]},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf","owl"]},"application/reginfo+xml":{"source":"iana","compressible":true,"extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","compressible":true,"extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","compressible":true,"extensions":["rld"]},"application/rfc+xml":{"source":"iana","compressible":true},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana","compressible":true},"application/rls-services+xml":{"source":"iana","compressible":true,"extensions":["rs"]},"application/route-apd+xml":{"source":"iana","compressible":true,"extensions":["rapd"]},"application/route-s-tsid+xml":{"source":"iana","compressible":true,"extensions":["sls"]},"application/route-usd+xml":{"source":"iana","compressible":true,"extensions":["rusd"]},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","compressible":true,"extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana","compressible":true},"application/samlmetadata+xml":{"source":"iana","compressible":true},"application/sarif+json":{"source":"iana","compressible":true},"application/sbe":{"source":"iana"},"application/sbml+xml":{"source":"iana","compressible":true,"extensions":["sbml"]},"application/scaip+xml":{"source":"iana","compressible":true},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/secevent+jwt":{"source":"iana"},"application/senml+cbor":{"source":"iana"},"application/senml+json":{"source":"iana","compressible":true},"application/senml+xml":{"source":"iana","compressible":true,"extensions":["senmlx"]},"application/senml-etch+cbor":{"source":"iana"},"application/senml-etch+json":{"source":"iana","compressible":true},"application/senml-exi":{"source":"iana"},"application/sensml+cbor":{"source":"iana"},"application/sensml+json":{"source":"iana","compressible":true},"application/sensml+xml":{"source":"iana","compressible":true,"extensions":["sensmlx"]},"application/sensml-exi":{"source":"iana"},"application/sep+xml":{"source":"iana","compressible":true},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","compressible":true,"extensions":["shf"]},"application/sieve":{"source":"iana","extensions":["siv","sieve"]},"application/simple-filter+xml":{"source":"iana","compressible":true},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/sipc":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","compressible":true,"extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","compressible":true,"extensions":["srx"]},"application/spirits-event+xml":{"source":"iana","compressible":true},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","compressible":true,"extensions":["grxml"]},"application/sru+xml":{"source":"iana","compressible":true,"extensions":["sru"]},"application/ssdl+xml":{"source":"apache","compressible":true,"extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","compressible":true,"extensions":["ssml"]},"application/stix+json":{"source":"iana","compressible":true},"application/swid+xml":{"source":"iana","compressible":true,"extensions":["swidtag"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/taxii+json":{"source":"iana","compressible":true},"application/td+json":{"source":"iana","compressible":true},"application/tei+xml":{"source":"iana","compressible":true,"extensions":["tei","teicorpus"]},"application/tetra_isi":{"source":"iana"},"application/thraud+xml":{"source":"iana","compressible":true,"extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/tlsrpt+gzip":{"source":"iana"},"application/tlsrpt+json":{"source":"iana","compressible":true},"application/tnauthlist":{"source":"iana"},"application/toml":{"compressible":true,"extensions":["toml"]},"application/trickle-ice-sdpfrag":{"source":"iana"},"application/trig":{"source":"iana"},"application/ttml+xml":{"source":"iana","compressible":true,"extensions":["ttml"]},"application/tve-trigger":{"source":"iana"},"application/tzif":{"source":"iana"},"application/tzif-leap":{"source":"iana"},"application/ubjson":{"compressible":false,"extensions":["ubj"]},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana","compressible":true},"application/urc-ressheet+xml":{"source":"iana","compressible":true,"extensions":["rsheet"]},"application/urc-targetdesc+xml":{"source":"iana","compressible":true,"extensions":["td"]},"application/urc-uisocketdesc+xml":{"source":"iana","compressible":true},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana","compressible":true},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana","compressible":true,"extensions":["1km"]},"application/vnd.3gpp-prose+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-v2x-local-service-information":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.bsf+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.gmop+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.interworking-data":{"source":"iana"},"application/vnd.3gpp.mc-signalling-ear":{"source":"iana"},"application/vnd.3gpp.mcdata-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-payload":{"source":"iana"},"application/vnd.3gpp.mcdata-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-signalling":{"source":"iana"},"application/vnd.3gpp.mcdata-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-floor-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-signed+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-init-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-transmission-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mid-call+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.ussd+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","compressible":false,"extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","compressible":true,"extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.afpc.afplinedata":{"source":"iana"},"application/vnd.afpc.afplinedata-pagedef":{"source":"iana"},"application/vnd.afpc.cmoca-cmresource":{"source":"iana"},"application/vnd.afpc.foca-charset":{"source":"iana"},"application/vnd.afpc.foca-codedfont":{"source":"iana"},"application/vnd.afpc.foca-codepage":{"source":"iana"},"application/vnd.afpc.modca":{"source":"iana"},"application/vnd.afpc.modca-cmtable":{"source":"iana"},"application/vnd.afpc.modca-formdef":{"source":"iana"},"application/vnd.afpc.modca-mediummap":{"source":"iana"},"application/vnd.afpc.modca-objectcontainer":{"source":"iana"},"application/vnd.afpc.modca-overlay":{"source":"iana"},"application/vnd.afpc.modca-pagesegment":{"source":"iana"},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amadeus+json":{"source":"iana","compressible":true},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana","compressible":true},"application/vnd.android.ota":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.aplextor.warrp+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","compressible":true,"extensions":["mpkg"]},"application/vnd.apple.keynote":{"source":"iana","extensions":["key"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.numbers":{"source":"iana","extensions":["numbers"]},"application/vnd.apple.pages":{"source":"iana","extensions":["pages"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artisan+json":{"source":"iana","compressible":true},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avalon+json":{"source":"iana","compressible":true},"application/vnd.avistar+xml":{"source":"iana","compressible":true},"application/vnd.balsamiq.bmml+xml":{"source":"iana","compressible":true,"extensions":["bmml"]},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.banana-accounting":{"source":"iana"},"application/vnd.bbf.usp.error":{"source":"iana"},"application/vnd.bbf.usp.msg":{"source":"iana"},"application/vnd.bbf.usp.msg+json":{"source":"iana","compressible":true},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana","compressible":true},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.bpf":{"source":"iana"},"application/vnd.bpf3":{"source":"iana"},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.byu.uapi+json":{"source":"iana","compressible":true},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","compressible":true,"extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.ciedi":{"source":"iana"},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana","compressible":true,"extensions":["csl"]},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collabio.xodocuments.document":{"source":"iana"},"application/vnd.collabio.xodocuments.document-template":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation-template":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet-template":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana","compressible":false},"application/vnd.comicbook-rar":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","compressible":true,"extensions":["wbs"]},"application/vnd.cryptii.pipe+json":{"source":"iana","compressible":true},"application/vnd.crypto-shade-file":{"source":"iana"},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana","compressible":true},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana","compressible":true},"application/vnd.cybank":{"source":"iana"},"application/vnd.cyclonedx+json":{"source":"iana","compressible":true},"application/vnd.cyclonedx+xml":{"source":"iana","compressible":true},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana","compressible":false},"application/vnd.d3m-dataset":{"source":"iana"},"application/vnd.d3m-problem":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.dbf":{"source":"iana","extensions":["dbf"]},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","compressible":true,"extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume.movie":{"source":"iana"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana","compressible":true},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbisl+xml":{"source":"iana","compressible":true},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-container+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-generic+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-init+xml":{"source":"iana","compressible":true},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecip.rlp":{"source":"iana"},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana","compressible":true},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana","compressible":true},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana","compressible":false},"application/vnd.eszigno3+xml":{"source":"iana","compressible":true,"extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.asic-e+zip":{"source":"iana","compressible":false},"application/vnd.etsi.asic-s+zip":{"source":"iana","compressible":false},"application/vnd.etsi.cug+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvcommand+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvservice+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsync+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mcid+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana","compressible":true},"application/vnd.etsi.pstn+xml":{"source":"iana","compressible":true},"application/vnd.etsi.sci+xml":{"source":"iana","compressible":true},"application/vnd.etsi.simservs+xml":{"source":"iana","compressible":true},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana","compressible":true},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.exstream-empower+zip":{"source":"iana","compressible":false},"application/vnd.exstream-package":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.ficlab.flb+zip":{"source":"iana","compressible":false},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.futoin+cbor":{"source":"iana"},"application/vnd.futoin+json":{"source":"iana","compressible":true},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.gentics.grd+json":{"source":"iana","compressible":true},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana","compressible":true},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.slides":{"source":"iana"},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana","compressible":true},"application/vnd.gov.sk.e-form+zip":{"source":"iana","compressible":false},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana","compressible":true},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","compressible":true,"extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","compressible":true,"extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper+json":{"source":"iana","compressible":true},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana","compressible":false},"application/vnd.imagemeter.image+zip":{"source":"iana","compressible":false},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana","compressible":true},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana","compressible":true},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana","compressible":true},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","compressible":true,"extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.iso11783-10+zip":{"source":"iana","compressible":false},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las":{"source":"iana"},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","compressible":true,"extensions":["lasxml"]},"application/vnd.laszip":{"source":"iana"},"application/vnd.leap+json":{"source":"iana","compressible":true},"application/vnd.liberty-request+xml":{"source":"iana","compressible":true},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","compressible":true,"extensions":["lbe"]},"application/vnd.logipipe.circuit+zip":{"source":"iana","compressible":false},"application/vnd.loom":{"source":"iana"},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana"},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.license+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana","compressible":true},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana","compressible":true},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana","compressible":true},"application/vnd.ms-printing.printticket+xml":{"source":"apache","compressible":true},"application/vnd.ms-printschematicket+xml":{"source":"iana","compressible":true},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nimn":{"source":"iana"},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana","compressible":true},"application/vnd.nokia.iptv.config+xml":{"source":"iana","compressible":true},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana","compressible":true},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana","compressible":true},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana","compressible":true,"extensions":["ac"]},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana","compressible":true},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oci.image.manifest.v1+json":{"source":"iana","compressible":true},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana","compressible":true},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana","compressible":true},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana","compressible":true},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana","compressible":true},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.oipf.spdlist+xml":{"source":"iana","compressible":true},"application/vnd.oipf.ueprofile+xml":{"source":"iana","compressible":true},"application/vnd.oipf.userprofile+xml":{"source":"iana","compressible":true},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.imd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sprov+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-pcc+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana","compressible":true},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","compressible":true,"extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana","compressible":true},"application/vnd.oma.group-usage-list+xml":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+cbor":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.final-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.groups+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana","compressible":true},"application/vnd.oma.xcap-directory+xml":{"source":"iana","compressible":true},"application/vnd.omads-email+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-file+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-folder+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana","compressible":true,"extensions":["obgx"]},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana","compressible":true,"extensions":["osm"]},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"iana","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"iana","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"iana","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana","compressible":true},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana","compressible":true},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos.xml":{"source":"iana"},"application/vnd.patentdive":{"source":"iana"},"application/vnd.patientecommsdoc":{"source":"iana"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana","compressible":true},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.psfs":{"source":"iana"},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana","compressible":true},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana","compressible":true},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana","extensions":["rar"]},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","compressible":true,"extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.restful+json":{"source":"iana","compressible":true},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","compressible":true,"extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sar":{"source":"iana"},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.seis+json":{"source":"iana","compressible":true},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shade-save-file":{"source":"iana"},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.shootproof+json":{"source":"iana","compressible":true},"application/vnd.shopkick+json":{"source":"iana","compressible":true},"application/vnd.shp":{"source":"iana"},"application/vnd.shx":{"source":"iana"},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.snesdev-page-table":{"source":"iana"},"application/vnd.software602.filler.form+xml":{"source":"iana","compressible":true,"extensions":["fo"]},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","compressible":true,"extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sqlite3":{"source":"iana"},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.sycle+xml":{"source":"iana","compressible":true},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","charset":"UTF-8","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["ddf"]},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.think-cell.ppttc+json":{"source":"iana","compressible":true},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana","compressible":true},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","compressible":true,"extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.veryant.thin":{"source":"iana"},"application/vnd.ves.encrypted":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","charset":"UTF-8","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.dpp":{"source":"iana"},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana","compressible":true},"application/vnd.wv.ssp+xml":{"source":"iana","compressible":true},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana","compressible":true},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","compressible":true,"extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.youtube.yt":{"source":"iana"},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","compressible":true,"extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","compressible":true,"extensions":["vxml"]},"application/voucher-cms+json":{"source":"iana","compressible":true},"application/vq-rtcpxr":{"source":"iana"},"application/wasm":{"compressible":true,"extensions":["wasm"]},"application/watcherinfo+xml":{"source":"iana","compressible":true},"application/webpush-options+json":{"source":"iana","compressible":true},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","compressible":true,"extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","compressible":true,"extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","compressible":true,"extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","compressible":true,"extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","compressible":true,"extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-keepass2":{"extensions":["kdbx"]},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-pki-message":{"source":"iana"},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"iana","extensions":["der","crt","pem"]},"application/x-x509-ca-ra-cert":{"source":"iana"},"application/x-x509-next-ca-cert":{"source":"iana"},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","compressible":true,"extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana","compressible":true},"application/xaml+xml":{"source":"apache","compressible":true,"extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana","compressible":true,"extensions":["xav"]},"application/xcap-caps+xml":{"source":"iana","compressible":true,"extensions":["xca"]},"application/xcap-diff+xml":{"source":"iana","compressible":true,"extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana","compressible":true,"extensions":["xel"]},"application/xcap-error+xml":{"source":"iana","compressible":true,"extensions":["xer"]},"application/xcap-ns+xml":{"source":"iana","compressible":true,"extensions":["xns"]},"application/xcon-conference-info+xml":{"source":"iana","compressible":true},"application/xcon-conference-info-diff+xml":{"source":"iana","compressible":true},"application/xenc+xml":{"source":"iana","compressible":true,"extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache","compressible":true},"application/xliff+xml":{"source":"iana","compressible":true,"extensions":["xlf"]},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana","compressible":true},"application/xmpp+xml":{"source":"iana","compressible":true},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","compressible":true,"extensions":["xpl"]},"application/xslt+xml":{"source":"iana","compressible":true,"extensions":["xsl","xslt"]},"application/xspf+xml":{"source":"apache","compressible":true,"extensions":["xspf"]},"application/xv+xml":{"source":"iana","compressible":true,"extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana","compressible":true},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana","compressible":true},"application/yin+xml":{"source":"iana","compressible":true,"extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"application/zstd":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/aac":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana","extensions":["amr"]},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/flexfec":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/mhas":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana","extensions":["mxmf"]},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx","opus"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/scip":{"source":"iana"},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sofa":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tetra_acelp":{"source":"iana"},"audio/tetra_acelp_bb":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/tsvcis":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/usac":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dts.uhd":{"source":"iana"},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/collection":{"source":"iana","extensions":["ttc"]},"font/otf":{"source":"iana","compressible":true,"extensions":["otf"]},"font/sfnt":{"source":"iana"},"font/ttf":{"source":"iana","compressible":true,"extensions":["ttf"]},"font/woff":{"source":"iana","extensions":["woff"]},"font/woff2":{"source":"iana","extensions":["woff2"]},"image/aces":{"source":"iana","extensions":["exr"]},"image/apng":{"compressible":false,"extensions":["apng"]},"image/avci":{"source":"iana"},"image/avcs":{"source":"iana"},"image/avif":{"source":"iana","compressible":false,"extensions":["avif"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana","extensions":["drle"]},"image/emf":{"source":"iana","extensions":["emf"]},"image/fits":{"source":"iana","extensions":["fits"]},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/heic":{"source":"iana","extensions":["heic"]},"image/heic-sequence":{"source":"iana","extensions":["heics"]},"image/heif":{"source":"iana","extensions":["heif"]},"image/heif-sequence":{"source":"iana","extensions":["heifs"]},"image/hej2k":{"source":"iana","extensions":["hej2"]},"image/hsj2":{"source":"iana","extensions":["hsj2"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana","extensions":["jls"]},"image/jp2":{"source":"iana","compressible":false,"extensions":["jp2","jpg2"]},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jph":{"source":"iana","extensions":["jph"]},"image/jphc":{"source":"iana","extensions":["jhc"]},"image/jpm":{"source":"iana","compressible":false,"extensions":["jpm"]},"image/jpx":{"source":"iana","compressible":false,"extensions":["jpx","jpf"]},"image/jxr":{"source":"iana","extensions":["jxr"]},"image/jxra":{"source":"iana","extensions":["jxra"]},"image/jxrs":{"source":"iana","extensions":["jxrs"]},"image/jxs":{"source":"iana","extensions":["jxs"]},"image/jxsc":{"source":"iana","extensions":["jxsc"]},"image/jxsi":{"source":"iana","extensions":["jxsi"]},"image/jxss":{"source":"iana","extensions":["jxss"]},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/ktx2":{"source":"iana","extensions":["ktx2"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana","extensions":["pti"]},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana","extensions":["t38"]},"image/tiff":{"source":"iana","compressible":false,"extensions":["tif","tiff"]},"image/tiff-fx":{"source":"iana","extensions":["tfx"]},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana","extensions":["azv"]},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana","extensions":["ico"]},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-dds":{"extensions":["dds"]},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.pco.b16":{"source":"iana","extensions":["b16"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana","extensions":["tap"]},"image/vnd.valve.source.texture":{"source":"iana","extensions":["vtf"]},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana","extensions":["pcx"]},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana","extensions":["wmf"]},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana","extensions":["disposition-notification"]},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana","extensions":["u8msg"]},"message/global-delivery-status":{"source":"iana","extensions":["u8dsn"]},"message/global-disposition-notification":{"source":"iana","extensions":["u8mdn"]},"message/global-headers":{"source":"iana","extensions":["u8hdr"]},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana","extensions":["wsc"]},"model/3mf":{"source":"iana","extensions":["3mf"]},"model/e57":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"source":"iana","compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/mtl":{"source":"iana","extensions":["mtl"]},"model/obj":{"source":"iana","extensions":["obj"]},"model/stl":{"source":"iana","extensions":["stl"]},"model/vnd.collada+xml":{"source":"iana","compressible":true,"extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana","compressible":true},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana","extensions":["ogex"]},"model/vnd.parasolid.transmit.binary":{"source":"iana","extensions":["x_b"]},"model/vnd.parasolid.transmit.text":{"source":"iana","extensions":["x_t"]},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.usdz+zip":{"source":"iana","compressible":false,"extensions":["usdz"]},"model/vnd.valve.source.compiled-map":{"source":"iana","extensions":["bsp"]},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana","extensions":["x3db"]},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana","extensions":["x3dv"]},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana"},"multipart/multilingual":{"source":"iana"},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/cql":{"source":"iana"},"text/cql-expression":{"source":"iana"},"text/cql-identifier":{"source":"iana"},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fhirpath":{"source":"iana"},"text/flexfec":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/gff3":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"compressible":true,"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mdx":{"compressible":true,"extensions":["mdx"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana","charset":"UTF-8"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana","charset":"UTF-8"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/shaclc":{"source":"iana"},"text/shex":{"extensions":["shex"]},"text/slim":{"extensions":["slim","slm"]},"text/spdx":{"source":"iana","extensions":["spdx"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","charset":"UTF-8","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana","charset":"UTF-8"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana","charset":"UTF-8"},"text/vnd.ficlab.flt":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.gml":{"source":"iana"},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.hans":{"source":"iana"},"text/vnd.hgl":{"source":"iana"},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.senx.warpscript":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sosi":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","charset":"UTF-8","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana","charset":"UTF-8"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/av1":{"source":"iana"},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/flexfec":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana","extensions":["m4s"]},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/scip":{"source":"iana"},"video/smpte291":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vc2":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.mp4vr":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vnd.youtube.yt":{"source":"iana"},"video/vp8":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}');
  }, function(module, exports, __webpack_require__) {
   module.exports = {
-   parallel: __webpack_require__(196),
-   serial: __webpack_require__(198),
+   parallel: __webpack_require__(195),
+   serial: __webpack_require__(197),
    serialOrdered: __webpack_require__(99)
   };
  }, function(module, exports, __webpack_require__) {
@@ -28571,7 +28571,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const exec_1 = __webpack_require__(26), io = __importStar(__webpack_require__(24)), fs_1 = __webpack_require__(7), path = __importStar(__webpack_require__(3)), utils = __importStar(__webpack_require__(28)), constants_1 = __webpack_require__(25);
+  const exec_1 = __webpack_require__(27), io = __importStar(__webpack_require__(24)), fs_1 = __webpack_require__(7), path = __importStar(__webpack_require__(3)), utils = __importStar(__webpack_require__(29)), constants_1 = __webpack_require__(25);
   function execTar(args, compressionMethod, cwd) {
    return __awaiter(this, void 0, void 0, (function*() {
     try {
@@ -28666,7 +28666,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const internal_globber_1 = __webpack_require__(203);
+  const internal_globber_1 = __webpack_require__(202);
   exports.create = function(patterns, options) {
    return __awaiter(this, void 0, void 0, (function*() {
     return yield internal_globber_1.DefaultGlobber.create(patterns, options);
@@ -28755,7 +28755,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const core = __webpack_require__(8), fs = __webpack_require__(7), globOptionsHelper = __webpack_require__(204), path = __webpack_require__(3), patternHelper = __webpack_require__(205), internal_match_kind_1 = __webpack_require__(56), internal_pattern_1 = __webpack_require__(206), internal_search_state_1 = __webpack_require__(208), IS_WINDOWS = "win32" === process.platform;
+  const core = __webpack_require__(8), fs = __webpack_require__(7), globOptionsHelper = __webpack_require__(203), path = __webpack_require__(3), patternHelper = __webpack_require__(204), internal_match_kind_1 = __webpack_require__(57), internal_pattern_1 = __webpack_require__(205), internal_search_state_1 = __webpack_require__(207), IS_WINDOWS = "win32" === process.platform;
   class DefaultGlobber {
    constructor(options) {
     this.patterns = [], this.searchPaths = [], this.options = globOptionsHelper.getOptions(options);
@@ -28869,7 +28869,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const pathHelper = __webpack_require__(55), internal_match_kind_1 = __webpack_require__(56), IS_WINDOWS = "win32" === process.platform;
+  const pathHelper = __webpack_require__(56), internal_match_kind_1 = __webpack_require__(57), IS_WINDOWS = "win32" === process.platform;
   exports.getSearchPaths = function(patterns) {
    patterns = patterns.filter(x => !x.negate);
    const searchPathMap = {};
@@ -28903,7 +28903,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const assert = __webpack_require__(15), os = __webpack_require__(4), path = __webpack_require__(3), pathHelper = __webpack_require__(55), minimatch_1 = __webpack_require__(64), internal_match_kind_1 = __webpack_require__(56), internal_path_1 = __webpack_require__(207), IS_WINDOWS = "win32" === process.platform;
+  const assert = __webpack_require__(15), os = __webpack_require__(4), path = __webpack_require__(3), pathHelper = __webpack_require__(56), minimatch_1 = __webpack_require__(64), internal_match_kind_1 = __webpack_require__(57), internal_path_1 = __webpack_require__(206), IS_WINDOWS = "win32" === process.platform;
   class Pattern {
    constructor(patternOrNegate, segments) {
     let pattern;
@@ -28999,7 +28999,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const assert = __webpack_require__(15), path = __webpack_require__(3), pathHelper = __webpack_require__(55), IS_WINDOWS = "win32" === process.platform;
+  const assert = __webpack_require__(15), path = __webpack_require__(3), pathHelper = __webpack_require__(56), IS_WINDOWS = "win32" === process.platform;
   exports.Path = class {
    constructor(itemPath) {
     if (this.segments = [], "string" == typeof itemPath) if (assert(itemPath, "Parameter 'itemPath' must not be empty"), 
@@ -29041,7 +29041,7 @@
   };
  }, function(module, exports, __webpack_require__) {
   var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-  __WEBPACK_AMD_DEFINE_ARRAY__ = [ exports, __webpack_require__(5), __webpack_require__(53) ], 
+  __WEBPACK_AMD_DEFINE_ARRAY__ = [ exports, __webpack_require__(5), __webpack_require__(54) ], 
   void 0 === (__WEBPACK_AMD_DEFINE_RESULT__ = "function" == typeof (__WEBPACK_AMD_DEFINE_FACTORY__ = function(_, Kotlin, $module$kotlinx_serialization_kotlinx_serialization_core_jsLegacy) {
    "use strict";
    var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {}), Kind_OBJECT = Kotlin.Kind.OBJECT, StringBuilder_init = Kotlin.kotlin.text.StringBuilder_init, Kind_CLASS = Kotlin.Kind.CLASS, StringFormat = $module$kotlinx_serialization_kotlinx_serialization_core_jsLegacy.kotlinx.serialization.StringFormat, defineInlineFunction = Kotlin.defineInlineFunction, wrapFunction = Kotlin.wrapFunction, equals = Kotlin.equals, unboxChar = Kotlin.unboxChar, modules = $module$kotlinx_serialization_kotlinx_serialization_core_jsLegacy.kotlinx.serialization.modules, IllegalStateException_init = Kotlin.kotlin.IllegalStateException_init_pdl1vj$, IllegalArgumentException_init = Kotlin.kotlin.IllegalArgumentException_init_pdl1vj$, toBoxedChar = (Kotlin.kotlin.text.iterator_gw00vp$, 
@@ -32073,7 +32073,7 @@
    HTTP_AGENT = $receiver, errorHeaderValues = ErrorHeader$values(), KOTLIN_COMPILE_ERROR = Regex_init("^e: (\\S.+?):(\\d+):(?:(\\d+):)? (.+)$"), 
    CHECKSTYLE_ERROR = Regex_init("^\\[ant:checkstyle] \\[ERROR] (\\S.+?):(\\d+):(?:(\\d+):)? (.+) \\[([^\\]]+)]$"), 
    JAVA_ERROR = Regex_init("^(\\S.+?):(\\d+): error: (.+)$");
-  }(module.exports, __webpack_require__(5), __webpack_require__(103), __webpack_require__(8), __webpack_require__(216), __webpack_require__(102), __webpack_require__(21), __webpack_require__(3), __webpack_require__(13), __webpack_require__(104), __webpack_require__(4), __webpack_require__(18), __webpack_require__(22), __webpack_require__(217), __webpack_require__(219), __webpack_require__(61));
+  }(module.exports, __webpack_require__(5), __webpack_require__(103), __webpack_require__(8), __webpack_require__(215), __webpack_require__(102), __webpack_require__(21), __webpack_require__(3), __webpack_require__(13), __webpack_require__(104), __webpack_require__(4), __webpack_require__(18), __webpack_require__(22), __webpack_require__(216), __webpack_require__(218), __webpack_require__(61));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   var __awaiter = this && this.__awaiter || function(thisArg, _arguments, P, generator) {
@@ -32109,7 +32109,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const semver = __importStar(__webpack_require__(36)), core_1 = __webpack_require__(8), os = __webpack_require__(4), cp = __webpack_require__(33), fs = __webpack_require__(7);
+  const semver = __importStar(__webpack_require__(37)), core_1 = __webpack_require__(8), os = __webpack_require__(4), cp = __webpack_require__(34), fs = __webpack_require__(7);
   exports._findMatch = function(versionSpec, stable, candidates, archFilter) {
    return __awaiter(this, void 0, void 0, (function*() {
     const platFilter = os.platform();
@@ -32159,7 +32159,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(214);
+  const http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(213);
   let tunnel;
   var HttpCodes, Headers, MediaTypes;
   !function(HttpCodes) {
@@ -32533,7 +32533,7 @@
   Object.defineProperty(exports, "__esModule", {
    value: !0
   });
-  const url = __webpack_require__(12), http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(218);
+  const url = __webpack_require__(12), http = __webpack_require__(10), https = __webpack_require__(14), pm = __webpack_require__(217);
   let tunnel;
   var HttpCodes, Headers, MediaTypes;
   !function(HttpCodes) {
@@ -32830,7 +32830,7 @@
     }
     return $receiver;
    }, NEWLINE = Regex_init("\\s*[\r\n]+\\s*");
-  }(module.exports, __webpack_require__(5), __webpack_require__(220));
+  }(module.exports, __webpack_require__(5), __webpack_require__(219));
  }, function(module, exports, __webpack_require__) {
   "use strict";
   Object.defineProperty(exports, "__esModule", {
@@ -33251,7 +33251,7 @@
     void 0 === multiCacheRepository && (multiCacheRepository = ""), void 0 === multiCacheGroupIdFilter && (multiCacheGroupIdFilter = "com[.]github[.]burrunan[.]multi-?cache"), 
     void 0 === push && (push = !0);
     var multiCacheGroupIdFilterEscaped = replace(multiCacheGroupIdFilter, "\\", "\\\\");
-    return trimIndent("\n            def pluginId = 'com.github.burrunan.multi-cache'\n            def multiCacheVersion = '1.0'\n            def multiCacheGroupIdFilter = 'com[.]github[.]burrunan[.]multi-?cache'\n            boolean multiCacheEnabled = " + multiCacheEnabled + "\n            String multiCacheRepository = '" + multiCacheRepository + "'\n            boolean gradle6Plus = org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')\n            // beforeSettings is Gradle 6.0+\n            if (multiCacheEnabled && !gradle6Plus) {\n                println(\"Multiple remote build caches (" + this.pluginId_0 + ") are supported in Gradle 6.0+ only\")\n                multiCacheEnabled = false\n            }\n            if (multiCacheEnabled) {\n                beforeSettings { settings ->\n                    def repos = settings.buildscript.repositories\n                    if (multiCacheRepository != '') {\n                        repos.add(\n                            repos.maven {\n                                url = multiCacheRepository\n                                if ('" + multiCacheGroupIdFilterEscaped + "' != '') {\n                                    content {\n                                        includeGroupByRegex('" + multiCacheGroupIdFilterEscaped + "')\n                                    }\n                                }\n                            }\n                        )\n                    } else if (repos.isEmpty()) {\n                        repos.add(repos.gradlePluginPortal())\n                    }\n                    settings.buildscript.dependencies {\n                        classpath(\"" + this.pluginId_0 + ":" + this.pluginId_0 + ".gradle.plugin:" + multiCacheVersion + '")\n                    }\n                }\n            }\n\n            settingsEvaluated { settings ->\n                settings.buildCache {\n                    boolean needMulticache = remote != null\n                    if (needMulticache && !multiCacheEnabled) {\n                        println("' + this.pluginId_0 + ' is disabled")\n                        return\n                    }\n\n                    local {\n                        enabled = true\n                    }\n                    if (needMulticache) {\n                        settings.pluginManager.apply("' + this.pluginId_0 + "\")\n                        settings.multicache.push('base')\n                    }\n                    remote(HttpBuildCache) {\n                        url = '" + toString(this.cacheUrl) + "'\n                        push = " + push + "\n                        // Build cache is located on localhost, so it is fine to use http protocol\n                        if (gradle6Plus) {\n                            allowInsecureProtocol = true\n                        }\n                    }\n                    if (needMulticache) {\n                        settings.multicache.pushAndConfigure('actions-cache') {\n                            loadSequentiallyWriteConcurrently('actions-cache', 'base')\n                        }\n                    }\n                }\n            }\n        ");
+    return trimIndent("\n            def pluginId = 'com.github.burrunan.multi-cache'\n            def multiCacheVersion = '1.0'\n            def multiCacheGroupIdFilter = 'com[.]github[.]burrunan[.]multi-?cache'\n            boolean multiCacheEnabled = " + multiCacheEnabled + "\n            String multiCacheRepository = '" + multiCacheRepository + "'\n            boolean gradle6Plus = org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')\n            // beforeSettings is Gradle 6.0+\n            if (multiCacheEnabled && !gradle6Plus) {\n                println(\"Multiple remote build caches (" + this.pluginId_0 + ") are supported in Gradle 6.0+ only\")\n                multiCacheEnabled = false\n            }\n            if (multiCacheEnabled) {\n                beforeSettings { settings ->\n                    def repos = settings.buildscript.repositories\n                    if (multiCacheRepository != '') {\n                        repos.add(\n                            repos.maven {\n                                url = multiCacheRepository\n                                if ('" + multiCacheGroupIdFilterEscaped + "' != '') {\n                                    content {\n                                        includeGroupByRegex('" + multiCacheGroupIdFilterEscaped + "')\n                                    }\n                                }\n                            }\n                        )\n                    } else if (repos.isEmpty()) {\n                        repos.add(repos.gradlePluginPortal())\n                    }\n                    settings.buildscript.dependencies {\n                        classpath(\"" + this.pluginId_0 + ":" + this.pluginId_0 + ".gradle.plugin:" + multiCacheVersion + '")\n                    }\n                }\n            }\n\n            settingsEvaluated { settings ->\n                settings.buildCache {\n                    boolean needMulticache = remote != null\n                    if (needMulticache && !multiCacheEnabled) {\n                        println("' + this.pluginId_0 + ' is disabled")\n                        return\n                    }\n\n                    local {\n                        enabled = true\n                        push = ' + push + '\n                    }\n                    if (needMulticache) {\n                        settings.pluginManager.apply("' + this.pluginId_0 + "\")\n                        settings.multicache.push('base')\n                    }\n                    remote(HttpBuildCache) {\n                        url = '" + toString(this.cacheUrl) + "'\n                        push = " + push + "\n                        // Build cache is located on localhost, so it is fine to use http protocol\n                        if (gradle6Plus) {\n                            allowInsecureProtocol = true\n                        }\n                    }\n                    if (needMulticache) {\n                        settings.multicache.pushAndConfigure('actions-cache') {\n                            loadSequentiallyWriteConcurrently('actions-cache', 'base')\n                        }\n                    }\n                }\n            }\n        ");
    }, Coroutine$start.$metadata$ = {
     kind: Kotlin.Kind.CLASS,
     simpleName: null,
@@ -33388,7 +33388,7 @@
    }), $$importsForInline$$["gradle-cache-action-actions-core"] = $module$gradle_cache_action_actions_core;
    var package$com = _.com || (_.com = {}), package$github = package$com.github || (package$com.github = {}), package$burrunan = package$github.burrunan || (package$github.burrunan = {}), package$gradle = package$burrunan.gradle || (package$burrunan.gradle = {});
    (package$gradle.proxy || (package$gradle.proxy = {})).CacheProxy = CacheProxy;
-  }(module.exports, __webpack_require__(5), __webpack_require__(3), __webpack_require__(7), __webpack_require__(18), __webpack_require__(13), __webpack_require__(68), __webpack_require__(54), __webpack_require__(222), __webpack_require__(21), __webpack_require__(22), __webpack_require__(12), __webpack_require__(10), __webpack_require__(25));
+  }(module.exports, __webpack_require__(5), __webpack_require__(3), __webpack_require__(7), __webpack_require__(18), __webpack_require__(13), __webpack_require__(68), __webpack_require__(55), __webpack_require__(221), __webpack_require__(21), __webpack_require__(22), __webpack_require__(12), __webpack_require__(10), __webpack_require__(25));
  }, function(module, exports, __webpack_require__) {
   !function(_, Kotlin, $module$kotlin_wrappers_kotlin_extensions_jsLegacy, $module$_actions_core, $module$gradle_cache_action_nodejs, $module$gradle_cache_action_js, $module$url, $module$http, $module$kotlinx_coroutines_core) {
    "use strict";
@@ -33569,7 +33569,7 @@
     }));
     var closure$action_0, this$handle_0;
    };
-  }(module.exports, __webpack_require__(5), __webpack_require__(22), __webpack_require__(8), __webpack_require__(18), __webpack_require__(27), __webpack_require__(12), __webpack_require__(10), __webpack_require__(13));
+  }(module.exports, __webpack_require__(5), __webpack_require__(22), __webpack_require__(8), __webpack_require__(18), __webpack_require__(28), __webpack_require__(12), __webpack_require__(10), __webpack_require__(13));
  }, function(module, __webpack_exports__, __webpack_require__) {
   "use strict";
   __webpack_require__.r(__webpack_exports__), __webpack_require__.d(__webpack_exports__, "BlobServiceClient", (function() {
@@ -33582,10 +33582,10 @@
    return Clients_BlockBlobClient;
   })), __webpack_require__.d(__webpack_exports__, "PageBlobClient", (function() {
    return Clients_PageBlobClient;
-  })), __webpack_require__.d(__webpack_exports__, "BlobLeaseClient", (function() {
-   return Clients_BlobLeaseClient;
   })), __webpack_require__.d(__webpack_exports__, "ContainerClient", (function() {
-   return Clients_ContainerClient;
+   return ContainerClient_ContainerClient;
+  })), __webpack_require__.d(__webpack_exports__, "BlobLeaseClient", (function() {
+   return BlobLeaseClient_BlobLeaseClient;
   })), __webpack_require__.d(__webpack_exports__, "AccountSASPermissions", (function() {
    return AccountSASPermissions;
   })), __webpack_require__.d(__webpack_exports__, "AccountSASResourceTypes", (function() {
@@ -33748,6 +33748,8 @@
    return ContainerListBlobHierarchySegmentHeaders;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerReleaseLeaseHeaders", (function() {
    return ContainerReleaseLeaseHeaders;
+  })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerRenameHeaders", (function() {
+   return ContainerRenameHeaders;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerRenewLeaseHeaders", (function() {
    return ContainerRenewLeaseHeaders;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerRestoreHeaders", (function() {
@@ -33756,6 +33758,8 @@
    return ContainerSetAccessPolicyHeaders;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerSetMetadataHeaders", (function() {
    return ContainerSetMetadataHeaders;
+  })), __webpack_require__.d(containerMappers_namespaceObject, "ContainerSubmitBatchHeaders", (function() {
+   return ContainerSubmitBatchHeaders;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ListBlobsFlatSegmentResponse", (function() {
    return ListBlobsFlatSegmentResponse;
   })), __webpack_require__.d(containerMappers_namespaceObject, "ListBlobsHierarchySegmentResponse", (function() {
@@ -37535,6 +37539,76 @@
      }
     }
    }
+  }, ContainerRenameHeaders = {
+   serializedName: "container-rename-headers",
+   type: {
+    name: "Composite",
+    className: "ContainerRenameHeaders",
+    modelProperties: {
+     clientRequestId: {
+      serializedName: "x-ms-client-request-id",
+      type: {
+       name: "String"
+      }
+     },
+     requestId: {
+      serializedName: "x-ms-request-id",
+      type: {
+       name: "String"
+      }
+     },
+     version: {
+      serializedName: "x-ms-version",
+      type: {
+       name: "String"
+      }
+     },
+     date: {
+      serializedName: "date",
+      type: {
+       name: "DateTimeRfc1123"
+      }
+     },
+     errorCode: {
+      serializedName: "x-ms-error-code",
+      type: {
+       name: "String"
+      }
+     }
+    }
+   }
+  }, ContainerSubmitBatchHeaders = {
+   serializedName: "container-submitbatch-headers",
+   type: {
+    name: "Composite",
+    className: "ContainerSubmitBatchHeaders",
+    modelProperties: {
+     contentType: {
+      serializedName: "content-type",
+      type: {
+       name: "String"
+      }
+     },
+     requestId: {
+      serializedName: "x-ms-request-id",
+      type: {
+       name: "String"
+      }
+     },
+     version: {
+      serializedName: "x-ms-version",
+      type: {
+       name: "String"
+      }
+     },
+     errorCode: {
+      serializedName: "x-ms-error-code",
+      type: {
+       name: "String"
+      }
+     }
+    }
+   }
   }, ContainerAcquireLeaseHeaders = {
    serializedName: "container-acquirelease-headers",
    type: {
@@ -38138,6 +38212,12 @@
       serializedName: "x-ms-version-id",
       type: {
        name: "String"
+      }
+     },
+     isCurrentVersion: {
+      serializedName: "x-ms-is-current-version",
+      type: {
+       name: "Boolean"
       }
      },
      acceptRanges: {
@@ -41400,13 +41480,13 @@
      name: "String"
     }
    }
-  }, comp15 = {
+  }, comp10 = {
    parameterPath: "comp",
    mapper: {
     required: !0,
     isConstant: !0,
     serializedName: "comp",
-    defaultValue: "tags",
+    defaultValue: "lease",
     type: {
      name: "String"
     }
@@ -41417,7 +41497,7 @@
     required: !0,
     isConstant: !0,
     serializedName: "comp",
-    defaultValue: "page",
+    defaultValue: "tags",
     type: {
      name: "String"
     }
@@ -41428,18 +41508,18 @@
     required: !0,
     isConstant: !0,
     serializedName: "comp",
-    defaultValue: "pagelist",
+    defaultValue: "page",
     type: {
      name: "String"
     }
    }
-  }, comp19 = {
+  }, comp18 = {
    parameterPath: "comp",
    mapper: {
     required: !0,
     isConstant: !0,
     serializedName: "comp",
-    defaultValue: "appendblock",
+    defaultValue: "pagelist",
     type: {
      name: "String"
     }
@@ -41455,13 +41535,13 @@
      name: "String"
     }
    }
-  }, comp21 = {
+  }, comp20 = {
    parameterPath: "comp",
    mapper: {
     required: !0,
     isConstant: !0,
     serializedName: "comp",
-    defaultValue: "block",
+    defaultValue: "appendblock",
     type: {
      name: "String"
     }
@@ -41472,7 +41552,29 @@
     required: !0,
     isConstant: !0,
     serializedName: "comp",
+    defaultValue: "block",
+    type: {
+     name: "String"
+    }
+   }
+  }, comp23 = {
+   parameterPath: "comp",
+   mapper: {
+    required: !0,
+    isConstant: !0,
+    serializedName: "comp",
     defaultValue: "blocklist",
+    type: {
+     name: "String"
+    }
+   }
+  }, comp4 = {
+   parameterPath: "comp",
+   mapper: {
+    required: !0,
+    isConstant: !0,
+    serializedName: "comp",
+    defaultValue: "batch",
     type: {
      name: "String"
     }
@@ -41506,17 +41608,6 @@
     isConstant: !0,
     serializedName: "comp",
     defaultValue: "undelete",
-    type: {
-     name: "String"
-    }
-   }
-  }, comp9 = {
-   parameterPath: "comp",
-   mapper: {
-    required: !0,
-    isConstant: !0,
-    serializedName: "comp",
-    defaultValue: "lease",
     type: {
      name: "String"
     }
@@ -41732,6 +41823,15 @@
     },
     headerCollectionPrefix: "x-ms-meta-"
    }
+  }, multipartContentType = {
+   parameterPath: "multipartContentType",
+   mapper: {
+    required: !0,
+    serializedName: "Content-Type",
+    type: {
+     name: "String"
+    }
+   }
   }, pageWrite0 = {
    parameterPath: "pageWrite",
    mapper: {
@@ -41897,6 +41997,14 @@
      name: "DateTimeRfc1123"
     }
    }
+  }, sourceLeaseId = {
+   parameterPath: [ "options", "sourceLeaseId" ],
+   mapper: {
+    serializedName: "x-ms-source-lease-id",
+    type: {
+     name: "String"
+    }
+   }
   }, sourceRange1 = {
    parameterPath: [ "options", "sourceRange" ],
    mapper: {
@@ -41966,7 +42074,7 @@
     required: !0,
     isConstant: !0,
     serializedName: "x-ms-version",
-    defaultValue: "2020-04-08",
+    defaultValue: "2020-06-12",
     type: {
      name: "String"
     }
@@ -42160,28 +42268,8 @@
   }, submitBatchOperationSpec = {
    httpMethod: "POST",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "batch",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_contentLength, {
-    parameterPath: "multipartContentType",
-    mapper: {
-     required: !0,
-     serializedName: "Content-Type",
-     type: {
-      name: "String"
-     }
-    }
-   }, parameters_version, requestId ],
+   queryParameters: [ timeoutInSeconds, comp4 ],
+   headerParameters: [ parameters_contentLength, multipartContentType, parameters_version, requestId ],
    requestBody: {
     parameterPath: "body",
     mapper: {
@@ -42278,6 +42366,18 @@
     return this.client.sendOperationRequest({
      options: options
     }, restoreOperationSpec, callback);
+   }, Container.prototype.rename = function(sourceContainerName, options, callback) {
+    return this.client.sendOperationRequest({
+     sourceContainerName: sourceContainerName,
+     options: options
+    }, renameOperationSpec, callback);
+   }, Container.prototype.submitBatch = function(body, contentLength, multipartContentType, options, callback) {
+    return this.client.sendOperationRequest({
+     body: body,
+     contentLength: contentLength,
+     multipartContentType: multipartContentType,
+     options: options
+    }, container_submitBatchOperationSpec, callback);
    }, Container.prototype.acquireLease = function(options, callback) {
     return this.client.sendOperationRequest({
      options: options
@@ -42498,11 +42598,82 @@
    },
    isXML: !0,
    serializer: container_serializer
+  }, renameOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, restype2, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "rename",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_version, requestId, {
+    parameterPath: "sourceContainerName",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-source-container-name",
+     type: {
+      name: "String"
+     }
+    }
+   }, sourceLeaseId ],
+   responses: {
+    200: {
+     headersMapper: ContainerRenameHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: ContainerRenameHeaders
+    }
+   },
+   isXML: !0,
+   serializer: container_serializer
+  }, container_submitBatchOperationSpec = {
+   httpMethod: "POST",
+   path: "{containerName}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, restype2, comp4 ],
+   headerParameters: [ parameters_contentLength, multipartContentType, parameters_version, requestId ],
+   requestBody: {
+    parameterPath: "body",
+    mapper: {
+     required: !0,
+     serializedName: "body",
+     type: {
+      name: "Stream"
+     }
+    }
+   },
+   contentType: "application/xml; charset=utf-8",
+   responses: {
+    202: {
+     bodyMapper: {
+      serializedName: "parsedResponse",
+      type: {
+       name: "Stream"
+      }
+     },
+     headersMapper: ContainerSubmitBatchHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: ContainerSubmitBatchHeaders
+    }
+   },
+   isXML: !0,
+   serializer: container_serializer
   }, acquireLeaseOperationSpec = {
    httpMethod: "PUT",
    path: "{containerName}",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9, restype2 ],
+   queryParameters: [ timeoutInSeconds, comp10, restype2 ],
    headerParameters: [ parameters_duration, proposedLeaseId0, parameters_version, requestId, action0, ifModifiedSince, ifUnmodifiedSince ],
    responses: {
     201: {
@@ -42519,7 +42690,7 @@
    httpMethod: "PUT",
    path: "{containerName}",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9, restype2 ],
+   queryParameters: [ timeoutInSeconds, comp10, restype2 ],
    headerParameters: [ leaseId1, parameters_version, requestId, action1, ifModifiedSince, ifUnmodifiedSince ],
    responses: {
     200: {
@@ -42536,7 +42707,7 @@
    httpMethod: "PUT",
    path: "{containerName}",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9, restype2 ],
+   queryParameters: [ timeoutInSeconds, comp10, restype2 ],
    headerParameters: [ leaseId1, parameters_version, requestId, action2, ifModifiedSince, ifUnmodifiedSince ],
    responses: {
     200: {
@@ -42553,7 +42724,7 @@
    httpMethod: "PUT",
    path: "{containerName}",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9, restype2 ],
+   queryParameters: [ timeoutInSeconds, comp10, restype2 ],
    headerParameters: [ parameters_breakPeriod, parameters_version, requestId, action3, ifModifiedSince, ifUnmodifiedSince ],
    responses: {
     202: {
@@ -42570,7 +42741,7 @@
    httpMethod: "PUT",
    path: "{containerName}",
    urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9, restype2 ],
+   queryParameters: [ timeoutInSeconds, comp10, restype2 ],
    headerParameters: [ leaseId1, proposedLeaseId1, parameters_version, requestId, action4, ifModifiedSince, ifUnmodifiedSince ],
    responses: {
     200: {
@@ -42645,7 +42816,7 @@
    },
    isXML: !0,
    serializer: container_serializer
-  }, xml2js = __webpack_require__(57), xml2jsDefaultOptionsV2 = {
+  }, xml2js = __webpack_require__(58), xml2jsDefaultOptionsV2 = {
    explicitCharkey: !1,
    trim: !1,
    normalize: !1,
@@ -43957,7 +44128,7 @@
       var telemetryString = telemetry.userAgentPrefix || "";
       telemetryString.length > 0 && -1 === userAgentInfo.indexOf(telemetryString) && userAgentInfo.push(telemetryString);
      }
-     var libInfo = "azsdk-js-storageblob/12.4.1";
+     var libInfo = "azsdk-js-storageblob/12.5.0";
      -1 === userAgentInfo.indexOf(libInfo) && userAgentInfo.push(libInfo);
      var runtimeInfo = "(NODE-VERSION " + process.version + "; " + external_os_.type() + " " + external_os_.release() + ")";
      -1 === userAgentInfo.indexOf(runtimeInfo) && userAgentInfo.push(runtimeInfo);
@@ -43967,7 +44138,7 @@
    return TelemetryPolicyFactory.prototype.create = function(nextPolicy, options) {
     return new TelemetryPolicy_TelemetryPolicy(nextPolicy, options, this.telemetryString);
    }, TelemetryPolicyFactory;
-  }(), cookie = __webpack_require__(105), external_http_ = __webpack_require__(10), external_https_ = __webpack_require__(14), external_stream_ = __webpack_require__(1), external_url_ = __webpack_require__(12), external_zlib_ = __webpack_require__(20);
+  }(), cookie = __webpack_require__(105), external_http_ = __webpack_require__(10), external_https_ = __webpack_require__(14), external_stream_ = __webpack_require__(2), external_url_ = __webpack_require__(12), external_zlib_ = __webpack_require__(20);
   const Readable = external_stream_.Readable, BUFFER = Symbol("buffer"), TYPE = Symbol("type");
   class lib_Blob {
    constructor() {
@@ -44893,1288 +45064,7 @@
    factories.push(isTokenCredential(credential) ? attachCredential(bearerTokenAuthenticationPolicy(credential, StorageOAuthScopes), credential) : credential), 
    new Pipeline_Pipeline(factories, pipelineOptions);
   }
-  var RetriableReadableStream_RetriableReadableStream = function(_super) {
-   function RetriableReadableStream(source, getter, offset, count, options) {
-    void 0 === options && (options = {});
-    var _this = _super.call(this, {
-     highWaterMark: options.highWaterMark
-    }) || this;
-    return _this.retries = 0, _this.sourceDataHandler = function(data) {
-     if (_this.options.doInjectErrorOnce) return _this.options.doInjectErrorOnce = void 0, 
-     _this.source.pause(), _this.source.removeAllListeners("data"), void _this.source.emit("end");
-     _this.offset += data.length, _this.onProgress && _this.onProgress({
-      loadedBytes: _this.offset - _this.start
-     }), _this.push(data) || _this.source.pause();
-    }, _this.sourceErrorOrEndHandler = function(err) {
-     err && "AbortError" === err.name ? _this.destroy(err) : (_this.removeSourceEventHandlers(), 
-     _this.offset - 1 === _this.end ? _this.push(null) : _this.offset <= _this.end ? _this.retries < _this.maxRetryRequests ? (_this.retries += 1, 
-     _this.getter(_this.offset).then((function(newSource) {
-      _this.source = newSource, _this.setSourceEventHandlers();
-     })).catch((function(error) {
-      _this.destroy(error);
-     }))) : _this.destroy(new Error("Data corruption failure: received less data than required and reached maxRetires limitation. Received data offset: " + (_this.offset - 1) + ", data needed offset: " + _this.end + ", retries: " + _this.retries + ", max retries: " + _this.maxRetryRequests)) : _this.destroy(new Error("Data corruption failure: Received more data than original request, data needed offset is " + _this.end + ", received offset: " + (_this.offset - 1))));
-    }, _this.getter = getter, _this.source = source, _this.start = offset, _this.offset = offset, 
-    _this.end = offset + count - 1, _this.maxRetryRequests = options.maxRetryRequests && options.maxRetryRequests >= 0 ? options.maxRetryRequests : 0, 
-    _this.onProgress = options.onProgress, _this.options = options, _this.setSourceEventHandlers(), 
-    _this;
-   }
-   return __extends(RetriableReadableStream, _super), RetriableReadableStream.prototype._read = function() {
-    this.source.resume();
-   }, RetriableReadableStream.prototype.setSourceEventHandlers = function() {
-    this.source.on("data", this.sourceDataHandler), this.source.on("end", this.sourceErrorOrEndHandler), 
-    this.source.on("error", this.sourceErrorOrEndHandler);
-   }, RetriableReadableStream.prototype.removeSourceEventHandlers = function() {
-    this.source.removeListener("data", this.sourceDataHandler), this.source.removeListener("end", this.sourceErrorOrEndHandler), 
-    this.source.removeListener("error", this.sourceErrorOrEndHandler);
-   }, RetriableReadableStream.prototype._destroy = function(error, callback) {
-    this.removeSourceEventHandlers(), this.source.destroy(), callback(null === error ? void 0 : error);
-   }, RetriableReadableStream;
-  }(external_stream_.Readable), BlobDownloadResponse_BlobDownloadResponse = function() {
-   function BlobDownloadResponse(originalResponse, getter, offset, count, options) {
-    void 0 === options && (options = {}), this.originalResponse = originalResponse, 
-    this.blobDownloadStream = new RetriableReadableStream_RetriableReadableStream(this.originalResponse.readableStreamBody, getter, offset, count, options);
-   }
-   return Object.defineProperty(BlobDownloadResponse.prototype, "acceptRanges", {
-    get: function() {
-     return this.originalResponse.acceptRanges;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "cacheControl", {
-    get: function() {
-     return this.originalResponse.cacheControl;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentDisposition", {
-    get: function() {
-     return this.originalResponse.contentDisposition;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentEncoding", {
-    get: function() {
-     return this.originalResponse.contentEncoding;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentLanguage", {
-    get: function() {
-     return this.originalResponse.contentLanguage;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobSequenceNumber", {
-    get: function() {
-     return this.originalResponse.blobSequenceNumber;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobType", {
-    get: function() {
-     return this.originalResponse.blobType;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentLength", {
-    get: function() {
-     return this.originalResponse.contentLength;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentMD5", {
-    get: function() {
-     return this.originalResponse.contentMD5;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentRange", {
-    get: function() {
-     return this.originalResponse.contentRange;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentType", {
-    get: function() {
-     return this.originalResponse.contentType;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyCompletedOn", {
-    get: function() {
-     return this.originalResponse.copyCompletedOn;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyId", {
-    get: function() {
-     return this.originalResponse.copyId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyProgress", {
-    get: function() {
-     return this.originalResponse.copyProgress;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copySource", {
-    get: function() {
-     return this.originalResponse.copySource;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyStatus", {
-    get: function() {
-     return this.originalResponse.copyStatus;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyStatusDescription", {
-    get: function() {
-     return this.originalResponse.copyStatusDescription;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseDuration", {
-    get: function() {
-     return this.originalResponse.leaseDuration;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseState", {
-    get: function() {
-     return this.originalResponse.leaseState;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseStatus", {
-    get: function() {
-     return this.originalResponse.leaseStatus;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "date", {
-    get: function() {
-     return this.originalResponse.date;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobCommittedBlockCount", {
-    get: function() {
-     return this.originalResponse.blobCommittedBlockCount;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "etag", {
-    get: function() {
-     return this.originalResponse.etag;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "tagCount", {
-    get: function() {
-     return this.originalResponse.tagCount;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "errorCode", {
-    get: function() {
-     return this.originalResponse.errorCode;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "isServerEncrypted", {
-    get: function() {
-     return this.originalResponse.isServerEncrypted;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobContentMD5", {
-    get: function() {
-     return this.originalResponse.blobContentMD5;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "lastModified", {
-    get: function() {
-     return this.originalResponse.lastModified;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "lastAccessed", {
-    get: function() {
-     return this.originalResponse.lastAccessed;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "metadata", {
-    get: function() {
-     return this.originalResponse.metadata;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "requestId", {
-    get: function() {
-     return this.originalResponse.requestId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "clientRequestId", {
-    get: function() {
-     return this.originalResponse.clientRequestId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "version", {
-    get: function() {
-     return this.originalResponse.version;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "versionId", {
-    get: function() {
-     return this.originalResponse.versionId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "encryptionKeySha256", {
-    get: function() {
-     return this.originalResponse.encryptionKeySha256;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentCrc64", {
-    get: function() {
-     return this.originalResponse.contentCrc64;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "objectReplicationDestinationPolicyId", {
-    get: function() {
-     return this.originalResponse.objectReplicationDestinationPolicyId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "objectReplicationSourceProperties", {
-    get: function() {
-     return this.originalResponse.objectReplicationSourceProperties;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "isSealed", {
-    get: function() {
-     return this.originalResponse.isSealed;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentAsBlob", {
-    get: function() {
-     return this.originalResponse.blobBody;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "readableStreamBody", {
-    get: function() {
-     return isNode ? this.blobDownloadStream : void 0;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobDownloadResponse.prototype, "_response", {
-    get: function() {
-     return this.originalResponse._response;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), BlobDownloadResponse;
-  }(), AVRO_INIT_BYTES = new Uint8Array([ 79, 98, 106, 1 ]);
-  function arraysEqual(a, b) {
-   if (a === b) return !0;
-   if (null == a || null == b) return !1;
-   if (a.length != b.length) return !1;
-   for (var i = 0; i < a.length; ++i) if (a[i] !== b[i]) return !1;
-   return !0;
-  }
-  var AvroComplex, AvroParser_AvroParser = function() {
-   function AvroParser() {}
-   return AvroParser.readFixedBytes = function(stream, length, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var bytes;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, stream.read(length, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 1:
-       if ((bytes = _a.sent()).length != length) throw new Error("Hit stream end.");
-       return [ 2, bytes ];
-      }
-     }));
-    }));
-   }, AvroParser.readByte = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readFixedBytes(stream, 1, options) ];
-
-      case 1:
-       return [ 2, _a.sent()[0] ];
-      }
-     }));
-    }));
-   }, AvroParser.readZigZagLong = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var zigZagEncoded, significanceInBit, byte, haveMoreByte, significanceInFloat, res;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       zigZagEncoded = 0, significanceInBit = 0, _a.label = 1;
-
-      case 1:
-       return [ 4, AvroParser.readByte(stream, options) ];
-
-      case 2:
-       byte = _a.sent(), haveMoreByte = 128 & byte, zigZagEncoded |= (127 & byte) << significanceInBit, 
-       significanceInBit += 7, _a.label = 3;
-
-      case 3:
-       if (haveMoreByte && significanceInBit < 28) return [ 3, 1 ];
-       _a.label = 4;
-
-      case 4:
-       if (!haveMoreByte) return [ 3, 9 ];
-       zigZagEncoded = zigZagEncoded, significanceInFloat = 268435456, _a.label = 5;
-
-      case 5:
-       return [ 4, AvroParser.readByte(stream, options) ];
-
-      case 6:
-       byte = _a.sent(), zigZagEncoded += (127 & byte) * significanceInFloat, significanceInFloat *= 128, 
-       _a.label = 7;
-
-      case 7:
-       if (128 & byte) return [ 3, 5 ];
-       _a.label = 8;
-
-      case 8:
-       if ((res = (zigZagEncoded % 2 ? -(zigZagEncoded + 1) : zigZagEncoded) / 2) < Number.MIN_SAFE_INTEGER || res > Number.MAX_SAFE_INTEGER) throw new Error("Integer overflow.");
-       return [ 2, res ];
-
-      case 9:
-       return [ 2, zigZagEncoded >> 1 ^ -(1 & zigZagEncoded) ];
-      }
-     }));
-    }));
-   }, AvroParser.readLong = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      return [ 2, AvroParser.readZigZagLong(stream, options) ];
-     }));
-    }));
-   }, AvroParser.readInt = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      return [ 2, AvroParser.readZigZagLong(stream, options) ];
-     }));
-    }));
-   }, AvroParser.readNull = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      return [ 2, null ];
-     }));
-    }));
-   }, AvroParser.readBoolean = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var b;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readByte(stream, options) ];
-
-      case 1:
-       if (1 == (b = _a.sent())) return [ 2, !0 ];
-       if (0 == b) return [ 2, !1 ];
-       throw new Error("Byte was not a boolean.");
-      }
-     }));
-    }));
-   }, AvroParser.readFloat = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var u8arr;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readFixedBytes(stream, 4, options) ];
-
-      case 1:
-       return u8arr = _a.sent(), [ 2, new DataView(u8arr.buffer, u8arr.byteOffset, u8arr.byteLength).getFloat32(0, !0) ];
-      }
-     }));
-    }));
-   }, AvroParser.readDouble = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var u8arr;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readFixedBytes(stream, 8, options) ];
-
-      case 1:
-       return u8arr = _a.sent(), [ 2, new DataView(u8arr.buffer, u8arr.byteOffset, u8arr.byteLength).getFloat64(0, !0) ];
-      }
-     }));
-    }));
-   }, AvroParser.readBytes = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var size;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readLong(stream, options) ];
-
-      case 1:
-       if ((size = _a.sent()) < 0) throw new Error("Bytes size was negative.");
-       return [ 4, stream.read(size, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 2:
-       return [ 2, _a.sent() ];
-      }
-     }));
-    }));
-   }, AvroParser.readString = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var u8arr;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readBytes(stream, options) ];
-
-      case 1:
-       return u8arr = _a.sent(), "undefined" == typeof TextDecoder && (global.TextDecoder = __webpack_require__(9).TextDecoder), 
-       [ 2, (new TextDecoder).decode(u8arr) ];
-      }
-     }));
-    }));
-   }, AvroParser.readMapPair = function(stream, readItemMethod, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var key, value;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser.readString(stream, options) ];
-
-      case 1:
-       return key = _a.sent(), [ 4, readItemMethod(stream, options) ];
-
-      case 2:
-       return value = _a.sent(), [ 2, {
-        key: key,
-        value: value
-       } ];
-      }
-     }));
-    }));
-   }, AvroParser.readMap = function(stream, readItemMethod, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var readPairMethod, pairs, dict, _i, pairs_1, pair, _this = this;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return readPairMethod = function(stream, options) {
-        return void 0 === options && (options = {}), __awaiter(_this, void 0, void 0, (function() {
-         return __generator(this, (function(_a) {
-          switch (_a.label) {
-          case 0:
-           return [ 4, AvroParser.readMapPair(stream, readItemMethod, options) ];
-
-          case 1:
-           return [ 2, _a.sent() ];
-          }
-         }));
-        }));
-       }, [ 4, AvroParser.readArray(stream, readPairMethod, options) ];
-
-      case 1:
-       for (pairs = _a.sent(), dict = {}, _i = 0, pairs_1 = pairs; _i < pairs_1.length; _i++) pair = pairs_1[_i], 
-       dict[pair.key] = pair.value;
-       return [ 2, dict ];
-      }
-     }));
-    }));
-   }, AvroParser.readArray = function(stream, readItemMethod, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var items, count, item;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return items = [], [ 4, AvroParser.readLong(stream, options) ];
-
-      case 1:
-       count = _a.sent(), _a.label = 2;
-
-      case 2:
-       return 0 == count ? [ 3, 8 ] : count < 0 ? [ 4, AvroParser.readLong(stream, options) ] : [ 3, 4 ];
-
-      case 3:
-       _a.sent(), count = -count, _a.label = 4;
-
-      case 4:
-       return count-- ? [ 4, readItemMethod(stream, options) ] : [ 3, 6 ];
-
-      case 5:
-       return item = _a.sent(), items.push(item), [ 3, 4 ];
-
-      case 6:
-       return [ 4, AvroParser.readLong(stream, options) ];
-
-      case 7:
-       return count = _a.sent(), [ 3, 2 ];
-
-      case 8:
-       return [ 2, items ];
-      }
-     }));
-    }));
-   }, AvroParser;
-  }();
-  !function(AvroComplex) {
-   AvroComplex.RECORD = "record", AvroComplex.ENUM = "enum", AvroComplex.ARRAY = "array", 
-   AvroComplex.MAP = "map", AvroComplex.UNION = "union", AvroComplex.FIXED = "fixed";
-  }(AvroComplex || (AvroComplex = {}));
-  var AvroPrimitive, AvroType = function() {
-   function AvroType() {}
-   return AvroType.fromSchema = function(schema) {
-    return "string" == typeof schema ? AvroType.fromStringSchema(schema) : Array.isArray(schema) ? AvroType.fromArraySchema(schema) : AvroType.fromObjectSchema(schema);
-   }, AvroType.fromStringSchema = function(schema) {
-    switch (schema) {
-    case AvroPrimitive.NULL:
-    case AvroPrimitive.BOOLEAN:
-    case AvroPrimitive.INT:
-    case AvroPrimitive.LONG:
-    case AvroPrimitive.FLOAT:
-    case AvroPrimitive.DOUBLE:
-    case AvroPrimitive.BYTES:
-    case AvroPrimitive.STRING:
-     return new AvroParser_AvroPrimitiveType(schema);
-
-    default:
-     throw new Error("Unexpected Avro type " + schema);
-    }
-   }, AvroType.fromArraySchema = function(schema) {
-    return new AvroParser_AvroUnionType(schema.map(AvroType.fromSchema));
-   }, AvroType.fromObjectSchema = function(schema) {
-    var type = schema.type;
-    try {
-     return AvroType.fromStringSchema(type);
-    } catch (err) {}
-    switch (type) {
-    case AvroComplex.RECORD:
-     if (schema.aliases) throw new Error("aliases currently is not supported, schema: " + schema);
-     if (!schema.name) throw new Error("Required attribute 'name' doesn't exist on schema: " + schema);
-     var fields = {};
-     if (!schema.fields) throw new Error("Required attribute 'fields' doesn't exist on schema: " + schema);
-     for (var _i = 0, _a = schema.fields; _i < _a.length; _i++) {
-      var field = _a[_i];
-      fields[field.name] = AvroType.fromSchema(field.type);
-     }
-     return new AvroParser_AvroRecordType(fields, schema.name);
-
-    case AvroComplex.ENUM:
-     if (schema.aliases) throw new Error("aliases currently is not supported, schema: " + schema);
-     if (!schema.symbols) throw new Error("Required attribute 'symbols' doesn't exist on schema: " + schema);
-     return new AvroParser_AvroEnumType(schema.symbols);
-
-    case AvroComplex.MAP:
-     if (!schema.values) throw new Error("Required attribute 'values' doesn't exist on schema: " + schema);
-     return new AvroParser_AvroMapType(AvroType.fromSchema(schema.values));
-
-    case AvroComplex.ARRAY:
-    case AvroComplex.FIXED:
-    default:
-     throw new Error("Unexpected Avro type " + type + " in " + schema);
-    }
-   }, AvroType;
-  }();
-  !function(AvroPrimitive) {
-   AvroPrimitive.NULL = "null", AvroPrimitive.BOOLEAN = "boolean", AvroPrimitive.INT = "int", 
-   AvroPrimitive.LONG = "long", AvroPrimitive.FLOAT = "float", AvroPrimitive.DOUBLE = "double", 
-   AvroPrimitive.BYTES = "bytes", AvroPrimitive.STRING = "string";
-  }(AvroPrimitive || (AvroPrimitive = {}));
-  var AvroParser_AvroPrimitiveType = function(_super) {
-   function AvroPrimitiveType(primitive) {
-    var _this = _super.call(this) || this;
-    return _this._primitive = primitive, _this;
-   }
-   return __extends(AvroPrimitiveType, _super), AvroPrimitiveType.prototype.read = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       switch (this._primitive) {
-       case AvroPrimitive.NULL:
-        return [ 3, 1 ];
-
-       case AvroPrimitive.BOOLEAN:
-        return [ 3, 3 ];
-
-       case AvroPrimitive.INT:
-        return [ 3, 5 ];
-
-       case AvroPrimitive.LONG:
-        return [ 3, 7 ];
-
-       case AvroPrimitive.FLOAT:
-        return [ 3, 9 ];
-
-       case AvroPrimitive.DOUBLE:
-        return [ 3, 11 ];
-
-       case AvroPrimitive.BYTES:
-        return [ 3, 13 ];
-
-       case AvroPrimitive.STRING:
-        return [ 3, 15 ];
-       }
-       return [ 3, 17 ];
-
-      case 1:
-       return [ 4, AvroParser_AvroParser.readNull() ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       return [ 4, AvroParser_AvroParser.readBoolean(stream, options) ];
-
-      case 4:
-       return [ 2, _b.sent() ];
-
-      case 5:
-       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
-
-      case 6:
-       return [ 2, _b.sent() ];
-
-      case 7:
-       return [ 4, AvroParser_AvroParser.readLong(stream, options) ];
-
-      case 8:
-       return [ 2, _b.sent() ];
-
-      case 9:
-       return [ 4, AvroParser_AvroParser.readFloat(stream, options) ];
-
-      case 10:
-       return [ 2, _b.sent() ];
-
-      case 11:
-       return [ 4, AvroParser_AvroParser.readDouble(stream, options) ];
-
-      case 12:
-       return [ 2, _b.sent() ];
-
-      case 13:
-       return [ 4, AvroParser_AvroParser.readBytes(stream, options) ];
-
-      case 14:
-       return [ 2, _b.sent() ];
-
-      case 15:
-       return [ 4, AvroParser_AvroParser.readString(stream, options) ];
-
-      case 16:
-       return [ 2, _b.sent() ];
-
-      case 17:
-       throw new Error("Unknown Avro Primitive");
-      }
-     }));
-    }));
-   }, AvroPrimitiveType;
-  }(AvroType), AvroParser_AvroEnumType = function(_super) {
-   function AvroEnumType(symbols) {
-    var _this = _super.call(this) || this;
-    return _this._symbols = symbols, _this;
-   }
-   return __extends(AvroEnumType, _super), AvroEnumType.prototype.read = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var value;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
-
-      case 1:
-       return value = _a.sent(), [ 2, this._symbols[value] ];
-      }
-     }));
-    }));
-   }, AvroEnumType;
-  }(AvroType), AvroParser_AvroUnionType = function(_super) {
-   function AvroUnionType(types) {
-    var _this = _super.call(this) || this;
-    return _this._types = types, _this;
-   }
-   return __extends(AvroUnionType, _super), AvroUnionType.prototype.read = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var typeIndex;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
-
-      case 1:
-       return typeIndex = _a.sent(), [ 4, this._types[typeIndex].read(stream, options) ];
-
-      case 2:
-       return [ 2, _a.sent() ];
-      }
-     }));
-    }));
-   }, AvroUnionType;
-  }(AvroType), AvroParser_AvroMapType = function(_super) {
-   function AvroMapType(itemType) {
-    var _this = _super.call(this) || this;
-    return _this._itemType = itemType, _this;
-   }
-   return __extends(AvroMapType, _super), AvroMapType.prototype.read = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var readItemMethod, _this = this;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       return readItemMethod = function(s, options) {
-        return __awaiter(_this, void 0, void 0, (function() {
-         return __generator(this, (function(_a) {
-          switch (_a.label) {
-          case 0:
-           return [ 4, this._itemType.read(s, options) ];
-
-          case 1:
-           return [ 2, _a.sent() ];
-          }
-         }));
-        }));
-       }, [ 4, AvroParser_AvroParser.readMap(stream, readItemMethod, options) ];
-
-      case 1:
-       return [ 2, _a.sent() ];
-      }
-     }));
-    }));
-   }, AvroMapType;
-  }(AvroType), AvroParser_AvroRecordType = function(_super) {
-   function AvroRecordType(fields, name) {
-    var _this = _super.call(this) || this;
-    return _this._fields = fields, _this._name = name, _this;
-   }
-   return __extends(AvroRecordType, _super), AvroRecordType.prototype.read = function(stream, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var record, _a, _b, _i, key, _c, _d;
-     return __generator(this, (function(_e) {
-      switch (_e.label) {
-      case 0:
-       for (_b in (record = {}).$schema = this._name, _a = [], this._fields) _a.push(_b);
-       _i = 0, _e.label = 1;
-
-      case 1:
-       return _i < _a.length ? (key = _a[_i], this._fields.hasOwnProperty(key) ? (_c = record, 
-       _d = key, [ 4, this._fields[key].read(stream, options) ]) : [ 3, 3 ]) : [ 3, 4 ];
-
-      case 2:
-       _c[_d] = _e.sent(), _e.label = 3;
-
-      case 3:
-       return _i++, [ 3, 1 ];
-
-      case 4:
-       return [ 2, record ];
-      }
-     }));
-    }));
-   }, AvroRecordType;
-  }(AvroType), AvroReader_AvroReader = (__webpack_require__(171), function() {
-   function AvroReader(dataStream, headerStream, currentBlockOffset, indexWithinCurrentBlock) {
-    this._dataStream = dataStream, this._headerStream = headerStream || dataStream, 
-    this._initialized = !1, this._blockOffset = currentBlockOffset || 0, this._objectIndex = indexWithinCurrentBlock || 0, 
-    this._initialBlockOffset = currentBlockOffset || 0;
-   }
-   return Object.defineProperty(AvroReader.prototype, "blockOffset", {
-    get: function() {
-     return this._blockOffset;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(AvroReader.prototype, "objectIndex", {
-    get: function() {
-     return this._objectIndex;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), AvroReader.prototype.initialize = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, codec, _b, schema, _c, i;
-     return __generator(this, (function(_d) {
-      switch (_d.label) {
-      case 0:
-       return [ 4, AvroParser_AvroParser.readFixedBytes(this._headerStream, AVRO_INIT_BYTES.length, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 1:
-       if (!arraysEqual(_d.sent(), AVRO_INIT_BYTES)) throw new Error("Stream is not an Avro file.");
-       return _a = this, [ 4, AvroParser_AvroParser.readMap(this._headerStream, AvroParser_AvroParser.readString, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 2:
-       if (_a._metadata = _d.sent(), null != (codec = this._metadata["avro.codec"]) && "null" != codec) throw new Error("Codecs are not supported");
-       return _b = this, [ 4, AvroParser_AvroParser.readFixedBytes(this._headerStream, 16, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 3:
-       return _b._syncMarker = _d.sent(), schema = JSON.parse(this._metadata["avro.schema"]), 
-       this._itemType = AvroType.fromSchema(schema), 0 == this._blockOffset && (this._blockOffset = this._initialBlockOffset + this._dataStream.position), 
-       _c = this, [ 4, AvroParser_AvroParser.readLong(this._dataStream, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 4:
-       return _c._itemsRemainingInBlock = _d.sent(), [ 4, AvroParser_AvroParser.readLong(this._dataStream, {
-        abortSignal: options.abortSignal
-       }) ];
-
-      case 5:
-       if (_d.sent(), this._initialized = !0, !(this._objectIndex && this._objectIndex > 0)) return [ 3, 9 ];
-       i = 0, _d.label = 6;
-
-      case 6:
-       return i < this._objectIndex ? [ 4, this._itemType.read(this._dataStream, {
-        abortSignal: options.abortSignal
-       }) ] : [ 3, 9 ];
-
-      case 7:
-       _d.sent(), this._itemsRemainingInBlock--, _d.label = 8;
-
-      case 8:
-       return i++, [ 3, 6 ];
-
-      case 9:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, AvroReader.prototype.hasNext = function() {
-    return !this._initialized || this._itemsRemainingInBlock > 0;
-   }, AvroReader.prototype.parseObjects = function(options) {
-    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var result, marker, _a;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       return this._initialized ? [ 3, 2 ] : [ 4, __await(this.initialize(options)) ];
-
-      case 1:
-       _b.sent(), _b.label = 2;
-
-      case 2:
-       return this.hasNext() ? [ 4, __await(this._itemType.read(this._dataStream, {
-        abortSignal: options.abortSignal
-       })) ] : [ 3, 13 ];
-
-      case 3:
-       return result = _b.sent(), this._itemsRemainingInBlock--, this._objectIndex++, 0 != this._itemsRemainingInBlock ? [ 3, 10 ] : [ 4, __await(AvroParser_AvroParser.readFixedBytes(this._dataStream, 16, {
-        abortSignal: options.abortSignal
-       })) ];
-
-      case 4:
-       if (marker = _b.sent(), this._blockOffset = this._initialBlockOffset + this._dataStream.position, 
-       this._objectIndex = 0, !arraysEqual(this._syncMarker, marker)) throw new Error("Stream is not a valid Avro file.");
-       _b.label = 5;
-
-      case 5:
-       return _b.trys.push([ 5, 7, , 8 ]), _a = this, [ 4, __await(AvroParser_AvroParser.readLong(this._dataStream, {
-        abortSignal: options.abortSignal
-       })) ];
-
-      case 6:
-       return _a._itemsRemainingInBlock = _b.sent(), [ 3, 8 ];
-
-      case 7:
-       return _b.sent(), this._itemsRemainingInBlock = 0, [ 3, 8 ];
-
-      case 8:
-       return this._itemsRemainingInBlock > 0 ? [ 4, __await(AvroParser_AvroParser.readLong(this._dataStream, {
-        abortSignal: options.abortSignal
-       })) ] : [ 3, 10 ];
-
-      case 9:
-       _b.sent(), _b.label = 10;
-
-      case 10:
-       return [ 4, __await(result) ];
-
-      case 11:
-       return [ 4, _b.sent() ];
-
-      case 12:
-       return _b.sent(), [ 3, 2 ];
-
-      case 13:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, AvroReader;
-  }()), AvroReadable = function() {}, ABORT_ERROR = new AbortController_AbortError("Reading from the avro stream was aborted."), AvroReadableFromStream_AvroReadableFromStream = function(_super) {
-   function AvroReadableFromStream(readable) {
-    var _this = _super.call(this) || this;
-    return _this._readable = readable, _this._position = 0, _this;
-   }
-   return __extends(AvroReadableFromStream, _super), AvroReadableFromStream.prototype.toUint8Array = function(data) {
-    return "string" == typeof data ? Buffer.from(data) : data;
-   }, Object.defineProperty(AvroReadableFromStream.prototype, "position", {
-    get: function() {
-     return this._position;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), AvroReadableFromStream.prototype.read = function(size, options) {
-    var _a;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var chunk, _this = this;
-     return __generator(this, (function(_b) {
-      if (null === (_a = options.abortSignal) || void 0 === _a ? void 0 : _a.aborted) throw ABORT_ERROR;
-      if (size < 0) throw new Error("size parameter should be positive: " + size);
-      if (0 === size) return [ 2, new Uint8Array ];
-      if (!this._readable.readable) throw new Error("Stream no longer readable.");
-      return (chunk = this._readable.read(size)) ? (this._position += chunk.length, [ 2, this.toUint8Array(chunk) ]) : [ 2, new Promise((function(resolve, reject) {
-       var cleanUp = function() {
-        _this._readable.removeListener("readable", readableCallback), _this._readable.removeListener("error", rejectCallback), 
-        _this._readable.removeListener("end", rejectCallback), _this._readable.removeListener("close", rejectCallback), 
-        options.abortSignal && options.abortSignal.removeEventListener("abort", abortHandler);
-       }, readableCallback = function() {
-        var chunk = _this._readable.read(size);
-        chunk && (_this._position += chunk.length, cleanUp(), resolve(_this.toUint8Array(chunk)));
-       }, rejectCallback = function() {
-        cleanUp(), reject();
-       }, abortHandler = function() {
-        cleanUp(), reject(ABORT_ERROR);
-       };
-       _this._readable.on("readable", readableCallback), _this._readable.once("error", rejectCallback), 
-       _this._readable.once("end", rejectCallback), _this._readable.once("close", rejectCallback), 
-       options.abortSignal && options.abortSignal.addEventListener("abort", abortHandler);
-      })) ];
-     }));
-    }));
-   }, AvroReadableFromStream;
-  }(AvroReadable), BlobQuickQueryStream_BlobQuickQueryStream = function(_super) {
-   function BlobQuickQueryStream(source, options) {
-    void 0 === options && (options = {});
-    var _this = _super.call(this) || this;
-    return _this.avroPaused = !0, _this.source = source, _this.onProgress = options.onProgress, 
-    _this.onError = options.onError, _this.avroReader = new AvroReader_AvroReader(new AvroReadableFromStream_AvroReadableFromStream(_this.source)), 
-    _this.avroIter = _this.avroReader.parseObjects({
-     abortSignal: options.abortSignal
-    }), _this;
-   }
-   return __extends(BlobQuickQueryStream, _super), BlobQuickQueryStream.prototype._read = function() {
-    var _this = this;
-    this.avroPaused && this.readInternal().catch((function(err) {
-     _this.emit("error", err);
-    }));
-   }, BlobQuickQueryStream.prototype.readInternal = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     var avroNext, obj, schema, data, bytesScanned, totalBytes, fatal, name_1, description, position;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       this.avroPaused = !1, _a.label = 1;
-
-      case 1:
-       return [ 4, this.avroIter.next() ];
-
-      case 2:
-       if ((avroNext = _a.sent()).done) return [ 3, 4 ];
-       if (obj = avroNext.value, "string" != typeof (schema = obj.$schema)) throw Error("Missing schema in avro record.");
-       switch (schema) {
-       case "com.microsoft.azure.storage.queryBlobContents.resultData":
-        if ((data = obj.data) instanceof Uint8Array == !1) throw Error("Invalid data in avro result record.");
-        this.push(Buffer.from(data)) || (this.avroPaused = !0);
-        break;
-
-       case "com.microsoft.azure.storage.queryBlobContents.progress":
-        if ("number" != typeof (bytesScanned = obj.bytesScanned)) throw Error("Invalid bytesScanned in avro progress record.");
-        this.onProgress && this.onProgress({
-         loadedBytes: bytesScanned
-        });
-        break;
-
-       case "com.microsoft.azure.storage.queryBlobContents.end":
-        if (this.onProgress) {
-         if ("number" != typeof (totalBytes = obj.totalBytes)) throw Error("Invalid totalBytes in avro end record.");
-         this.onProgress({
-          loadedBytes: totalBytes
-         });
-        }
-        this.push(null);
-        break;
-
-       case "com.microsoft.azure.storage.queryBlobContents.error":
-        if (this.onError) {
-         if ("boolean" != typeof (fatal = obj.fatal)) throw Error("Invalid fatal in avro error record.");
-         if ("string" != typeof (name_1 = obj.name)) throw Error("Invalid name in avro error record.");
-         if ("string" != typeof (description = obj.description)) throw Error("Invalid description in avro error record.");
-         if ("number" != typeof (position = obj.position)) throw Error("Invalid position in avro error record.");
-         this.onError({
-          position: position,
-          name: name_1,
-          isFatal: fatal,
-          description: description
-         });
-        }
-        break;
-
-       default:
-        throw Error("Unknown schema " + schema + " in avro progress record.");
-       }
-       _a.label = 3;
-
-      case 3:
-       if (!avroNext.done && !this.avroPaused) return [ 3, 1 ];
-       _a.label = 4;
-
-      case 4:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobQuickQueryStream;
-  }(external_stream_.Readable), BlobQueryResponse_BlobQueryResponse = function() {
-   function BlobQueryResponse(originalResponse, options) {
-    void 0 === options && (options = {}), this.originalResponse = originalResponse, 
-    this.blobDownloadStream = new BlobQuickQueryStream_BlobQuickQueryStream(this.originalResponse.readableStreamBody, options);
-   }
-   return Object.defineProperty(BlobQueryResponse.prototype, "acceptRanges", {
-    get: function() {
-     return this.originalResponse.acceptRanges;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "cacheControl", {
-    get: function() {
-     return this.originalResponse.cacheControl;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentDisposition", {
-    get: function() {
-     return this.originalResponse.contentDisposition;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentEncoding", {
-    get: function() {
-     return this.originalResponse.contentEncoding;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentLanguage", {
-    get: function() {
-     return this.originalResponse.contentLanguage;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "blobSequenceNumber", {
-    get: function() {
-     return this.originalResponse.blobSequenceNumber;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "blobType", {
-    get: function() {
-     return this.originalResponse.blobType;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentLength", {
-    get: function() {
-     return this.originalResponse.contentLength;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentMD5", {
-    get: function() {
-     return this.originalResponse.contentMD5;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentRange", {
-    get: function() {
-     return this.originalResponse.contentRange;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentType", {
-    get: function() {
-     return this.originalResponse.contentType;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copyCompletedOn", {
-    get: function() {},
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copyId", {
-    get: function() {
-     return this.originalResponse.copyId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copyProgress", {
-    get: function() {
-     return this.originalResponse.copyProgress;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copySource", {
-    get: function() {
-     return this.originalResponse.copySource;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copyStatus", {
-    get: function() {
-     return this.originalResponse.copyStatus;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "copyStatusDescription", {
-    get: function() {
-     return this.originalResponse.copyStatusDescription;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseDuration", {
-    get: function() {
-     return this.originalResponse.leaseDuration;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseState", {
-    get: function() {
-     return this.originalResponse.leaseState;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseStatus", {
-    get: function() {
-     return this.originalResponse.leaseStatus;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "date", {
-    get: function() {
-     return this.originalResponse.date;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "blobCommittedBlockCount", {
-    get: function() {
-     return this.originalResponse.blobCommittedBlockCount;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "etag", {
-    get: function() {
-     return this.originalResponse.etag;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "errorCode", {
-    get: function() {
-     return this.originalResponse.errorCode;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "isServerEncrypted", {
-    get: function() {
-     return this.originalResponse.isServerEncrypted;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "blobContentMD5", {
-    get: function() {
-     return this.originalResponse.blobContentMD5;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "lastModified", {
-    get: function() {
-     return this.originalResponse.lastModified;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "metadata", {
-    get: function() {
-     return this.originalResponse.metadata;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "requestId", {
-    get: function() {
-     return this.originalResponse.requestId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "clientRequestId", {
-    get: function() {
-     return this.originalResponse.clientRequestId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "version", {
-    get: function() {
-     return this.originalResponse.version;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "encryptionKeySha256", {
-    get: function() {
-     return this.originalResponse.encryptionKeySha256;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "contentCrc64", {
-    get: function() {
-     return this.originalResponse.contentCrc64;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "blobBody", {
-    get: function() {},
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "readableStreamBody", {
-    get: function() {
-     return isNode ? this.blobDownloadStream : void 0;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobQueryResponse.prototype, "_response", {
-    get: function() {
-     return this.originalResponse._response;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), BlobQueryResponse;
-  }(), StorageSharedKeyCredentialPolicy_StorageSharedKeyCredentialPolicy = function(_super) {
+  var StorageSharedKeyCredentialPolicy_StorageSharedKeyCredentialPolicy = function(_super) {
    function StorageSharedKeyCredentialPolicy(nextPolicy, options, factory) {
     var _this = _super.call(this, nextPolicy, options) || this;
     return _this.factory = factory, _this;
@@ -46239,1475 +45129,7 @@
    }, StorageSharedKeyCredential.prototype.computeHMACSHA256 = function(stringToSign) {
     return Object(external_crypto_.createHmac)("sha256", this.accountKey).update(stringToSign, "utf8").digest("base64");
    }, StorageSharedKeyCredential;
-  }(Credential), blob_Blob = function() {
-   function Blob(client) {
-    this.client = client;
-   }
-   return Blob.prototype.download = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, downloadOperationSpec, callback);
-   }, Blob.prototype.getProperties = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_getPropertiesOperationSpec, callback);
-   }, Blob.prototype.deleteMethod = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_deleteMethodOperationSpec, callback);
-   }, Blob.prototype.setAccessControl = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, setAccessControlOperationSpec, callback);
-   }, Blob.prototype.getAccessControl = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, getAccessControlOperationSpec, callback);
-   }, Blob.prototype.rename = function(renameSource, options, callback) {
-    return this.client.sendOperationRequest({
-     renameSource: renameSource,
-     options: options
-    }, renameOperationSpec, callback);
-   }, Blob.prototype.undelete = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, undeleteOperationSpec, callback);
-   }, Blob.prototype.setExpiry = function(expiryOptions, options, callback) {
-    return this.client.sendOperationRequest({
-     expiryOptions: expiryOptions,
-     options: options
-    }, setExpiryOperationSpec, callback);
-   }, Blob.prototype.setHTTPHeaders = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, setHTTPHeadersOperationSpec, callback);
-   }, Blob.prototype.setMetadata = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_setMetadataOperationSpec, callback);
-   }, Blob.prototype.acquireLease = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_acquireLeaseOperationSpec, callback);
-   }, Blob.prototype.releaseLease = function(leaseId, options, callback) {
-    return this.client.sendOperationRequest({
-     leaseId: leaseId,
-     options: options
-    }, blob_releaseLeaseOperationSpec, callback);
-   }, Blob.prototype.renewLease = function(leaseId, options, callback) {
-    return this.client.sendOperationRequest({
-     leaseId: leaseId,
-     options: options
-    }, blob_renewLeaseOperationSpec, callback);
-   }, Blob.prototype.changeLease = function(leaseId, proposedLeaseId, options, callback) {
-    return this.client.sendOperationRequest({
-     leaseId: leaseId,
-     proposedLeaseId: proposedLeaseId,
-     options: options
-    }, blob_changeLeaseOperationSpec, callback);
-   }, Blob.prototype.breakLease = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_breakLeaseOperationSpec, callback);
-   }, Blob.prototype.createSnapshot = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, createSnapshotOperationSpec, callback);
-   }, Blob.prototype.startCopyFromURL = function(copySource, options, callback) {
-    return this.client.sendOperationRequest({
-     copySource: copySource,
-     options: options
-    }, startCopyFromURLOperationSpec, callback);
-   }, Blob.prototype.copyFromURL = function(copySource, options, callback) {
-    return this.client.sendOperationRequest({
-     copySource: copySource,
-     options: options
-    }, copyFromURLOperationSpec, callback);
-   }, Blob.prototype.abortCopyFromURL = function(copyId, options, callback) {
-    return this.client.sendOperationRequest({
-     copyId: copyId,
-     options: options
-    }, abortCopyFromURLOperationSpec, callback);
-   }, Blob.prototype.setTier = function(tier, options, callback) {
-    return this.client.sendOperationRequest({
-     tier: tier,
-     options: options
-    }, setTierOperationSpec, callback);
-   }, Blob.prototype.getAccountInfo = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, blob_getAccountInfoOperationSpec, callback);
-   }, Blob.prototype.query = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, queryOperationSpec, callback);
-   }, Blob.prototype.getTags = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, getTagsOperationSpec, callback);
-   }, Blob.prototype.setTags = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, setTagsOperationSpec, callback);
-   }, Blob;
-  }(), blob_serializer = new serializer_Serializer(blobMappers_namespaceObject, !0), downloadOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds ],
-   headerParameters: [ range0, {
-    parameterPath: [ "options", "rangeGetContentMD5" ],
-    mapper: {
-     serializedName: "x-ms-range-get-content-md5",
-     type: {
-      name: "Boolean"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "rangeGetContentCRC64" ],
-    mapper: {
-     serializedName: "x-ms-range-get-content-crc64",
-     type: {
-      name: "Boolean"
-     }
-    }
-   }, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     bodyMapper: {
-      serializedName: "parsedResponse",
-      type: {
-       name: "Stream"
-      }
-     },
-     headersMapper: BlobDownloadHeaders
-    },
-    206: {
-     bodyMapper: {
-      serializedName: "parsedResponse",
-      type: {
-       name: "Stream"
-      }
-     },
-     headersMapper: BlobDownloadHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobDownloadHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_getPropertiesOperationSpec = {
-   httpMethod: "HEAD",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds ],
-   headerParameters: [ parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobGetPropertiesHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobGetPropertiesHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_deleteMethodOperationSpec = {
-   httpMethod: "DELETE",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds, {
-    parameterPath: [ "options", "blobDeleteType" ],
-    mapper: {
-     serializedName: "deletetype",
-     type: {
-      name: "Enum",
-      allowedValues: [ "Permanent" ]
-     }
-    }
-   } ],
-   headerParameters: [ {
-    parameterPath: [ "options", "deleteSnapshots" ],
-    mapper: {
-     serializedName: "x-ms-delete-snapshots",
-     type: {
-      name: "Enum",
-      allowedValues: [ "include", "only" ]
-     }
-    }
-   }, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    202: {
-     headersMapper: BlobDeleteHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobDeleteHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, setAccessControlOperationSpec = {
-   httpMethod: "PATCH",
-   path: "{filesystem}/{path}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "action",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "action",
-     defaultValue: "setAccessControl",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ {
-    parameterPath: [ "options", "owner" ],
-    mapper: {
-     serializedName: "x-ms-owner",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "group" ],
-    mapper: {
-     serializedName: "x-ms-group",
-     type: {
-      name: "String"
-     }
-    }
-   }, posixPermissions, {
-    parameterPath: [ "options", "posixAcl" ],
-    mapper: {
-     serializedName: "x-ms-acl",
-     type: {
-      name: "String"
-     }
-    }
-   }, requestId, parameters_version, leaseId0, ifMatch, ifNoneMatch, ifModifiedSince, ifUnmodifiedSince ],
-   responses: {
-    200: {
-     headersMapper: BlobSetAccessControlHeaders
-    },
-    default: {
-     bodyMapper: DataLakeStorageError,
-     headersMapper: BlobSetAccessControlHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, getAccessControlOperationSpec = {
-   httpMethod: "HEAD",
-   path: "{filesystem}/{path}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: [ "options", "upn" ],
-    mapper: {
-     serializedName: "upn",
-     type: {
-      name: "Boolean"
-     }
-    }
-   }, {
-    parameterPath: "action",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "action",
-     defaultValue: "getAccessControl",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ requestId, parameters_version, leaseId0, ifMatch, ifNoneMatch, ifModifiedSince, ifUnmodifiedSince ],
-   responses: {
-    200: {
-     headersMapper: BlobGetAccessControlHeaders
-    },
-    default: {
-     bodyMapper: DataLakeStorageError,
-     headersMapper: BlobGetAccessControlHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, renameOperationSpec = {
-   httpMethod: "PUT",
-   path: "{filesystem}/{path}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: [ "options", "pathRenameMode" ],
-    mapper: {
-     serializedName: "mode",
-     type: {
-      name: "Enum",
-      allowedValues: [ "legacy", "posix" ]
-     }
-    }
-   } ],
-   headerParameters: [ {
-    parameterPath: "renameSource",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-rename-source",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "directoryProperties" ],
-    mapper: {
-     serializedName: "x-ms-properties",
-     type: {
-      name: "String"
-     }
-    }
-   }, posixPermissions, {
-    parameterPath: [ "options", "posixUmask" ],
-    mapper: {
-     serializedName: "x-ms-umask",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "sourceLeaseId" ],
-    mapper: {
-     serializedName: "x-ms-source-lease-id",
-     type: {
-      name: "String"
-     }
-    }
-   }, parameters_version, requestId, {
-    parameterPath: [ "options", "directoryHttpHeaders", "cacheControl" ],
-    mapper: {
-     serializedName: "x-ms-cache-control",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "directoryHttpHeaders", "contentType" ],
-    mapper: {
-     serializedName: "x-ms-content-type",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "directoryHttpHeaders", "contentEncoding" ],
-    mapper: {
-     serializedName: "x-ms-content-encoding",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "directoryHttpHeaders", "contentLanguage" ],
-    mapper: {
-     serializedName: "x-ms-content-language",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "directoryHttpHeaders", "contentDisposition" ],
-    mapper: {
-     serializedName: "x-ms-content-disposition",
-     type: {
-      name: "String"
-     }
-    }
-   }, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
-   responses: {
-    201: {
-     headersMapper: BlobRenameHeaders
-    },
-    default: {
-     bodyMapper: DataLakeStorageError,
-     headersMapper: BlobRenameHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, undeleteOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp8 ],
-   headerParameters: [ parameters_version, requestId ],
-   responses: {
-    200: {
-     headersMapper: BlobUndeleteHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobUndeleteHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, setExpiryOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "expiry",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_version, requestId, {
-    parameterPath: "expiryOptions",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-expiry-option",
-     type: {
-      name: "String"
-     }
-    }
-   }, {
-    parameterPath: [ "options", "expiresOn" ],
-    mapper: {
-     serializedName: "x-ms-expiry-time",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   responses: {
-    200: {
-     headersMapper: BlobSetExpiryHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobSetExpiryHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, setHTTPHeadersOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp0 ],
-   headerParameters: [ parameters_version, requestId, blobCacheControl, blobContentType, blobContentMD5, blobContentEncoding, blobContentLanguage, blobContentDisposition, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobSetHTTPHeadersHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobSetHTTPHeadersHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_setMetadataOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp6 ],
-   headerParameters: [ parameters_metadata, encryptionScope, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobSetMetadataHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobSetMetadataHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_acquireLeaseOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9 ],
-   headerParameters: [ parameters_duration, proposedLeaseId0, parameters_version, requestId, action0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    201: {
-     headersMapper: BlobAcquireLeaseHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobAcquireLeaseHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_releaseLeaseOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9 ],
-   headerParameters: [ leaseId1, parameters_version, requestId, action1, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobReleaseLeaseHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobReleaseLeaseHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_renewLeaseOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9 ],
-   headerParameters: [ leaseId1, parameters_version, requestId, action2, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobRenewLeaseHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobRenewLeaseHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_changeLeaseOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9 ],
-   headerParameters: [ leaseId1, proposedLeaseId1, parameters_version, requestId, action4, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobChangeLeaseHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobChangeLeaseHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_breakLeaseOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp9 ],
-   headerParameters: [ parameters_breakPeriod, parameters_version, requestId, action3, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    202: {
-     headersMapper: BlobBreakLeaseHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobBreakLeaseHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, createSnapshotOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "snapshot",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_metadata, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
-   responses: {
-    201: {
-     headersMapper: BlobCreateSnapshotHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobCreateSnapshotHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, startCopyFromURLOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ parameters_metadata, tier0, rehydratePriority, parameters_copySource, parameters_version, requestId, blobTagsString, {
-    parameterPath: [ "options", "sealBlob" ],
-    mapper: {
-     serializedName: "x-ms-seal-blob",
-     type: {
-      name: "Boolean"
-     }
-    }
-   }, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, sourceIfTags, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
-   responses: {
-    202: {
-     headersMapper: BlobStartCopyFromURLHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobStartCopyFromURLHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, copyFromURLOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ parameters_metadata, tier0, parameters_copySource, parameters_version, requestId, sourceContentMD5, blobTagsString, {
-    parameterPath: "xMsRequiresSync",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "x-ms-requires-sync",
-     defaultValue: "true",
-     type: {
-      name: "String"
-     }
-    }
-   }, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
-   responses: {
-    202: {
-     headersMapper: BlobCopyFromURLHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobCopyFromURLHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, abortCopyFromURLOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ {
-    parameterPath: "copyId",
-    mapper: {
-     required: !0,
-     serializedName: "copyid",
-     type: {
-      name: "String"
-     }
-    }
-   }, timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "copy",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_version, requestId, {
-    parameterPath: "copyActionAbortConstant",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "x-ms-copy-action",
-     defaultValue: "abort",
-     type: {
-      name: "String"
-     }
-    }
-   }, leaseId0 ],
-   responses: {
-    204: {
-     headersMapper: BlobAbortCopyFromURLHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobAbortCopyFromURLHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, setTierOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "tier",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ {
-    parameterPath: "tier",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-access-tier",
-     type: {
-      name: "String"
-     }
-    }
-   }, rehydratePriority, parameters_version, requestId, leaseId0, ifTags ],
-   responses: {
-    200: {
-     headersMapper: BlobSetTierHeaders
-    },
-    202: {
-     headersMapper: BlobSetTierHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobSetTierHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, blob_getAccountInfoOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ restype1, comp0 ],
-   headerParameters: [ parameters_version ],
-   responses: {
-    200: {
-     headersMapper: BlobGetAccountInfoHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobGetAccountInfoHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, queryOperationSpec = {
-   httpMethod: "POST",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "query",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   requestBody: {
-    parameterPath: [ "options", "queryRequest" ],
-    mapper: QueryRequest
-   },
-   contentType: "application/xml; charset=utf-8",
-   responses: {
-    200: {
-     bodyMapper: {
-      serializedName: "parsedResponse",
-      type: {
-       name: "Stream"
-      }
-     },
-     headersMapper: BlobQueryHeaders
-    },
-    206: {
-     bodyMapper: {
-      serializedName: "parsedResponse",
-      type: {
-       name: "Stream"
-      }
-     },
-     headersMapper: BlobQueryHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobQueryHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, getTagsOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, parameters_snapshot, parameters_versionId, comp15 ],
-   headerParameters: [ parameters_version, requestId, ifTags, leaseId0 ],
-   responses: {
-    200: {
-     bodyMapper: BlobTags,
-     headersMapper: BlobGetTagsHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobGetTagsHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, setTagsOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, parameters_versionId, comp15 ],
-   headerParameters: [ parameters_version, transactionalContentMD5, transactionalContentCrc64, requestId, ifTags, leaseId0 ],
-   requestBody: {
-    parameterPath: [ "options", "tags" ],
-    mapper: BlobTags
-   },
-   contentType: "application/xml; charset=utf-8",
-   responses: {
-    204: {
-     headersMapper: BlobSetTagsHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlobSetTagsHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blob_serializer
-  }, AppendBlob = function() {
-   function AppendBlob(client) {
-    this.client = client;
-   }
-   return AppendBlob.prototype.create = function(contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     contentLength: contentLength,
-     options: options
-    }, appendBlob_createOperationSpec, callback);
-   }, AppendBlob.prototype.appendBlock = function(body, contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     body: body,
-     contentLength: contentLength,
-     options: options
-    }, appendBlockOperationSpec, callback);
-   }, AppendBlob.prototype.appendBlockFromUrl = function(sourceUrl, contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     sourceUrl: sourceUrl,
-     contentLength: contentLength,
-     options: options
-    }, appendBlockFromUrlOperationSpec, callback);
-   }, AppendBlob.prototype.seal = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, sealOperationSpec, callback);
-   }, AppendBlob;
-  }(), appendBlob_serializer = new serializer_Serializer(appendBlobMappers_namespaceObject, !0), appendBlob_createOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ parameters_contentLength, parameters_metadata, encryptionScope, parameters_version, requestId, blobTagsString, {
-    parameterPath: "blobType",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "x-ms-blob-type",
-     defaultValue: "AppendBlob",
-     type: {
-      name: "String"
-     }
-    }
-   }, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    201: {
-     headersMapper: AppendBlobCreateHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: AppendBlobCreateHeaders
-    }
-   },
-   isXML: !0,
-   serializer: appendBlob_serializer
-  }, appendBlockOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp19 ],
-   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, encryptionScope, parameters_version, requestId, leaseId0, maxSize, appendPosition, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   requestBody: {
-    parameterPath: "body",
-    mapper: {
-     required: !0,
-     serializedName: "body",
-     type: {
-      name: "Stream"
-     }
-    }
-   },
-   contentType: "application/octet-stream",
-   responses: {
-    201: {
-     headersMapper: AppendBlobAppendBlockHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: AppendBlobAppendBlockHeaders
-    }
-   },
-   isXML: !0,
-   serializer: appendBlob_serializer
-  }, appendBlockFromUrlOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp19 ],
-   headerParameters: [ sourceUrl, sourceRange1, sourceContentMD5, sourceContentCrc64, parameters_contentLength, transactionalContentMD5, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, maxSize, appendPosition, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
-   responses: {
-    201: {
-     headersMapper: AppendBlobAppendBlockFromUrlHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: AppendBlobAppendBlockFromUrlHeaders
-    }
-   },
-   isXML: !0,
-   serializer: appendBlob_serializer
-  }, sealOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "seal",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, appendPosition ],
-   responses: {
-    200: {
-     headersMapper: AppendBlobSealHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: AppendBlobSealHeaders
-    }
-   },
-   isXML: !0,
-   serializer: appendBlob_serializer
-  }, BlockBlob = function() {
-   function BlockBlob(client) {
-    this.client = client;
-   }
-   return BlockBlob.prototype.upload = function(body, contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     body: body,
-     contentLength: contentLength,
-     options: options
-    }, uploadOperationSpec, callback);
-   }, BlockBlob.prototype.putBlobFromUrl = function(contentLength, copySource, options, callback) {
-    return this.client.sendOperationRequest({
-     contentLength: contentLength,
-     copySource: copySource,
-     options: options
-    }, putBlobFromUrlOperationSpec, callback);
-   }, BlockBlob.prototype.stageBlock = function(blockId, contentLength, body, options, callback) {
-    return this.client.sendOperationRequest({
-     blockId: blockId,
-     contentLength: contentLength,
-     body: body,
-     options: options
-    }, stageBlockOperationSpec, callback);
-   }, BlockBlob.prototype.stageBlockFromURL = function(blockId, contentLength, sourceUrl, options, callback) {
-    return this.client.sendOperationRequest({
-     blockId: blockId,
-     contentLength: contentLength,
-     sourceUrl: sourceUrl,
-     options: options
-    }, stageBlockFromURLOperationSpec, callback);
-   }, BlockBlob.prototype.commitBlockList = function(blocks, options, callback) {
-    return this.client.sendOperationRequest({
-     blocks: blocks,
-     options: options
-    }, commitBlockListOperationSpec, callback);
-   }, BlockBlob.prototype.getBlockList = function(listType, options, callback) {
-    return this.client.sendOperationRequest({
-     listType: listType,
-     options: options
-    }, getBlockListOperationSpec, callback);
-   }, BlockBlob;
-  }(), blockBlob_serializer = new serializer_Serializer(blockBlobMappers_namespaceObject, !0), uploadOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ transactionalContentMD5, parameters_contentLength, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, blobTagsString, blobType2, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   requestBody: {
-    parameterPath: "body",
-    mapper: {
-     required: !0,
-     serializedName: "body",
-     type: {
-      name: "Stream"
-     }
-    }
-   },
-   contentType: "application/octet-stream",
-   responses: {
-    201: {
-     headersMapper: BlockBlobUploadHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobUploadHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, putBlobFromUrlOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ transactionalContentMD5, parameters_contentLength, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, sourceContentMD5, blobTagsString, parameters_copySource, {
-    parameterPath: [ "options", "copySourceBlobProperties" ],
-    mapper: {
-     serializedName: "x-ms-copy-source-blob-properties",
-     type: {
-      name: "Boolean"
-     }
-    }
-   }, blobType2, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, sourceIfTags ],
-   responses: {
-    201: {
-     headersMapper: BlockBlobPutBlobFromUrlHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobPutBlobFromUrlHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, stageBlockOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_blockId, timeoutInSeconds, comp21 ],
-   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, encryptionScope, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm ],
-   requestBody: {
-    parameterPath: "body",
-    mapper: {
-     required: !0,
-     serializedName: "body",
-     type: {
-      name: "Stream"
-     }
-    }
-   },
-   contentType: "application/octet-stream",
-   responses: {
-    201: {
-     headersMapper: BlockBlobStageBlockHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobStageBlockHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, stageBlockFromURLOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_blockId, timeoutInSeconds, comp21 ],
-   headerParameters: [ parameters_contentLength, sourceUrl, sourceRange1, sourceContentMD5, sourceContentCrc64, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
-   responses: {
-    201: {
-     headersMapper: BlockBlobStageBlockFromURLHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobStageBlockFromURLHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, commitBlockListOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp22 ],
-   headerParameters: [ transactionalContentMD5, transactionalContentCrc64, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, blobTagsString, blobCacheControl, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   requestBody: {
-    parameterPath: "blocks",
-    mapper: __assign(__assign({}, BlockLookupList), {
-     required: !0
-    })
-   },
-   contentType: "application/xml; charset=utf-8",
-   responses: {
-    201: {
-     headersMapper: BlockBlobCommitBlockListHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobCommitBlockListHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, getBlockListOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, {
-    parameterPath: "listType",
-    mapper: {
-     required: !0,
-     serializedName: "blocklisttype",
-     defaultValue: "committed",
-     type: {
-      name: "Enum",
-      allowedValues: [ "committed", "uncommitted", "all" ]
-     }
-    }
-   }, timeoutInSeconds, comp22 ],
-   headerParameters: [ parameters_version, requestId, leaseId0, ifTags ],
-   responses: {
-    200: {
-     bodyMapper: BlockList,
-     headersMapper: BlockBlobGetBlockListHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: BlockBlobGetBlockListHeaders
-    }
-   },
-   isXML: !0,
-   serializer: blockBlob_serializer
-  }, PageBlob = function() {
-   function PageBlob(client) {
-    this.client = client;
-   }
-   return PageBlob.prototype.create = function(contentLength, blobContentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     contentLength: contentLength,
-     blobContentLength: blobContentLength,
-     options: options
-    }, pageBlob_createOperationSpec, callback);
-   }, PageBlob.prototype.uploadPages = function(body, contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     body: body,
-     contentLength: contentLength,
-     options: options
-    }, uploadPagesOperationSpec, callback);
-   }, PageBlob.prototype.clearPages = function(contentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     contentLength: contentLength,
-     options: options
-    }, clearPagesOperationSpec, callback);
-   }, PageBlob.prototype.uploadPagesFromURL = function(sourceUrl, sourceRange, contentLength, range, options, callback) {
-    return this.client.sendOperationRequest({
-     sourceUrl: sourceUrl,
-     sourceRange: sourceRange,
-     contentLength: contentLength,
-     range: range,
-     options: options
-    }, uploadPagesFromURLOperationSpec, callback);
-   }, PageBlob.prototype.getPageRanges = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, getPageRangesOperationSpec, callback);
-   }, PageBlob.prototype.getPageRangesDiff = function(options, callback) {
-    return this.client.sendOperationRequest({
-     options: options
-    }, getPageRangesDiffOperationSpec, callback);
-   }, PageBlob.prototype.resize = function(blobContentLength, options, callback) {
-    return this.client.sendOperationRequest({
-     blobContentLength: blobContentLength,
-     options: options
-    }, resizeOperationSpec, callback);
-   }, PageBlob.prototype.updateSequenceNumber = function(sequenceNumberAction, options, callback) {
-    return this.client.sendOperationRequest({
-     sequenceNumberAction: sequenceNumberAction,
-     options: options
-    }, updateSequenceNumberOperationSpec, callback);
-   }, PageBlob.prototype.copyIncremental = function(copySource, options, callback) {
-    return this.client.sendOperationRequest({
-     copySource: copySource,
-     options: options
-    }, copyIncrementalOperationSpec, callback);
-   }, PageBlob;
-  }(), pageBlob_serializer = new serializer_Serializer(pageBlobMappers_namespaceObject, !0), pageBlob_createOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds ],
-   headerParameters: [ parameters_contentLength, tier0, parameters_metadata, encryptionScope, blobContentLength, blobSequenceNumber, parameters_version, requestId, blobTagsString, {
-    parameterPath: "blobType",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "x-ms-blob-type",
-     defaultValue: "PageBlob",
-     type: {
-      name: "String"
-     }
-    }
-   }, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    201: {
-     headersMapper: PageBlobCreateHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobCreateHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, uploadPagesOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp16 ],
-   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, range0, encryptionScope, parameters_version, requestId, pageWrite0, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   requestBody: {
-    parameterPath: "body",
-    mapper: {
-     required: !0,
-     serializedName: "body",
-     type: {
-      name: "Stream"
-     }
-    }
-   },
-   contentType: "application/octet-stream",
-   responses: {
-    201: {
-     headersMapper: PageBlobUploadPagesHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobUploadPagesHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, clearPagesOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp16 ],
-   headerParameters: [ parameters_contentLength, range0, encryptionScope, parameters_version, requestId, {
-    parameterPath: "pageWrite",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "x-ms-page-write",
-     defaultValue: "clear",
-     type: {
-      name: "String"
-     }
-    }
-   }, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    201: {
-     headersMapper: PageBlobClearPagesHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobClearPagesHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, uploadPagesFromURLOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp16 ],
-   headerParameters: [ sourceUrl, {
-    parameterPath: "sourceRange",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-source-range",
-     type: {
-      name: "String"
-     }
-    }
-   }, sourceContentMD5, sourceContentCrc64, parameters_contentLength, {
-    parameterPath: "range",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-range",
-     type: {
-      name: "String"
-     }
-    }
-   }, encryptionScope, parameters_version, requestId, pageWrite0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
-   responses: {
-    201: {
-     headersMapper: PageBlobUploadPagesFromURLHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobUploadPagesFromURLHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, getPageRangesOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, timeoutInSeconds, comp17 ],
-   headerParameters: [ range0, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     bodyMapper: PageList,
-     headersMapper: PageBlobGetPageRangesHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobGetPageRangesHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, getPageRangesDiffOperationSpec = {
-   httpMethod: "GET",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ parameters_snapshot, timeoutInSeconds, {
-    parameterPath: [ "options", "prevsnapshot" ],
-    mapper: {
-     serializedName: "prevsnapshot",
-     type: {
-      name: "String"
-     }
-    }
-   }, comp17 ],
-   headerParameters: [ {
-    parameterPath: [ "options", "prevSnapshotUrl" ],
-    mapper: {
-     serializedName: "x-ms-previous-snapshot-url",
-     type: {
-      name: "String"
-     }
-    }
-   }, range0, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     bodyMapper: PageList,
-     headersMapper: PageBlobGetPageRangesDiffHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobGetPageRangesDiffHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, resizeOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp0 ],
-   headerParameters: [ encryptionScope, blobContentLength, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: PageBlobResizeHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobResizeHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, updateSequenceNumberOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, comp0 ],
-   headerParameters: [ {
-    parameterPath: "sequenceNumberAction",
-    mapper: {
-     required: !0,
-     serializedName: "x-ms-sequence-number-action",
-     type: {
-      name: "Enum",
-      allowedValues: [ "max", "update", "increment" ]
-     }
-    }
-   }, blobSequenceNumber, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    200: {
-     headersMapper: PageBlobUpdateSequenceNumberHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobUpdateSequenceNumberHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  }, copyIncrementalOperationSpec = {
-   httpMethod: "PUT",
-   path: "{containerName}/{blob}",
-   urlParameters: [ parameters_url ],
-   queryParameters: [ timeoutInSeconds, {
-    parameterPath: "comp",
-    mapper: {
-     required: !0,
-     isConstant: !0,
-     serializedName: "comp",
-     defaultValue: "incrementalcopy",
-     type: {
-      name: "String"
-     }
-    }
-   } ],
-   headerParameters: [ parameters_copySource, parameters_version, requestId, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
-   responses: {
-    202: {
-     headersMapper: PageBlobCopyIncrementalHeaders
-    },
-    default: {
-     bodyMapper: StorageError,
-     headersMapper: PageBlobCopyIncrementalHeaders
-    }
-   },
-   isXML: !0,
-   serializer: pageBlob_serializer
-  };
+  }(Credential);
   function getDefaultUserAgentKey() {
    return Constants_HeaderConstants.USER_AGENT;
   }
@@ -48357,279 +45779,20 @@
     body: _response.parsedBody
    })) : addOperationResponse(__assign(__assign({}, parsedHeaders), _response.parsedBody));
   }
-  var BlockBlobTier, PremiumPageBlobTier, storageClientContext_StorageClientContext = function(_super) {
+  var storageClientContext_StorageClientContext = function(_super) {
    function StorageClientContext(url, options) {
     var _this = this;
     if (null == url) throw new Error("'url' cannot be null.");
     if (options || (options = {}), !options.userAgent) {
      var defaultUserAgent = getDefaultUserAgentValue();
-     options.userAgent = "azure-storage-blob/12.4.1 " + defaultUserAgent;
+     options.userAgent = "azure-storage-blob/12.5.0 " + defaultUserAgent;
     }
-    return (_this = _super.call(this, void 0, options) || this).version = "2020-04-08", 
+    return (_this = _super.call(this, void 0, options) || this).version = "2020-06-12", 
     _this.baseUri = "{url}", _this.requestContentType = "application/json; charset=utf-8", 
     _this.url = url, _this;
    }
    return __extends(StorageClientContext, _super), StorageClientContext;
-  }(serviceClient_ServiceClient);
-  function toAccessTier(tier) {
-   if (null != tier) return tier;
-  }
-  function ensureCpkIfSpecified(cpk, isHttps) {
-   if (cpk && !isHttps) throw new RangeError("Customer-provided encryption key must be used over HTTPS.");
-   cpk && !cpk.encryptionAlgorithm && (cpk.encryptionAlgorithm = "AES256");
-  }
-  function rangeResponseFromModel(response) {
-   var pageRange = (response._response.parsedBody.pageRange || []).map((function(x) {
-    return {
-     offset: x.start,
-     count: x.end - x.start
-    };
-   })), clearRange = (response._response.parsedBody.clearRange || []).map((function(x) {
-    return {
-     offset: x.start,
-     count: x.end - x.start
-    };
-   }));
-   return __assign(__assign({}, response), {
-    pageRange: pageRange,
-    clearRange: clearRange,
-    _response: __assign(__assign({}, response._response), {
-     parsedBody: {
-      pageRange: pageRange,
-      clearRange: clearRange
-     }
-    })
-   });
-  }
-  !function(BlockBlobTier) {
-   BlockBlobTier.Hot = "Hot", BlockBlobTier.Cool = "Cool", BlockBlobTier.Archive = "Archive";
-  }(BlockBlobTier || (BlockBlobTier = {})), function(PremiumPageBlobTier) {
-   PremiumPageBlobTier.P4 = "P4", PremiumPageBlobTier.P6 = "P6", PremiumPageBlobTier.P10 = "P10", 
-   PremiumPageBlobTier.P15 = "P15", PremiumPageBlobTier.P20 = "P20", PremiumPageBlobTier.P30 = "P30", 
-   PremiumPageBlobTier.P40 = "P40", PremiumPageBlobTier.P50 = "P50", PremiumPageBlobTier.P60 = "P60", 
-   PremiumPageBlobTier.P70 = "P70", PremiumPageBlobTier.P80 = "P80";
-  }(PremiumPageBlobTier || (PremiumPageBlobTier = {}));
-  var poller_PollerStoppedError = function(_super) {
-   function PollerStoppedError(message) {
-    var _this = _super.call(this, message) || this;
-    return _this.name = "PollerStoppedError", Object.setPrototypeOf(_this, PollerStoppedError.prototype), 
-    _this;
-   }
-   return __extends(PollerStoppedError, _super), PollerStoppedError;
-  }(Error), poller_PollerCancelledError = function(_super) {
-   function PollerCancelledError(message) {
-    var _this = _super.call(this, message) || this;
-    return _this.name = "PollerCancelledError", Object.setPrototypeOf(_this, PollerCancelledError.prototype), 
-    _this;
-   }
-   return __extends(PollerCancelledError, _super), PollerCancelledError;
-  }(Error), BlobStartCopyFromUrlPoller_BlobBeginCopyFromUrlPoller = function(_super) {
-   function BlobBeginCopyFromUrlPoller(options) {
-    var state, _this = this, blobClient = options.blobClient, copySource = options.copySource, _a = options.intervalInMs, intervalInMs = void 0 === _a ? 15e3 : _a, onProgress = options.onProgress, resumeFrom = options.resumeFrom, startCopyFromURLOptions = options.startCopyFromURLOptions;
-    resumeFrom && (state = JSON.parse(resumeFrom).state);
-    var operation = makeBlobBeginCopyFromURLPollOperation(__assign(__assign({}, state), {
-     blobClient: blobClient,
-     copySource: copySource,
-     startCopyFromURLOptions: startCopyFromURLOptions
-    }));
-    return _this = _super.call(this, operation) || this, "function" == typeof onProgress && _this.onProgress(onProgress), 
-    _this.intervalInMs = intervalInMs, _this;
-   }
-   return __extends(BlobBeginCopyFromUrlPoller, _super), BlobBeginCopyFromUrlPoller.prototype.delay = function() {
-    return delay(this.intervalInMs);
-   }, BlobBeginCopyFromUrlPoller;
-  }(function() {
-   function Poller(operation) {
-    var _this = this;
-    this.stopped = !0, this.pollProgressCallbacks = [], this.operation = operation, 
-    this.promise = new Promise((function(resolve, reject) {
-     _this.resolve = resolve, _this.reject = reject;
-    })), this.promise.catch((function() {}));
-   }
-   return Poller.prototype.startPolling = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       this.stopped && (this.stopped = !1), _a.label = 1;
-
-      case 1:
-       return this.isStopped() || this.isDone() ? [ 3, 4 ] : [ 4, this.poll() ];
-
-      case 2:
-       return _a.sent(), [ 4, this.delay() ];
-
-      case 3:
-       return _a.sent(), [ 3, 1 ];
-
-      case 4:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, Poller.prototype.pollOnce = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var state, _a, e_1;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       state = this.operation.state, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 4, , 5 ]), this.isDone() ? [ 3, 3 ] : (_a = this, [ 4, this.operation.update({
-        abortSignal: options.abortSignal,
-        fireProgress: this.fireProgress.bind(this)
-       }) ]);
-
-      case 2:
-       _a.operation = _b.sent(), this.isDone() && this.resolve && this.resolve(state.result), 
-       _b.label = 3;
-
-      case 3:
-       return [ 3, 5 ];
-
-      case 4:
-       throw e_1 = _b.sent(), state.error = e_1, this.reject && this.reject(e_1), e_1;
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, Poller.prototype.fireProgress = function(state) {
-    for (var _i = 0, _a = this.pollProgressCallbacks; _i < _a.length; _i++) {
-     (0, _a[_i])(state);
-    }
-   }, Poller.prototype.cancelOnce = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       return _a = this, [ 4, this.operation.cancel(options) ];
-
-      case 1:
-       return _a.operation = _b.sent(), this.reject && this.reject(new poller_PollerCancelledError("Poller cancelled")), 
-       [ 2 ];
-      }
-     }));
-    }));
-   }, Poller.prototype.poll = function(options) {
-    var _this = this;
-    if (void 0 === options && (options = {}), !this.pollOncePromise) {
-     this.pollOncePromise = this.pollOnce(options);
-     var clearPollOncePromise = function() {
-      _this.pollOncePromise = void 0;
-     };
-     this.pollOncePromise.then(clearPollOncePromise, clearPollOncePromise).catch(this.reject);
-    }
-    return this.pollOncePromise;
-   }, Poller.prototype.pollUntilDone = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     return __generator(this, (function(_a) {
-      return this.stopped && this.startPolling().catch(this.reject), [ 2, this.promise ];
-     }));
-    }));
-   }, Poller.prototype.onProgress = function(callback) {
-    var _this = this;
-    return this.pollProgressCallbacks.push(callback), function() {
-     _this.pollProgressCallbacks = _this.pollProgressCallbacks.filter((function(c) {
-      return c !== callback;
-     }));
-    };
-   }, Poller.prototype.isDone = function() {
-    var state = this.operation.state;
-    return Boolean(state.isCompleted || state.isCancelled || state.error);
-   }, Poller.prototype.stopPolling = function() {
-    this.stopped || (this.stopped = !0, this.reject && this.reject(new poller_PollerStoppedError("This poller is already stopped")));
-   }, Poller.prototype.isStopped = function() {
-    return this.stopped;
-   }, Poller.prototype.cancelOperation = function(options) {
-    if (void 0 === options && (options = {}), this.stopped || (this.stopped = !0), this.cancelPromise) {
-     if (options.abortSignal) throw new Error("A cancel request is currently pending");
-    } else this.cancelPromise = this.cancelOnce(options);
-    return this.cancelPromise;
-   }, Poller.prototype.getOperationState = function() {
-    return this.operation.state;
-   }, Poller.prototype.getResult = function() {
-    return this.operation.state.result;
-   }, Poller.prototype.toString = function() {
-    return this.operation.toString();
-   }, Poller;
-  }()), BlobStartCopyFromUrlPoller_cancel = function(options) {
-   return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-    var state, copyId;
-    return __generator(this, (function(_a) {
-     switch (_a.label) {
-     case 0:
-      return state = this.state, copyId = state.copyId, state.isCompleted ? [ 2, makeBlobBeginCopyFromURLPollOperation(state) ] : copyId ? [ 4, state.blobClient.abortCopyFromURL(copyId, {
-       abortSignal: options.abortSignal
-      }) ] : (state.isCancelled = !0, [ 2, makeBlobBeginCopyFromURLPollOperation(state) ]);
-
-     case 1:
-      return _a.sent(), state.isCancelled = !0, [ 2, makeBlobBeginCopyFromURLPollOperation(state) ];
-     }
-    }));
-   }));
-  }, BlobStartCopyFromUrlPoller_update = function(options) {
-   return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-    var state, blobClient, copySource, startCopyFromURLOptions, result, copyStatus, copyProgress, prevCopyProgress, err_1;
-    return __generator(this, (function(_a) {
-     switch (_a.label) {
-     case 0:
-      return state = this.state, blobClient = state.blobClient, copySource = state.copySource, 
-      startCopyFromURLOptions = state.startCopyFromURLOptions, state.isStarted ? [ 3, 2 ] : (state.isStarted = !0, 
-      [ 4, blobClient.startCopyFromURL(copySource, startCopyFromURLOptions) ]);
-
-     case 1:
-      return result = _a.sent(), state.copyId = result.copyId, "success" === result.copyStatus && (state.result = result, 
-      state.isCompleted = !0), [ 3, 6 ];
-
-     case 2:
-      if (state.isCompleted) return [ 3, 6 ];
-      _a.label = 3;
-
-     case 3:
-      return _a.trys.push([ 3, 5, , 6 ]), [ 4, state.blobClient.getProperties({
-       abortSignal: options.abortSignal
-      }) ];
-
-     case 4:
-      return result = _a.sent(), copyStatus = result.copyStatus, copyProgress = result.copyProgress, 
-      prevCopyProgress = state.copyProgress, copyProgress && (state.copyProgress = copyProgress), 
-      "pending" === copyStatus && copyProgress !== prevCopyProgress && "function" == typeof options.fireProgress ? options.fireProgress(state) : "success" === copyStatus ? (state.result = result, 
-      state.isCompleted = !0) : "failed" === copyStatus && (state.error = new Error('Blob copy failed with reason: "' + (result.copyStatusDescription || "unknown") + '"'), 
-      state.isCompleted = !0), [ 3, 6 ];
-
-     case 5:
-      return err_1 = _a.sent(), state.error = err_1, state.isCompleted = !0, [ 3, 6 ];
-
-     case 6:
-      return [ 2, makeBlobBeginCopyFromURLPollOperation(state) ];
-     }
-    }));
-   }));
-  }, BlobStartCopyFromUrlPoller_toString = function() {
-   return JSON.stringify({
-    state: this.state
-   }, (function(key, value) {
-    if ("blobClient" !== key) return value;
-   }));
-  };
-  function makeBlobBeginCopyFromURLPollOperation(state) {
-   return {
-    state: __assign({}, state),
-    cancel: BlobStartCopyFromUrlPoller_cancel,
-    toString: BlobStartCopyFromUrlPoller_toString,
-    update: BlobStartCopyFromUrlPoller_update
-   };
-  }
-  function rangeToString(iRange) {
-   if (iRange.offset < 0) throw new RangeError("Range.offset cannot be smaller than 0.");
-   if (iRange.count && iRange.count <= 0) throw new RangeError("Range.count must be larger than 0. Leave it undefined if you want a range from offset to the end.");
-   return iRange.count ? "bytes=" + iRange.offset + "-" + (iRange.offset + iRange.count - 1) : "bytes=" + iRange.offset + "-";
-  }
-  var BatchStates, StorageClient_StorageClient = function(url, pipeline) {
+  }(serviceClient_ServiceClient), StorageClient_StorageClient = function(url, pipeline) {
    this.url = escapeURLPath(url), this.accountName = getAccountNameFromUrl(url), this.pipeline = pipeline, 
    this.storageClientContext = new storageClientContext_StorageClientContext(this.url, pipeline.toServiceClientOptions()), 
    this.isHttps = iEqual(function(url) {
@@ -48640,280 +45803,89 @@
     isNode && factory instanceof StorageSharedKeyCredential_StorageSharedKeyCredential || factory instanceof AnonymousCredential_AnonymousCredential ? this.credential = factory : isTokenCredential(factory.credential) && (this.credential = factory.credential);
    }
    this.storageClientContext.requestContentType = void 0;
-  }, external_events_ = __webpack_require__(23);
-  !function(BatchStates) {
-   BatchStates[BatchStates.Good = 0] = "Good", BatchStates[BatchStates.Error = 1] = "Error";
-  }(BatchStates || (BatchStates = {}));
-  var Batch_Batch = function() {
-   function Batch(concurrency) {
-    if (void 0 === concurrency && (concurrency = 5), this.actives = 0, this.completed = 0, 
-    this.offset = 0, this.operations = [], this.state = BatchStates.Good, concurrency < 1) throw new RangeError("concurrency must be larger than 0");
-    this.concurrency = concurrency, this.emitter = new external_events_.EventEmitter;
-   }
-   return Batch.prototype.addOperation = function(operation) {
-    var _this = this;
-    this.operations.push((function() {
-     return __awaiter(_this, void 0, void 0, (function() {
-      var error_1;
-      return __generator(this, (function(_a) {
-       switch (_a.label) {
-       case 0:
-        return _a.trys.push([ 0, 2, , 3 ]), this.actives++, [ 4, operation() ];
-
-       case 1:
-        return _a.sent(), this.actives--, this.completed++, this.parallelExecute(), [ 3, 3 ];
-
-       case 2:
-        return error_1 = _a.sent(), this.emitter.emit("error", error_1), [ 3, 3 ];
-
-       case 3:
-        return [ 2 ];
-       }
-      }));
-     }));
-    }));
-   }, Batch.prototype.do = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     var _this = this;
-     return __generator(this, (function(_a) {
-      return 0 === this.operations.length ? [ 2, Promise.resolve() ] : (this.parallelExecute(), 
-      [ 2, new Promise((function(resolve, reject) {
-       _this.emitter.on("finish", resolve), _this.emitter.on("error", (function(error) {
-        _this.state = BatchStates.Error, reject(error);
-       }));
-      })) ]);
-     }));
-    }));
-   }, Batch.prototype.nextOperation = function() {
-    return this.offset < this.operations.length ? this.operations[this.offset++] : null;
-   }, Batch.prototype.parallelExecute = function() {
-    if (this.state !== BatchStates.Error) if (this.completed >= this.operations.length) this.emitter.emit("finish"); else for (;this.actives < this.concurrency; ) {
-     var operation = this.nextOperation();
-     if (!operation) return;
-     operation();
-    }
-   }, Batch;
-  }(), BuffersStream_BuffersStream = function(_super) {
-   function BuffersStream(buffers, byteLength, options) {
-    var _this = _super.call(this, options) || this;
-    _this.buffers = buffers, _this.byteLength = byteLength, _this.byteOffsetInCurrentBuffer = 0, 
-    _this.bufferIndex = 0, _this.pushedBytesLength = 0;
-    for (var buffersLength = 0, _i = 0, _a = _this.buffers; _i < _a.length; _i++) {
-     buffersLength += _a[_i].byteLength;
-    }
-    if (buffersLength < _this.byteLength) throw new Error("Data size shouldn't be larger than the total length of buffers.");
-    return _this;
-   }
-   return __extends(BuffersStream, _super), BuffersStream.prototype._read = function(size) {
-    this.pushedBytesLength >= this.byteLength && this.push(null), size || (size = this.readableHighWaterMark);
-    for (var outBuffers = [], i = 0; i < size && this.pushedBytesLength < this.byteLength; ) {
-     var remainingDataInAllBuffers = this.byteLength - this.pushedBytesLength, remainingCapacityInThisBuffer = this.buffers[this.bufferIndex].byteLength - this.byteOffsetInCurrentBuffer, remaining = Math.min(remainingCapacityInThisBuffer, remainingDataInAllBuffers);
-     if (remaining > size - i) {
-      var end = this.byteOffsetInCurrentBuffer + size - i;
-      outBuffers.push(this.buffers[this.bufferIndex].slice(this.byteOffsetInCurrentBuffer, end)), 
-      this.pushedBytesLength += size - i, this.byteOffsetInCurrentBuffer = end, i = size;
-      break;
-     }
-     end = this.byteOffsetInCurrentBuffer + remaining;
-     outBuffers.push(this.buffers[this.bufferIndex].slice(this.byteOffsetInCurrentBuffer, end)), 
-     remaining === remainingCapacityInThisBuffer ? (this.byteOffsetInCurrentBuffer = 0, 
-     this.bufferIndex++) : this.byteOffsetInCurrentBuffer = end, this.pushedBytesLength += remaining, 
-     i += remaining;
-    }
-    outBuffers.length > 1 ? this.push(Buffer.concat(outBuffers)) : 1 === outBuffers.length && this.push(outBuffers[0]);
-   }, BuffersStream;
-  }(external_stream_.Readable), maxBufferLength = __webpack_require__(100).constants.MAX_LENGTH, PooledBuffer_PooledBuffer = function() {
-   function PooledBuffer(capacity, buffers, totalLength) {
-    this.buffers = [], this.capacity = capacity, this._size = 0;
-    for (var bufferNum = Math.ceil(capacity / maxBufferLength), i = 0; i < bufferNum; i++) {
-     var len = i === bufferNum - 1 ? capacity % maxBufferLength : maxBufferLength;
-     0 === len && (len = maxBufferLength), this.buffers.push(Buffer.allocUnsafe(len));
-    }
-    buffers && this.fill(buffers, totalLength);
-   }
-   return Object.defineProperty(PooledBuffer.prototype, "size", {
-    get: function() {
-     return this._size;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), PooledBuffer.prototype.fill = function(buffers, totalLength) {
-    this._size = Math.min(this.capacity, totalLength);
-    for (var i = 0, j = 0, targetOffset = 0, sourceOffset = 0, totalCopiedNum = 0; totalCopiedNum < this._size; ) {
-     var source = buffers[i], target = this.buffers[j], copiedNum = source.copy(target, targetOffset, sourceOffset);
-     totalCopiedNum += copiedNum, targetOffset += copiedNum, (sourceOffset += copiedNum) === source.length && (i++, 
-     sourceOffset = 0), targetOffset === target.length && (j++, targetOffset = 0);
-    }
-    buffers.splice(0, i), buffers.length > 0 && (buffers[0] = buffers[0].slice(sourceOffset));
-   }, PooledBuffer.prototype.getReadableStream = function() {
-    return new BuffersStream_BuffersStream(this.buffers, this.size);
-   }, PooledBuffer;
-  }(), BufferScheduler_BufferScheduler = function() {
-   function BufferScheduler(readable, bufferSize, maxBuffers, outgoingHandler, concurrency, encoding) {
-    if (this.emitter = new external_events_.EventEmitter, this.offset = 0, this.isStreamEnd = !1, 
-    this.isError = !1, this.executingOutgoingHandlers = 0, this.numBuffers = 0, this.unresolvedDataArray = [], 
-    this.unresolvedLength = 0, this.incoming = [], this.outgoing = [], bufferSize <= 0) throw new RangeError("bufferSize must be larger than 0, current is " + bufferSize);
-    if (maxBuffers <= 0) throw new RangeError("maxBuffers must be larger than 0, current is " + maxBuffers);
-    if (concurrency <= 0) throw new RangeError("concurrency must be larger than 0, current is " + concurrency);
-    this.bufferSize = bufferSize, this.maxBuffers = maxBuffers, this.readable = readable, 
-    this.outgoingHandler = outgoingHandler, this.concurrency = concurrency, this.encoding = encoding;
-   }
-   return BufferScheduler.prototype.do = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     var _this = this;
-     return __generator(this, (function(_a) {
-      return [ 2, new Promise((function(resolve, reject) {
-       _this.readable.on("data", (function(data) {
-        data = "string" == typeof data ? Buffer.from(data, _this.encoding) : data, _this.appendUnresolvedData(data), 
-        _this.resolveData() || _this.readable.pause();
-       })), _this.readable.on("error", (function(err) {
-        _this.emitter.emit("error", err);
-       })), _this.readable.on("end", (function() {
-        _this.isStreamEnd = !0, _this.emitter.emit("checkEnd");
-       })), _this.emitter.on("error", (function(err) {
-        _this.isError = !0, _this.readable.pause(), reject(err);
-       })), _this.emitter.on("checkEnd", (function() {
-        if (_this.outgoing.length > 0) _this.triggerOutgoingHandlers(); else if (_this.isStreamEnd && 0 === _this.executingOutgoingHandlers) if (_this.unresolvedLength > 0 && _this.unresolvedLength < _this.bufferSize) {
-         var buffer_1 = _this.shiftBufferFromUnresolvedDataArray();
-         _this.outgoingHandler((function() {
-          return buffer_1.getReadableStream();
-         }), buffer_1.size, _this.offset).then(resolve).catch(reject);
-        } else {
-         if (_this.unresolvedLength >= _this.bufferSize) return;
-         resolve();
-        }
-       }));
-      })) ];
-     }));
-    }));
-   }, BufferScheduler.prototype.appendUnresolvedData = function(data) {
-    this.unresolvedDataArray.push(data), this.unresolvedLength += data.length;
-   }, BufferScheduler.prototype.shiftBufferFromUnresolvedDataArray = function(buffer) {
-    return buffer ? buffer.fill(this.unresolvedDataArray, this.unresolvedLength) : buffer = new PooledBuffer_PooledBuffer(this.bufferSize, this.unresolvedDataArray, this.unresolvedLength), 
-    this.unresolvedLength -= buffer.size, buffer;
-   }, BufferScheduler.prototype.resolveData = function() {
-    for (;this.unresolvedLength >= this.bufferSize; ) {
-     var buffer = void 0;
-     if (this.incoming.length > 0) buffer = this.incoming.shift(), this.shiftBufferFromUnresolvedDataArray(buffer); else {
-      if (!(this.numBuffers < this.maxBuffers)) return !1;
-      buffer = this.shiftBufferFromUnresolvedDataArray(), this.numBuffers++;
-     }
-     this.outgoing.push(buffer), this.triggerOutgoingHandlers();
-    }
-    return !0;
-   }, BufferScheduler.prototype.triggerOutgoingHandlers = function() {
-    return __awaiter(this, void 0, void 0, (function() {
-     var buffer;
-     return __generator(this, (function(_a) {
-      do {
-       if (this.executingOutgoingHandlers >= this.concurrency) return [ 2 ];
-       (buffer = this.outgoing.shift()) && this.triggerOutgoingHandler(buffer);
-      } while (buffer);
-      return [ 2 ];
-     }));
-    }));
-   }, BufferScheduler.prototype.triggerOutgoingHandler = function(buffer) {
-    return __awaiter(this, void 0, void 0, (function() {
-     var bufferLength, err_1;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       bufferLength = buffer.size, this.executingOutgoingHandlers++, this.offset += bufferLength, 
-       _a.label = 1;
-
-      case 1:
-       return _a.trys.push([ 1, 3, , 4 ]), [ 4, this.outgoingHandler((function() {
-        return buffer.getReadableStream();
-       }), bufferLength, this.offset - bufferLength) ];
-
-      case 2:
-       return _a.sent(), [ 3, 4 ];
-
-      case 3:
-       return err_1 = _a.sent(), this.emitter.emit("error", err_1), [ 2 ];
-
-      case 4:
-       return this.executingOutgoingHandlers--, this.reuseBuffer(buffer), this.emitter.emit("checkEnd"), 
-       [ 2 ];
-      }
-     }));
-    }));
-   }, BufferScheduler.prototype.reuseBuffer = function(buffer) {
-    this.incoming.push(buffer), this.isError || !this.resolveData() || this.isStreamEnd || this.readable.resume();
-   }, BufferScheduler;
+  }, noop_noOpSpan_NoOpSpan = function() {
+   function NoOpSpan() {}
+   return NoOpSpan.prototype.context = function() {
+    return {
+     spanId: "",
+     traceId: "",
+     traceFlags: src.TraceFlags.NONE
+    };
+   }, NoOpSpan.prototype.end = function(_endTime) {}, NoOpSpan.prototype.setAttribute = function(_key, _value) {
+    return this;
+   }, NoOpSpan.prototype.setAttributes = function(_attributes) {
+    return this;
+   }, NoOpSpan.prototype.addEvent = function(_name, _attributes) {
+    return this;
+   }, NoOpSpan.prototype.setStatus = function(_status) {
+    return this;
+   }, NoOpSpan.prototype.updateName = function(_name) {
+    return this;
+   }, NoOpSpan.prototype.isRecording = function() {
+    return !1;
+   }, NoOpSpan;
+  }(), noop_noOpTracer_NoOpTracer = function() {
+   function NoOpTracer() {}
+   return NoOpTracer.prototype.startSpan = function(_name, _options) {
+    return new noop_noOpSpan_NoOpSpan;
+   }, NoOpTracer.prototype.getCurrentSpan = function() {
+    return new noop_noOpSpan_NoOpSpan;
+   }, NoOpTracer.prototype.withSpan = function(_span, fn) {
+    return fn();
+   }, NoOpTracer.prototype.bind = function(target, _span) {
+    return target;
+   }, NoOpTracer;
   }();
-  function createSpan(operationName, tracingOptions) {
-   void 0 === tracingOptions && (tracingOptions = {});
-   var tracer = getTracer(), spanOptions = __assign(__assign({}, tracingOptions.spanOptions), {
+  var utils_cache_cache, tracerProxy_defaultTracer, cache_GLOBAL_TRACER_SYMBOL = Symbol.for("@azure/core-tracing.tracerCache2");
+  function cache_loadTracerCache() {
+   var globalObj = global, existingCache = globalObj[cache_GLOBAL_TRACER_SYMBOL], setGlobalCache = !0;
+   if (existingCache) if (3 === existingCache.version) utils_cache_cache = existingCache; else if (setGlobalCache = !1, 
+   existingCache.tracer) throw new Error("Two incompatible versions of @azure/core-tracing have been loaded.\n          This library is 3, existing is " + existingCache.version + ".");
+   utils_cache_cache || (utils_cache_cache = {
+    tracer: void 0,
+    version: 3
+   }), setGlobalCache && (globalObj[cache_GLOBAL_TRACER_SYMBOL] = utils_cache_cache);
+  }
+  function cache_getCache() {
+   return utils_cache_cache || cache_loadTracerCache(), utils_cache_cache;
+  }
+  function tracerProxy_getTracer() {
+   var cache = cache_getCache();
+   return cache.tracer ? cache.tracer : (tracerProxy_defaultTracer || (tracerProxy_defaultTracer = new noop_noOpTracer_NoOpTracer), 
+   tracerProxy_defaultTracer);
+  }
+  var args, createSpan = (args = {
+   packagePrefix: "Azure.Storage.Blob",
+   namespace: "Microsoft.Storage"
+  }, function(operationName, operationOptions) {
+   var tracer = tracerProxy_getTracer(), tracingOptions = (null == operationOptions ? void 0 : operationOptions.tracingOptions) || {}, spanOptions = __assign({
     kind: src.SpanKind.INTERNAL
-   }), span = tracer.startSpan("Azure.Storage.Blob." + operationName, spanOptions);
-   span.setAttribute("az.namespace", "Microsoft.Storage");
-   var newOptions = tracingOptions.spanOptions || {};
-   return span.isRecording() && (newOptions = __assign(__assign({}, tracingOptions.spanOptions), {
+   }, tracingOptions.spanOptions), spanName = args.packagePrefix ? args.packagePrefix + "." + operationName : operationName, span = tracer.startSpan(spanName, spanOptions);
+   args.namespace && span.setAttribute("az.namespace", args.namespace);
+   var newSpanOptions = tracingOptions.spanOptions || {};
+   span.isRecording() && args.namespace && (newSpanOptions = __assign(__assign({}, tracingOptions.spanOptions), {
     parent: span.context(),
     attributes: __assign(__assign({}, spanOptions.attributes), {
-     "az.namespace": "Microsoft.Storage"
+     "az.namespace": args.namespace
     })
-   })), {
+   }));
+   var newTracingOptions = __assign(__assign({}, tracingOptions), {
+    spanOptions: newSpanOptions
+   });
+   return {
     span: span,
-    spanOptions: newOptions
+    updatedOptions: __assign(__assign({}, operationOptions), {
+     tracingOptions: newTracingOptions
+    })
+   };
+  });
+  function convertTracingToRequestOptionsBase(options) {
+   var _a;
+   return {
+    spanOptions: null === (_a = null == options ? void 0 : options.tracingOptions) || void 0 === _a ? void 0 : _a.spanOptions
    };
   }
-  var external_fs_ = __webpack_require__(7);
-  function streamToBuffer(stream, buffer, offset, end, encoding) {
-   return __awaiter(this, void 0, void 0, (function() {
-    var pos, count;
-    return __generator(this, (function(_a) {
-     return pos = 0, count = end - offset, [ 2, new Promise((function(resolve, reject) {
-      stream.on("readable", (function() {
-       if (pos >= count) resolve(); else {
-        var chunk = stream.read();
-        if (chunk) {
-         "string" == typeof chunk && (chunk = Buffer.from(chunk, encoding));
-         var chunkLength = pos + chunk.length > count ? count - pos : chunk.length;
-         buffer.fill(chunk.slice(0, chunkLength), offset + pos, offset + pos + chunkLength), 
-         pos += chunkLength;
-        }
-       }
-      })), stream.on("end", (function() {
-       pos < count && reject(new Error("Stream drains before getting enough data needed. Data read: " + pos + ", data need: " + count)), 
-       resolve();
-      })), stream.on("error", reject);
-     })) ];
-    }));
-   }));
-  }
-  function streamToBuffer2(stream, buffer, encoding) {
-   return __awaiter(this, void 0, void 0, (function() {
-    var pos, bufferSize;
-    return __generator(this, (function(_a) {
-     return pos = 0, bufferSize = buffer.length, [ 2, new Promise((function(resolve, reject) {
-      stream.on("readable", (function() {
-       var chunk = stream.read();
-       chunk && ("string" == typeof chunk && (chunk = Buffer.from(chunk, encoding)), pos + chunk.length > bufferSize ? reject(new Error("Stream exceeds buffer size. Buffer size: " + bufferSize)) : (buffer.fill(chunk, pos, pos + chunk.length), 
-       pos += chunk.length));
-      })), stream.on("end", (function() {
-       resolve(pos);
-      })), stream.on("error", reject);
-     })) ];
-    }));
-   }));
-  }
-  function readStreamToLocalFile(rs, file) {
-   return __awaiter(this, void 0, void 0, (function() {
-    return __generator(this, (function(_a) {
-     return [ 2, new Promise((function(resolve, reject) {
-      var ws = external_fs_.createWriteStream(file);
-      rs.on("error", (function(err) {
-       reject(err);
-      })), ws.on("error", (function(err) {
-       reject(err);
-      })), ws.on("close", resolve), rs.pipe(ws);
-     })) ];
-    }));
-   }));
-  }
-  var SASProtocol, fsStat = external_util_.promisify(external_fs_.stat), fsCreateReadStream = external_fs_.createReadStream, BlobSASPermissions = function() {
+  var SASProtocol, BlobSASPermissions = function() {
    function BlobSASPermissions() {
     this.read = !1, this.add = !1, this.create = !1, this.write = !1, this.delete = !1, 
     this.deleteVersion = !1, this.tag = !1, this.move = !1, this.execute = !1;
@@ -49199,7 +46171,7 @@
    }, SASQueryParameters;
   }();
   function generateBlobSASQueryParameters(blobSASSignatureValues, sharedKeyCredentialOrUserDelegationKey, accountName) {
-   var userDelegationKeyCredential, version = blobSASSignatureValues.version ? blobSASSignatureValues.version : "2020-04-08", sharedKeyCredential = sharedKeyCredentialOrUserDelegationKey instanceof StorageSharedKeyCredential_StorageSharedKeyCredential ? sharedKeyCredentialOrUserDelegationKey : void 0;
+   var userDelegationKeyCredential, version = blobSASSignatureValues.version ? blobSASSignatureValues.version : "2020-06-12", sharedKeyCredential = sharedKeyCredentialOrUserDelegationKey instanceof StorageSharedKeyCredential_StorageSharedKeyCredential ? sharedKeyCredentialOrUserDelegationKey : void 0;
    if (void 0 === sharedKeyCredential && void 0 !== accountName && (userDelegationKeyCredential = new UserDelegationKeyCredential_UserDelegationKeyCredential(accountName, sharedKeyCredentialOrUserDelegationKey)), 
    void 0 === sharedKeyCredential && void 0 === userDelegationKeyCredential) throw TypeError("Invalid sharedKeyCredential, userDelegationKey or accountName.");
    if (version >= "2018-11-09") return void 0 !== sharedKeyCredential ? function(blobSASSignatureValues, sharedKeyCredential) {
@@ -49245,7 +46217,7 @@
    return blobName && elements.push("/" + blobName), elements.join("");
   }
   function SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues) {
-   var version = blobSASSignatureValues.version ? blobSASSignatureValues.version : "2020-04-08";
+   var version = blobSASSignatureValues.version ? blobSASSignatureValues.version : "2020-06-12";
    if (blobSASSignatureValues.snapshotTime && version < "2018-11-09") throw RangeError("'version' must be >= '2018-11-09' when providing 'snapshotTime'.");
    if (void 0 === blobSASSignatureValues.blobName && blobSASSignatureValues.snapshotTime) throw RangeError("Must provide 'blobName' when providing 'snapshotTime'.");
    if (blobSASSignatureValues.versionId && version < "2019-10-10") throw RangeError("'version' must be >= '2019-10-10' when providing 'versionId'.");
@@ -49256,7 +46228,3471 @@
    if (version < "2020-02-10" && (blobSASSignatureValues.preauthorizedAgentObjectId || blobSASSignatureValues.correlationId)) throw RangeError("'version' must be >= '2020-02-10' when providing 'preauthorizedAgentObjectId' or 'correlationId'.");
    return blobSASSignatureValues.version = version, blobSASSignatureValues;
   }
-  var Clients_BlobClient = function(_super) {
+  var blob_Blob = function() {
+   function Blob(client) {
+    this.client = client;
+   }
+   return Blob.prototype.download = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, downloadOperationSpec, callback);
+   }, Blob.prototype.getProperties = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_getPropertiesOperationSpec, callback);
+   }, Blob.prototype.deleteMethod = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_deleteMethodOperationSpec, callback);
+   }, Blob.prototype.setAccessControl = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, setAccessControlOperationSpec, callback);
+   }, Blob.prototype.getAccessControl = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, getAccessControlOperationSpec, callback);
+   }, Blob.prototype.rename = function(renameSource, options, callback) {
+    return this.client.sendOperationRequest({
+     renameSource: renameSource,
+     options: options
+    }, blob_renameOperationSpec, callback);
+   }, Blob.prototype.undelete = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, undeleteOperationSpec, callback);
+   }, Blob.prototype.setExpiry = function(expiryOptions, options, callback) {
+    return this.client.sendOperationRequest({
+     expiryOptions: expiryOptions,
+     options: options
+    }, setExpiryOperationSpec, callback);
+   }, Blob.prototype.setHTTPHeaders = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, setHTTPHeadersOperationSpec, callback);
+   }, Blob.prototype.setMetadata = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_setMetadataOperationSpec, callback);
+   }, Blob.prototype.acquireLease = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_acquireLeaseOperationSpec, callback);
+   }, Blob.prototype.releaseLease = function(leaseId, options, callback) {
+    return this.client.sendOperationRequest({
+     leaseId: leaseId,
+     options: options
+    }, blob_releaseLeaseOperationSpec, callback);
+   }, Blob.prototype.renewLease = function(leaseId, options, callback) {
+    return this.client.sendOperationRequest({
+     leaseId: leaseId,
+     options: options
+    }, blob_renewLeaseOperationSpec, callback);
+   }, Blob.prototype.changeLease = function(leaseId, proposedLeaseId, options, callback) {
+    return this.client.sendOperationRequest({
+     leaseId: leaseId,
+     proposedLeaseId: proposedLeaseId,
+     options: options
+    }, blob_changeLeaseOperationSpec, callback);
+   }, Blob.prototype.breakLease = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_breakLeaseOperationSpec, callback);
+   }, Blob.prototype.createSnapshot = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, createSnapshotOperationSpec, callback);
+   }, Blob.prototype.startCopyFromURL = function(copySource, options, callback) {
+    return this.client.sendOperationRequest({
+     copySource: copySource,
+     options: options
+    }, startCopyFromURLOperationSpec, callback);
+   }, Blob.prototype.copyFromURL = function(copySource, options, callback) {
+    return this.client.sendOperationRequest({
+     copySource: copySource,
+     options: options
+    }, copyFromURLOperationSpec, callback);
+   }, Blob.prototype.abortCopyFromURL = function(copyId, options, callback) {
+    return this.client.sendOperationRequest({
+     copyId: copyId,
+     options: options
+    }, abortCopyFromURLOperationSpec, callback);
+   }, Blob.prototype.setTier = function(tier, options, callback) {
+    return this.client.sendOperationRequest({
+     tier: tier,
+     options: options
+    }, setTierOperationSpec, callback);
+   }, Blob.prototype.getAccountInfo = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, blob_getAccountInfoOperationSpec, callback);
+   }, Blob.prototype.query = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, queryOperationSpec, callback);
+   }, Blob.prototype.getTags = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, getTagsOperationSpec, callback);
+   }, Blob.prototype.setTags = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, setTagsOperationSpec, callback);
+   }, Blob;
+  }(), blob_serializer = new serializer_Serializer(blobMappers_namespaceObject, !0), downloadOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds ],
+   headerParameters: [ range0, {
+    parameterPath: [ "options", "rangeGetContentMD5" ],
+    mapper: {
+     serializedName: "x-ms-range-get-content-md5",
+     type: {
+      name: "Boolean"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "rangeGetContentCRC64" ],
+    mapper: {
+     serializedName: "x-ms-range-get-content-crc64",
+     type: {
+      name: "Boolean"
+     }
+    }
+   }, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     bodyMapper: {
+      serializedName: "parsedResponse",
+      type: {
+       name: "Stream"
+      }
+     },
+     headersMapper: BlobDownloadHeaders
+    },
+    206: {
+     bodyMapper: {
+      serializedName: "parsedResponse",
+      type: {
+       name: "Stream"
+      }
+     },
+     headersMapper: BlobDownloadHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobDownloadHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_getPropertiesOperationSpec = {
+   httpMethod: "HEAD",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds ],
+   headerParameters: [ parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobGetPropertiesHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobGetPropertiesHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_deleteMethodOperationSpec = {
+   httpMethod: "DELETE",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds, {
+    parameterPath: [ "options", "blobDeleteType" ],
+    mapper: {
+     serializedName: "deletetype",
+     type: {
+      name: "Enum",
+      allowedValues: [ "Permanent" ]
+     }
+    }
+   } ],
+   headerParameters: [ {
+    parameterPath: [ "options", "deleteSnapshots" ],
+    mapper: {
+     serializedName: "x-ms-delete-snapshots",
+     type: {
+      name: "Enum",
+      allowedValues: [ "include", "only" ]
+     }
+    }
+   }, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    202: {
+     headersMapper: BlobDeleteHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobDeleteHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, setAccessControlOperationSpec = {
+   httpMethod: "PATCH",
+   path: "{filesystem}/{path}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: "action",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "action",
+     defaultValue: "setAccessControl",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ {
+    parameterPath: [ "options", "owner" ],
+    mapper: {
+     serializedName: "x-ms-owner",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "group" ],
+    mapper: {
+     serializedName: "x-ms-group",
+     type: {
+      name: "String"
+     }
+    }
+   }, posixPermissions, {
+    parameterPath: [ "options", "posixAcl" ],
+    mapper: {
+     serializedName: "x-ms-acl",
+     type: {
+      name: "String"
+     }
+    }
+   }, requestId, parameters_version, leaseId0, ifMatch, ifNoneMatch, ifModifiedSince, ifUnmodifiedSince ],
+   responses: {
+    200: {
+     headersMapper: BlobSetAccessControlHeaders
+    },
+    default: {
+     bodyMapper: DataLakeStorageError,
+     headersMapper: BlobSetAccessControlHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, getAccessControlOperationSpec = {
+   httpMethod: "HEAD",
+   path: "{filesystem}/{path}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: [ "options", "upn" ],
+    mapper: {
+     serializedName: "upn",
+     type: {
+      name: "Boolean"
+     }
+    }
+   }, {
+    parameterPath: "action",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "action",
+     defaultValue: "getAccessControl",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ requestId, parameters_version, leaseId0, ifMatch, ifNoneMatch, ifModifiedSince, ifUnmodifiedSince ],
+   responses: {
+    200: {
+     headersMapper: BlobGetAccessControlHeaders
+    },
+    default: {
+     bodyMapper: DataLakeStorageError,
+     headersMapper: BlobGetAccessControlHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_renameOperationSpec = {
+   httpMethod: "PUT",
+   path: "{filesystem}/{path}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: [ "options", "pathRenameMode" ],
+    mapper: {
+     serializedName: "mode",
+     type: {
+      name: "Enum",
+      allowedValues: [ "legacy", "posix" ]
+     }
+    }
+   } ],
+   headerParameters: [ {
+    parameterPath: "renameSource",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-rename-source",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "directoryProperties" ],
+    mapper: {
+     serializedName: "x-ms-properties",
+     type: {
+      name: "String"
+     }
+    }
+   }, posixPermissions, {
+    parameterPath: [ "options", "posixUmask" ],
+    mapper: {
+     serializedName: "x-ms-umask",
+     type: {
+      name: "String"
+     }
+    }
+   }, sourceLeaseId, parameters_version, requestId, {
+    parameterPath: [ "options", "directoryHttpHeaders", "cacheControl" ],
+    mapper: {
+     serializedName: "x-ms-cache-control",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "directoryHttpHeaders", "contentType" ],
+    mapper: {
+     serializedName: "x-ms-content-type",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "directoryHttpHeaders", "contentEncoding" ],
+    mapper: {
+     serializedName: "x-ms-content-encoding",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "directoryHttpHeaders", "contentLanguage" ],
+    mapper: {
+     serializedName: "x-ms-content-language",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "directoryHttpHeaders", "contentDisposition" ],
+    mapper: {
+     serializedName: "x-ms-content-disposition",
+     type: {
+      name: "String"
+     }
+    }
+   }, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
+   responses: {
+    201: {
+     headersMapper: BlobRenameHeaders
+    },
+    default: {
+     bodyMapper: DataLakeStorageError,
+     headersMapper: BlobRenameHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, undeleteOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp8 ],
+   headerParameters: [ parameters_version, requestId ],
+   responses: {
+    200: {
+     headersMapper: BlobUndeleteHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobUndeleteHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, setExpiryOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "expiry",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_version, requestId, {
+    parameterPath: "expiryOptions",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-expiry-option",
+     type: {
+      name: "String"
+     }
+    }
+   }, {
+    parameterPath: [ "options", "expiresOn" ],
+    mapper: {
+     serializedName: "x-ms-expiry-time",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   responses: {
+    200: {
+     headersMapper: BlobSetExpiryHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobSetExpiryHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, setHTTPHeadersOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp0 ],
+   headerParameters: [ parameters_version, requestId, blobCacheControl, blobContentType, blobContentMD5, blobContentEncoding, blobContentLanguage, blobContentDisposition, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobSetHTTPHeadersHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobSetHTTPHeadersHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_setMetadataOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp6 ],
+   headerParameters: [ parameters_metadata, encryptionScope, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobSetMetadataHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobSetMetadataHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_acquireLeaseOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp10 ],
+   headerParameters: [ parameters_duration, proposedLeaseId0, parameters_version, requestId, action0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    201: {
+     headersMapper: BlobAcquireLeaseHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobAcquireLeaseHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_releaseLeaseOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp10 ],
+   headerParameters: [ leaseId1, parameters_version, requestId, action1, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobReleaseLeaseHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobReleaseLeaseHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_renewLeaseOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp10 ],
+   headerParameters: [ leaseId1, parameters_version, requestId, action2, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobRenewLeaseHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobRenewLeaseHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_changeLeaseOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp10 ],
+   headerParameters: [ leaseId1, proposedLeaseId1, parameters_version, requestId, action4, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobChangeLeaseHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobChangeLeaseHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_breakLeaseOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp10 ],
+   headerParameters: [ parameters_breakPeriod, parameters_version, requestId, action3, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    202: {
+     headersMapper: BlobBreakLeaseHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobBreakLeaseHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, createSnapshotOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "snapshot",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_metadata, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
+   responses: {
+    201: {
+     headersMapper: BlobCreateSnapshotHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobCreateSnapshotHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, startCopyFromURLOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ parameters_metadata, tier0, rehydratePriority, parameters_copySource, parameters_version, requestId, blobTagsString, {
+    parameterPath: [ "options", "sealBlob" ],
+    mapper: {
+     serializedName: "x-ms-seal-blob",
+     type: {
+      name: "Boolean"
+     }
+    }
+   }, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, sourceIfTags, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
+   responses: {
+    202: {
+     headersMapper: BlobStartCopyFromURLHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobStartCopyFromURLHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, copyFromURLOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ parameters_metadata, tier0, parameters_copySource, parameters_version, requestId, sourceContentMD5, blobTagsString, {
+    parameterPath: "xMsRequiresSync",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "x-ms-requires-sync",
+     defaultValue: "true",
+     type: {
+      name: "String"
+     }
+    }
+   }, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, leaseId0 ],
+   responses: {
+    202: {
+     headersMapper: BlobCopyFromURLHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobCopyFromURLHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, abortCopyFromURLOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ {
+    parameterPath: "copyId",
+    mapper: {
+     required: !0,
+     serializedName: "copyid",
+     type: {
+      name: "String"
+     }
+    }
+   }, timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "copy",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_version, requestId, {
+    parameterPath: "copyActionAbortConstant",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "x-ms-copy-action",
+     defaultValue: "abort",
+     type: {
+      name: "String"
+     }
+    }
+   }, leaseId0 ],
+   responses: {
+    204: {
+     headersMapper: BlobAbortCopyFromURLHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobAbortCopyFromURLHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, setTierOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, parameters_versionId, timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "tier",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ {
+    parameterPath: "tier",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-access-tier",
+     type: {
+      name: "String"
+     }
+    }
+   }, rehydratePriority, parameters_version, requestId, leaseId0, ifTags ],
+   responses: {
+    200: {
+     headersMapper: BlobSetTierHeaders
+    },
+    202: {
+     headersMapper: BlobSetTierHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobSetTierHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, blob_getAccountInfoOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ restype1, comp0 ],
+   headerParameters: [ parameters_version ],
+   responses: {
+    200: {
+     headersMapper: BlobGetAccountInfoHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobGetAccountInfoHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, queryOperationSpec = {
+   httpMethod: "POST",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "query",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   requestBody: {
+    parameterPath: [ "options", "queryRequest" ],
+    mapper: QueryRequest
+   },
+   contentType: "application/xml; charset=utf-8",
+   responses: {
+    200: {
+     bodyMapper: {
+      serializedName: "parsedResponse",
+      type: {
+       name: "Stream"
+      }
+     },
+     headersMapper: BlobQueryHeaders
+    },
+    206: {
+     bodyMapper: {
+      serializedName: "parsedResponse",
+      type: {
+       name: "Stream"
+      }
+     },
+     headersMapper: BlobQueryHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobQueryHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, getTagsOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, parameters_snapshot, parameters_versionId, comp16 ],
+   headerParameters: [ parameters_version, requestId, ifTags, leaseId0 ],
+   responses: {
+    200: {
+     bodyMapper: BlobTags,
+     headersMapper: BlobGetTagsHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobGetTagsHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, setTagsOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, parameters_versionId, comp16 ],
+   headerParameters: [ parameters_version, transactionalContentMD5, transactionalContentCrc64, requestId, ifTags, leaseId0 ],
+   requestBody: {
+    parameterPath: [ "options", "tags" ],
+    mapper: BlobTags
+   },
+   contentType: "application/xml; charset=utf-8",
+   responses: {
+    204: {
+     headersMapper: BlobSetTagsHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlobSetTagsHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blob_serializer
+  }, BlobLeaseClient_BlobLeaseClient = function() {
+   function BlobLeaseClient(client, leaseId) {
+    var clientContext = new storageClientContext_StorageClientContext(client.url, client.pipeline.toServiceClientOptions());
+    this._url = client.url, void 0 === client.name ? (this._isContainer = !0, this._containerOrBlobOperation = new Container(clientContext)) : (this._isContainer = !1, 
+    this._containerOrBlobOperation = new blob_Blob(clientContext)), leaseId || (leaseId = generateUuid()), 
+    this._leaseId = leaseId;
+   }
+   return Object.defineProperty(BlobLeaseClient.prototype, "leaseId", {
+    get: function() {
+     return this._leaseId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobLeaseClient.prototype, "url", {
+    get: function() {
+     return this._url;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), BlobLeaseClient.prototype.acquireLease = function(duration, options) {
+    var _a, _b, _c, _d, _e, _f;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _g, span, updatedOptions, e_1;
+     return __generator(this, (function(_h) {
+      switch (_h.label) {
+      case 0:
+       if (_g = createSpan("BlobLeaseClient-acquireLease", options), span = _g.span, updatedOptions = _g.updatedOptions, 
+       this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
+       _h.label = 1;
+
+      case 1:
+       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.acquireLease(__assign({
+        abortSignal: options.abortSignal,
+        duration: duration,
+        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
+         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
+        }),
+        proposedLeaseId: this._leaseId
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _h.sent() ];
+
+      case 3:
+       throw e_1 = _h.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_1.message
+       }), e_1;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobLeaseClient.prototype.changeLease = function(proposedLeaseId, options) {
+    var _a, _b, _c, _d, _e, _f;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _g, span, updatedOptions, response, e_2;
+     return __generator(this, (function(_h) {
+      switch (_h.label) {
+      case 0:
+       if (_g = createSpan("BlobLeaseClient-changeLease", options), span = _g.span, updatedOptions = _g.updatedOptions, 
+       this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
+       _h.label = 1;
+
+      case 1:
+       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.changeLease(this._leaseId, proposedLeaseId, __assign({
+        abortSignal: options.abortSignal,
+        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
+         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return response = _h.sent(), this._leaseId = proposedLeaseId, [ 2, response ];
+
+      case 3:
+       throw e_2 = _h.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_2.message
+       }), e_2;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobLeaseClient.prototype.releaseLease = function(options) {
+    var _a, _b, _c, _d, _e, _f;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _g, span, updatedOptions, e_3;
+     return __generator(this, (function(_h) {
+      switch (_h.label) {
+      case 0:
+       if (_g = createSpan("BlobLeaseClient-releaseLease", options), span = _g.span, updatedOptions = _g.updatedOptions, 
+       this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
+       _h.label = 1;
+
+      case 1:
+       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.releaseLease(this._leaseId, __assign({
+        abortSignal: options.abortSignal,
+        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
+         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _h.sent() ];
+
+      case 3:
+       throw e_3 = _h.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_3.message
+       }), e_3;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobLeaseClient.prototype.renewLease = function(options) {
+    var _a, _b, _c, _d, _e, _f;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _g, span, updatedOptions, e_4;
+     return __generator(this, (function(_h) {
+      switch (_h.label) {
+      case 0:
+       if (_g = createSpan("BlobLeaseClient-renewLease", options), span = _g.span, updatedOptions = _g.updatedOptions, 
+       this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
+       _h.label = 1;
+
+      case 1:
+       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.renewLease(this._leaseId, __assign({
+        abortSignal: options.abortSignal,
+        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
+         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _h.sent() ];
+
+      case 3:
+       throw e_4 = _h.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_4.message
+       }), e_4;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobLeaseClient.prototype.breakLease = function(breakPeriod, options) {
+    var _a, _b, _c, _d, _e, _f;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _g, span, updatedOptions, operationOptions, e_5;
+     return __generator(this, (function(_h) {
+      switch (_h.label) {
+      case 0:
+       if (_g = createSpan("BlobLeaseClient-breakLease", options), span = _g.span, updatedOptions = _g.updatedOptions, 
+       this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
+       _h.label = 1;
+
+      case 1:
+       return _h.trys.push([ 1, 3, 4, 5 ]), operationOptions = __assign({
+        abortSignal: options.abortSignal,
+        breakPeriod: breakPeriod,
+        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
+         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions)), [ 4, this._containerOrBlobOperation.breakLease(operationOptions) ];
+
+      case 2:
+       return [ 2, _h.sent() ];
+
+      case 3:
+       throw e_5 = _h.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_5.message
+       }), e_5;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobLeaseClient;
+  }(), RetriableReadableStream_RetriableReadableStream = function(_super) {
+   function RetriableReadableStream(source, getter, offset, count, options) {
+    void 0 === options && (options = {});
+    var _this = _super.call(this, {
+     highWaterMark: options.highWaterMark
+    }) || this;
+    return _this.retries = 0, _this.sourceDataHandler = function(data) {
+     if (_this.options.doInjectErrorOnce) return _this.options.doInjectErrorOnce = void 0, 
+     _this.source.pause(), _this.source.removeAllListeners("data"), void _this.source.emit("end");
+     _this.offset += data.length, _this.onProgress && _this.onProgress({
+      loadedBytes: _this.offset - _this.start
+     }), _this.push(data) || _this.source.pause();
+    }, _this.sourceErrorOrEndHandler = function(err) {
+     err && "AbortError" === err.name ? _this.destroy(err) : (_this.removeSourceEventHandlers(), 
+     _this.offset - 1 === _this.end ? _this.push(null) : _this.offset <= _this.end ? _this.retries < _this.maxRetryRequests ? (_this.retries += 1, 
+     _this.getter(_this.offset).then((function(newSource) {
+      _this.source = newSource, _this.setSourceEventHandlers();
+     })).catch((function(error) {
+      _this.destroy(error);
+     }))) : _this.destroy(new Error("Data corruption failure: received less data than required and reached maxRetires limitation. Received data offset: " + (_this.offset - 1) + ", data needed offset: " + _this.end + ", retries: " + _this.retries + ", max retries: " + _this.maxRetryRequests)) : _this.destroy(new Error("Data corruption failure: Received more data than original request, data needed offset is " + _this.end + ", received offset: " + (_this.offset - 1))));
+    }, _this.getter = getter, _this.source = source, _this.start = offset, _this.offset = offset, 
+    _this.end = offset + count - 1, _this.maxRetryRequests = options.maxRetryRequests && options.maxRetryRequests >= 0 ? options.maxRetryRequests : 0, 
+    _this.onProgress = options.onProgress, _this.options = options, _this.setSourceEventHandlers(), 
+    _this;
+   }
+   return __extends(RetriableReadableStream, _super), RetriableReadableStream.prototype._read = function() {
+    this.source.resume();
+   }, RetriableReadableStream.prototype.setSourceEventHandlers = function() {
+    this.source.on("data", this.sourceDataHandler), this.source.on("end", this.sourceErrorOrEndHandler), 
+    this.source.on("error", this.sourceErrorOrEndHandler);
+   }, RetriableReadableStream.prototype.removeSourceEventHandlers = function() {
+    this.source.removeListener("data", this.sourceDataHandler), this.source.removeListener("end", this.sourceErrorOrEndHandler), 
+    this.source.removeListener("error", this.sourceErrorOrEndHandler);
+   }, RetriableReadableStream.prototype._destroy = function(error, callback) {
+    this.removeSourceEventHandlers(), this.source.destroy(), callback(null === error ? void 0 : error);
+   }, RetriableReadableStream;
+  }(external_stream_.Readable), BlobDownloadResponse_BlobDownloadResponse = function() {
+   function BlobDownloadResponse(originalResponse, getter, offset, count, options) {
+    void 0 === options && (options = {}), this.originalResponse = originalResponse, 
+    this.blobDownloadStream = new RetriableReadableStream_RetriableReadableStream(this.originalResponse.readableStreamBody, getter, offset, count, options);
+   }
+   return Object.defineProperty(BlobDownloadResponse.prototype, "acceptRanges", {
+    get: function() {
+     return this.originalResponse.acceptRanges;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "cacheControl", {
+    get: function() {
+     return this.originalResponse.cacheControl;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentDisposition", {
+    get: function() {
+     return this.originalResponse.contentDisposition;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentEncoding", {
+    get: function() {
+     return this.originalResponse.contentEncoding;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentLanguage", {
+    get: function() {
+     return this.originalResponse.contentLanguage;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobSequenceNumber", {
+    get: function() {
+     return this.originalResponse.blobSequenceNumber;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobType", {
+    get: function() {
+     return this.originalResponse.blobType;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentLength", {
+    get: function() {
+     return this.originalResponse.contentLength;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentMD5", {
+    get: function() {
+     return this.originalResponse.contentMD5;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentRange", {
+    get: function() {
+     return this.originalResponse.contentRange;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentType", {
+    get: function() {
+     return this.originalResponse.contentType;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyCompletedOn", {
+    get: function() {
+     return this.originalResponse.copyCompletedOn;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyId", {
+    get: function() {
+     return this.originalResponse.copyId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyProgress", {
+    get: function() {
+     return this.originalResponse.copyProgress;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copySource", {
+    get: function() {
+     return this.originalResponse.copySource;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyStatus", {
+    get: function() {
+     return this.originalResponse.copyStatus;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "copyStatusDescription", {
+    get: function() {
+     return this.originalResponse.copyStatusDescription;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseDuration", {
+    get: function() {
+     return this.originalResponse.leaseDuration;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseState", {
+    get: function() {
+     return this.originalResponse.leaseState;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "leaseStatus", {
+    get: function() {
+     return this.originalResponse.leaseStatus;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "date", {
+    get: function() {
+     return this.originalResponse.date;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobCommittedBlockCount", {
+    get: function() {
+     return this.originalResponse.blobCommittedBlockCount;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "etag", {
+    get: function() {
+     return this.originalResponse.etag;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "tagCount", {
+    get: function() {
+     return this.originalResponse.tagCount;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "errorCode", {
+    get: function() {
+     return this.originalResponse.errorCode;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "isServerEncrypted", {
+    get: function() {
+     return this.originalResponse.isServerEncrypted;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "blobContentMD5", {
+    get: function() {
+     return this.originalResponse.blobContentMD5;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "lastModified", {
+    get: function() {
+     return this.originalResponse.lastModified;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "lastAccessed", {
+    get: function() {
+     return this.originalResponse.lastAccessed;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "metadata", {
+    get: function() {
+     return this.originalResponse.metadata;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "requestId", {
+    get: function() {
+     return this.originalResponse.requestId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "clientRequestId", {
+    get: function() {
+     return this.originalResponse.clientRequestId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "version", {
+    get: function() {
+     return this.originalResponse.version;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "versionId", {
+    get: function() {
+     return this.originalResponse.versionId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "isCurrentVersion", {
+    get: function() {
+     return this.originalResponse.isCurrentVersion;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "encryptionKeySha256", {
+    get: function() {
+     return this.originalResponse.encryptionKeySha256;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentCrc64", {
+    get: function() {
+     return this.originalResponse.contentCrc64;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "objectReplicationDestinationPolicyId", {
+    get: function() {
+     return this.originalResponse.objectReplicationDestinationPolicyId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "objectReplicationSourceProperties", {
+    get: function() {
+     return this.originalResponse.objectReplicationSourceProperties;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "isSealed", {
+    get: function() {
+     return this.originalResponse.isSealed;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "contentAsBlob", {
+    get: function() {
+     return this.originalResponse.blobBody;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "readableStreamBody", {
+    get: function() {
+     return isNode ? this.blobDownloadStream : void 0;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobDownloadResponse.prototype, "_response", {
+    get: function() {
+     return this.originalResponse._response;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), BlobDownloadResponse;
+  }(), AVRO_INIT_BYTES = new Uint8Array([ 79, 98, 106, 1 ]);
+  function arraysEqual(a, b) {
+   if (a === b) return !0;
+   if (null == a || null == b) return !1;
+   if (a.length != b.length) return !1;
+   for (var i = 0; i < a.length; ++i) if (a[i] !== b[i]) return !1;
+   return !0;
+  }
+  var AvroComplex, AvroParser_AvroParser = function() {
+   function AvroParser() {}
+   return AvroParser.readFixedBytes = function(stream, length, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var bytes;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, stream.read(length, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 1:
+       if ((bytes = _a.sent()).length != length) throw new Error("Hit stream end.");
+       return [ 2, bytes ];
+      }
+     }));
+    }));
+   }, AvroParser.readByte = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readFixedBytes(stream, 1, options) ];
+
+      case 1:
+       return [ 2, _a.sent()[0] ];
+      }
+     }));
+    }));
+   }, AvroParser.readZigZagLong = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var zigZagEncoded, significanceInBit, byte, haveMoreByte, significanceInFloat, res;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       zigZagEncoded = 0, significanceInBit = 0, _a.label = 1;
+
+      case 1:
+       return [ 4, AvroParser.readByte(stream, options) ];
+
+      case 2:
+       byte = _a.sent(), haveMoreByte = 128 & byte, zigZagEncoded |= (127 & byte) << significanceInBit, 
+       significanceInBit += 7, _a.label = 3;
+
+      case 3:
+       if (haveMoreByte && significanceInBit < 28) return [ 3, 1 ];
+       _a.label = 4;
+
+      case 4:
+       if (!haveMoreByte) return [ 3, 9 ];
+       zigZagEncoded = zigZagEncoded, significanceInFloat = 268435456, _a.label = 5;
+
+      case 5:
+       return [ 4, AvroParser.readByte(stream, options) ];
+
+      case 6:
+       byte = _a.sent(), zigZagEncoded += (127 & byte) * significanceInFloat, significanceInFloat *= 128, 
+       _a.label = 7;
+
+      case 7:
+       if (128 & byte) return [ 3, 5 ];
+       _a.label = 8;
+
+      case 8:
+       if ((res = (zigZagEncoded % 2 ? -(zigZagEncoded + 1) : zigZagEncoded) / 2) < Number.MIN_SAFE_INTEGER || res > Number.MAX_SAFE_INTEGER) throw new Error("Integer overflow.");
+       return [ 2, res ];
+
+      case 9:
+       return [ 2, zigZagEncoded >> 1 ^ -(1 & zigZagEncoded) ];
+      }
+     }));
+    }));
+   }, AvroParser.readLong = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      return [ 2, AvroParser.readZigZagLong(stream, options) ];
+     }));
+    }));
+   }, AvroParser.readInt = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      return [ 2, AvroParser.readZigZagLong(stream, options) ];
+     }));
+    }));
+   }, AvroParser.readNull = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      return [ 2, null ];
+     }));
+    }));
+   }, AvroParser.readBoolean = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var b;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readByte(stream, options) ];
+
+      case 1:
+       if (1 == (b = _a.sent())) return [ 2, !0 ];
+       if (0 == b) return [ 2, !1 ];
+       throw new Error("Byte was not a boolean.");
+      }
+     }));
+    }));
+   }, AvroParser.readFloat = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var u8arr;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readFixedBytes(stream, 4, options) ];
+
+      case 1:
+       return u8arr = _a.sent(), [ 2, new DataView(u8arr.buffer, u8arr.byteOffset, u8arr.byteLength).getFloat32(0, !0) ];
+      }
+     }));
+    }));
+   }, AvroParser.readDouble = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var u8arr;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readFixedBytes(stream, 8, options) ];
+
+      case 1:
+       return u8arr = _a.sent(), [ 2, new DataView(u8arr.buffer, u8arr.byteOffset, u8arr.byteLength).getFloat64(0, !0) ];
+      }
+     }));
+    }));
+   }, AvroParser.readBytes = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var size;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readLong(stream, options) ];
+
+      case 1:
+       if ((size = _a.sent()) < 0) throw new Error("Bytes size was negative.");
+       return [ 4, stream.read(size, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 2:
+       return [ 2, _a.sent() ];
+      }
+     }));
+    }));
+   }, AvroParser.readString = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var u8arr;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readBytes(stream, options) ];
+
+      case 1:
+       return u8arr = _a.sent(), "undefined" == typeof TextDecoder && (global.TextDecoder = __webpack_require__(9).TextDecoder), 
+       [ 2, (new TextDecoder).decode(u8arr) ];
+      }
+     }));
+    }));
+   }, AvroParser.readMapPair = function(stream, readItemMethod, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var key, value;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser.readString(stream, options) ];
+
+      case 1:
+       return key = _a.sent(), [ 4, readItemMethod(stream, options) ];
+
+      case 2:
+       return value = _a.sent(), [ 2, {
+        key: key,
+        value: value
+       } ];
+      }
+     }));
+    }));
+   }, AvroParser.readMap = function(stream, readItemMethod, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var readPairMethod, pairs, dict, _i, pairs_1, pair, _this = this;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return readPairMethod = function(stream, options) {
+        return void 0 === options && (options = {}), __awaiter(_this, void 0, void 0, (function() {
+         return __generator(this, (function(_a) {
+          switch (_a.label) {
+          case 0:
+           return [ 4, AvroParser.readMapPair(stream, readItemMethod, options) ];
+
+          case 1:
+           return [ 2, _a.sent() ];
+          }
+         }));
+        }));
+       }, [ 4, AvroParser.readArray(stream, readPairMethod, options) ];
+
+      case 1:
+       for (pairs = _a.sent(), dict = {}, _i = 0, pairs_1 = pairs; _i < pairs_1.length; _i++) pair = pairs_1[_i], 
+       dict[pair.key] = pair.value;
+       return [ 2, dict ];
+      }
+     }));
+    }));
+   }, AvroParser.readArray = function(stream, readItemMethod, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var items, count, item;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return items = [], [ 4, AvroParser.readLong(stream, options) ];
+
+      case 1:
+       count = _a.sent(), _a.label = 2;
+
+      case 2:
+       return 0 == count ? [ 3, 8 ] : count < 0 ? [ 4, AvroParser.readLong(stream, options) ] : [ 3, 4 ];
+
+      case 3:
+       _a.sent(), count = -count, _a.label = 4;
+
+      case 4:
+       return count-- ? [ 4, readItemMethod(stream, options) ] : [ 3, 6 ];
+
+      case 5:
+       return item = _a.sent(), items.push(item), [ 3, 4 ];
+
+      case 6:
+       return [ 4, AvroParser.readLong(stream, options) ];
+
+      case 7:
+       return count = _a.sent(), [ 3, 2 ];
+
+      case 8:
+       return [ 2, items ];
+      }
+     }));
+    }));
+   }, AvroParser;
+  }();
+  !function(AvroComplex) {
+   AvroComplex.RECORD = "record", AvroComplex.ENUM = "enum", AvroComplex.ARRAY = "array", 
+   AvroComplex.MAP = "map", AvroComplex.UNION = "union", AvroComplex.FIXED = "fixed";
+  }(AvroComplex || (AvroComplex = {}));
+  var AvroPrimitive, AvroType = function() {
+   function AvroType() {}
+   return AvroType.fromSchema = function(schema) {
+    return "string" == typeof schema ? AvroType.fromStringSchema(schema) : Array.isArray(schema) ? AvroType.fromArraySchema(schema) : AvroType.fromObjectSchema(schema);
+   }, AvroType.fromStringSchema = function(schema) {
+    switch (schema) {
+    case AvroPrimitive.NULL:
+    case AvroPrimitive.BOOLEAN:
+    case AvroPrimitive.INT:
+    case AvroPrimitive.LONG:
+    case AvroPrimitive.FLOAT:
+    case AvroPrimitive.DOUBLE:
+    case AvroPrimitive.BYTES:
+    case AvroPrimitive.STRING:
+     return new AvroParser_AvroPrimitiveType(schema);
+
+    default:
+     throw new Error("Unexpected Avro type " + schema);
+    }
+   }, AvroType.fromArraySchema = function(schema) {
+    return new AvroParser_AvroUnionType(schema.map(AvroType.fromSchema));
+   }, AvroType.fromObjectSchema = function(schema) {
+    var type = schema.type;
+    try {
+     return AvroType.fromStringSchema(type);
+    } catch (err) {}
+    switch (type) {
+    case AvroComplex.RECORD:
+     if (schema.aliases) throw new Error("aliases currently is not supported, schema: " + schema);
+     if (!schema.name) throw new Error("Required attribute 'name' doesn't exist on schema: " + schema);
+     var fields = {};
+     if (!schema.fields) throw new Error("Required attribute 'fields' doesn't exist on schema: " + schema);
+     for (var _i = 0, _a = schema.fields; _i < _a.length; _i++) {
+      var field = _a[_i];
+      fields[field.name] = AvroType.fromSchema(field.type);
+     }
+     return new AvroParser_AvroRecordType(fields, schema.name);
+
+    case AvroComplex.ENUM:
+     if (schema.aliases) throw new Error("aliases currently is not supported, schema: " + schema);
+     if (!schema.symbols) throw new Error("Required attribute 'symbols' doesn't exist on schema: " + schema);
+     return new AvroParser_AvroEnumType(schema.symbols);
+
+    case AvroComplex.MAP:
+     if (!schema.values) throw new Error("Required attribute 'values' doesn't exist on schema: " + schema);
+     return new AvroParser_AvroMapType(AvroType.fromSchema(schema.values));
+
+    case AvroComplex.ARRAY:
+    case AvroComplex.FIXED:
+    default:
+     throw new Error("Unexpected Avro type " + type + " in " + schema);
+    }
+   }, AvroType;
+  }();
+  !function(AvroPrimitive) {
+   AvroPrimitive.NULL = "null", AvroPrimitive.BOOLEAN = "boolean", AvroPrimitive.INT = "int", 
+   AvroPrimitive.LONG = "long", AvroPrimitive.FLOAT = "float", AvroPrimitive.DOUBLE = "double", 
+   AvroPrimitive.BYTES = "bytes", AvroPrimitive.STRING = "string";
+  }(AvroPrimitive || (AvroPrimitive = {}));
+  var BlockBlobTier, PremiumPageBlobTier, AvroParser_AvroPrimitiveType = function(_super) {
+   function AvroPrimitiveType(primitive) {
+    var _this = _super.call(this) || this;
+    return _this._primitive = primitive, _this;
+   }
+   return __extends(AvroPrimitiveType, _super), AvroPrimitiveType.prototype.read = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       switch (this._primitive) {
+       case AvroPrimitive.NULL:
+        return [ 3, 1 ];
+
+       case AvroPrimitive.BOOLEAN:
+        return [ 3, 3 ];
+
+       case AvroPrimitive.INT:
+        return [ 3, 5 ];
+
+       case AvroPrimitive.LONG:
+        return [ 3, 7 ];
+
+       case AvroPrimitive.FLOAT:
+        return [ 3, 9 ];
+
+       case AvroPrimitive.DOUBLE:
+        return [ 3, 11 ];
+
+       case AvroPrimitive.BYTES:
+        return [ 3, 13 ];
+
+       case AvroPrimitive.STRING:
+        return [ 3, 15 ];
+       }
+       return [ 3, 17 ];
+
+      case 1:
+       return [ 4, AvroParser_AvroParser.readNull() ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       return [ 4, AvroParser_AvroParser.readBoolean(stream, options) ];
+
+      case 4:
+       return [ 2, _b.sent() ];
+
+      case 5:
+       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
+
+      case 6:
+       return [ 2, _b.sent() ];
+
+      case 7:
+       return [ 4, AvroParser_AvroParser.readLong(stream, options) ];
+
+      case 8:
+       return [ 2, _b.sent() ];
+
+      case 9:
+       return [ 4, AvroParser_AvroParser.readFloat(stream, options) ];
+
+      case 10:
+       return [ 2, _b.sent() ];
+
+      case 11:
+       return [ 4, AvroParser_AvroParser.readDouble(stream, options) ];
+
+      case 12:
+       return [ 2, _b.sent() ];
+
+      case 13:
+       return [ 4, AvroParser_AvroParser.readBytes(stream, options) ];
+
+      case 14:
+       return [ 2, _b.sent() ];
+
+      case 15:
+       return [ 4, AvroParser_AvroParser.readString(stream, options) ];
+
+      case 16:
+       return [ 2, _b.sent() ];
+
+      case 17:
+       throw new Error("Unknown Avro Primitive");
+      }
+     }));
+    }));
+   }, AvroPrimitiveType;
+  }(AvroType), AvroParser_AvroEnumType = function(_super) {
+   function AvroEnumType(symbols) {
+    var _this = _super.call(this) || this;
+    return _this._symbols = symbols, _this;
+   }
+   return __extends(AvroEnumType, _super), AvroEnumType.prototype.read = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var value;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
+
+      case 1:
+       return value = _a.sent(), [ 2, this._symbols[value] ];
+      }
+     }));
+    }));
+   }, AvroEnumType;
+  }(AvroType), AvroParser_AvroUnionType = function(_super) {
+   function AvroUnionType(types) {
+    var _this = _super.call(this) || this;
+    return _this._types = types, _this;
+   }
+   return __extends(AvroUnionType, _super), AvroUnionType.prototype.read = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var typeIndex;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return [ 4, AvroParser_AvroParser.readInt(stream, options) ];
+
+      case 1:
+       return typeIndex = _a.sent(), [ 4, this._types[typeIndex].read(stream, options) ];
+
+      case 2:
+       return [ 2, _a.sent() ];
+      }
+     }));
+    }));
+   }, AvroUnionType;
+  }(AvroType), AvroParser_AvroMapType = function(_super) {
+   function AvroMapType(itemType) {
+    var _this = _super.call(this) || this;
+    return _this._itemType = itemType, _this;
+   }
+   return __extends(AvroMapType, _super), AvroMapType.prototype.read = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var readItemMethod, _this = this;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       return readItemMethod = function(s, options) {
+        return __awaiter(_this, void 0, void 0, (function() {
+         return __generator(this, (function(_a) {
+          switch (_a.label) {
+          case 0:
+           return [ 4, this._itemType.read(s, options) ];
+
+          case 1:
+           return [ 2, _a.sent() ];
+          }
+         }));
+        }));
+       }, [ 4, AvroParser_AvroParser.readMap(stream, readItemMethod, options) ];
+
+      case 1:
+       return [ 2, _a.sent() ];
+      }
+     }));
+    }));
+   }, AvroMapType;
+  }(AvroType), AvroParser_AvroRecordType = function(_super) {
+   function AvroRecordType(fields, name) {
+    var _this = _super.call(this) || this;
+    return _this._fields = fields, _this._name = name, _this;
+   }
+   return __extends(AvroRecordType, _super), AvroRecordType.prototype.read = function(stream, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var record, _a, _b, _i, key, _c, _d;
+     return __generator(this, (function(_e) {
+      switch (_e.label) {
+      case 0:
+       for (_b in (record = {}).$schema = this._name, _a = [], this._fields) _a.push(_b);
+       _i = 0, _e.label = 1;
+
+      case 1:
+       return _i < _a.length ? (key = _a[_i], this._fields.hasOwnProperty(key) ? (_c = record, 
+       _d = key, [ 4, this._fields[key].read(stream, options) ]) : [ 3, 3 ]) : [ 3, 4 ];
+
+      case 2:
+       _c[_d] = _e.sent(), _e.label = 3;
+
+      case 3:
+       return _i++, [ 3, 1 ];
+
+      case 4:
+       return [ 2, record ];
+      }
+     }));
+    }));
+   }, AvroRecordType;
+  }(AvroType), AvroReader_AvroReader = (__webpack_require__(170), function() {
+   function AvroReader(dataStream, headerStream, currentBlockOffset, indexWithinCurrentBlock) {
+    this._dataStream = dataStream, this._headerStream = headerStream || dataStream, 
+    this._initialized = !1, this._blockOffset = currentBlockOffset || 0, this._objectIndex = indexWithinCurrentBlock || 0, 
+    this._initialBlockOffset = currentBlockOffset || 0;
+   }
+   return Object.defineProperty(AvroReader.prototype, "blockOffset", {
+    get: function() {
+     return this._blockOffset;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(AvroReader.prototype, "objectIndex", {
+    get: function() {
+     return this._objectIndex;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), AvroReader.prototype.initialize = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, codec, _b, schema, _c, i;
+     return __generator(this, (function(_d) {
+      switch (_d.label) {
+      case 0:
+       return [ 4, AvroParser_AvroParser.readFixedBytes(this._headerStream, AVRO_INIT_BYTES.length, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 1:
+       if (!arraysEqual(_d.sent(), AVRO_INIT_BYTES)) throw new Error("Stream is not an Avro file.");
+       return _a = this, [ 4, AvroParser_AvroParser.readMap(this._headerStream, AvroParser_AvroParser.readString, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 2:
+       if (_a._metadata = _d.sent(), null != (codec = this._metadata["avro.codec"]) && "null" != codec) throw new Error("Codecs are not supported");
+       return _b = this, [ 4, AvroParser_AvroParser.readFixedBytes(this._headerStream, 16, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 3:
+       return _b._syncMarker = _d.sent(), schema = JSON.parse(this._metadata["avro.schema"]), 
+       this._itemType = AvroType.fromSchema(schema), 0 == this._blockOffset && (this._blockOffset = this._initialBlockOffset + this._dataStream.position), 
+       _c = this, [ 4, AvroParser_AvroParser.readLong(this._dataStream, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 4:
+       return _c._itemsRemainingInBlock = _d.sent(), [ 4, AvroParser_AvroParser.readLong(this._dataStream, {
+        abortSignal: options.abortSignal
+       }) ];
+
+      case 5:
+       if (_d.sent(), this._initialized = !0, !(this._objectIndex && this._objectIndex > 0)) return [ 3, 9 ];
+       i = 0, _d.label = 6;
+
+      case 6:
+       return i < this._objectIndex ? [ 4, this._itemType.read(this._dataStream, {
+        abortSignal: options.abortSignal
+       }) ] : [ 3, 9 ];
+
+      case 7:
+       _d.sent(), this._itemsRemainingInBlock--, _d.label = 8;
+
+      case 8:
+       return i++, [ 3, 6 ];
+
+      case 9:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, AvroReader.prototype.hasNext = function() {
+    return !this._initialized || this._itemsRemainingInBlock > 0;
+   }, AvroReader.prototype.parseObjects = function(options) {
+    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
+     var result, marker, _a;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       return this._initialized ? [ 3, 2 ] : [ 4, __await(this.initialize(options)) ];
+
+      case 1:
+       _b.sent(), _b.label = 2;
+
+      case 2:
+       return this.hasNext() ? [ 4, __await(this._itemType.read(this._dataStream, {
+        abortSignal: options.abortSignal
+       })) ] : [ 3, 13 ];
+
+      case 3:
+       return result = _b.sent(), this._itemsRemainingInBlock--, this._objectIndex++, 0 != this._itemsRemainingInBlock ? [ 3, 10 ] : [ 4, __await(AvroParser_AvroParser.readFixedBytes(this._dataStream, 16, {
+        abortSignal: options.abortSignal
+       })) ];
+
+      case 4:
+       if (marker = _b.sent(), this._blockOffset = this._initialBlockOffset + this._dataStream.position, 
+       this._objectIndex = 0, !arraysEqual(this._syncMarker, marker)) throw new Error("Stream is not a valid Avro file.");
+       _b.label = 5;
+
+      case 5:
+       return _b.trys.push([ 5, 7, , 8 ]), _a = this, [ 4, __await(AvroParser_AvroParser.readLong(this._dataStream, {
+        abortSignal: options.abortSignal
+       })) ];
+
+      case 6:
+       return _a._itemsRemainingInBlock = _b.sent(), [ 3, 8 ];
+
+      case 7:
+       return _b.sent(), this._itemsRemainingInBlock = 0, [ 3, 8 ];
+
+      case 8:
+       return this._itemsRemainingInBlock > 0 ? [ 4, __await(AvroParser_AvroParser.readLong(this._dataStream, {
+        abortSignal: options.abortSignal
+       })) ] : [ 3, 10 ];
+
+      case 9:
+       _b.sent(), _b.label = 10;
+
+      case 10:
+       return [ 4, __await(result) ];
+
+      case 11:
+       return [ 4, _b.sent() ];
+
+      case 12:
+       return _b.sent(), [ 3, 2 ];
+
+      case 13:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, AvroReader;
+  }()), AvroReadable = function() {}, ABORT_ERROR = new AbortController_AbortError("Reading from the avro stream was aborted."), AvroReadableFromStream_AvroReadableFromStream = function(_super) {
+   function AvroReadableFromStream(readable) {
+    var _this = _super.call(this) || this;
+    return _this._readable = readable, _this._position = 0, _this;
+   }
+   return __extends(AvroReadableFromStream, _super), AvroReadableFromStream.prototype.toUint8Array = function(data) {
+    return "string" == typeof data ? Buffer.from(data) : data;
+   }, Object.defineProperty(AvroReadableFromStream.prototype, "position", {
+    get: function() {
+     return this._position;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), AvroReadableFromStream.prototype.read = function(size, options) {
+    var _a;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var chunk, _this = this;
+     return __generator(this, (function(_b) {
+      if (null === (_a = options.abortSignal) || void 0 === _a ? void 0 : _a.aborted) throw ABORT_ERROR;
+      if (size < 0) throw new Error("size parameter should be positive: " + size);
+      if (0 === size) return [ 2, new Uint8Array ];
+      if (!this._readable.readable) throw new Error("Stream no longer readable.");
+      return (chunk = this._readable.read(size)) ? (this._position += chunk.length, [ 2, this.toUint8Array(chunk) ]) : [ 2, new Promise((function(resolve, reject) {
+       var cleanUp = function() {
+        _this._readable.removeListener("readable", readableCallback), _this._readable.removeListener("error", rejectCallback), 
+        _this._readable.removeListener("end", rejectCallback), _this._readable.removeListener("close", rejectCallback), 
+        options.abortSignal && options.abortSignal.removeEventListener("abort", abortHandler);
+       }, readableCallback = function() {
+        var chunk = _this._readable.read(size);
+        chunk && (_this._position += chunk.length, cleanUp(), resolve(_this.toUint8Array(chunk)));
+       }, rejectCallback = function() {
+        cleanUp(), reject();
+       }, abortHandler = function() {
+        cleanUp(), reject(ABORT_ERROR);
+       };
+       _this._readable.on("readable", readableCallback), _this._readable.once("error", rejectCallback), 
+       _this._readable.once("end", rejectCallback), _this._readable.once("close", rejectCallback), 
+       options.abortSignal && options.abortSignal.addEventListener("abort", abortHandler);
+      })) ];
+     }));
+    }));
+   }, AvroReadableFromStream;
+  }(AvroReadable), BlobQuickQueryStream_BlobQuickQueryStream = function(_super) {
+   function BlobQuickQueryStream(source, options) {
+    void 0 === options && (options = {});
+    var _this = _super.call(this) || this;
+    return _this.avroPaused = !0, _this.source = source, _this.onProgress = options.onProgress, 
+    _this.onError = options.onError, _this.avroReader = new AvroReader_AvroReader(new AvroReadableFromStream_AvroReadableFromStream(_this.source)), 
+    _this.avroIter = _this.avroReader.parseObjects({
+     abortSignal: options.abortSignal
+    }), _this;
+   }
+   return __extends(BlobQuickQueryStream, _super), BlobQuickQueryStream.prototype._read = function() {
+    var _this = this;
+    this.avroPaused && this.readInternal().catch((function(err) {
+     _this.emit("error", err);
+    }));
+   }, BlobQuickQueryStream.prototype.readInternal = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     var avroNext, obj, schema, data, bytesScanned, totalBytes, fatal, name_1, description, position;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       this.avroPaused = !1, _a.label = 1;
+
+      case 1:
+       return [ 4, this.avroIter.next() ];
+
+      case 2:
+       if ((avroNext = _a.sent()).done) return [ 3, 4 ];
+       if (obj = avroNext.value, "string" != typeof (schema = obj.$schema)) throw Error("Missing schema in avro record.");
+       switch (schema) {
+       case "com.microsoft.azure.storage.queryBlobContents.resultData":
+        if ((data = obj.data) instanceof Uint8Array == !1) throw Error("Invalid data in avro result record.");
+        this.push(Buffer.from(data)) || (this.avroPaused = !0);
+        break;
+
+       case "com.microsoft.azure.storage.queryBlobContents.progress":
+        if ("number" != typeof (bytesScanned = obj.bytesScanned)) throw Error("Invalid bytesScanned in avro progress record.");
+        this.onProgress && this.onProgress({
+         loadedBytes: bytesScanned
+        });
+        break;
+
+       case "com.microsoft.azure.storage.queryBlobContents.end":
+        if (this.onProgress) {
+         if ("number" != typeof (totalBytes = obj.totalBytes)) throw Error("Invalid totalBytes in avro end record.");
+         this.onProgress({
+          loadedBytes: totalBytes
+         });
+        }
+        this.push(null);
+        break;
+
+       case "com.microsoft.azure.storage.queryBlobContents.error":
+        if (this.onError) {
+         if ("boolean" != typeof (fatal = obj.fatal)) throw Error("Invalid fatal in avro error record.");
+         if ("string" != typeof (name_1 = obj.name)) throw Error("Invalid name in avro error record.");
+         if ("string" != typeof (description = obj.description)) throw Error("Invalid description in avro error record.");
+         if ("number" != typeof (position = obj.position)) throw Error("Invalid position in avro error record.");
+         this.onError({
+          position: position,
+          name: name_1,
+          isFatal: fatal,
+          description: description
+         });
+        }
+        break;
+
+       default:
+        throw Error("Unknown schema " + schema + " in avro progress record.");
+       }
+       _a.label = 3;
+
+      case 3:
+       if (!avroNext.done && !this.avroPaused) return [ 3, 1 ];
+       _a.label = 4;
+
+      case 4:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobQuickQueryStream;
+  }(external_stream_.Readable), BlobQueryResponse_BlobQueryResponse = function() {
+   function BlobQueryResponse(originalResponse, options) {
+    void 0 === options && (options = {}), this.originalResponse = originalResponse, 
+    this.blobDownloadStream = new BlobQuickQueryStream_BlobQuickQueryStream(this.originalResponse.readableStreamBody, options);
+   }
+   return Object.defineProperty(BlobQueryResponse.prototype, "acceptRanges", {
+    get: function() {
+     return this.originalResponse.acceptRanges;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "cacheControl", {
+    get: function() {
+     return this.originalResponse.cacheControl;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentDisposition", {
+    get: function() {
+     return this.originalResponse.contentDisposition;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentEncoding", {
+    get: function() {
+     return this.originalResponse.contentEncoding;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentLanguage", {
+    get: function() {
+     return this.originalResponse.contentLanguage;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "blobSequenceNumber", {
+    get: function() {
+     return this.originalResponse.blobSequenceNumber;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "blobType", {
+    get: function() {
+     return this.originalResponse.blobType;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentLength", {
+    get: function() {
+     return this.originalResponse.contentLength;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentMD5", {
+    get: function() {
+     return this.originalResponse.contentMD5;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentRange", {
+    get: function() {
+     return this.originalResponse.contentRange;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentType", {
+    get: function() {
+     return this.originalResponse.contentType;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copyCompletedOn", {
+    get: function() {},
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copyId", {
+    get: function() {
+     return this.originalResponse.copyId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copyProgress", {
+    get: function() {
+     return this.originalResponse.copyProgress;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copySource", {
+    get: function() {
+     return this.originalResponse.copySource;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copyStatus", {
+    get: function() {
+     return this.originalResponse.copyStatus;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "copyStatusDescription", {
+    get: function() {
+     return this.originalResponse.copyStatusDescription;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseDuration", {
+    get: function() {
+     return this.originalResponse.leaseDuration;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseState", {
+    get: function() {
+     return this.originalResponse.leaseState;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "leaseStatus", {
+    get: function() {
+     return this.originalResponse.leaseStatus;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "date", {
+    get: function() {
+     return this.originalResponse.date;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "blobCommittedBlockCount", {
+    get: function() {
+     return this.originalResponse.blobCommittedBlockCount;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "etag", {
+    get: function() {
+     return this.originalResponse.etag;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "errorCode", {
+    get: function() {
+     return this.originalResponse.errorCode;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "isServerEncrypted", {
+    get: function() {
+     return this.originalResponse.isServerEncrypted;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "blobContentMD5", {
+    get: function() {
+     return this.originalResponse.blobContentMD5;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "lastModified", {
+    get: function() {
+     return this.originalResponse.lastModified;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "metadata", {
+    get: function() {
+     return this.originalResponse.metadata;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "requestId", {
+    get: function() {
+     return this.originalResponse.requestId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "clientRequestId", {
+    get: function() {
+     return this.originalResponse.clientRequestId;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "version", {
+    get: function() {
+     return this.originalResponse.version;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "encryptionKeySha256", {
+    get: function() {
+     return this.originalResponse.encryptionKeySha256;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "contentCrc64", {
+    get: function() {
+     return this.originalResponse.contentCrc64;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "blobBody", {
+    get: function() {},
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "readableStreamBody", {
+    get: function() {
+     return isNode ? this.blobDownloadStream : void 0;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), Object.defineProperty(BlobQueryResponse.prototype, "_response", {
+    get: function() {
+     return this.originalResponse._response;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), BlobQueryResponse;
+  }(), AppendBlob = function() {
+   function AppendBlob(client) {
+    this.client = client;
+   }
+   return AppendBlob.prototype.create = function(contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     contentLength: contentLength,
+     options: options
+    }, appendBlob_createOperationSpec, callback);
+   }, AppendBlob.prototype.appendBlock = function(body, contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     body: body,
+     contentLength: contentLength,
+     options: options
+    }, appendBlockOperationSpec, callback);
+   }, AppendBlob.prototype.appendBlockFromUrl = function(sourceUrl, contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     sourceUrl: sourceUrl,
+     contentLength: contentLength,
+     options: options
+    }, appendBlockFromUrlOperationSpec, callback);
+   }, AppendBlob.prototype.seal = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, sealOperationSpec, callback);
+   }, AppendBlob;
+  }(), appendBlob_serializer = new serializer_Serializer(appendBlobMappers_namespaceObject, !0), appendBlob_createOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ parameters_contentLength, parameters_metadata, encryptionScope, parameters_version, requestId, blobTagsString, {
+    parameterPath: "blobType",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "x-ms-blob-type",
+     defaultValue: "AppendBlob",
+     type: {
+      name: "String"
+     }
+    }
+   }, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    201: {
+     headersMapper: AppendBlobCreateHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: AppendBlobCreateHeaders
+    }
+   },
+   isXML: !0,
+   serializer: appendBlob_serializer
+  }, appendBlockOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp20 ],
+   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, encryptionScope, parameters_version, requestId, leaseId0, maxSize, appendPosition, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   requestBody: {
+    parameterPath: "body",
+    mapper: {
+     required: !0,
+     serializedName: "body",
+     type: {
+      name: "Stream"
+     }
+    }
+   },
+   contentType: "application/octet-stream",
+   responses: {
+    201: {
+     headersMapper: AppendBlobAppendBlockHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: AppendBlobAppendBlockHeaders
+    }
+   },
+   isXML: !0,
+   serializer: appendBlob_serializer
+  }, appendBlockFromUrlOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp20 ],
+   headerParameters: [ sourceUrl, sourceRange1, sourceContentMD5, sourceContentCrc64, parameters_contentLength, transactionalContentMD5, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, maxSize, appendPosition, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
+   responses: {
+    201: {
+     headersMapper: AppendBlobAppendBlockFromUrlHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: AppendBlobAppendBlockFromUrlHeaders
+    }
+   },
+   isXML: !0,
+   serializer: appendBlob_serializer
+  }, sealOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "seal",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, appendPosition ],
+   responses: {
+    200: {
+     headersMapper: AppendBlobSealHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: AppendBlobSealHeaders
+    }
+   },
+   isXML: !0,
+   serializer: appendBlob_serializer
+  }, BlockBlob = function() {
+   function BlockBlob(client) {
+    this.client = client;
+   }
+   return BlockBlob.prototype.upload = function(body, contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     body: body,
+     contentLength: contentLength,
+     options: options
+    }, uploadOperationSpec, callback);
+   }, BlockBlob.prototype.putBlobFromUrl = function(contentLength, copySource, options, callback) {
+    return this.client.sendOperationRequest({
+     contentLength: contentLength,
+     copySource: copySource,
+     options: options
+    }, putBlobFromUrlOperationSpec, callback);
+   }, BlockBlob.prototype.stageBlock = function(blockId, contentLength, body, options, callback) {
+    return this.client.sendOperationRequest({
+     blockId: blockId,
+     contentLength: contentLength,
+     body: body,
+     options: options
+    }, stageBlockOperationSpec, callback);
+   }, BlockBlob.prototype.stageBlockFromURL = function(blockId, contentLength, sourceUrl, options, callback) {
+    return this.client.sendOperationRequest({
+     blockId: blockId,
+     contentLength: contentLength,
+     sourceUrl: sourceUrl,
+     options: options
+    }, stageBlockFromURLOperationSpec, callback);
+   }, BlockBlob.prototype.commitBlockList = function(blocks, options, callback) {
+    return this.client.sendOperationRequest({
+     blocks: blocks,
+     options: options
+    }, commitBlockListOperationSpec, callback);
+   }, BlockBlob.prototype.getBlockList = function(listType, options, callback) {
+    return this.client.sendOperationRequest({
+     listType: listType,
+     options: options
+    }, getBlockListOperationSpec, callback);
+   }, BlockBlob;
+  }(), blockBlob_serializer = new serializer_Serializer(blockBlobMappers_namespaceObject, !0), uploadOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ transactionalContentMD5, parameters_contentLength, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, blobTagsString, blobType2, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   requestBody: {
+    parameterPath: "body",
+    mapper: {
+     required: !0,
+     serializedName: "body",
+     type: {
+      name: "Stream"
+     }
+    }
+   },
+   contentType: "application/octet-stream",
+   responses: {
+    201: {
+     headersMapper: BlockBlobUploadHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobUploadHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, putBlobFromUrlOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ transactionalContentMD5, parameters_contentLength, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, sourceContentMD5, blobTagsString, parameters_copySource, {
+    parameterPath: [ "options", "copySourceBlobProperties" ],
+    mapper: {
+     serializedName: "x-ms-copy-source-blob-properties",
+     type: {
+      name: "Boolean"
+     }
+    }
+   }, blobType2, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch, sourceIfTags ],
+   responses: {
+    201: {
+     headersMapper: BlockBlobPutBlobFromUrlHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobPutBlobFromUrlHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, stageBlockOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_blockId, timeoutInSeconds, comp22 ],
+   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, encryptionScope, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm ],
+   requestBody: {
+    parameterPath: "body",
+    mapper: {
+     required: !0,
+     serializedName: "body",
+     type: {
+      name: "Stream"
+     }
+    }
+   },
+   contentType: "application/octet-stream",
+   responses: {
+    201: {
+     headersMapper: BlockBlobStageBlockHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobStageBlockHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, stageBlockFromURLOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_blockId, timeoutInSeconds, comp22 ],
+   headerParameters: [ parameters_contentLength, sourceUrl, sourceRange1, sourceContentMD5, sourceContentCrc64, encryptionScope, parameters_version, requestId, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
+   responses: {
+    201: {
+     headersMapper: BlockBlobStageBlockFromURLHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobStageBlockFromURLHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, commitBlockListOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp23 ],
+   headerParameters: [ transactionalContentMD5, transactionalContentCrc64, parameters_metadata, encryptionScope, tier0, parameters_version, requestId, blobTagsString, blobCacheControl, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   requestBody: {
+    parameterPath: "blocks",
+    mapper: __assign(__assign({}, BlockLookupList), {
+     required: !0
+    })
+   },
+   contentType: "application/xml; charset=utf-8",
+   responses: {
+    201: {
+     headersMapper: BlockBlobCommitBlockListHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobCommitBlockListHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, getBlockListOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, {
+    parameterPath: "listType",
+    mapper: {
+     required: !0,
+     serializedName: "blocklisttype",
+     defaultValue: "committed",
+     type: {
+      name: "Enum",
+      allowedValues: [ "committed", "uncommitted", "all" ]
+     }
+    }
+   }, timeoutInSeconds, comp23 ],
+   headerParameters: [ parameters_version, requestId, leaseId0, ifTags ],
+   responses: {
+    200: {
+     bodyMapper: BlockList,
+     headersMapper: BlockBlobGetBlockListHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: BlockBlobGetBlockListHeaders
+    }
+   },
+   isXML: !0,
+   serializer: blockBlob_serializer
+  }, PageBlob = function() {
+   function PageBlob(client) {
+    this.client = client;
+   }
+   return PageBlob.prototype.create = function(contentLength, blobContentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     contentLength: contentLength,
+     blobContentLength: blobContentLength,
+     options: options
+    }, pageBlob_createOperationSpec, callback);
+   }, PageBlob.prototype.uploadPages = function(body, contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     body: body,
+     contentLength: contentLength,
+     options: options
+    }, uploadPagesOperationSpec, callback);
+   }, PageBlob.prototype.clearPages = function(contentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     contentLength: contentLength,
+     options: options
+    }, clearPagesOperationSpec, callback);
+   }, PageBlob.prototype.uploadPagesFromURL = function(sourceUrl, sourceRange, contentLength, range, options, callback) {
+    return this.client.sendOperationRequest({
+     sourceUrl: sourceUrl,
+     sourceRange: sourceRange,
+     contentLength: contentLength,
+     range: range,
+     options: options
+    }, uploadPagesFromURLOperationSpec, callback);
+   }, PageBlob.prototype.getPageRanges = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, getPageRangesOperationSpec, callback);
+   }, PageBlob.prototype.getPageRangesDiff = function(options, callback) {
+    return this.client.sendOperationRequest({
+     options: options
+    }, getPageRangesDiffOperationSpec, callback);
+   }, PageBlob.prototype.resize = function(blobContentLength, options, callback) {
+    return this.client.sendOperationRequest({
+     blobContentLength: blobContentLength,
+     options: options
+    }, resizeOperationSpec, callback);
+   }, PageBlob.prototype.updateSequenceNumber = function(sequenceNumberAction, options, callback) {
+    return this.client.sendOperationRequest({
+     sequenceNumberAction: sequenceNumberAction,
+     options: options
+    }, updateSequenceNumberOperationSpec, callback);
+   }, PageBlob.prototype.copyIncremental = function(copySource, options, callback) {
+    return this.client.sendOperationRequest({
+     copySource: copySource,
+     options: options
+    }, copyIncrementalOperationSpec, callback);
+   }, PageBlob;
+  }(), pageBlob_serializer = new serializer_Serializer(pageBlobMappers_namespaceObject, !0), pageBlob_createOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds ],
+   headerParameters: [ parameters_contentLength, tier0, parameters_metadata, encryptionScope, blobContentLength, blobSequenceNumber, parameters_version, requestId, blobTagsString, {
+    parameterPath: "blobType",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "x-ms-blob-type",
+     defaultValue: "PageBlob",
+     type: {
+      name: "String"
+     }
+    }
+   }, blobContentType, blobContentEncoding, blobContentLanguage, blobContentMD5, blobCacheControl, blobContentDisposition, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    201: {
+     headersMapper: PageBlobCreateHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobCreateHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, uploadPagesOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp17 ],
+   headerParameters: [ parameters_contentLength, transactionalContentMD5, transactionalContentCrc64, range0, encryptionScope, parameters_version, requestId, pageWrite0, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   requestBody: {
+    parameterPath: "body",
+    mapper: {
+     required: !0,
+     serializedName: "body",
+     type: {
+      name: "Stream"
+     }
+    }
+   },
+   contentType: "application/octet-stream",
+   responses: {
+    201: {
+     headersMapper: PageBlobUploadPagesHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobUploadPagesHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, clearPagesOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp17 ],
+   headerParameters: [ parameters_contentLength, range0, encryptionScope, parameters_version, requestId, {
+    parameterPath: "pageWrite",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "x-ms-page-write",
+     defaultValue: "clear",
+     type: {
+      name: "String"
+     }
+    }
+   }, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    201: {
+     headersMapper: PageBlobClearPagesHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobClearPagesHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, uploadPagesFromURLOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp17 ],
+   headerParameters: [ sourceUrl, {
+    parameterPath: "sourceRange",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-source-range",
+     type: {
+      name: "String"
+     }
+    }
+   }, sourceContentMD5, sourceContentCrc64, parameters_contentLength, {
+    parameterPath: "range",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-range",
+     type: {
+      name: "String"
+     }
+    }
+   }, encryptionScope, parameters_version, requestId, pageWrite0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, leaseId0, ifSequenceNumberLessThanOrEqualTo, ifSequenceNumberLessThan, ifSequenceNumberEqualTo, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags, sourceIfModifiedSince, sourceIfUnmodifiedSince, sourceIfMatch, sourceIfNoneMatch ],
+   responses: {
+    201: {
+     headersMapper: PageBlobUploadPagesFromURLHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobUploadPagesFromURLHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, getPageRangesOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, timeoutInSeconds, comp18 ],
+   headerParameters: [ range0, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     bodyMapper: PageList,
+     headersMapper: PageBlobGetPageRangesHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobGetPageRangesHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, getPageRangesDiffOperationSpec = {
+   httpMethod: "GET",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ parameters_snapshot, timeoutInSeconds, {
+    parameterPath: [ "options", "prevsnapshot" ],
+    mapper: {
+     serializedName: "prevsnapshot",
+     type: {
+      name: "String"
+     }
+    }
+   }, comp18 ],
+   headerParameters: [ {
+    parameterPath: [ "options", "prevSnapshotUrl" ],
+    mapper: {
+     serializedName: "x-ms-previous-snapshot-url",
+     type: {
+      name: "String"
+     }
+    }
+   }, range0, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     bodyMapper: PageList,
+     headersMapper: PageBlobGetPageRangesDiffHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobGetPageRangesDiffHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, resizeOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp0 ],
+   headerParameters: [ encryptionScope, blobContentLength, parameters_version, requestId, leaseId0, encryptionKey, encryptionKeySha256, encryptionAlgorithm, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: PageBlobResizeHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobResizeHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, updateSequenceNumberOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, comp0 ],
+   headerParameters: [ {
+    parameterPath: "sequenceNumberAction",
+    mapper: {
+     required: !0,
+     serializedName: "x-ms-sequence-number-action",
+     type: {
+      name: "Enum",
+      allowedValues: [ "max", "update", "increment" ]
+     }
+    }
+   }, blobSequenceNumber, parameters_version, requestId, leaseId0, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    200: {
+     headersMapper: PageBlobUpdateSequenceNumberHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobUpdateSequenceNumberHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  }, copyIncrementalOperationSpec = {
+   httpMethod: "PUT",
+   path: "{containerName}/{blob}",
+   urlParameters: [ parameters_url ],
+   queryParameters: [ timeoutInSeconds, {
+    parameterPath: "comp",
+    mapper: {
+     required: !0,
+     isConstant: !0,
+     serializedName: "comp",
+     defaultValue: "incrementalcopy",
+     type: {
+      name: "String"
+     }
+    }
+   } ],
+   headerParameters: [ parameters_copySource, parameters_version, requestId, ifModifiedSince, ifUnmodifiedSince, ifMatch, ifNoneMatch, ifTags ],
+   responses: {
+    202: {
+     headersMapper: PageBlobCopyIncrementalHeaders
+    },
+    default: {
+     bodyMapper: StorageError,
+     headersMapper: PageBlobCopyIncrementalHeaders
+    }
+   },
+   isXML: !0,
+   serializer: pageBlob_serializer
+  };
+  function toAccessTier(tier) {
+   if (null != tier) return tier;
+  }
+  function ensureCpkIfSpecified(cpk, isHttps) {
+   if (cpk && !isHttps) throw new RangeError("Customer-provided encryption key must be used over HTTPS.");
+   cpk && !cpk.encryptionAlgorithm && (cpk.encryptionAlgorithm = "AES256");
+  }
+  function rangeResponseFromModel(response) {
+   var pageRange = (response._response.parsedBody.pageRange || []).map((function(x) {
+    return {
+     offset: x.start,
+     count: x.end - x.start
+    };
+   })), clearRange = (response._response.parsedBody.clearRange || []).map((function(x) {
+    return {
+     offset: x.start,
+     count: x.end - x.start
+    };
+   }));
+   return __assign(__assign({}, response), {
+    pageRange: pageRange,
+    clearRange: clearRange,
+    _response: __assign(__assign({}, response._response), {
+     parsedBody: {
+      pageRange: pageRange,
+      clearRange: clearRange
+     }
+    })
+   });
+  }
+  !function(BlockBlobTier) {
+   BlockBlobTier.Hot = "Hot", BlockBlobTier.Cool = "Cool", BlockBlobTier.Archive = "Archive";
+  }(BlockBlobTier || (BlockBlobTier = {})), function(PremiumPageBlobTier) {
+   PremiumPageBlobTier.P4 = "P4", PremiumPageBlobTier.P6 = "P6", PremiumPageBlobTier.P10 = "P10", 
+   PremiumPageBlobTier.P15 = "P15", PremiumPageBlobTier.P20 = "P20", PremiumPageBlobTier.P30 = "P30", 
+   PremiumPageBlobTier.P40 = "P40", PremiumPageBlobTier.P50 = "P50", PremiumPageBlobTier.P60 = "P60", 
+   PremiumPageBlobTier.P70 = "P70", PremiumPageBlobTier.P80 = "P80";
+  }(PremiumPageBlobTier || (PremiumPageBlobTier = {}));
+  var poller_PollerStoppedError = function(_super) {
+   function PollerStoppedError(message) {
+    var _this = _super.call(this, message) || this;
+    return _this.name = "PollerStoppedError", Object.setPrototypeOf(_this, PollerStoppedError.prototype), 
+    _this;
+   }
+   return __extends(PollerStoppedError, _super), PollerStoppedError;
+  }(Error), poller_PollerCancelledError = function(_super) {
+   function PollerCancelledError(message) {
+    var _this = _super.call(this, message) || this;
+    return _this.name = "PollerCancelledError", Object.setPrototypeOf(_this, PollerCancelledError.prototype), 
+    _this;
+   }
+   return __extends(PollerCancelledError, _super), PollerCancelledError;
+  }(Error), BlobStartCopyFromUrlPoller_BlobBeginCopyFromUrlPoller = function(_super) {
+   function BlobBeginCopyFromUrlPoller(options) {
+    var state, _this = this, blobClient = options.blobClient, copySource = options.copySource, _a = options.intervalInMs, intervalInMs = void 0 === _a ? 15e3 : _a, onProgress = options.onProgress, resumeFrom = options.resumeFrom, startCopyFromURLOptions = options.startCopyFromURLOptions;
+    resumeFrom && (state = JSON.parse(resumeFrom).state);
+    var operation = makeBlobBeginCopyFromURLPollOperation(__assign(__assign({}, state), {
+     blobClient: blobClient,
+     copySource: copySource,
+     startCopyFromURLOptions: startCopyFromURLOptions
+    }));
+    return _this = _super.call(this, operation) || this, "function" == typeof onProgress && _this.onProgress(onProgress), 
+    _this.intervalInMs = intervalInMs, _this;
+   }
+   return __extends(BlobBeginCopyFromUrlPoller, _super), BlobBeginCopyFromUrlPoller.prototype.delay = function() {
+    return delay(this.intervalInMs);
+   }, BlobBeginCopyFromUrlPoller;
+  }(function() {
+   function Poller(operation) {
+    var _this = this;
+    this.stopped = !0, this.pollProgressCallbacks = [], this.operation = operation, 
+    this.promise = new Promise((function(resolve, reject) {
+     _this.resolve = resolve, _this.reject = reject;
+    })), this.promise.catch((function() {}));
+   }
+   return Poller.prototype.startPolling = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       this.stopped && (this.stopped = !1), _a.label = 1;
+
+      case 1:
+       return this.isStopped() || this.isDone() ? [ 3, 4 ] : [ 4, this.poll() ];
+
+      case 2:
+       return _a.sent(), [ 4, this.delay() ];
+
+      case 3:
+       return _a.sent(), [ 3, 1 ];
+
+      case 4:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, Poller.prototype.pollOnce = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var state, _a, e_1;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       state = this.operation.state, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 4, , 5 ]), this.isDone() ? [ 3, 3 ] : (_a = this, [ 4, this.operation.update({
+        abortSignal: options.abortSignal,
+        fireProgress: this.fireProgress.bind(this)
+       }) ]);
+
+      case 2:
+       _a.operation = _b.sent(), this.isDone() && this.resolve && this.resolve(state.result), 
+       _b.label = 3;
+
+      case 3:
+       return [ 3, 5 ];
+
+      case 4:
+       throw e_1 = _b.sent(), state.error = e_1, this.reject && this.reject(e_1), e_1;
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, Poller.prototype.fireProgress = function(state) {
+    for (var _i = 0, _a = this.pollProgressCallbacks; _i < _a.length; _i++) {
+     (0, _a[_i])(state);
+    }
+   }, Poller.prototype.cancelOnce = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       return _a = this, [ 4, this.operation.cancel(options) ];
+
+      case 1:
+       return _a.operation = _b.sent(), this.reject && this.reject(new poller_PollerCancelledError("Poller cancelled")), 
+       [ 2 ];
+      }
+     }));
+    }));
+   }, Poller.prototype.poll = function(options) {
+    var _this = this;
+    if (void 0 === options && (options = {}), !this.pollOncePromise) {
+     this.pollOncePromise = this.pollOnce(options);
+     var clearPollOncePromise = function() {
+      _this.pollOncePromise = void 0;
+     };
+     this.pollOncePromise.then(clearPollOncePromise, clearPollOncePromise).catch(this.reject);
+    }
+    return this.pollOncePromise;
+   }, Poller.prototype.pollUntilDone = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     return __generator(this, (function(_a) {
+      return this.stopped && this.startPolling().catch(this.reject), [ 2, this.promise ];
+     }));
+    }));
+   }, Poller.prototype.onProgress = function(callback) {
+    var _this = this;
+    return this.pollProgressCallbacks.push(callback), function() {
+     _this.pollProgressCallbacks = _this.pollProgressCallbacks.filter((function(c) {
+      return c !== callback;
+     }));
+    };
+   }, Poller.prototype.isDone = function() {
+    var state = this.operation.state;
+    return Boolean(state.isCompleted || state.isCancelled || state.error);
+   }, Poller.prototype.stopPolling = function() {
+    this.stopped || (this.stopped = !0, this.reject && this.reject(new poller_PollerStoppedError("This poller is already stopped")));
+   }, Poller.prototype.isStopped = function() {
+    return this.stopped;
+   }, Poller.prototype.cancelOperation = function(options) {
+    if (void 0 === options && (options = {}), this.stopped || (this.stopped = !0), this.cancelPromise) {
+     if (options.abortSignal) throw new Error("A cancel request is currently pending");
+    } else this.cancelPromise = this.cancelOnce(options);
+    return this.cancelPromise;
+   }, Poller.prototype.getOperationState = function() {
+    return this.operation.state;
+   }, Poller.prototype.getResult = function() {
+    return this.operation.state.result;
+   }, Poller.prototype.toString = function() {
+    return this.operation.toString();
+   }, Poller;
+  }()), BlobStartCopyFromUrlPoller_cancel = function(options) {
+   return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+    var state, copyId;
+    return __generator(this, (function(_a) {
+     switch (_a.label) {
+     case 0:
+      return state = this.state, copyId = state.copyId, state.isCompleted ? [ 2, makeBlobBeginCopyFromURLPollOperation(state) ] : copyId ? [ 4, state.blobClient.abortCopyFromURL(copyId, {
+       abortSignal: options.abortSignal
+      }) ] : (state.isCancelled = !0, [ 2, makeBlobBeginCopyFromURLPollOperation(state) ]);
+
+     case 1:
+      return _a.sent(), state.isCancelled = !0, [ 2, makeBlobBeginCopyFromURLPollOperation(state) ];
+     }
+    }));
+   }));
+  }, BlobStartCopyFromUrlPoller_update = function(options) {
+   return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+    var state, blobClient, copySource, startCopyFromURLOptions, result, copyStatus, copyProgress, prevCopyProgress, err_1;
+    return __generator(this, (function(_a) {
+     switch (_a.label) {
+     case 0:
+      return state = this.state, blobClient = state.blobClient, copySource = state.copySource, 
+      startCopyFromURLOptions = state.startCopyFromURLOptions, state.isStarted ? [ 3, 2 ] : (state.isStarted = !0, 
+      [ 4, blobClient.startCopyFromURL(copySource, startCopyFromURLOptions) ]);
+
+     case 1:
+      return result = _a.sent(), state.copyId = result.copyId, "success" === result.copyStatus && (state.result = result, 
+      state.isCompleted = !0), [ 3, 6 ];
+
+     case 2:
+      if (state.isCompleted) return [ 3, 6 ];
+      _a.label = 3;
+
+     case 3:
+      return _a.trys.push([ 3, 5, , 6 ]), [ 4, state.blobClient.getProperties({
+       abortSignal: options.abortSignal
+      }) ];
+
+     case 4:
+      return result = _a.sent(), copyStatus = result.copyStatus, copyProgress = result.copyProgress, 
+      prevCopyProgress = state.copyProgress, copyProgress && (state.copyProgress = copyProgress), 
+      "pending" === copyStatus && copyProgress !== prevCopyProgress && "function" == typeof options.fireProgress ? options.fireProgress(state) : "success" === copyStatus ? (state.result = result, 
+      state.isCompleted = !0) : "failed" === copyStatus && (state.error = new Error('Blob copy failed with reason: "' + (result.copyStatusDescription || "unknown") + '"'), 
+      state.isCompleted = !0), [ 3, 6 ];
+
+     case 5:
+      return err_1 = _a.sent(), state.error = err_1, state.isCompleted = !0, [ 3, 6 ];
+
+     case 6:
+      return [ 2, makeBlobBeginCopyFromURLPollOperation(state) ];
+     }
+    }));
+   }));
+  }, BlobStartCopyFromUrlPoller_toString = function() {
+   return JSON.stringify({
+    state: this.state
+   }, (function(key, value) {
+    if ("blobClient" !== key) return value;
+   }));
+  };
+  function makeBlobBeginCopyFromURLPollOperation(state) {
+   return {
+    state: __assign({}, state),
+    cancel: BlobStartCopyFromUrlPoller_cancel,
+    toString: BlobStartCopyFromUrlPoller_toString,
+    update: BlobStartCopyFromUrlPoller_update
+   };
+  }
+  function rangeToString(iRange) {
+   if (iRange.offset < 0) throw new RangeError("Range.offset cannot be smaller than 0.");
+   if (iRange.count && iRange.count <= 0) throw new RangeError("Range.count must be larger than 0. Leave it undefined if you want a range from offset to the end.");
+   return iRange.count ? "bytes=" + iRange.offset + "-" + (iRange.offset + iRange.count - 1) : "bytes=" + iRange.offset + "-";
+  }
+  var BatchStates, external_events_ = __webpack_require__(23);
+  !function(BatchStates) {
+   BatchStates[BatchStates.Good = 0] = "Good", BatchStates[BatchStates.Error = 1] = "Error";
+  }(BatchStates || (BatchStates = {}));
+  var Batch_Batch = function() {
+   function Batch(concurrency) {
+    if (void 0 === concurrency && (concurrency = 5), this.actives = 0, this.completed = 0, 
+    this.offset = 0, this.operations = [], this.state = BatchStates.Good, concurrency < 1) throw new RangeError("concurrency must be larger than 0");
+    this.concurrency = concurrency, this.emitter = new external_events_.EventEmitter;
+   }
+   return Batch.prototype.addOperation = function(operation) {
+    var _this = this;
+    this.operations.push((function() {
+     return __awaiter(_this, void 0, void 0, (function() {
+      var error_1;
+      return __generator(this, (function(_a) {
+       switch (_a.label) {
+       case 0:
+        return _a.trys.push([ 0, 2, , 3 ]), this.actives++, [ 4, operation() ];
+
+       case 1:
+        return _a.sent(), this.actives--, this.completed++, this.parallelExecute(), [ 3, 3 ];
+
+       case 2:
+        return error_1 = _a.sent(), this.emitter.emit("error", error_1), [ 3, 3 ];
+
+       case 3:
+        return [ 2 ];
+       }
+      }));
+     }));
+    }));
+   }, Batch.prototype.do = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     var _this = this;
+     return __generator(this, (function(_a) {
+      return 0 === this.operations.length ? [ 2, Promise.resolve() ] : (this.parallelExecute(), 
+      [ 2, new Promise((function(resolve, reject) {
+       _this.emitter.on("finish", resolve), _this.emitter.on("error", (function(error) {
+        _this.state = BatchStates.Error, reject(error);
+       }));
+      })) ]);
+     }));
+    }));
+   }, Batch.prototype.nextOperation = function() {
+    return this.offset < this.operations.length ? this.operations[this.offset++] : null;
+   }, Batch.prototype.parallelExecute = function() {
+    if (this.state !== BatchStates.Error) if (this.completed >= this.operations.length) this.emitter.emit("finish"); else for (;this.actives < this.concurrency; ) {
+     var operation = this.nextOperation();
+     if (!operation) return;
+     operation();
+    }
+   }, Batch;
+  }(), BuffersStream_BuffersStream = function(_super) {
+   function BuffersStream(buffers, byteLength, options) {
+    var _this = _super.call(this, options) || this;
+    _this.buffers = buffers, _this.byteLength = byteLength, _this.byteOffsetInCurrentBuffer = 0, 
+    _this.bufferIndex = 0, _this.pushedBytesLength = 0;
+    for (var buffersLength = 0, _i = 0, _a = _this.buffers; _i < _a.length; _i++) {
+     buffersLength += _a[_i].byteLength;
+    }
+    if (buffersLength < _this.byteLength) throw new Error("Data size shouldn't be larger than the total length of buffers.");
+    return _this;
+   }
+   return __extends(BuffersStream, _super), BuffersStream.prototype._read = function(size) {
+    this.pushedBytesLength >= this.byteLength && this.push(null), size || (size = this.readableHighWaterMark);
+    for (var outBuffers = [], i = 0; i < size && this.pushedBytesLength < this.byteLength; ) {
+     var remainingDataInAllBuffers = this.byteLength - this.pushedBytesLength, remainingCapacityInThisBuffer = this.buffers[this.bufferIndex].byteLength - this.byteOffsetInCurrentBuffer, remaining = Math.min(remainingCapacityInThisBuffer, remainingDataInAllBuffers);
+     if (remaining > size - i) {
+      var end = this.byteOffsetInCurrentBuffer + size - i;
+      outBuffers.push(this.buffers[this.bufferIndex].slice(this.byteOffsetInCurrentBuffer, end)), 
+      this.pushedBytesLength += size - i, this.byteOffsetInCurrentBuffer = end, i = size;
+      break;
+     }
+     end = this.byteOffsetInCurrentBuffer + remaining;
+     outBuffers.push(this.buffers[this.bufferIndex].slice(this.byteOffsetInCurrentBuffer, end)), 
+     remaining === remainingCapacityInThisBuffer ? (this.byteOffsetInCurrentBuffer = 0, 
+     this.bufferIndex++) : this.byteOffsetInCurrentBuffer = end, this.pushedBytesLength += remaining, 
+     i += remaining;
+    }
+    outBuffers.length > 1 ? this.push(Buffer.concat(outBuffers)) : 1 === outBuffers.length && this.push(outBuffers[0]);
+   }, BuffersStream;
+  }(external_stream_.Readable), maxBufferLength = __webpack_require__(100).constants.MAX_LENGTH, PooledBuffer_PooledBuffer = function() {
+   function PooledBuffer(capacity, buffers, totalLength) {
+    this.buffers = [], this.capacity = capacity, this._size = 0;
+    for (var bufferNum = Math.ceil(capacity / maxBufferLength), i = 0; i < bufferNum; i++) {
+     var len = i === bufferNum - 1 ? capacity % maxBufferLength : maxBufferLength;
+     0 === len && (len = maxBufferLength), this.buffers.push(Buffer.allocUnsafe(len));
+    }
+    buffers && this.fill(buffers, totalLength);
+   }
+   return Object.defineProperty(PooledBuffer.prototype, "size", {
+    get: function() {
+     return this._size;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), PooledBuffer.prototype.fill = function(buffers, totalLength) {
+    this._size = Math.min(this.capacity, totalLength);
+    for (var i = 0, j = 0, targetOffset = 0, sourceOffset = 0, totalCopiedNum = 0; totalCopiedNum < this._size; ) {
+     var source = buffers[i], target = this.buffers[j], copiedNum = source.copy(target, targetOffset, sourceOffset);
+     totalCopiedNum += copiedNum, targetOffset += copiedNum, (sourceOffset += copiedNum) === source.length && (i++, 
+     sourceOffset = 0), targetOffset === target.length && (j++, targetOffset = 0);
+    }
+    buffers.splice(0, i), buffers.length > 0 && (buffers[0] = buffers[0].slice(sourceOffset));
+   }, PooledBuffer.prototype.getReadableStream = function() {
+    return new BuffersStream_BuffersStream(this.buffers, this.size);
+   }, PooledBuffer;
+  }(), BufferScheduler_BufferScheduler = function() {
+   function BufferScheduler(readable, bufferSize, maxBuffers, outgoingHandler, concurrency, encoding) {
+    if (this.emitter = new external_events_.EventEmitter, this.offset = 0, this.isStreamEnd = !1, 
+    this.isError = !1, this.executingOutgoingHandlers = 0, this.numBuffers = 0, this.unresolvedDataArray = [], 
+    this.unresolvedLength = 0, this.incoming = [], this.outgoing = [], bufferSize <= 0) throw new RangeError("bufferSize must be larger than 0, current is " + bufferSize);
+    if (maxBuffers <= 0) throw new RangeError("maxBuffers must be larger than 0, current is " + maxBuffers);
+    if (concurrency <= 0) throw new RangeError("concurrency must be larger than 0, current is " + concurrency);
+    this.bufferSize = bufferSize, this.maxBuffers = maxBuffers, this.readable = readable, 
+    this.outgoingHandler = outgoingHandler, this.concurrency = concurrency, this.encoding = encoding;
+   }
+   return BufferScheduler.prototype.do = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     var _this = this;
+     return __generator(this, (function(_a) {
+      return [ 2, new Promise((function(resolve, reject) {
+       _this.readable.on("data", (function(data) {
+        data = "string" == typeof data ? Buffer.from(data, _this.encoding) : data, _this.appendUnresolvedData(data), 
+        _this.resolveData() || _this.readable.pause();
+       })), _this.readable.on("error", (function(err) {
+        _this.emitter.emit("error", err);
+       })), _this.readable.on("end", (function() {
+        _this.isStreamEnd = !0, _this.emitter.emit("checkEnd");
+       })), _this.emitter.on("error", (function(err) {
+        _this.isError = !0, _this.readable.pause(), reject(err);
+       })), _this.emitter.on("checkEnd", (function() {
+        if (_this.outgoing.length > 0) _this.triggerOutgoingHandlers(); else if (_this.isStreamEnd && 0 === _this.executingOutgoingHandlers) if (_this.unresolvedLength > 0 && _this.unresolvedLength < _this.bufferSize) {
+         var buffer_1 = _this.shiftBufferFromUnresolvedDataArray();
+         _this.outgoingHandler((function() {
+          return buffer_1.getReadableStream();
+         }), buffer_1.size, _this.offset).then(resolve).catch(reject);
+        } else {
+         if (_this.unresolvedLength >= _this.bufferSize) return;
+         resolve();
+        }
+       }));
+      })) ];
+     }));
+    }));
+   }, BufferScheduler.prototype.appendUnresolvedData = function(data) {
+    this.unresolvedDataArray.push(data), this.unresolvedLength += data.length;
+   }, BufferScheduler.prototype.shiftBufferFromUnresolvedDataArray = function(buffer) {
+    return buffer ? buffer.fill(this.unresolvedDataArray, this.unresolvedLength) : buffer = new PooledBuffer_PooledBuffer(this.bufferSize, this.unresolvedDataArray, this.unresolvedLength), 
+    this.unresolvedLength -= buffer.size, buffer;
+   }, BufferScheduler.prototype.resolveData = function() {
+    for (;this.unresolvedLength >= this.bufferSize; ) {
+     var buffer = void 0;
+     if (this.incoming.length > 0) buffer = this.incoming.shift(), this.shiftBufferFromUnresolvedDataArray(buffer); else {
+      if (!(this.numBuffers < this.maxBuffers)) return !1;
+      buffer = this.shiftBufferFromUnresolvedDataArray(), this.numBuffers++;
+     }
+     this.outgoing.push(buffer), this.triggerOutgoingHandlers();
+    }
+    return !0;
+   }, BufferScheduler.prototype.triggerOutgoingHandlers = function() {
+    return __awaiter(this, void 0, void 0, (function() {
+     var buffer;
+     return __generator(this, (function(_a) {
+      do {
+       if (this.executingOutgoingHandlers >= this.concurrency) return [ 2 ];
+       (buffer = this.outgoing.shift()) && this.triggerOutgoingHandler(buffer);
+      } while (buffer);
+      return [ 2 ];
+     }));
+    }));
+   }, BufferScheduler.prototype.triggerOutgoingHandler = function(buffer) {
+    return __awaiter(this, void 0, void 0, (function() {
+     var bufferLength, err_1;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       bufferLength = buffer.size, this.executingOutgoingHandlers++, this.offset += bufferLength, 
+       _a.label = 1;
+
+      case 1:
+       return _a.trys.push([ 1, 3, , 4 ]), [ 4, this.outgoingHandler((function() {
+        return buffer.getReadableStream();
+       }), bufferLength, this.offset - bufferLength) ];
+
+      case 2:
+       return _a.sent(), [ 3, 4 ];
+
+      case 3:
+       return err_1 = _a.sent(), this.emitter.emit("error", err_1), [ 2 ];
+
+      case 4:
+       return this.executingOutgoingHandlers--, this.reuseBuffer(buffer), this.emitter.emit("checkEnd"), 
+       [ 2 ];
+      }
+     }));
+    }));
+   }, BufferScheduler.prototype.reuseBuffer = function(buffer) {
+    this.incoming.push(buffer), this.isError || !this.resolveData() || this.isStreamEnd || this.readable.resume();
+   }, BufferScheduler;
+  }(), external_fs_ = __webpack_require__(7);
+  function streamToBuffer(stream, buffer, offset, end, encoding) {
+   return __awaiter(this, void 0, void 0, (function() {
+    var pos, count;
+    return __generator(this, (function(_a) {
+     return pos = 0, count = end - offset, [ 2, new Promise((function(resolve, reject) {
+      stream.on("readable", (function() {
+       if (pos >= count) resolve(); else {
+        var chunk = stream.read();
+        if (chunk) {
+         "string" == typeof chunk && (chunk = Buffer.from(chunk, encoding));
+         var chunkLength = pos + chunk.length > count ? count - pos : chunk.length;
+         buffer.fill(chunk.slice(0, chunkLength), offset + pos, offset + pos + chunkLength), 
+         pos += chunkLength;
+        }
+       }
+      })), stream.on("end", (function() {
+       pos < count && reject(new Error("Stream drains before getting enough data needed. Data read: " + pos + ", data need: " + count)), 
+       resolve();
+      })), stream.on("error", reject);
+     })) ];
+    }));
+   }));
+  }
+  function streamToBuffer2(stream, buffer, encoding) {
+   return __awaiter(this, void 0, void 0, (function() {
+    var pos, bufferSize;
+    return __generator(this, (function(_a) {
+     return pos = 0, bufferSize = buffer.length, [ 2, new Promise((function(resolve, reject) {
+      stream.on("readable", (function() {
+       var chunk = stream.read();
+       chunk && ("string" == typeof chunk && (chunk = Buffer.from(chunk, encoding)), pos + chunk.length > bufferSize ? reject(new Error("Stream exceeds buffer size. Buffer size: " + bufferSize)) : (buffer.fill(chunk, pos, pos + chunk.length), 
+       pos += chunk.length));
+      })), stream.on("end", (function() {
+       resolve(pos);
+      })), stream.on("error", reject);
+     })) ];
+    }));
+   }));
+  }
+  function readStreamToLocalFile(rs, file) {
+   return __awaiter(this, void 0, void 0, (function() {
+    return __generator(this, (function(_a) {
+     return [ 2, new Promise((function(resolve, reject) {
+      var ws = external_fs_.createWriteStream(file);
+      rs.on("error", (function(err) {
+       reject(err);
+      })), ws.on("error", (function(err) {
+       reject(err);
+      })), ws.on("close", resolve), rs.pipe(ws);
+     })) ];
+    }));
+   }));
+  }
+  var fsStat = external_util_.promisify(external_fs_.stat), fsCreateReadStream = external_fs_.createReadStream, Clients_BlobClient = function(_super) {
    function BlobClient(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions, options) {
     var _a, pipeline, url, _this = this;
     if (options = options || {}, credentialOrPipelineOrContainerName instanceof Pipeline_Pipeline) url = urlOrConnectionString, 
@@ -49307,16 +49743,16 @@
     var _a;
     return void 0 === offset && (offset = 0), void 0 === options && (options = {}), 
     __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, res_1, wrappedRes, e_1, _this = this;
+     var _b, span, updatedOptions, res_1, wrappedRes, e_1, _this = this;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
        options.conditions = options.conditions || {}, options.conditions = options.conditions || {}, 
-       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), _b = createSpan("BlobClient-download", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), _b = createSpan("BlobClient-download", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.download({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.download(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -49330,9 +49766,8 @@
         rangeGetContentMD5: options.rangeGetContentMD5,
         rangeGetContentCRC64: options.rangeGetContentCrc64,
         snapshot: options.snapshot,
-        cpkInfo: options.customerProvidedKey,
-        spanOptions: spanOptions
-       }) ];
+        cpkInfo: options.customerProvidedKey
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        if (res_1 = _c.sent(), wrappedRes = __assign(__assign({}, res_1), {
@@ -49396,11 +49831,11 @@
     }));
    }, BlobClient.prototype.exists = function(options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_2;
+     var _a, span, updatedOptions, e_2;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobClient-exists", options.tracingOptions), span = _a.span, spanOptions = _a.spanOptions, 
+       _a = createSpan("BlobClient-exists", options), span = _a.span, updatedOptions = _a.updatedOptions, 
        _b.label = 1;
 
       case 1:
@@ -49409,9 +49844,7 @@
         abortSignal: options.abortSignal,
         customerProvidedKey: options.customerProvidedKey,
         conditions: options.conditions,
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: updatedOptions.tracingOptions
        }) ];
 
       case 2:
@@ -49438,24 +49871,23 @@
    }, BlobClient.prototype.getProperties = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, res, e_3;
+     var _b, span, updatedOptions, res, e_3;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-getProperties", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, _c.label = 1;
+       _b = createSpan("BlobClient-getProperties", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), options.conditions = options.conditions || {}, 
-       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), [ 4, this.blobContext.getProperties({
+       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), [ 4, this.blobContext.getProperties(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
-        cpkInfo: options.customerProvidedKey,
-        spanOptions: spanOptions
-       }) ];
+        cpkInfo: options.customerProvidedKey
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return res = _c.sent(), [ 2, __assign(__assign({}, res), {
@@ -49481,23 +49913,22 @@
    }, BlobClient.prototype.delete = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_4;
+     var _b, span, updatedOptions, e_4;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-delete", options.tracingOptions), span = _b.span, spanOptions = _b.spanOptions, 
+       _b = createSpan("BlobClient-delete", options), span = _b.span, updatedOptions = _b.updatedOptions, 
        options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.deleteMethod({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.deleteMethod(__assign({
         abortSignal: options.abortSignal,
         deleteSnapshots: options.deleteSnapshots,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49519,19 +49950,15 @@
    }, BlobClient.prototype.deleteIfExists = function(options) {
     var _a, _b;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _c, span, spanOptions, res, e_5;
+     var _c, span, updatedOptions, res, e_5;
      return __generator(this, (function(_d) {
       switch (_d.label) {
       case 0:
-       _c = createSpan("BlobClient-deleteIfExists", options.tracingOptions), span = _c.span, 
-       spanOptions = _c.spanOptions, _d.label = 1;
+       _c = createSpan("BlobClient-deleteIfExists", options), span = _c.span, updatedOptions = _c.updatedOptions, 
+       _d.label = 1;
 
       case 1:
-       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.delete(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.delete(updatedOptions) ];
 
       case 2:
        return res = _d.sent(), [ 2, __assign(__assign({
@@ -49564,18 +49991,17 @@
     }));
    }, BlobClient.prototype.undelete = function(options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_6;
+     var _a, span, updatedOptions, e_6;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobClient-undelete", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobClient-undelete", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.undelete({
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.undelete(__assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -49597,25 +50023,24 @@
    }, BlobClient.prototype.setHTTPHeaders = function(blobHTTPHeaders, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_7;
+     var _b, span, updatedOptions, e_7;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-setHTTPHeaders", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("BlobClient-setHTTPHeaders", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blobContext.setHTTPHeaders({
+       [ 4, this.blobContext.setHTTPHeaders(__assign({
         abortSignal: options.abortSignal,
         blobHTTPHeaders: blobHTTPHeaders,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
-        cpkInfo: options.customerProvidedKey,
-        spanOptions: spanOptions
-       }) ];
+        cpkInfo: options.customerProvidedKey
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49637,16 +50062,16 @@
    }, BlobClient.prototype.setMetadata = function(metadata, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_8;
+     var _b, span, updatedOptions, e_8;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-setMetadata", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("BlobClient-setMetadata", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blobContext.setMetadata({
+       [ 4, this.blobContext.setMetadata(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         metadata: metadata,
@@ -49654,9 +50079,8 @@
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49678,23 +50102,23 @@
    }, BlobClient.prototype.setTags = function(tags, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_9;
+     var _b, span, updatedOptions, e_9;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-setTags", options.tracingOptions), span = _b.span, spanOptions = _b.spanOptions, 
+       _b = createSpan("BlobClient-setTags", options), span = _b.span, updatedOptions = _b.updatedOptions, 
        _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.setTags({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.setTags(__assign(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions,
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions)), {
         tags: toBlobTags(tags)
-       }) ];
+       })) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49716,22 +50140,21 @@
    }, BlobClient.prototype.getTags = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, response, e_10;
+     var _b, span, updatedOptions, response, e_10;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-getTags", options.tracingOptions), span = _b.span, spanOptions = _b.spanOptions, 
+       _b = createSpan("BlobClient-getTags", options), span = _b.span, updatedOptions = _b.updatedOptions, 
        _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.getTags({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.getTags(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return response = _c.sent(), [ 2, __assign(__assign({}, response), {
@@ -49756,20 +50179,20 @@
      }));
     }));
    }, BlobClient.prototype.getBlobLeaseClient = function(proposeLeaseId) {
-    return new Clients_BlobLeaseClient(this, proposeLeaseId);
+    return new BlobLeaseClient_BlobLeaseClient(this, proposeLeaseId);
    }, BlobClient.prototype.createSnapshot = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_11;
+     var _b, span, updatedOptions, e_11;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-createSnapshot", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("BlobClient-createSnapshot", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blobContext.createSnapshot({
+       [ 4, this.blobContext.createSnapshot(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         metadata: options.metadata,
@@ -49777,9 +50200,8 @@
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49833,19 +50255,18 @@
     }));
    }, BlobClient.prototype.abortCopyFromURL = function(copyId, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_12;
+     var _a, span, updatedOptions, e_12;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobClient-abortCopyFromURL", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobClient-abortCopyFromURL", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.abortCopyFromURL(copyId, {
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.abortCopyFromURL(copyId, __assign({
         abortSignal: options.abortSignal,
-        leaseAccessConditions: options.conditions,
-        spanOptions: spanOptions
-       }) ];
+        leaseAccessConditions: options.conditions
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -49867,16 +50288,16 @@
    }, BlobClient.prototype.syncCopyFromURL = function(copySource, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_13;
+     var _b, span, updatedOptions, e_13;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-syncCopyFromURL", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, options.sourceConditions = options.sourceConditions || {}, 
+       _b = createSpan("BlobClient-syncCopyFromURL", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, options.sourceConditions = options.sourceConditions || {}, 
        _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.copyFromURL(copySource, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.copyFromURL(copySource, __assign({
         abortSignal: options.abortSignal,
         metadata: options.metadata,
         leaseAccessConditions: options.conditions,
@@ -49890,9 +50311,8 @@
          sourceIfUnmodifiedSince: options.sourceConditions.ifUnmodifiedSince
         },
         sourceContentMD5: options.sourceContentMD5,
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       }) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49914,23 +50334,22 @@
    }, BlobClient.prototype.setAccessTier = function(tier, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_14;
+     var _b, span, updatedOptions, e_14;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-setAccessTier", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, _c.label = 1;
+       _b = createSpan("BlobClient-setAccessTier", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.setTier(toAccessTier(tier), {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.setTier(toAccessTier(tier), __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
-        rehydratePriority: options.rehydratePriority,
-        spanOptions: spanOptions
-       }) ];
+        rehydratePriority: options.rehydratePriority
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -49951,24 +50370,22 @@
     }));
    }, BlobClient.prototype.downloadToBuffer = function(param1, param2, param3, param4) {
     return void 0 === param4 && (param4 = {}), __awaiter(this, void 0, void 0, (function() {
-     var buffer, offset, count, options, _a, span, spanOptions, response, transferProgress_1, batch, _loop_1, off, e_15, _this = this;
+     var buffer, offset, count, options, _a, span, updatedOptions, response, transferProgress_1, batch, _loop_1, off, e_15, _this = this;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
        offset = 0, count = 0, options = param4, param1 instanceof Buffer ? (buffer = param1, 
        offset = param2 || 0, count = "number" == typeof param3 ? param3 : 0) : (offset = "number" == typeof param1 ? param1 : 0, 
-       count = "number" == typeof param2 ? param2 : 0, options = param3 || {}), _a = createSpan("BlobClient-downloadToBuffer", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       count = "number" == typeof param2 ? param2 : 0, options = param3 || {}), _a = createSpan("BlobClient-downloadToBuffer", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
        if (_b.trys.push([ 1, 5, 6, 7 ]), options.blockSize || (options.blockSize = 0), 
        options.blockSize < 0) throw new RangeError("blockSize option must be >= 0");
        if (0 === options.blockSize && (options.blockSize = 4194304), offset < 0) throw new RangeError("offset option must be >= 0");
-       if (count && count <= 0) throw new RangeError("count option must be > 0");
+       if (count && count <= 0) throw new RangeError("count option must be greater than 0");
        return options.conditions || (options.conditions = {}), count ? [ 3, 3 ] : [ 4, this.getProperties(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: __assign(__assign({}, options.tracingOptions), convertTracingToRequestOptionsBase(updatedOptions))
        })) ];
 
       case 2:
@@ -49995,9 +50412,7 @@
              conditions: options.conditions,
              maxRetryRequests: options.maxRetryRequestsPerBlock,
              customerProvidedKey: options.customerProvidedKey,
-             tracingOptions: __assign(__assign({}, options.tracingOptions), {
-              spanOptions: spanOptions
-             })
+             tracingOptions: __assign(__assign({}, options.tracingOptions), convertTracingToRequestOptionsBase(updatedOptions))
             }) ];
 
            case 1:
@@ -50034,18 +50449,16 @@
    }, BlobClient.prototype.downloadToFile = function(filePath, offset, count, options) {
     return void 0 === offset && (offset = 0), void 0 === options && (options = {}), 
     __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, e_16;
+     var _a, span, updatedOptions, response, e_16;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobClient-downloadToFile", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobClient-downloadToFile", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 5, 6, 7 ]), [ 4, this.download(offset, count, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: __assign(__assign({}, options.tracingOptions), convertTracingToRequestOptionsBase(updatedOptions))
        })) ];
 
       case 2:
@@ -50096,16 +50509,16 @@
    }, BlobClient.prototype.startCopyFromURL = function(copySource, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_17;
+     var _b, span, updatedOptions, e_17;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlobClient-startCopyFromURL", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, options.sourceConditions = options.sourceConditions || {}, 
+       _b = createSpan("BlobClient-startCopyFromURL", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, options.sourceConditions = options.sourceConditions || {}, 
        _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.startCopyFromURL(copySource, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blobContext.startCopyFromURL(copySource, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         metadata: options.metadata,
@@ -50122,9 +50535,8 @@
         rehydratePriority: options.rehydratePriority,
         tier: toAccessTier(options.tier),
         blobTagsString: toBlobTagsString(options.tags),
-        sealBlob: options.sealBlob,
-        spanOptions: spanOptions
-       }) ];
+        sealBlob: options.sealBlob
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50183,16 +50595,16 @@
    }, AppendBlobClient.prototype.create = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_18;
+     var _b, span, updatedOptions, e_18;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("AppendBlobClient-create", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("AppendBlobClient-create", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.appendBlobContext.create(0, {
+       [ 4, this.appendBlobContext.create(0, __assign({
         abortSignal: options.abortSignal,
         blobHTTPHeaders: options.blobHTTPHeaders,
         leaseAccessConditions: options.conditions,
@@ -50202,9 +50614,8 @@
         }),
         cpkInfo: options.customerProvidedKey,
         encryptionScope: options.encryptionScope,
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       }) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50226,21 +50637,18 @@
    }, AppendBlobClient.prototype.createIfNotExists = function(options) {
     var _a, _b;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _c, span, spanOptions, conditions, res, e_19;
+     var _c, span, updatedOptions, conditions, res, e_19;
      return __generator(this, (function(_d) {
       switch (_d.label) {
       case 0:
-       _c = createSpan("AppendBlobClient-createIfNotExists", options.tracingOptions), span = _c.span, 
-       spanOptions = _c.spanOptions, conditions = {
+       _c = createSpan("AppendBlobClient-createIfNotExists", options), span = _c.span, 
+       updatedOptions = _c.updatedOptions, conditions = {
         ifNoneMatch: "*"
        }, _d.label = 1;
 
       case 1:
-       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.create(__assign(__assign({}, options), {
-        conditions: conditions,
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.create(__assign(__assign({}, updatedOptions), {
+        conditions: conditions
        })) ];
 
       case 2:
@@ -50275,23 +50683,22 @@
    }, AppendBlobClient.prototype.seal = function(options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_20;
+     var _b, span, updatedOptions, e_20;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("AppendBlobClient-seal", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("AppendBlobClient-seal", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.appendBlobContext.seal({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.appendBlobContext.seal(__assign({
         abortSignal: options.abortSignal,
         appendPositionAccessConditions: options.conditions,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50313,16 +50720,16 @@
    }, AppendBlobClient.prototype.appendBlock = function(body, contentLength, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_21;
+     var _b, span, updatedOptions, e_21;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("AppendBlobClient-appendBlock", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, _c.label = 1;
+       _b = createSpan("AppendBlobClient-appendBlock", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       options.conditions = options.conditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.appendBlobContext.appendBlock(body, contentLength, {
+       [ 4, this.appendBlobContext.appendBlock(body, contentLength, __assign({
         abortSignal: options.abortSignal,
         appendPositionAccessConditions: options.conditions,
         leaseAccessConditions: options.conditions,
@@ -50333,9 +50740,8 @@
         transactionalContentMD5: options.transactionalContentMD5,
         transactionalContentCrc64: options.transactionalContentCrc64,
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50357,17 +50763,17 @@
    }, AppendBlobClient.prototype.appendBlockFromURL = function(sourceURL, sourceOffset, count, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_22;
+     var _b, span, updatedOptions, e_22;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("AppendBlobClient-appendBlockFromURL", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, options.conditions = options.conditions || {}, 
+       _b = createSpan("AppendBlobClient-appendBlockFromURL", options), span = _b.span, 
+       updatedOptions = _b.updatedOptions, options.conditions = options.conditions || {}, 
        options.sourceConditions = options.sourceConditions || {}, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.appendBlobContext.appendBlockFromUrl(sourceURL, 0, {
+       [ 4, this.appendBlobContext.appendBlockFromUrl(sourceURL, 0, __assign({
         abortSignal: options.abortSignal,
         sourceRange: rangeToString({
          offset: sourceOffset,
@@ -50387,9 +50793,8 @@
          sourceIfUnmodifiedSince: options.sourceConditions.ifUnmodifiedSince
         },
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50436,16 +50841,16 @@
    }, BlockBlobClient.prototype.query = function(query, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, response, e_23;
+     var _b, span, updatedOptions, response, e_23;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), _b = createSpan("BlockBlobClient-query", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), _b = createSpan("BlockBlobClient-query", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
        if (_c.trys.push([ 1, 3, 4, 5 ]), !isNode) throw new Error("This operation currently is only supported in Node.js.");
-       return [ 4, this._blobContext.query({
+       return [ 4, this._blobContext.query(__assign({
         abortSignal: options.abortSignal,
         queryRequest: {
          expression: query,
@@ -50455,9 +50860,8 @@
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return response = _c.sent(), [ 2, new BlobQueryResponse_BlobQueryResponse(response, {
@@ -50483,16 +50887,16 @@
    }, BlockBlobClient.prototype.upload = function(body, contentLength, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_24;
+     var _b, span, updatedOptions, e_24;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("BlockBlobClient-upload", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("BlockBlobClient-upload", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blockBlobContext.upload(body, contentLength, {
+       [ 4, this.blockBlobContext.upload(body, contentLength, __assign({
         abortSignal: options.abortSignal,
         blobHTTPHeaders: options.blobHTTPHeaders,
         leaseAccessConditions: options.conditions,
@@ -50504,9 +50908,8 @@
         cpkInfo: options.customerProvidedKey,
         encryptionScope: options.encryptionScope,
         tier: toAccessTier(options.tier),
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       }) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50528,16 +50931,16 @@
    }, BlockBlobClient.prototype.syncUploadFromURL = function(sourceURL, options) {
     var _a, _b, _c, _d, _e;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _f, span, spanOptions, e_25;
+     var _f, span, updatedOptions, e_25;
      return __generator(this, (function(_g) {
       switch (_g.label) {
       case 0:
-       options.conditions = options.conditions || {}, _f = createSpan("BlockBlobClient-syncUploadFromURL", options.tracingOptions), 
-       span = _f.span, spanOptions = _f.spanOptions, _g.label = 1;
+       options.conditions = options.conditions || {}, _f = createSpan("BlockBlobClient-syncUploadFromURL", options), 
+       span = _f.span, updatedOptions = _f.updatedOptions, _g.label = 1;
 
       case 1:
        return _g.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blockBlobContext.putBlobFromUrl(0, sourceURL, __assign(__assign({}, options), {
+       [ 4, this.blockBlobContext.putBlobFromUrl(0, sourceURL, __assign(__assign(__assign({}, options), {
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: options.conditions.tagConditions
@@ -50551,9 +50954,8 @@
         },
         cpkInfo: options.customerProvidedKey,
         tier: toAccessTier(options.tier),
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       })) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }), convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _g.sent() ];
@@ -50574,25 +50976,24 @@
     }));
    }, BlockBlobClient.prototype.stageBlock = function(blockId, body, contentLength, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_26;
+     var _a, span, updatedOptions, e_26;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlockBlobClient-stageBlock", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-stageBlock", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blockBlobContext.stageBlock(blockId, contentLength, body, {
+       [ 4, this.blockBlobContext.stageBlock(blockId, contentLength, body, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         onUploadProgress: options.onProgress,
         transactionalContentMD5: options.transactionalContentMD5,
         transactionalContentCrc64: options.transactionalContentCrc64,
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -50614,16 +51015,16 @@
    }, BlockBlobClient.prototype.stageBlockFromURL = function(blockId, sourceURL, offset, count, options) {
     return void 0 === offset && (offset = 0), void 0 === options && (options = {}), 
     __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_27;
+     var _a, span, updatedOptions, e_27;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlockBlobClient-stageBlockFromURL", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-stageBlockFromURL", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.blockBlobContext.stageBlockFromURL(blockId, 0, sourceURL, {
+       [ 4, this.blockBlobContext.stageBlockFromURL(blockId, 0, sourceURL, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         sourceContentMD5: options.sourceContentMD5,
@@ -50633,9 +51034,8 @@
          count: count
         }) : void 0,
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -50657,18 +51057,18 @@
    }, BlockBlobClient.prototype.commitBlockList = function(blocks, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_28;
+     var _b, span, updatedOptions, e_28;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("BlockBlobClient-commitBlockList", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("BlockBlobClient-commitBlockList", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
        [ 4, this.blockBlobContext.commitBlockList({
         latest: blocks
-       }, {
+       }, __assign({
         abortSignal: options.abortSignal,
         blobHTTPHeaders: options.blobHTTPHeaders,
         leaseAccessConditions: options.conditions,
@@ -50679,9 +51079,8 @@
         cpkInfo: options.customerProvidedKey,
         encryptionScope: options.encryptionScope,
         tier: toAccessTier(options.tier),
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       }) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -50703,22 +51102,21 @@
    }, BlockBlobClient.prototype.getBlockList = function(listType, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, res, e_29;
+     var _b, span, updatedOptions, res, e_29;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("BlockBlobClient-getBlockList", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, _c.label = 1;
+       _b = createSpan("BlockBlobClient-getBlockList", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blockBlobContext.getBlockList(listType, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.blockBlobContext.getBlockList(listType, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return (res = _c.sent()).committedBlocks || (res.committedBlocks = []), res.uncommittedBlocks || (res.uncommittedBlocks = []), 
@@ -50740,25 +51138,17 @@
     }));
    }, BlockBlobClient.prototype.uploadData = function(data, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, buffer_1, browserBlob_1;
+     var _a, span, updatedOptions, buffer_1, browserBlob_1;
      return __generator(this, (function(_b) {
-      _a = createSpan("BlockBlobClient-uploadData", options.tracingOptions), span = _a.span, 
-      spanOptions = _a.spanOptions;
+      _a = createSpan("BlockBlobClient-uploadData", options), span = _a.span, updatedOptions = _a.updatedOptions;
       try {
        return isNode ? (data instanceof Buffer ? buffer_1 = data : data instanceof ArrayBuffer ? buffer_1 = Buffer.from(data) : (data = data, 
        buffer_1 = Buffer.from(data.buffer, data.byteOffset, data.byteLength)), [ 2, this.uploadSeekableInternal((function(offset, size) {
         return buffer_1.slice(offset, offset + size);
-       }), buffer_1.byteLength, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ]) : (browserBlob_1 = new Blob([ data ]), [ 2, this.uploadSeekableInternal((function(offset, size) {
+       }), buffer_1.byteLength, updatedOptions) ]) : (browserBlob_1 = new Blob([ data ]), 
+       [ 2, this.uploadSeekableInternal((function(offset, size) {
         return browserBlob_1.slice(offset, offset + size);
-       }), browserBlob_1.size, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ]);
+       }), browserBlob_1.size, updatedOptions) ]);
       } catch (e) {
        throw span.setStatus({
         code: src.CanonicalCode.UNKNOWN,
@@ -50772,22 +51162,18 @@
     }));
    }, BlockBlobClient.prototype.uploadBrowserData = function(browserData, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, browserBlob_2, e_30;
+     var _a, span, updatedOptions, browserBlob_2, e_30;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlockBlobClient-uploadBrowserData", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-uploadBrowserData", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), browserBlob_2 = new Blob([ browserData ]), 
        [ 4, this.uploadSeekableInternal((function(offset, size) {
         return browserBlob_2.slice(offset, offset + size);
-       }), browserBlob_2.size, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       }), browserBlob_2.size, updatedOptions) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -50808,7 +51194,7 @@
     }));
    }, BlockBlobClient.prototype.uploadSeekableInternal = function(bodyFactory, size, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, numBlocks_1, blockList_1, blockIDPrefix_1, transferProgress_2, batch, _loop_2, i, e_31, _this = this;
+     var _a, span, updatedOptions, numBlocks_1, blockList_1, blockIDPrefix_1, transferProgress_2, batch, _loop_2, i, e_31, _this = this;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
@@ -50821,15 +51207,11 @@
         options.blockSize < 4194304 && (options.blockSize = 4194304));
        }
        options.blobHTTPHeaders || (options.blobHTTPHeaders = {}), options.conditions || (options.conditions = {}), 
-       _a = createSpan("BlockBlobClient-uploadSeekableInternal", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-uploadSeekableInternal", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 5, 6, 7 ]), size <= options.maxSingleShotSize ? [ 4, this.upload(bodyFactory(0, size), size, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ] : [ 3, 3 ];
+       return _b.trys.push([ 1, 5, 6, 7 ]), size <= options.maxSingleShotSize ? [ 4, this.upload(bodyFactory(0, size), size, updatedOptions) ] : [ 3, 3 ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -50850,9 +51232,7 @@
              abortSignal: options.abortSignal,
              conditions: options.conditions,
              encryptionScope: options.encryptionScope,
-             tracingOptions: __assign(__assign({}, options.tracingOptions), {
-              spanOptions: spanOptions
-             })
+             tracingOptions: updatedOptions.tracingOptions
             }) ];
 
            case 1:
@@ -50867,11 +51247,7 @@
        return [ 4, batch.do() ];
 
       case 4:
-       return _b.sent(), [ 2, this.commitBlockList(blockList_1, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       return _b.sent(), [ 2, this.commitBlockList(blockList_1, updatedOptions) ];
 
       case 5:
        throw e_31 = _b.sent(), span.setStatus({
@@ -50889,12 +51265,12 @@
     }));
    }, BlockBlobClient.prototype.uploadFile = function(filePath, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, size, e_32;
+     var _a, span, updatedOptions, size, e_32;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlockBlobClient-uploadFile", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-uploadFile", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 4, 5, 6 ]), [ 4, fsStat(filePath) ];
@@ -50909,9 +51285,7 @@
          });
         };
        }), size, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: __assign(__assign({}, options.tracingOptions), convertTracingToRequestOptionsBase(updatedOptions))
        })) ];
 
       case 3:
@@ -50934,13 +51308,13 @@
    }, BlockBlobClient.prototype.uploadStream = function(stream, bufferSize, maxConcurrency, options) {
     return void 0 === bufferSize && (bufferSize = 8388608), void 0 === maxConcurrency && (maxConcurrency = 5), 
     void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, blockNum_1, blockIDPrefix_2, transferProgress_3, blockList_2, e_33, _this = this;
+     var _a, span, updatedOptions, blockNum_1, blockIDPrefix_2, transferProgress_3, blockList_2, e_33, _this = this;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
        options.blobHTTPHeaders || (options.blobHTTPHeaders = {}), options.conditions || (options.conditions = {}), 
-       _a = createSpan("BlockBlobClient-uploadStream", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlockBlobClient-uploadStream", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 4, 5, 6 ]), blockNum_1 = 0, blockIDPrefix_2 = generateUuid(), 
@@ -50954,9 +51328,7 @@
            blockNum_1++, [ 4, this.stageBlock(blockID, body, length, {
             conditions: options.conditions,
             encryptionScope: options.encryptionScope,
-            tracingOptions: __assign(__assign({}, options.tracingOptions), {
-             spanOptions: spanOptions
-            })
+            tracingOptions: updatedOptions.tracingOptions
            }) ];
 
           case 1:
@@ -50970,9 +51342,7 @@
 
       case 2:
        return _b.sent(), [ 4, this.commitBlockList(blockList_2, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: __assign(__assign({}, options.tracingOptions), convertTracingToRequestOptionsBase(updatedOptions))
        })) ];
 
       case 3:
@@ -51020,16 +51390,16 @@
    }, PageBlobClient.prototype.create = function(size, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_34;
+     var _b, span, updatedOptions, e_34;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-create", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-create", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.pageBlobContext.create(0, size, {
+       [ 4, this.pageBlobContext.create(0, size, __assign({
         abortSignal: options.abortSignal,
         blobHTTPHeaders: options.blobHTTPHeaders,
         blobSequenceNumber: options.blobSequenceNumber,
@@ -51041,9 +51411,8 @@
         cpkInfo: options.customerProvidedKey,
         encryptionScope: options.encryptionScope,
         tier: toAccessTier(options.tier),
-        blobTagsString: toBlobTagsString(options.tags),
-        spanOptions: spanOptions
-       }) ];
+        blobTagsString: toBlobTagsString(options.tags)
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51065,21 +51434,19 @@
    }, PageBlobClient.prototype.createIfNotExists = function(size, options) {
     var _a, _b;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _c, span, spanOptions, conditions, res, e_35;
+     var _c, span, updatedOptions, conditions, res, e_35;
      return __generator(this, (function(_d) {
       switch (_d.label) {
       case 0:
-       _c = createSpan("PageBlobClient-createIfNotExists", options.tracingOptions), span = _c.span, 
-       spanOptions = _c.spanOptions, _d.label = 1;
+       _c = createSpan("PageBlobClient-createIfNotExists", options), span = _c.span, updatedOptions = _c.updatedOptions, 
+       _d.label = 1;
 
       case 1:
        return _d.trys.push([ 1, 3, 4, 5 ]), conditions = {
         ifNoneMatch: "*"
        }, [ 4, this.create(size, __assign(__assign({}, options), {
         conditions: conditions,
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
+        tracingOptions: updatedOptions.tracingOptions
        })) ];
 
       case 2:
@@ -51114,16 +51481,16 @@
    }, PageBlobClient.prototype.uploadPages = function(body, offset, count, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_36;
+     var _b, span, updatedOptions, e_36;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-uploadPages", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-uploadPages", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
-       [ 4, this.pageBlobContext.uploadPages(body, count, {
+       [ 4, this.pageBlobContext.uploadPages(body, count, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -51138,9 +51505,8 @@
         transactionalContentMD5: options.transactionalContentMD5,
         transactionalContentCrc64: options.transactionalContentCrc64,
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51162,13 +51528,13 @@
    }, PageBlobClient.prototype.uploadPagesFromURL = function(sourceURL, sourceOffset, destOffset, count, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_37;
+     var _b, span, updatedOptions, e_37;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
        options.conditions = options.conditions || {}, options.sourceConditions = options.sourceConditions || {}, 
-       _b = createSpan("PageBlobClient-uploadPagesFromURL", options.tracingOptions), span = _b.span, 
-       spanOptions = _b.spanOptions, _c.label = 1;
+       _b = createSpan("PageBlobClient-uploadPagesFromURL", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       _c.label = 1;
 
       case 1:
        return _c.trys.push([ 1, 3, 4, 5 ]), ensureCpkIfSpecified(options.customerProvidedKey, this.isHttps), 
@@ -51178,7 +51544,7 @@
        }), 0, rangeToString({
         offset: destOffset,
         count: count
-       }), {
+       }), __assign({
         abortSignal: options.abortSignal,
         sourceContentMD5: options.sourceContentMD5,
         sourceContentCrc64: options.sourceContentCrc64,
@@ -51194,9 +51560,8 @@
          sourceIfUnmodifiedSince: options.sourceConditions.ifUnmodifiedSince
         },
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51219,15 +51584,15 @@
     var _a;
     return void 0 === offset && (offset = 0), void 0 === options && (options = {}), 
     __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_38;
+     var _b, span, updatedOptions, e_38;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-clearPages", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-clearPages", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.clearPages(0, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.clearPages(0, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -51239,9 +51604,8 @@
         }),
         sequenceNumberAccessConditions: options.conditions,
         cpkInfo: options.customerProvidedKey,
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51264,15 +51628,15 @@
     var _a;
     return void 0 === offset && (offset = 0), void 0 === options && (options = {}), 
     __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_39;
+     var _b, span, updatedOptions, e_39;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-getPageRanges", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-getPageRanges", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRanges({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRanges(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -51281,9 +51645,8 @@
         range: rangeToString({
          offset: offset,
          count: count
-        }),
-        spanOptions: spanOptions
-       }).then(rangeResponseFromModel) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))).then(rangeResponseFromModel) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51305,15 +51668,15 @@
    }, PageBlobClient.prototype.getPageRangesDiff = function(offset, count, prevSnapshot, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_40;
+     var _b, span, updatedOptions, e_40;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-getPageRangesDiff", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-getPageRangesDiff", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRangesDiff({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRangesDiff(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -51323,9 +51686,8 @@
         range: rangeToString({
          offset: offset,
          count: count
-        }),
-        spanOptions: spanOptions
-       }).then(rangeResponseFromModel) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))).then(rangeResponseFromModel) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51347,15 +51709,15 @@
    }, PageBlobClient.prototype.getPageRangesDiffForManagedDisks = function(offset, count, prevSnapshotUrl, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_41;
+     var _b, span, updatedOptions, e_41;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-GetPageRangesDiffForManagedDisks", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-GetPageRangesDiffForManagedDisks", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRangesDiff({
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.getPageRangesDiff(__assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
@@ -51365,9 +51727,8 @@
         range: rangeToString({
          offset: offset,
          count: count
-        }),
-        spanOptions: spanOptions
-       }).then(rangeResponseFromModel) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))).then(rangeResponseFromModel) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51389,23 +51750,22 @@
    }, PageBlobClient.prototype.resize = function(size, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_42;
+     var _b, span, updatedOptions, e_42;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-resize", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-resize", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.resize(size, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.resize(size, __assign({
         abortSignal: options.abortSignal,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
         }),
-        encryptionScope: options.encryptionScope,
-        spanOptions: spanOptions
-       }) ];
+        encryptionScope: options.encryptionScope
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51427,23 +51787,22 @@
    }, PageBlobClient.prototype.updateSequenceNumber = function(sequenceNumberAction, sequenceNumber, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_43;
+     var _b, span, updatedOptions, e_43;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-updateSequenceNumber", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       options.conditions = options.conditions || {}, _b = createSpan("PageBlobClient-updateSequenceNumber", options), 
+       span = _b.span, updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.updateSequenceNumber(sequenceNumberAction, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.updateSequenceNumber(sequenceNumberAction, __assign({
         abortSignal: options.abortSignal,
         blobSequenceNumber: sequenceNumber,
         leaseAccessConditions: options.conditions,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51465,21 +51824,20 @@
    }, PageBlobClient.prototype.startCopyIncremental = function(copySource, options) {
     var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _b, span, spanOptions, e_44;
+     var _b, span, updatedOptions, e_44;
      return __generator(this, (function(_c) {
       switch (_c.label) {
       case 0:
-       _b = createSpan("PageBlobClient-startCopyIncremental", options.tracingOptions), 
-       span = _b.span, spanOptions = _b.spanOptions, _c.label = 1;
+       _b = createSpan("PageBlobClient-startCopyIncremental", options), span = _b.span, 
+       updatedOptions = _b.updatedOptions, _c.label = 1;
 
       case 1:
-       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.copyIncremental(copySource, {
+       return _c.trys.push([ 1, 3, 4, 5 ]), [ 4, this.pageBlobContext.copyIncremental(copySource, __assign({
         abortSignal: options.abortSignal,
         modifiedAccessConditions: __assign(__assign({}, options.conditions), {
          ifTags: null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
+        })
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _c.sent() ];
@@ -51499,1041 +51857,7 @@
      }));
     }));
    }, PageBlobClient;
-  }(Clients_BlobClient), Clients_BlobLeaseClient = function() {
-   function BlobLeaseClient(client, leaseId) {
-    var clientContext = new storageClientContext_StorageClientContext(client.url, client.pipeline.toServiceClientOptions());
-    this._url = client.url, client instanceof Clients_ContainerClient ? (this._isContainer = !0, 
-    this._containerOrBlobOperation = new Container(clientContext)) : (this._isContainer = !1, 
-    this._containerOrBlobOperation = new blob_Blob(clientContext)), leaseId || (leaseId = generateUuid()), 
-    this._leaseId = leaseId;
-   }
-   return Object.defineProperty(BlobLeaseClient.prototype, "leaseId", {
-    get: function() {
-     return this._leaseId;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), Object.defineProperty(BlobLeaseClient.prototype, "url", {
-    get: function() {
-     return this._url;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), BlobLeaseClient.prototype.acquireLease = function(duration, options) {
-    var _a, _b, _c, _d, _e, _f;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _g, span, spanOptions, e_45;
-     return __generator(this, (function(_h) {
-      switch (_h.label) {
-      case 0:
-       if (_g = createSpan("BlobLeaseClient-acquireLease", options.tracingOptions), span = _g.span, 
-       spanOptions = _g.spanOptions, this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
-       _h.label = 1;
-
-      case 1:
-       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.acquireLease({
-        abortSignal: options.abortSignal,
-        duration: duration,
-        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
-         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
-        }),
-        proposedLeaseId: this._leaseId,
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _h.sent() ];
-
-      case 3:
-       throw e_45 = _h.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_45.message
-       }), e_45;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobLeaseClient.prototype.changeLease = function(proposedLeaseId, options) {
-    var _a, _b, _c, _d, _e, _f;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _g, span, spanOptions, response, e_46;
-     return __generator(this, (function(_h) {
-      switch (_h.label) {
-      case 0:
-       if (_g = createSpan("BlobLeaseClient-changeLease", options.tracingOptions), span = _g.span, 
-       spanOptions = _g.spanOptions, this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
-       _h.label = 1;
-
-      case 1:
-       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.changeLease(this._leaseId, proposedLeaseId, {
-        abortSignal: options.abortSignal,
-        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
-         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return response = _h.sent(), this._leaseId = proposedLeaseId, [ 2, response ];
-
-      case 3:
-       throw e_46 = _h.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_46.message
-       }), e_46;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobLeaseClient.prototype.releaseLease = function(options) {
-    var _a, _b, _c, _d, _e, _f;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _g, span, spanOptions, e_47;
-     return __generator(this, (function(_h) {
-      switch (_h.label) {
-      case 0:
-       if (_g = createSpan("BlobLeaseClient-releaseLease", options.tracingOptions), span = _g.span, 
-       spanOptions = _g.spanOptions, this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
-       _h.label = 1;
-
-      case 1:
-       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.releaseLease(this._leaseId, {
-        abortSignal: options.abortSignal,
-        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
-         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _h.sent() ];
-
-      case 3:
-       throw e_47 = _h.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_47.message
-       }), e_47;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobLeaseClient.prototype.renewLease = function(options) {
-    var _a, _b, _c, _d, _e, _f;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _g, span, spanOptions, e_48;
-     return __generator(this, (function(_h) {
-      switch (_h.label) {
-      case 0:
-       if (_g = createSpan("BlobLeaseClient-renewLease", options.tracingOptions), span = _g.span, 
-       spanOptions = _g.spanOptions, this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
-       _h.label = 1;
-
-      case 1:
-       return _h.trys.push([ 1, 3, 4, 5 ]), [ 4, this._containerOrBlobOperation.renewLease(this._leaseId, {
-        abortSignal: options.abortSignal,
-        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
-         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
-        }),
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _h.sent() ];
-
-      case 3:
-       throw e_48 = _h.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_48.message
-       }), e_48;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobLeaseClient.prototype.breakLease = function(breakPeriod, options) {
-    var _a, _b, _c, _d, _e, _f;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _g, span, spanOptions, operationOptions, e_49;
-     return __generator(this, (function(_h) {
-      switch (_h.label) {
-      case 0:
-       if (_g = createSpan("BlobLeaseClient-breakLease", options.tracingOptions), span = _g.span, 
-       spanOptions = _g.spanOptions, this._isContainer && ((null === (_a = options.conditions) || void 0 === _a ? void 0 : _a.ifMatch) && "" !== (null === (_b = options.conditions) || void 0 === _b ? void 0 : _b.ifMatch) || (null === (_c = options.conditions) || void 0 === _c ? void 0 : _c.ifNoneMatch) && "" !== (null === (_d = options.conditions) || void 0 === _d ? void 0 : _d.ifNoneMatch) || (null === (_e = options.conditions) || void 0 === _e ? void 0 : _e.tagConditions))) throw new RangeError("The IfMatch, IfNoneMatch and tags access conditions are ignored by the service. Values other than undefined or their default values are not acceptable.");
-       _h.label = 1;
-
-      case 1:
-       return _h.trys.push([ 1, 3, 4, 5 ]), operationOptions = {
-        abortSignal: options.abortSignal,
-        breakPeriod: breakPeriod,
-        modifiedAccessConditions: __assign(__assign({}, options.conditions), {
-         ifTags: null === (_f = options.conditions) || void 0 === _f ? void 0 : _f.tagConditions
-        }),
-        spanOptions: spanOptions
-       }, [ 4, this._containerOrBlobOperation.breakLease(operationOptions) ];
-
-      case 2:
-       return [ 2, _h.sent() ];
-
-      case 3:
-       throw e_49 = _h.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_49.message
-       }), e_49;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, BlobLeaseClient;
-  }(), Clients_ContainerClient = function(_super) {
-   function ContainerClient(urlOrConnectionString, credentialOrPipelineOrContainerName, options) {
-    var pipeline, url, _this = this;
-    if (options = options || {}, credentialOrPipelineOrContainerName instanceof Pipeline_Pipeline) url = urlOrConnectionString, 
-    pipeline = credentialOrPipelineOrContainerName; else if (isNode && credentialOrPipelineOrContainerName instanceof StorageSharedKeyCredential_StorageSharedKeyCredential || credentialOrPipelineOrContainerName instanceof AnonymousCredential_AnonymousCredential || isTokenCredential(credentialOrPipelineOrContainerName)) url = urlOrConnectionString, 
-    pipeline = newPipeline(credentialOrPipelineOrContainerName, options); else if (credentialOrPipelineOrContainerName || "string" == typeof credentialOrPipelineOrContainerName) {
-     if (!credentialOrPipelineOrContainerName || "string" != typeof credentialOrPipelineOrContainerName) throw new Error("Expecting non-empty strings for containerName parameter");
-     var containerName = credentialOrPipelineOrContainerName, extractedCreds = extractConnectionStringParts(urlOrConnectionString);
-     if ("AccountConnString" === extractedCreds.kind) {
-      if (!isNode) throw new Error("Account connection string is only supported in Node.js environment");
-      var sharedKeyCredential = new StorageSharedKeyCredential_StorageSharedKeyCredential(extractedCreds.accountName, extractedCreds.accountKey);
-      url = appendToURLPath(extractedCreds.url, encodeURIComponent(containerName)), options.proxyOptions = getDefaultProxySettings(extractedCreds.proxyUri), 
-      pipeline = newPipeline(sharedKeyCredential, options);
-     } else {
-      if ("SASConnString" !== extractedCreds.kind) throw new Error("Connection string must be either an Account connection string or a SAS connection string");
-      url = appendToURLPath(extractedCreds.url, encodeURIComponent(containerName)) + "?" + extractedCreds.accountSas, 
-      pipeline = newPipeline(new AnonymousCredential_AnonymousCredential, options);
-     }
-    } else url = urlOrConnectionString, pipeline = newPipeline(new AnonymousCredential_AnonymousCredential, options);
-    return (_this = _super.call(this, url, pipeline) || this)._containerName = _this.getContainerNameFromUrl(), 
-    _this.containerContext = new Container(_this.storageClientContext), _this;
-   }
-   return __extends(ContainerClient, _super), Object.defineProperty(ContainerClient.prototype, "containerName", {
-    get: function() {
-     return this._containerName;
-    },
-    enumerable: !1,
-    configurable: !0
-   }), ContainerClient.prototype.create = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_50;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-create", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.create(__assign(__assign({}, options), {
-        spanOptions: spanOptions
-       })) ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       throw e_50 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_50.message
-       }), e_50;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.createIfNotExists = function(options) {
-    var _a, _b;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _c, span, spanOptions, res, e_51;
-     return __generator(this, (function(_d) {
-      switch (_d.label) {
-      case 0:
-       _c = createSpan("ContainerClient-createIfNotExists", options.tracingOptions), span = _c.span, 
-       spanOptions = _c.spanOptions, _d.label = 1;
-
-      case 1:
-       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.create(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
-
-      case 2:
-       return res = _d.sent(), [ 2, __assign(__assign({
-        succeeded: !0
-       }, res), {
-        _response: res._response
-       }) ];
-
-      case 3:
-       if (e_51 = _d.sent(), "ContainerAlreadyExists" === (null === (_a = e_51.details) || void 0 === _a ? void 0 : _a.errorCode)) return span.setStatus({
-        code: src.CanonicalCode.ALREADY_EXISTS,
-        message: "Expected exception when creating a container only if it does not already exist."
-       }), [ 2, __assign(__assign({
-        succeeded: !1
-       }, null === (_b = e_51.response) || void 0 === _b ? void 0 : _b.parsedHeaders), {
-        _response: e_51.response
-       }) ];
-       throw span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_51.message
-       }), e_51;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.exists = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_52;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-exists", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.getProperties({
-        abortSignal: options.abortSignal,
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       }) ];
-
-      case 2:
-       return _b.sent(), [ 2, !0 ];
-
-      case 3:
-       if (404 === (e_52 = _b.sent()).statusCode) return span.setStatus({
-        code: src.CanonicalCode.NOT_FOUND,
-        message: "Expected exception when checking container existence"
-       }), [ 2, !1 ];
-       throw span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_52.message
-       }), e_52;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.getBlobClient = function(blobName) {
-    return new Clients_BlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
-   }, ContainerClient.prototype.getAppendBlobClient = function(blobName) {
-    return new Clients_AppendBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
-   }, ContainerClient.prototype.getBlockBlobClient = function(blobName) {
-    return new Clients_BlockBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
-   }, ContainerClient.prototype.getPageBlobClient = function(blobName) {
-    return new Clients_PageBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
-   }, ContainerClient.prototype.getProperties = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_53;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-getProperties", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.getProperties(__assign(__assign({
-        abortSignal: options.abortSignal
-       }, options.conditions), {
-        spanOptions: spanOptions
-       })) ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       throw e_53 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_53.message
-       }), e_53;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.delete = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_54;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-delete", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.deleteMethod({
-        abortSignal: options.abortSignal,
-        leaseAccessConditions: options.conditions,
-        modifiedAccessConditions: options.conditions,
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       throw e_54 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_54.message
-       }), e_54;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.deleteIfExists = function(options) {
-    var _a, _b;
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _c, span, spanOptions, res, e_55;
-     return __generator(this, (function(_d) {
-      switch (_d.label) {
-      case 0:
-       _c = createSpan("ContainerClient-deleteIfExists", options.tracingOptions), span = _c.span, 
-       spanOptions = _c.spanOptions, _d.label = 1;
-
-      case 1:
-       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.delete(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
-
-      case 2:
-       return res = _d.sent(), [ 2, __assign(__assign({
-        succeeded: !0
-       }, res), {
-        _response: res._response
-       }) ];
-
-      case 3:
-       if (e_55 = _d.sent(), "ContainerNotFound" === (null === (_a = e_55.details) || void 0 === _a ? void 0 : _a.errorCode)) return span.setStatus({
-        code: src.CanonicalCode.NOT_FOUND,
-        message: "Expected exception when deleting a container only if it exists."
-       }), [ 2, __assign(__assign({
-        succeeded: !1
-       }, null === (_b = e_55.response) || void 0 === _b ? void 0 : _b.parsedHeaders), {
-        _response: e_55.response
-       }) ];
-       throw span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_55.message
-       }), e_55;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.setMetadata = function(metadata, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_56;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       if (options.conditions || (options.conditions = {}), options.conditions.ifUnmodifiedSince) throw new RangeError("the IfUnmodifiedSince must have their default values because they are ignored by the blob service");
-       _a = createSpan("ContainerClient-setMetadata", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.setMetadata({
-        abortSignal: options.abortSignal,
-        leaseAccessConditions: options.conditions,
-        metadata: metadata,
-        modifiedAccessConditions: options.conditions,
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       throw e_56 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_56.message
-       }), e_56;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.getAccessPolicy = function(options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, res, _i, response_1, identifier, accessPolicy, e_57;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-getAccessPolicy", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.getAccessPolicy({
-        abortSignal: options.abortSignal,
-        leaseAccessConditions: options.conditions,
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       for (response = _b.sent(), res = {
-        _response: response._response,
-        blobPublicAccess: response.blobPublicAccess,
-        date: response.date,
-        etag: response.etag,
-        errorCode: response.errorCode,
-        lastModified: response.lastModified,
-        requestId: response.requestId,
-        clientRequestId: response.clientRequestId,
-        signedIdentifiers: [],
-        version: response.version
-       }, _i = 0, response_1 = response; _i < response_1.length; _i++) identifier = response_1[_i], 
-       accessPolicy = void 0, identifier.accessPolicy && (accessPolicy = {
-        permissions: identifier.accessPolicy.permissions
-       }, identifier.accessPolicy.expiresOn && (accessPolicy.expiresOn = new Date(identifier.accessPolicy.expiresOn)), 
-       identifier.accessPolicy.startsOn && (accessPolicy.startsOn = new Date(identifier.accessPolicy.startsOn))), 
-       res.signedIdentifiers.push({
-        accessPolicy: accessPolicy,
-        id: identifier.id
-       });
-       return [ 2, res ];
-
-      case 3:
-       throw e_57 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_57.message
-       }), e_57;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.setAccessPolicy = function(access, containerAcl, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, acl, _i, _b, identifier, e_58;
-     return __generator(this, (function(_c) {
-      switch (_c.label) {
-      case 0:
-       options.conditions = options.conditions || {}, _a = createSpan("ContainerClient-setAccessPolicy", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _c.label = 1;
-
-      case 1:
-       for (_c.trys.push([ 1, 3, 4, 5 ]), acl = [], _i = 0, _b = containerAcl || []; _i < _b.length; _i++) identifier = _b[_i], 
-       acl.push({
-        accessPolicy: {
-         expiresOn: identifier.accessPolicy.expiresOn ? truncatedISO8061Date(identifier.accessPolicy.expiresOn) : "",
-         permissions: identifier.accessPolicy.permissions,
-         startsOn: identifier.accessPolicy.startsOn ? truncatedISO8061Date(identifier.accessPolicy.startsOn) : ""
-        },
-        id: identifier.id
-       });
-       return [ 4, this.containerContext.setAccessPolicy({
-        abortSignal: options.abortSignal,
-        access: access,
-        containerAcl: acl,
-        leaseAccessConditions: options.conditions,
-        modifiedAccessConditions: options.conditions,
-        spanOptions: spanOptions
-       }) ];
-
-      case 2:
-       return [ 2, _c.sent() ];
-
-      case 3:
-       throw e_58 = _c.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_58.message
-       }), e_58;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.getBlobLeaseClient = function(proposeLeaseId) {
-    return new Clients_BlobLeaseClient(this, proposeLeaseId);
-   }, ContainerClient.prototype.uploadBlockBlob = function(blobName, body, contentLength, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, blockBlobClient, response, e_59;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-uploadBlockBlob", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, (blockBlobClient = this.getBlockBlobClient(blobName)).upload(body, contentLength, __assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
-
-      case 2:
-       return response = _b.sent(), [ 2, {
-        blockBlobClient: blockBlobClient,
-        response: response
-       } ];
-
-      case 3:
-       throw e_59 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_59.message
-       }), e_59;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.deleteBlob = function(blobName, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, blobClient, e_60;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-deleteBlob", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), blobClient = this.getBlobClient(blobName), 
-       options.versionId && (blobClient = blobClient.withVersion(options.versionId)), [ 4, blobClient.delete(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
-
-      case 2:
-       return [ 2, _b.sent() ];
-
-      case 3:
-       throw e_60 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_60.message
-       }), e_60;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listBlobFlatSegment = function(marker, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, e_61;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-listBlobFlatSegment", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.listBlobFlatSegment(__assign(__assign({
-        marker: marker
-       }, options), {
-        spanOptions: spanOptions
-       })) ];
-
-      case 2:
-       return response = _b.sent(), [ 2, __assign(__assign({}, response), {
-        _response: response._response,
-        segment: __assign(__assign({}, response.segment), {
-         blobItems: response.segment.blobItems.map((function(blobItemInteral) {
-          return __assign(__assign({}, blobItemInteral), {
-           tags: toTags(blobItemInteral.blobTags),
-           objectReplicationSourceProperties: parseObjectReplicationRecord(blobItemInteral.objectReplicationMetadata)
-          });
-         }))
-        })
-       }) ];
-
-      case 3:
-       throw e_61 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_61.message
-       }), e_61;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listBlobHierarchySegment = function(delimiter, marker, options) {
-    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, e_62;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
-      case 0:
-       _a = createSpan("ContainerClient-listBlobHierarchySegment", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
-
-      case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.listBlobHierarchySegment(delimiter, __assign(__assign({
-        marker: marker
-       }, options), {
-        spanOptions: spanOptions
-       })) ];
-
-      case 2:
-       return response = _b.sent(), [ 2, __assign(__assign({}, response), {
-        _response: response._response,
-        segment: __assign(__assign({}, response.segment), {
-         blobItems: response.segment.blobItems.map((function(blobItemInteral) {
-          return __assign(__assign({}, blobItemInteral), {
-           tags: toTags(blobItemInteral.blobTags),
-           objectReplicationSourceProperties: parseObjectReplicationRecord(blobItemInteral.objectReplicationMetadata)
-          });
-         }))
-        })
-       }) ];
-
-      case 3:
-       throw e_62 = _b.sent(), span.setStatus({
-        code: src.CanonicalCode.UNKNOWN,
-        message: e_62.message
-       }), e_62;
-
-      case 4:
-       return span.end(), [ 7 ];
-
-      case 5:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listSegments = function(marker, options) {
-    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var listBlobsFlatSegmentResponse;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       if (!marker && void 0 !== marker) return [ 3, 7 ];
-       _a.label = 1;
-
-      case 1:
-       return [ 4, __await(this.listBlobFlatSegment(marker, options)) ];
-
-      case 2:
-       return listBlobsFlatSegmentResponse = _a.sent(), marker = listBlobsFlatSegmentResponse.continuationToken, 
-       [ 4, __await(listBlobsFlatSegmentResponse) ];
-
-      case 3:
-       return [ 4, __await.apply(void 0, [ _a.sent() ]) ];
-
-      case 4:
-       return [ 4, _a.sent() ];
-
-      case 5:
-       _a.sent(), _a.label = 6;
-
-      case 6:
-       if (marker) return [ 3, 1 ];
-       _a.label = 7;
-
-      case 7:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listItems = function(options) {
-    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var _a, _b, e_63_1, e_63, _c;
-     return __generator(this, (function(_d) {
-      switch (_d.label) {
-      case 0:
-       _d.trys.push([ 0, 7, 8, 13 ]), _a = __asyncValues(this.listSegments(void 0, options)), 
-       _d.label = 1;
-
-      case 1:
-       return [ 4, __await(_a.next()) ];
-
-      case 2:
-       return (_b = _d.sent()).done ? [ 3, 6 ] : [ 5, __values(__asyncDelegator(__asyncValues(_b.value.segment.blobItems))) ];
-
-      case 3:
-       return [ 4, __await.apply(void 0, [ _d.sent() ]) ];
-
-      case 4:
-       _d.sent(), _d.label = 5;
-
-      case 5:
-       return [ 3, 1 ];
-
-      case 6:
-       return [ 3, 13 ];
-
-      case 7:
-       return e_63_1 = _d.sent(), e_63 = {
-        error: e_63_1
-       }, [ 3, 13 ];
-
-      case 8:
-       return _d.trys.push([ 8, , 11, 12 ]), _b && !_b.done && (_c = _a.return) ? [ 4, __await(_c.call(_a)) ] : [ 3, 10 ];
-
-      case 9:
-       _d.sent(), _d.label = 10;
-
-      case 10:
-       return [ 3, 12 ];
-
-      case 11:
-       if (e_63) throw e_63.error;
-       return [ 7 ];
-
-      case 12:
-       return [ 7 ];
-
-      case 13:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listBlobsFlat = function(options) {
-    var _a, _this = this;
-    void 0 === options && (options = {});
-    var include = [];
-    options.includeCopy && include.push("copy"), options.includeDeleted && include.push("deleted"), 
-    options.includeMetadata && include.push("metadata"), options.includeSnapshots && include.push("snapshots"), 
-    options.includeVersions && include.push("versions"), options.includeUncommitedBlobs && include.push("uncommittedblobs"), 
-    options.includeTags && include.push("tags"), "" === options.prefix && (options.prefix = void 0);
-    var updatedOptions = __assign(__assign({}, options), include.length > 0 ? {
-     include: include
-    } : {}), iter = this.listItems(updatedOptions);
-    return (_a = {
-     next: function() {
-      return iter.next();
-     }
-    })[Symbol.asyncIterator] = function() {
-     return this;
-    }, _a.byPage = function(settings) {
-     return void 0 === settings && (settings = {}), _this.listSegments(settings.continuationToken, __assign({
-      maxPageSize: settings.maxPageSize
-     }, updatedOptions));
-    }, _a;
-   }, ContainerClient.prototype.listHierarchySegments = function(delimiter, marker, options) {
-    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var listBlobsHierarchySegmentResponse;
-     return __generator(this, (function(_a) {
-      switch (_a.label) {
-      case 0:
-       if (!marker && void 0 !== marker) return [ 3, 7 ];
-       _a.label = 1;
-
-      case 1:
-       return [ 4, __await(this.listBlobHierarchySegment(delimiter, marker, options)) ];
-
-      case 2:
-       return listBlobsHierarchySegmentResponse = _a.sent(), marker = listBlobsHierarchySegmentResponse.continuationToken, 
-       [ 4, __await(listBlobsHierarchySegmentResponse) ];
-
-      case 3:
-       return [ 4, __await.apply(void 0, [ _a.sent() ]) ];
-
-      case 4:
-       return [ 4, _a.sent() ];
-
-      case 5:
-       _a.sent(), _a.label = 6;
-
-      case 6:
-       if (marker) return [ 3, 1 ];
-       _a.label = 7;
-
-      case 7:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listItemsByHierarchy = function(delimiter, options) {
-    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var _a, _b, listBlobsHierarchySegmentResponse, segment, _i, _c, prefix, _d, _e, blob, e_64_1, e_64, _f;
-     return __generator(this, (function(_g) {
-      switch (_g.label) {
-      case 0:
-       _g.trys.push([ 0, 14, 15, 20 ]), _a = __asyncValues(this.listHierarchySegments(delimiter, void 0, options)), 
-       _g.label = 1;
-
-      case 1:
-       return [ 4, __await(_a.next()) ];
-
-      case 2:
-       if ((_b = _g.sent()).done) return [ 3, 13 ];
-       if (listBlobsHierarchySegmentResponse = _b.value, !(segment = listBlobsHierarchySegmentResponse.segment).blobPrefixes) return [ 3, 7 ];
-       _i = 0, _c = segment.blobPrefixes, _g.label = 3;
-
-      case 3:
-       return _i < _c.length ? (prefix = _c[_i], [ 4, __await(__assign({
-        kind: "prefix"
-       }, prefix)) ]) : [ 3, 7 ];
-
-      case 4:
-       return [ 4, _g.sent() ];
-
-      case 5:
-       _g.sent(), _g.label = 6;
-
-      case 6:
-       return _i++, [ 3, 3 ];
-
-      case 7:
-       _d = 0, _e = segment.blobItems, _g.label = 8;
-
-      case 8:
-       return _d < _e.length ? (blob = _e[_d], [ 4, __await(__assign({
-        kind: "blob"
-       }, blob)) ]) : [ 3, 12 ];
-
-      case 9:
-       return [ 4, _g.sent() ];
-
-      case 10:
-       _g.sent(), _g.label = 11;
-
-      case 11:
-       return _d++, [ 3, 8 ];
-
-      case 12:
-       return [ 3, 1 ];
-
-      case 13:
-       return [ 3, 20 ];
-
-      case 14:
-       return e_64_1 = _g.sent(), e_64 = {
-        error: e_64_1
-       }, [ 3, 20 ];
-
-      case 15:
-       return _g.trys.push([ 15, , 18, 19 ]), _b && !_b.done && (_f = _a.return) ? [ 4, __await(_f.call(_a)) ] : [ 3, 17 ];
-
-      case 16:
-       _g.sent(), _g.label = 17;
-
-      case 17:
-       return [ 3, 19 ];
-
-      case 18:
-       if (e_64) throw e_64.error;
-       return [ 7 ];
-
-      case 19:
-       return [ 7 ];
-
-      case 20:
-       return [ 2 ];
-      }
-     }));
-    }));
-   }, ContainerClient.prototype.listBlobsByHierarchy = function(delimiter, options) {
-    var _a, _this = this;
-    if (void 0 === options && (options = {}), "" === delimiter) throw new RangeError("delimiter should contain one or more characters");
-    var include = [];
-    options.includeCopy && include.push("copy"), options.includeDeleted && include.push("deleted"), 
-    options.includeMetadata && include.push("metadata"), options.includeSnapshots && include.push("snapshots"), 
-    options.includeVersions && include.push("versions"), options.includeUncommitedBlobs && include.push("uncommittedblobs"), 
-    options.includeTags && include.push("tags"), "" === options.prefix && (options.prefix = void 0);
-    var updatedOptions = __assign(__assign({}, options), include.length > 0 ? {
-     include: include
-    } : {}), iter = this.listItemsByHierarchy(delimiter, updatedOptions);
-    return (_a = {
-     next: function() {
-      return __awaiter(this, void 0, void 0, (function() {
-       return __generator(this, (function(_a) {
-        return [ 2, iter.next() ];
-       }));
-      }));
-     }
-    })[Symbol.asyncIterator] = function() {
-     return this;
-    }, _a.byPage = function(settings) {
-     return void 0 === settings && (settings = {}), _this.listHierarchySegments(delimiter, settings.continuationToken, __assign({
-      maxPageSize: settings.maxPageSize
-     }, updatedOptions));
-    }, _a;
-   }, ContainerClient.prototype.getContainerNameFromUrl = function() {
-    var containerName;
-    try {
-     var parsedUrl = url_URLBuilder.parse(this.url);
-     if (containerName = "blob" === parsedUrl.getHost().split(".")[1] ? parsedUrl.getPath().split("/")[1] : isIpEndpointStyle(parsedUrl) ? parsedUrl.getPath().split("/")[2] : parsedUrl.getPath().split("/")[1], 
-     !(containerName = decodeURIComponent(containerName))) throw new Error("Provided containerName is invalid.");
-     return containerName;
-    } catch (error) {
-     throw new Error("Unable to extract containerName with provided information.");
-    }
-   }, ContainerClient.prototype.generateSasUrl = function(options) {
-    var _this = this;
-    return new Promise((function(resolve) {
-     if (!(_this.credential instanceof StorageSharedKeyCredential_StorageSharedKeyCredential)) throw new RangeError("Can only generate the SAS when the client is initialized with a shared key credential");
-     var sas = generateBlobSASQueryParameters(__assign({
-      containerName: _this._containerName
-     }, options), _this.credential).toString();
-     resolve(appendToURLQuery(_this.url, sas));
-    }));
-   }, ContainerClient;
-  }(StorageClient_StorageClient);
+  }(Clients_BlobClient);
   function getBodyAsText(batchResponse) {
    return __awaiter(this, void 0, void 0, (function() {
     var buffer, responseLength;
@@ -52675,7 +51999,7 @@
     if (this.batchType || (this.batchType = batchType), this.batchType !== batchType) throw new RangeError("BlobBatch only supports one operation type per batch and it already is being used for " + this.batchType + " operations.");
    }, BlobBatch.prototype.deleteBlob = function(urlOrBlobClient, credentialOrOptions, options) {
     return __awaiter(this, void 0, void 0, (function() {
-     var url, credential, _a, span, spanOptions, e_1, _this = this;
+     var url, credential, _a, span, updatedOptions, e_1, _this = this;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
@@ -52684,8 +52008,8 @@
         if (!(urlOrBlobClient instanceof Clients_BlobClient)) throw new RangeError("Invalid arguments. Either url and credential, or BlobClient need be provided.");
         url = urlOrBlobClient.url, credential = urlOrBlobClient.credential, options = credentialOrOptions;
        }
-       options || (options = {}), _a = createSpan("BatchDeleteRequest-addSubRequest", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       options || (options = {}), _a = createSpan("BatchDeleteRequest-addSubRequest", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), this.setBatchType("delete"), [ 4, this.addSubRequestInternal({
@@ -52696,11 +52020,7 @@
          return __generator(this, (function(_a) {
           switch (_a.label) {
           case 0:
-           return [ 4, new Clients_BlobClient(url, this.batchRequest.createPipeline(credential)).delete(__assign(__assign({}, options), {
-            tracingOptions: __assign(__assign({}, options.tracingOptions), {
-             spanOptions: spanOptions
-            })
-           })) ];
+           return [ 4, new Clients_BlobClient(url, this.batchRequest.createPipeline(credential)).delete(updatedOptions) ];
 
           case 1:
            return _a.sent(), [ 2 ];
@@ -52728,7 +52048,7 @@
     }));
    }, BlobBatch.prototype.setBlobAccessTier = function(urlOrBlobClient, credentialOrTier, tierOrOptions, options) {
     return __awaiter(this, void 0, void 0, (function() {
-     var url, credential, tier, _a, span, spanOptions, e_2, _this = this;
+     var url, credential, tier, _a, span, updatedOptions, e_2, _this = this;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
@@ -52738,8 +52058,8 @@
         url = urlOrBlobClient.url, credential = urlOrBlobClient.credential, tier = credentialOrTier, 
         options = tierOrOptions;
        }
-       options || (options = {}), _a = createSpan("BatchSetTierRequest-addSubRequest", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       options || (options = {}), _a = createSpan("BatchSetTierRequest-addSubRequest", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), this.setBatchType("setAccessTier"), [ 4, this.addSubRequestInternal({
@@ -52750,11 +52070,7 @@
          return __generator(this, (function(_a) {
           switch (_a.label) {
           case 0:
-           return [ 4, new Clients_BlobClient(url, this.batchRequest.createPipeline(credential)).setAccessTier(tier, __assign(__assign({}, options), {
-            tracingOptions: __assign(__assign({}, options.tracingOptions), {
-             spanOptions: spanOptions
-            })
-           })) ];
+           return [ 4, new Clients_BlobClient(url, this.batchRequest.createPipeline(credential)).setAccessTier(tier, updatedOptions) ];
 
           case 1:
            return _a.sent(), [ 2 ];
@@ -52866,8 +52182,8 @@
    function BlobBatchClient(url, credentialOrPipeline, options) {
     var pipeline;
     pipeline = credentialOrPipeline instanceof Pipeline_Pipeline ? credentialOrPipeline : newPipeline(credentialOrPipeline || new AnonymousCredential_AnonymousCredential, options);
-    var storageClientContext = new storageClientContext_StorageClientContext(url, pipeline.toServiceClientOptions());
-    this._serviceContext = new Service(storageClientContext);
+    var storageClientContext = new storageClientContext_StorageClientContext(url, pipeline.toServiceClientOptions()), path = getURLPath(url);
+    this.serviceOrContainerContext = path && "/" !== path ? new Container(storageClientContext) : new Service(storageClientContext);
    }
    return BlobBatchClient.prototype.createBatch = function() {
     return new BlobBatch_BlobBatch;
@@ -52931,20 +52247,18 @@
     }));
    }, BlobBatchClient.prototype.submitBatch = function(batchRequest, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, batchRequestBody, rawBatchResponse, responseSummary, e_1;
+     var _a, span, updatedOptions, batchRequestBody, rawBatchResponse, responseSummary, e_1;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
        if (!batchRequest || 0 == batchRequest.getSubRequests().size) throw new RangeError("Batch request should contain one or more sub requests.");
-       _a = createSpan("BlobBatchClient-submitBatch", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobBatchClient-submitBatch", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 4, 5, 6 ]), batchRequestBody = batchRequest.getHttpRequestBody(), 
-       [ 4, this._serviceContext.submitBatch(batchRequestBody, (str = batchRequestBody, 
-       Buffer.byteLength(str)), batchRequest.getMultiPartContentType(), __assign(__assign({}, options), {
-        spanOptions: spanOptions
-       })) ];
+       [ 4, this.serviceOrContainerContext.submitBatch(batchRequestBody, (str = batchRequestBody, 
+       Buffer.byteLength(str)), batchRequest.getMultiPartContentType(), __assign(__assign({}, options), convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return rawBatchResponse = _b.sent(), [ 4, new BatchResponseParser_BatchResponseParser(rawBatchResponse, batchRequest.getSubRequests()).parseBatchResponse() ];
@@ -52978,7 +52292,804 @@
      }));
     }));
    }, BlobBatchClient;
-  }(), AccountSASPermissions = function() {
+  }(), ContainerClient_ContainerClient = function(_super) {
+   function ContainerClient(urlOrConnectionString, credentialOrPipelineOrContainerName, options) {
+    var pipeline, url, _this = this;
+    if (options = options || {}, credentialOrPipelineOrContainerName instanceof Pipeline_Pipeline) url = urlOrConnectionString, 
+    pipeline = credentialOrPipelineOrContainerName; else if (isNode && credentialOrPipelineOrContainerName instanceof StorageSharedKeyCredential_StorageSharedKeyCredential || credentialOrPipelineOrContainerName instanceof AnonymousCredential_AnonymousCredential || isTokenCredential(credentialOrPipelineOrContainerName)) url = urlOrConnectionString, 
+    pipeline = newPipeline(credentialOrPipelineOrContainerName, options); else if (credentialOrPipelineOrContainerName || "string" == typeof credentialOrPipelineOrContainerName) {
+     if (!credentialOrPipelineOrContainerName || "string" != typeof credentialOrPipelineOrContainerName) throw new Error("Expecting non-empty strings for containerName parameter");
+     var containerName = credentialOrPipelineOrContainerName, extractedCreds = extractConnectionStringParts(urlOrConnectionString);
+     if ("AccountConnString" === extractedCreds.kind) {
+      if (!isNode) throw new Error("Account connection string is only supported in Node.js environment");
+      var sharedKeyCredential = new StorageSharedKeyCredential_StorageSharedKeyCredential(extractedCreds.accountName, extractedCreds.accountKey);
+      url = appendToURLPath(extractedCreds.url, encodeURIComponent(containerName)), options.proxyOptions = getDefaultProxySettings(extractedCreds.proxyUri), 
+      pipeline = newPipeline(sharedKeyCredential, options);
+     } else {
+      if ("SASConnString" !== extractedCreds.kind) throw new Error("Connection string must be either an Account connection string or a SAS connection string");
+      url = appendToURLPath(extractedCreds.url, encodeURIComponent(containerName)) + "?" + extractedCreds.accountSas, 
+      pipeline = newPipeline(new AnonymousCredential_AnonymousCredential, options);
+     }
+    } else url = urlOrConnectionString, pipeline = newPipeline(new AnonymousCredential_AnonymousCredential, options);
+    return (_this = _super.call(this, url, pipeline) || this)._containerName = _this.getContainerNameFromUrl(), 
+    _this.containerContext = new Container(_this.storageClientContext), _this;
+   }
+   return __extends(ContainerClient, _super), Object.defineProperty(ContainerClient.prototype, "containerName", {
+    get: function() {
+     return this._containerName;
+    },
+    enumerable: !1,
+    configurable: !0
+   }), ContainerClient.prototype.create = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, e_1;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-create", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.create(__assign(__assign({}, options), convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_1 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_1.message
+       }), e_1;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.createIfNotExists = function(options) {
+    var _a, _b;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _c, span, updatedOptions, res, e_2;
+     return __generator(this, (function(_d) {
+      switch (_d.label) {
+      case 0:
+       _c = createSpan("ContainerClient-createIfNotExists", options), span = _c.span, updatedOptions = _c.updatedOptions, 
+       _d.label = 1;
+
+      case 1:
+       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.create(updatedOptions) ];
+
+      case 2:
+       return res = _d.sent(), [ 2, __assign(__assign({
+        succeeded: !0
+       }, res), {
+        _response: res._response
+       }) ];
+
+      case 3:
+       if (e_2 = _d.sent(), "ContainerAlreadyExists" === (null === (_a = e_2.details) || void 0 === _a ? void 0 : _a.errorCode)) return span.setStatus({
+        code: src.CanonicalCode.ALREADY_EXISTS,
+        message: "Expected exception when creating a container only if it does not already exist."
+       }), [ 2, __assign(__assign({
+        succeeded: !1
+       }, null === (_b = e_2.response) || void 0 === _b ? void 0 : _b.parsedHeaders), {
+        _response: e_2.response
+       }) ];
+       throw span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_2.message
+       }), e_2;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.exists = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, e_3;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-exists", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.getProperties({
+        abortSignal: options.abortSignal,
+        tracingOptions: updatedOptions.tracingOptions
+       }) ];
+
+      case 2:
+       return _b.sent(), [ 2, !0 ];
+
+      case 3:
+       if (404 === (e_3 = _b.sent()).statusCode) return span.setStatus({
+        code: src.CanonicalCode.NOT_FOUND,
+        message: "Expected exception when checking container existence"
+       }), [ 2, !1 ];
+       throw span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_3.message
+       }), e_3;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.getBlobClient = function(blobName) {
+    return new Clients_BlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
+   }, ContainerClient.prototype.getAppendBlobClient = function(blobName) {
+    return new Clients_AppendBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
+   }, ContainerClient.prototype.getBlockBlobClient = function(blobName) {
+    return new Clients_BlockBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
+   }, ContainerClient.prototype.getPageBlobClient = function(blobName) {
+    return new Clients_PageBlobClient(appendToURLPath(this.url, encodeURIComponent(blobName)), this.pipeline);
+   }, ContainerClient.prototype.getProperties = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, e_4;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-getProperties", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.getProperties(__assign(__assign({
+        abortSignal: options.abortSignal
+       }, options.conditions), convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_4 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_4.message
+       }), e_4;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.delete = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, e_5;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-delete", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.deleteMethod(__assign({
+        abortSignal: options.abortSignal,
+        leaseAccessConditions: options.conditions,
+        modifiedAccessConditions: options.conditions
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_5 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_5.message
+       }), e_5;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.deleteIfExists = function(options) {
+    var _a, _b;
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _c, span, updatedOptions, res, e_6;
+     return __generator(this, (function(_d) {
+      switch (_d.label) {
+      case 0:
+       _c = createSpan("ContainerClient-deleteIfExists", options), span = _c.span, updatedOptions = _c.updatedOptions, 
+       _d.label = 1;
+
+      case 1:
+       return _d.trys.push([ 1, 3, 4, 5 ]), [ 4, this.delete(updatedOptions) ];
+
+      case 2:
+       return res = _d.sent(), [ 2, __assign(__assign({
+        succeeded: !0
+       }, res), {
+        _response: res._response
+       }) ];
+
+      case 3:
+       if (e_6 = _d.sent(), "ContainerNotFound" === (null === (_a = e_6.details) || void 0 === _a ? void 0 : _a.errorCode)) return span.setStatus({
+        code: src.CanonicalCode.NOT_FOUND,
+        message: "Expected exception when deleting a container only if it exists."
+       }), [ 2, __assign(__assign({
+        succeeded: !1
+       }, null === (_b = e_6.response) || void 0 === _b ? void 0 : _b.parsedHeaders), {
+        _response: e_6.response
+       }) ];
+       throw span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_6.message
+       }), e_6;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.setMetadata = function(metadata, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, e_7;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       if (options.conditions || (options.conditions = {}), options.conditions.ifUnmodifiedSince) throw new RangeError("the IfUnmodifiedSince must have their default values because they are ignored by the blob service");
+       _a = createSpan("ContainerClient-setMetadata", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.setMetadata(__assign({
+        abortSignal: options.abortSignal,
+        leaseAccessConditions: options.conditions,
+        metadata: metadata,
+        modifiedAccessConditions: options.conditions
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_7 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_7.message
+       }), e_7;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.getAccessPolicy = function(options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, response, res, _i, response_1, identifier, accessPolicy, e_8;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       options.conditions || (options.conditions = {}), _a = createSpan("ContainerClient-getAccessPolicy", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.getAccessPolicy(__assign({
+        abortSignal: options.abortSignal,
+        leaseAccessConditions: options.conditions
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       for (response = _b.sent(), res = {
+        _response: response._response,
+        blobPublicAccess: response.blobPublicAccess,
+        date: response.date,
+        etag: response.etag,
+        errorCode: response.errorCode,
+        lastModified: response.lastModified,
+        requestId: response.requestId,
+        clientRequestId: response.clientRequestId,
+        signedIdentifiers: [],
+        version: response.version
+       }, _i = 0, response_1 = response; _i < response_1.length; _i++) identifier = response_1[_i], 
+       accessPolicy = void 0, identifier.accessPolicy && (accessPolicy = {
+        permissions: identifier.accessPolicy.permissions
+       }, identifier.accessPolicy.expiresOn && (accessPolicy.expiresOn = new Date(identifier.accessPolicy.expiresOn)), 
+       identifier.accessPolicy.startsOn && (accessPolicy.startsOn = new Date(identifier.accessPolicy.startsOn))), 
+       res.signedIdentifiers.push({
+        accessPolicy: accessPolicy,
+        id: identifier.id
+       });
+       return [ 2, res ];
+
+      case 3:
+       throw e_8 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_8.message
+       }), e_8;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.setAccessPolicy = function(access, containerAcl, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, acl, _i, _b, identifier, e_9;
+     return __generator(this, (function(_c) {
+      switch (_c.label) {
+      case 0:
+       options.conditions = options.conditions || {}, _a = createSpan("ContainerClient-setAccessPolicy", options), 
+       span = _a.span, updatedOptions = _a.updatedOptions, _c.label = 1;
+
+      case 1:
+       for (_c.trys.push([ 1, 3, 4, 5 ]), acl = [], _i = 0, _b = containerAcl || []; _i < _b.length; _i++) identifier = _b[_i], 
+       acl.push({
+        accessPolicy: {
+         expiresOn: identifier.accessPolicy.expiresOn ? truncatedISO8061Date(identifier.accessPolicy.expiresOn) : "",
+         permissions: identifier.accessPolicy.permissions,
+         startsOn: identifier.accessPolicy.startsOn ? truncatedISO8061Date(identifier.accessPolicy.startsOn) : ""
+        },
+        id: identifier.id
+       });
+       return [ 4, this.containerContext.setAccessPolicy(__assign({
+        abortSignal: options.abortSignal,
+        access: access,
+        containerAcl: acl,
+        leaseAccessConditions: options.conditions,
+        modifiedAccessConditions: options.conditions
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _c.sent() ];
+
+      case 3:
+       throw e_9 = _c.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_9.message
+       }), e_9;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.getBlobLeaseClient = function(proposeLeaseId) {
+    return new BlobLeaseClient_BlobLeaseClient(this, proposeLeaseId);
+   }, ContainerClient.prototype.uploadBlockBlob = function(blobName, body, contentLength, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, blockBlobClient, response, e_10;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-uploadBlockBlob", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, (blockBlobClient = this.getBlockBlobClient(blobName)).upload(body, contentLength, updatedOptions) ];
+
+      case 2:
+       return response = _b.sent(), [ 2, {
+        blockBlobClient: blockBlobClient,
+        response: response
+       } ];
+
+      case 3:
+       throw e_10 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_10.message
+       }), e_10;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.deleteBlob = function(blobName, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, blobClient, e_11;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-deleteBlob", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), blobClient = this.getBlobClient(blobName), 
+       options.versionId && (blobClient = blobClient.withVersion(options.versionId)), [ 4, blobClient.delete(updatedOptions) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_11 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_11.message
+       }), e_11;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listBlobFlatSegment = function(marker, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, response, e_12;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-listBlobFlatSegment", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.listBlobFlatSegment(__assign(__assign({
+        marker: marker
+       }, options), convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return response = _b.sent(), [ 2, __assign(__assign({}, response), {
+        _response: response._response,
+        segment: __assign(__assign({}, response.segment), {
+         blobItems: response.segment.blobItems.map((function(blobItemInteral) {
+          return __assign(__assign({}, blobItemInteral), {
+           tags: toTags(blobItemInteral.blobTags),
+           objectReplicationSourceProperties: parseObjectReplicationRecord(blobItemInteral.objectReplicationMetadata)
+          });
+         }))
+        })
+       }) ];
+
+      case 3:
+       throw e_12 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_12.message
+       }), e_12;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listBlobHierarchySegment = function(delimiter, marker, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, response, e_13;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("ContainerClient-listBlobHierarchySegment", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.containerContext.listBlobHierarchySegment(delimiter, __assign(__assign({
+        marker: marker
+       }, options), convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return response = _b.sent(), [ 2, __assign(__assign({}, response), {
+        _response: response._response,
+        segment: __assign(__assign({}, response.segment), {
+         blobItems: response.segment.blobItems.map((function(blobItemInteral) {
+          return __assign(__assign({}, blobItemInteral), {
+           tags: toTags(blobItemInteral.blobTags),
+           objectReplicationSourceProperties: parseObjectReplicationRecord(blobItemInteral.objectReplicationMetadata)
+          });
+         }))
+        })
+       }) ];
+
+      case 3:
+       throw e_13 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_13.message
+       }), e_13;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listSegments = function(marker, options) {
+    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
+     var listBlobsFlatSegmentResponse;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       if (!marker && void 0 !== marker) return [ 3, 7 ];
+       _a.label = 1;
+
+      case 1:
+       return [ 4, __await(this.listBlobFlatSegment(marker, options)) ];
+
+      case 2:
+       return listBlobsFlatSegmentResponse = _a.sent(), marker = listBlobsFlatSegmentResponse.continuationToken, 
+       [ 4, __await(listBlobsFlatSegmentResponse) ];
+
+      case 3:
+       return [ 4, __await.apply(void 0, [ _a.sent() ]) ];
+
+      case 4:
+       return [ 4, _a.sent() ];
+
+      case 5:
+       _a.sent(), _a.label = 6;
+
+      case 6:
+       if (marker) return [ 3, 1 ];
+       _a.label = 7;
+
+      case 7:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listItems = function(options) {
+    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
+     var _a, _b, e_14_1, e_14, _c;
+     return __generator(this, (function(_d) {
+      switch (_d.label) {
+      case 0:
+       _d.trys.push([ 0, 7, 8, 13 ]), _a = __asyncValues(this.listSegments(void 0, options)), 
+       _d.label = 1;
+
+      case 1:
+       return [ 4, __await(_a.next()) ];
+
+      case 2:
+       return (_b = _d.sent()).done ? [ 3, 6 ] : [ 5, __values(__asyncDelegator(__asyncValues(_b.value.segment.blobItems))) ];
+
+      case 3:
+       return [ 4, __await.apply(void 0, [ _d.sent() ]) ];
+
+      case 4:
+       _d.sent(), _d.label = 5;
+
+      case 5:
+       return [ 3, 1 ];
+
+      case 6:
+       return [ 3, 13 ];
+
+      case 7:
+       return e_14_1 = _d.sent(), e_14 = {
+        error: e_14_1
+       }, [ 3, 13 ];
+
+      case 8:
+       return _d.trys.push([ 8, , 11, 12 ]), _b && !_b.done && (_c = _a.return) ? [ 4, __await(_c.call(_a)) ] : [ 3, 10 ];
+
+      case 9:
+       _d.sent(), _d.label = 10;
+
+      case 10:
+       return [ 3, 12 ];
+
+      case 11:
+       if (e_14) throw e_14.error;
+       return [ 7 ];
+
+      case 12:
+       return [ 7 ];
+
+      case 13:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listBlobsFlat = function(options) {
+    var _a, _this = this;
+    void 0 === options && (options = {});
+    var include = [];
+    options.includeCopy && include.push("copy"), options.includeDeleted && include.push("deleted"), 
+    options.includeMetadata && include.push("metadata"), options.includeSnapshots && include.push("snapshots"), 
+    options.includeVersions && include.push("versions"), options.includeUncommitedBlobs && include.push("uncommittedblobs"), 
+    options.includeTags && include.push("tags"), "" === options.prefix && (options.prefix = void 0);
+    var updatedOptions = __assign(__assign({}, options), include.length > 0 ? {
+     include: include
+    } : {}), iter = this.listItems(updatedOptions);
+    return (_a = {
+     next: function() {
+      return iter.next();
+     }
+    })[Symbol.asyncIterator] = function() {
+     return this;
+    }, _a.byPage = function(settings) {
+     return void 0 === settings && (settings = {}), _this.listSegments(settings.continuationToken, __assign({
+      maxPageSize: settings.maxPageSize
+     }, updatedOptions));
+    }, _a;
+   }, ContainerClient.prototype.listHierarchySegments = function(delimiter, marker, options) {
+    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
+     var listBlobsHierarchySegmentResponse;
+     return __generator(this, (function(_a) {
+      switch (_a.label) {
+      case 0:
+       if (!marker && void 0 !== marker) return [ 3, 7 ];
+       _a.label = 1;
+
+      case 1:
+       return [ 4, __await(this.listBlobHierarchySegment(delimiter, marker, options)) ];
+
+      case 2:
+       return listBlobsHierarchySegmentResponse = _a.sent(), marker = listBlobsHierarchySegmentResponse.continuationToken, 
+       [ 4, __await(listBlobsHierarchySegmentResponse) ];
+
+      case 3:
+       return [ 4, __await.apply(void 0, [ _a.sent() ]) ];
+
+      case 4:
+       return [ 4, _a.sent() ];
+
+      case 5:
+       _a.sent(), _a.label = 6;
+
+      case 6:
+       if (marker) return [ 3, 1 ];
+       _a.label = 7;
+
+      case 7:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listItemsByHierarchy = function(delimiter, options) {
+    return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
+     var _a, _b, listBlobsHierarchySegmentResponse, segment, _i, _c, prefix, _d, _e, blob, e_15_1, e_15, _f;
+     return __generator(this, (function(_g) {
+      switch (_g.label) {
+      case 0:
+       _g.trys.push([ 0, 14, 15, 20 ]), _a = __asyncValues(this.listHierarchySegments(delimiter, void 0, options)), 
+       _g.label = 1;
+
+      case 1:
+       return [ 4, __await(_a.next()) ];
+
+      case 2:
+       if ((_b = _g.sent()).done) return [ 3, 13 ];
+       if (listBlobsHierarchySegmentResponse = _b.value, !(segment = listBlobsHierarchySegmentResponse.segment).blobPrefixes) return [ 3, 7 ];
+       _i = 0, _c = segment.blobPrefixes, _g.label = 3;
+
+      case 3:
+       return _i < _c.length ? (prefix = _c[_i], [ 4, __await(__assign({
+        kind: "prefix"
+       }, prefix)) ]) : [ 3, 7 ];
+
+      case 4:
+       return [ 4, _g.sent() ];
+
+      case 5:
+       _g.sent(), _g.label = 6;
+
+      case 6:
+       return _i++, [ 3, 3 ];
+
+      case 7:
+       _d = 0, _e = segment.blobItems, _g.label = 8;
+
+      case 8:
+       return _d < _e.length ? (blob = _e[_d], [ 4, __await(__assign({
+        kind: "blob"
+       }, blob)) ]) : [ 3, 12 ];
+
+      case 9:
+       return [ 4, _g.sent() ];
+
+      case 10:
+       _g.sent(), _g.label = 11;
+
+      case 11:
+       return _d++, [ 3, 8 ];
+
+      case 12:
+       return [ 3, 1 ];
+
+      case 13:
+       return [ 3, 20 ];
+
+      case 14:
+       return e_15_1 = _g.sent(), e_15 = {
+        error: e_15_1
+       }, [ 3, 20 ];
+
+      case 15:
+       return _g.trys.push([ 15, , 18, 19 ]), _b && !_b.done && (_f = _a.return) ? [ 4, __await(_f.call(_a)) ] : [ 3, 17 ];
+
+      case 16:
+       _g.sent(), _g.label = 17;
+
+      case 17:
+       return [ 3, 19 ];
+
+      case 18:
+       if (e_15) throw e_15.error;
+       return [ 7 ];
+
+      case 19:
+       return [ 7 ];
+
+      case 20:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, ContainerClient.prototype.listBlobsByHierarchy = function(delimiter, options) {
+    var _a, _this = this;
+    if (void 0 === options && (options = {}), "" === delimiter) throw new RangeError("delimiter should contain one or more characters");
+    var include = [];
+    options.includeCopy && include.push("copy"), options.includeDeleted && include.push("deleted"), 
+    options.includeMetadata && include.push("metadata"), options.includeSnapshots && include.push("snapshots"), 
+    options.includeVersions && include.push("versions"), options.includeUncommitedBlobs && include.push("uncommittedblobs"), 
+    options.includeTags && include.push("tags"), "" === options.prefix && (options.prefix = void 0);
+    var updatedOptions = __assign(__assign({}, options), include.length > 0 ? {
+     include: include
+    } : {}), iter = this.listItemsByHierarchy(delimiter, updatedOptions);
+    return (_a = {
+     next: function() {
+      return __awaiter(this, void 0, void 0, (function() {
+       return __generator(this, (function(_a) {
+        return [ 2, iter.next() ];
+       }));
+      }));
+     }
+    })[Symbol.asyncIterator] = function() {
+     return this;
+    }, _a.byPage = function(settings) {
+     return void 0 === settings && (settings = {}), _this.listHierarchySegments(delimiter, settings.continuationToken, __assign({
+      maxPageSize: settings.maxPageSize
+     }, updatedOptions));
+    }, _a;
+   }, ContainerClient.prototype.getContainerNameFromUrl = function() {
+    var containerName;
+    try {
+     var parsedUrl = url_URLBuilder.parse(this.url);
+     if (containerName = "blob" === parsedUrl.getHost().split(".")[1] ? parsedUrl.getPath().split("/")[1] : isIpEndpointStyle(parsedUrl) ? parsedUrl.getPath().split("/")[2] : parsedUrl.getPath().split("/")[1], 
+     !(containerName = decodeURIComponent(containerName))) throw new Error("Provided containerName is invalid.");
+     return containerName;
+    } catch (error) {
+     throw new Error("Unable to extract containerName with provided information.");
+    }
+   }, ContainerClient.prototype.generateSasUrl = function(options) {
+    var _this = this;
+    return new Promise((function(resolve) {
+     if (!(_this.credential instanceof StorageSharedKeyCredential_StorageSharedKeyCredential)) throw new RangeError("Can only generate the SAS when the client is initialized with a shared key credential");
+     var sas = generateBlobSASQueryParameters(__assign({
+      containerName: _this._containerName
+     }, options), _this.credential).toString();
+     resolve(appendToURLQuery(_this.url, sas));
+    }));
+   }, ContainerClient.prototype.getBlobBatchClient = function() {
+    return new BlobBatchClient_BlobBatchClient(this.url, this.pipeline);
+   }, ContainerClient;
+  }(StorageClient_StorageClient), AccountSASPermissions = function() {
    function AccountSASPermissions() {
     this.read = !1, this.write = !1, this.delete = !1, this.deleteVersion = !1, this.list = !1, 
     this.add = !1, this.create = !1, this.update = !1, this.process = !1, this.tag = !1, 
@@ -53119,7 +53230,7 @@
    }, AccountSASServices;
   }();
   function generateAccountSASQueryParameters(accountSASSignatureValues, sharedKeyCredential) {
-   var version = accountSASSignatureValues.version ? accountSASSignatureValues.version : "2020-04-08";
+   var version = accountSASSignatureValues.version ? accountSASSignatureValues.version : "2020-06-12";
    if (accountSASSignatureValues.permissions && accountSASSignatureValues.permissions.deleteVersion && version < "2019-10-10") throw RangeError("'version' must be >= '2019-10-10' when provided 'x' permission.");
    if (accountSASSignatureValues.permissions && accountSASSignatureValues.permissions.tag && version < "2019-12-12") throw RangeError("'version' must be >= '2019-12-12' when provided 't' permission.");
    if (accountSASSignatureValues.permissions && accountSASSignatureValues.permissions.filter && version < "2019-12-12") throw RangeError("'version' must be >= '2019-12-12' when provided 'f' permission.");
@@ -53151,22 +53262,18 @@
     }
     throw new Error("Connection string must be either an Account connection string or a SAS connection string");
    }, BlobServiceClient.prototype.getContainerClient = function(containerName) {
-    return new Clients_ContainerClient(appendToURLPath(this.url, encodeURIComponent(containerName)), this.pipeline);
+    return new ContainerClient_ContainerClient(appendToURLPath(this.url, encodeURIComponent(containerName)), this.pipeline);
    }, BlobServiceClient.prototype.createContainer = function(containerName, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, containerClient, containerCreateResponse, e_1;
+     var _a, span, updatedOptions, containerClient, containerCreateResponse, e_1;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-createContainer", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-createContainer", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, (containerClient = this.getContainerClient(containerName)).create(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, (containerClient = this.getContainerClient(containerName)).create(updatedOptions) ];
 
       case 2:
        return containerCreateResponse = _b.sent(), [ 2, {
@@ -53190,19 +53297,15 @@
     }));
    }, BlobServiceClient.prototype.deleteContainer = function(containerName, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_2;
+     var _a, span, updatedOptions, e_2;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-deleteContainer", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-deleteContainer", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.getContainerClient(containerName).delete(__assign(__assign({}, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.getContainerClient(containerName).delete(updatedOptions) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -53223,23 +53326,19 @@
     }));
    }, BlobServiceClient.prototype.undeleteContainer = function(deletedContainerName, deletedContainerVersion, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, containerClient, containerUndeleteResponse, e_3;
+     var _a, span, updatedOptions, containerClient, containerUndeleteResponse, e_3;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-undeleteContainer", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-undeleteContainer", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), containerClient = this.getContainerClient(options.destinationContainerName || deletedContainerName), 
-       [ 4, new Container(containerClient.storageClientContext).restore(__assign(__assign({
+       [ 4, new Container(containerClient.storageClientContext).restore(__assign({
         deletedContainerName: deletedContainerName,
         deletedContainerVersion: deletedContainerVersion
-       }, options), {
-        tracingOptions: __assign(__assign({}, options.tracingOptions), {
-         spanOptions: spanOptions
-        })
-       })) ];
+       }, updatedOptions)) ];
 
       case 2:
        return containerUndeleteResponse = _b.sent(), [ 2, {
@@ -53261,26 +53360,30 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.getProperties = function(options) {
+   }, BlobServiceClient.prototype.renameContainer = function(sourceContainerName, destinationContainerName, options) {
+    var _a;
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_4;
-     return __generator(this, (function(_b) {
-      switch (_b.label) {
+     var _b, span, updatedOptions, containerClient, containerRenameResponse, e_4;
+     return __generator(this, (function(_c) {
+      switch (_c.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-getProperties", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _b = createSpan("BlobServiceClient-renameContainer", options), span = _b.span, updatedOptions = _b.updatedOptions, 
+       _c.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getProperties({
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       return _c.trys.push([ 1, 3, 4, 5 ]), containerClient = this.getContainerClient(destinationContainerName), 
+       [ 4, new Container(containerClient.storageClientContext).rename(sourceContainerName, __assign(__assign({}, updatedOptions), {
+        sourceLeaseId: null === (_a = options.sourceCondition) || void 0 === _a ? void 0 : _a.leaseId
+       })) ];
 
       case 2:
-       return [ 2, _b.sent() ];
+       return containerRenameResponse = _c.sent(), [ 2, {
+        containerClient: containerClient,
+        containerRenameResponse: containerRenameResponse
+       } ];
 
       case 3:
-       throw e_4 = _b.sent(), span.setStatus({
+       throw e_4 = _c.sent(), span.setStatus({
         code: src.CanonicalCode.UNKNOWN,
         message: e_4.message
        }), e_4;
@@ -53293,20 +53396,19 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.setProperties = function(properties, options) {
+   }, BlobServiceClient.prototype.getProperties = function(options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_5;
+     var _a, span, updatedOptions, e_5;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-setProperties", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-getProperties", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.setProperties(properties, {
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getProperties(__assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -53325,20 +53427,19 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.getStatistics = function(options) {
+   }, BlobServiceClient.prototype.setProperties = function(properties, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_6;
+     var _a, span, updatedOptions, e_6;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-getStatistics", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-setProperties", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getStatistics({
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.setProperties(properties, __assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -53357,20 +53458,19 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.getAccountInfo = function(options) {
+   }, BlobServiceClient.prototype.getStatistics = function(options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_7;
+     var _a, span, updatedOptions, e_7;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-getAccountInfo", options.tracingOptions), span = _a.span, 
-       spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-getStatistics", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getAccountInfo({
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getStatistics(__assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -53389,23 +53489,19 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.listContainersSegment = function(marker, options) {
+   }, BlobServiceClient.prototype.getAccountInfo = function(options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, e_8;
+     var _a, span, updatedOptions, e_8;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-listContainersSegment", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-getAccountInfo", options), span = _a.span, updatedOptions = _a.updatedOptions, 
+       _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.listContainersSegment(__assign(__assign({
-        abortSignal: options.abortSignal,
-        marker: marker
-       }, options), {
-        include: "string" == typeof options.include ? [ options.include ] : options.include,
-        spanOptions: spanOptions
-       })) ];
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getAccountInfo(__assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return [ 2, _b.sent() ];
@@ -53424,23 +53520,56 @@
       }
      }));
     }));
-   }, BlobServiceClient.prototype.findBlobsByTagsSegment = function(tagFilterSqlExpression, marker, options) {
+   }, BlobServiceClient.prototype.listContainersSegment = function(marker, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, e_9;
+     var _a, span, updatedOptions, e_9;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-findBlobsByTagsSegment", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-listContainersSegment", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
-       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.filterBlobs({
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.listContainersSegment(__assign(__assign(__assign({
+        abortSignal: options.abortSignal,
+        marker: marker
+       }, options), {
+        include: "string" == typeof options.include ? [ options.include ] : options.include
+       }), convertTracingToRequestOptionsBase(updatedOptions))) ];
+
+      case 2:
+       return [ 2, _b.sent() ];
+
+      case 3:
+       throw e_9 = _b.sent(), span.setStatus({
+        code: src.CanonicalCode.UNKNOWN,
+        message: e_9.message
+       }), e_9;
+
+      case 4:
+       return span.end(), [ 7 ];
+
+      case 5:
+       return [ 2 ];
+      }
+     }));
+    }));
+   }, BlobServiceClient.prototype.findBlobsByTagsSegment = function(tagFilterSqlExpression, marker, options) {
+    return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
+     var _a, span, updatedOptions, response, e_10;
+     return __generator(this, (function(_b) {
+      switch (_b.label) {
+      case 0:
+       _a = createSpan("BlobServiceClient-findBlobsByTagsSegment", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
+
+      case 1:
+       return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.filterBlobs(__assign({
         abortSignal: options.abortSignal,
         where: tagFilterSqlExpression,
         marker: marker,
-        maxPageSize: options.maxPageSize,
-        spanOptions: spanOptions
-       }) ];
+        maxPageSize: options.maxPageSize
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return response = _b.sent(), [ 2, __assign(__assign({}, response), {
@@ -53456,10 +53585,10 @@
        }) ];
 
       case 3:
-       throw e_9 = _b.sent(), span.setStatus({
+       throw e_10 = _b.sent(), span.setStatus({
         code: src.CanonicalCode.UNKNOWN,
-        message: e_9.message
-       }), e_9;
+        message: e_10.message
+       }), e_10;
 
       case 4:
        return span.end(), [ 7 ];
@@ -53502,7 +53631,7 @@
     }));
    }, BlobServiceClient.prototype.findBlobsByTagsItems = function(tagFilterSqlExpression, options) {
     return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var _a, _b, e_10_1, e_10, _c;
+     var _a, _b, e_11_1, e_11, _c;
      return __generator(this, (function(_d) {
       switch (_d.label) {
       case 0:
@@ -53528,8 +53657,8 @@
        return [ 3, 13 ];
 
       case 7:
-       return e_10_1 = _d.sent(), e_10 = {
-        error: e_10_1
+       return e_11_1 = _d.sent(), e_11 = {
+        error: e_11_1
        }, [ 3, 13 ];
 
       case 8:
@@ -53542,7 +53671,7 @@
        return [ 3, 12 ];
 
       case 11:
-       if (e_10) throw e_10.error;
+       if (e_11) throw e_11.error;
        return [ 7 ];
 
       case 12:
@@ -53604,7 +53733,7 @@
     }));
    }, BlobServiceClient.prototype.listItems = function(options) {
     return void 0 === options && (options = {}), __asyncGenerator(this, arguments, (function() {
-     var _a, _b, e_11_1, e_11, _c;
+     var _a, _b, e_12_1, e_12, _c;
      return __generator(this, (function(_d) {
       switch (_d.label) {
       case 0:
@@ -53630,8 +53759,8 @@
        return [ 3, 13 ];
 
       case 7:
-       return e_11_1 = _d.sent(), e_11 = {
-        error: e_11_1
+       return e_12_1 = _d.sent(), e_12 = {
+        error: e_12_1
        }, [ 3, 13 ];
 
       case 8:
@@ -53644,7 +53773,7 @@
        return [ 3, 12 ];
 
       case 11:
-       if (e_11) throw e_11.error;
+       if (e_12) throw e_12.error;
        return [ 7 ];
 
       case 12:
@@ -53676,21 +53805,20 @@
     }, _a;
    }, BlobServiceClient.prototype.getUserDelegationKey = function(startsOn, expiresOn, options) {
     return void 0 === options && (options = {}), __awaiter(this, void 0, void 0, (function() {
-     var _a, span, spanOptions, response, userDelegationKey, e_12;
+     var _a, span, updatedOptions, response, userDelegationKey, e_13;
      return __generator(this, (function(_b) {
       switch (_b.label) {
       case 0:
-       _a = createSpan("BlobServiceClient-getUserDelegationKey", options.tracingOptions), 
-       span = _a.span, spanOptions = _a.spanOptions, _b.label = 1;
+       _a = createSpan("BlobServiceClient-getUserDelegationKey", options), span = _a.span, 
+       updatedOptions = _a.updatedOptions, _b.label = 1;
 
       case 1:
        return _b.trys.push([ 1, 3, 4, 5 ]), [ 4, this.serviceContext.getUserDelegationKey({
         startsOn: truncatedISO8061Date(startsOn, !1),
         expiresOn: truncatedISO8061Date(expiresOn, !1)
-       }, {
-        abortSignal: options.abortSignal,
-        spanOptions: spanOptions
-       }) ];
+       }, __assign({
+        abortSignal: options.abortSignal
+       }, convertTracingToRequestOptionsBase(updatedOptions))) ];
 
       case 2:
        return response = _b.sent(), userDelegationKey = {
@@ -53711,10 +53839,10 @@
        }, userDelegationKey) ];
 
       case 3:
-       throw e_12 = _b.sent(), span.setStatus({
+       throw e_13 = _b.sent(), span.setStatus({
         code: src.CanonicalCode.UNKNOWN,
-        message: e_12.message
-       }), e_12;
+        message: e_13.message
+       }), e_13;
 
       case 4:
        return span.end(), [ 7 ];
