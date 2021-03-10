@@ -159,6 +159,7 @@ class CacheProxy {
 
                     local {
                         enabled = true
+                        push = $push
                     }
                     if (needMulticache) {
                         settings.pluginManager.apply("$pluginId")

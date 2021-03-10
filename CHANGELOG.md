@@ -1,4 +1,9 @@
-## 2021-03-09: v1.9 🚀 optimize remote build cache with mark push=false
+## 2021-03-09: v1.10 🚀 optimize local build cache with push=false when read-only
+
+Local build cache won't help much in the read-only mode since workers are stateless anyway.
+Disabling the cache reduces the time it takes to pack cache entries.
+
+## 2021-03-09: v1.9 🚀 optimize remote build cache with push=false when read-only
 
 Previously `read-only` was implemented as "skip saving the caches",
 however it makes sense to configure `push=false` so Gradle skips cache entry preparation as well.
