@@ -25,7 +25,7 @@ Note: for the [security reasons](https://julienrenaux.fr/2019/12/20/github-actio
 you might want to use Git SHA rather than branch name or tag name.
 In other words, to avoid accidental tag update, you might want to use
 `burrunan/gradle-cache-action@03c71a8ba93d670980695505f48f49daf43704a6` rather than `burrunan/gradle-cache-action@v1`.
-Please see releases page to find out the commit ids: https://github.com/burrunan/gradle-cache-action/releases`
+Please see releases page to find out the commit ids: https://github.com/burrunan/gradle-cache-action/releases
 
 You might use the following references are:
 * `v1` -- this is a *moving* qualifier. It points to the latest release among `v1.x`
