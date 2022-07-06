@@ -1,3 +1,13 @@
+## 2022-07-06: v1.11 🚑 add home-directory property to override $HOME location
+
+When Docker executes under root user, it will use `/root` as home directory,
+so cache location would use locations like `/root/.gradle`.
+
+The new `home-directory: /path/to/proper/user/home` property can be used to
+override the location of `$HOME`.
+
+See https://github.com/burrunan/gradle-cache-action/issues/41
+
 ## 2021-03-09: v1.10 🚀 optimize local build cache with push=false when read-only
 
 Local build cache won't help much in the read-only mode since workers are stateless anyway.

@@ -19,6 +19,7 @@ import actions.core.ActionFailedException
 import actions.core.warning
 import actions.glob.Globber
 import actions.glob.glob
+import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipe
 import com.github.burrunan.wrappers.nodejs.use
 import crypto.createHash
@@ -40,7 +41,7 @@ suspend fun hashFiles(
     fileNames.sort()
 
     val githubWorkspace = process.cwd()
-    val homeDir = os.homedir()
+    val homeDir = "~".normalizedPath
     val hash = createHash(algorithm)
 
     var totalBytes = 0

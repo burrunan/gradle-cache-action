@@ -11,6 +11,9 @@ inputs:
   build-root-directory:
     description: Relative path under $GITHUB_WORKSPACE where Git repository is placed
     required: false
+  home-directory:
+    description: Overrides the location of $HOME (e.g. to avoid use of /root when running in Docker)
+    required: false
   gradle-version:
     description: (wrapper | or explicit version) Caches often depend on the Gradle version, so this parameter sets the ID to use for cache keys. It does not affect the Gradle version used for build
     required: false

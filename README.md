@@ -110,6 +110,9 @@ The default configuration should suit most of the cases, however, there are extr
     # RUNNER_OS is added to job-id automatically
     job-id: jdk8
 
+    # Overrides $HOME
+    # home-directory: /home/user
+
     # Disable caching of $HOME/.gradle/caches/*.*/generated-gradle-jars
     save-generated-gradle-jars: false
 

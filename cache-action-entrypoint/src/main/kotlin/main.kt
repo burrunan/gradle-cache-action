@@ -26,6 +26,7 @@ import com.github.burrunan.launcher.LaunchParams
 import com.github.burrunan.launcher.install
 import com.github.burrunan.launcher.launchGradle
 import com.github.burrunan.launcher.resolveDistribution
+import com.github.burrunan.wrappers.nodejs.normalizedPath
 import fs2.promises.writeFile
 import octokit.currentTrigger
 import path.path
@@ -69,6 +70,12 @@ suspend fun main() {
 }
 
 suspend fun mainInternal(stage: ActionStage) {
+    val homeDirectory = getInput("home-directory").trimEnd('/', '\\')
+    if (homeDirectory != "") {
+        info("Overriding home directory to $homeDirectory")
+        process.env["HOME"] = homeDirectory
+    }
+
     val gradleStartArguments = parseArgsStringToArgv(getInput("arguments")).toList()
     val cacheProxyEnabled = getInput("remote-build-cache-proxy-enabled").ifBlank { "true" }.toBoolean()
 
@@ -131,7 +138,7 @@ suspend fun mainInternal(stage: ActionStage) {
         if (cacheProxyEnabled) {
             info("Starting remote cache proxy, adding it via ~/.gradle/init.gradle")
             cacheProxy.start()
-            val gradleHome = path.join(os.homedir(), ".gradle")
+            val gradleHome = path.join("~".normalizedPath, ".gradle")
             mkdirP(gradleHome)
             writeFile(
                 path.join(gradleHome, "init.gradle"),
