@@ -21,6 +21,7 @@ import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
+import fs2.promises.copyFile
 import fs2.promises.writeFile
 import kotlinx.serialization.json.encodeToDynamic
 import kotlinx.serialization.json.Json
@@ -46,10 +47,17 @@ class CacheProxyTest {
     fun cacheProxyWorks() = runTest {
         val dir = "remote_cache_test"
         mkdir(dir)
+        val root = process.cwd() + "/../../../.."
+        console.log(root)
         cacheService {
             cacheProxy {
                 val outputFile = "build/out.txt"
                 removeFiles(listOf("$dir/$outputFile"))
+                copyFile("$root/gradlew", dir + "/gradlew")
+                mkdir("$dir/gradle")
+                mkdir("$dir/gradle/wrapper")
+                copyFile("$root/gradle/wrapper/gradle-wrapper.jar", "$dir/gradle/wrapper/gradle-wrapper.jar")
+                copyFile("$root/gradle/wrapper/gradle-wrapper.properties", "$dir/gradle/wrapper/gradle-wrapper.properties")
                 writeFile(
                     "$dir/settings.gradle",
                     """
@@ -87,7 +95,7 @@ class CacheProxyTest {
                     """.trimIndent(),
                 )
 
-                val out = exec("gradle", "props", "-i", "--build-cache", captureOutput = true) {
+                val out = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
                 }
@@ -97,7 +105,7 @@ class CacheProxyTest {
                 assertTrue("1 actionable task: 1 executed" in out.stdout, out.stdout)
 
                 removeFiles(listOf("$dir/$outputFile"))
-                val out2 = exec("gradle", "props", "-i", "--build-cache", captureOutput = true) {
+                val out2 = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
                 }

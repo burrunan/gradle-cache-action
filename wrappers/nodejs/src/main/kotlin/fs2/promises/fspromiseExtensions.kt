@@ -27,6 +27,12 @@ suspend fun readFile(path: String, encoding: String = "utf-8") =
 suspend fun writeFile(path: String, data: Any, encoding: String = "utf-8") =
     writeFileAsync(path, data, encoding).await()
 
+suspend fun copyFile(src: String, dst: String) =
+    copyFileAsync(src, dst).await()
+
+suspend fun copyFile(src: String, dst: String, flags: Number) =
+    copyFileAsync(src, dst, flags).await()
+
 suspend fun stat(path: String) =
     statAsync(path).await()
 

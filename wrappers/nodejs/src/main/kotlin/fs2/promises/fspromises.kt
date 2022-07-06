@@ -28,6 +28,9 @@ external fun readFileAsync(path: String, encoding: String = definedExternally): 
 @JsName("writeFile")
 external fun writeFileAsync(path: String, data: Any, encoding: String = definedExternally): Promise<Unit>
 
+@JsName("copyFile")
+external fun copyFileAsync(src: String, dst: String, flags: Number = definedExternally): Promise<Unit>
+
 @JsName("stat")
 external fun statAsync(path: String): Promise<fs.Stats>
 
