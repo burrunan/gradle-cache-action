@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:nodejs"))
-    api(npm("@actions/exec", "1.0.4"))
+    api(npm("@actions/exec", "1.1.1"))
 }

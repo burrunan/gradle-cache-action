@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api(npm("@actions/tool-cache", "1.6.0"))
+    api(npm("@actions/tool-cache", "2.0.1"))
 }

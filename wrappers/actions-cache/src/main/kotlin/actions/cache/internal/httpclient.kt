@@ -16,10 +16,12 @@
 
 @file:JsModule("@actions/cache/lib/internal/cacheHttpClient")
 @file:JsNonModule
-package com.github.burrunan.gradle.cache
+package actions.cache.internal
 
 import actions.cache.DownloadOptions
 import actions.cache.UploadOptions
+import actions.cache.internal.ArtifactCacheEntry
+import actions.cache.internal.InternalCacheOptions
 import kotlin.js.Promise
 
 external fun getCacheEntry(
@@ -32,7 +34,7 @@ external fun reserveCache(
     key: String,
     paths: Array<String>,
     options: InternalCacheOptions = definedExternally
-): Promise<Number>
+): Promise<ITypedResponseWithError<ReserveCacheResponse>>
 
 external fun saveCache(
     cacheId: Number,

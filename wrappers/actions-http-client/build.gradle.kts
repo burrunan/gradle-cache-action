@@ -16,5 +16,5 @@
 
 dependencies {
     implementation(project(":wrappers:nodejs"))
-    implementation(npm("@actions/http-client", "1.0.8"))
+    implementation(npm("@actions/http-client", "2.0.1"))
 }

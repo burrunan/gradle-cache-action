@@ -19,7 +19,7 @@ package com.github.burrunan.launcher.internal
 // e: /../build.gradle.kts:62:1: Unresolved reference: invalid
 private val KOTLIN_COMPILE_ERROR = Regex("^e: (\\S.+?):(\\d+):(?:(\\d+):)? (.+)$")
 // [ant:checkstyle] [ERROR] /.../SqlHopTableFunction.java:56:35: ',' is not followed by whitespace. [WhitespaceAfter]
-private val CHECKSTYLE_ERROR = Regex("^\\[ant:checkstyle] \\[ERROR] (\\S.+?):(\\d+):(?:(\\d+):)? (.+) \\[([^\\]]+)]$")
+private val CHECKSTYLE_ERROR = Regex("^\\[ant:checkstyle\\] \\[ERROR\\] (\\S.+?):(\\d+):(?:(\\d+):)? (.+) \\[([^\\]]+)\\]\$")
 // /.../RelDataType.java:249: error: reference not found
 private val JAVA_ERROR = Regex("^(\\S.+?):(\\d+): error: (.+)$")
 

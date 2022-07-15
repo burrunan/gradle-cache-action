@@ -16,6 +16,7 @@
 
 package com.github.burrunan.gradle.proxy
 
+import actions.cache.internal.*
 import actions.core.debug
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.*
@@ -70,7 +71,17 @@ class CacheProxy {
             GlobalScope.launch {
                 try {
                     val cacheIdRequest = reserveCache(id, arrayOf(id), compression)
-                    val cacheId = cacheIdRequest.await()
+                    val response = cacheIdRequest.await()
+                    val cacheId = response.result?.cacheId
+                        ?: when {
+                            response.statusCode == 400 -> throw Throwable(
+                                "Cache $fileName size of ${fs.statSync(fileName).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
+                            )
+                            else -> throw Throwable(
+                                "Can't reserve cache for id $id, another job might be creating this cache: ${response.error?.message}"
+                            )
+                        }
+                    console.log("cacheid: ${cacheId}")
                     saveCache(cacheId, fileName).await()
                 } finally {
                     removeFiles(listOf(fileName))

@@ -1,3 +1,20 @@
+## 2022-07-15: v1.12 ⬆️ bump bump dependencies
+
+* Kotlin 1.4.31 legacy -> 1.7.10 IR
+* @actions/cache: 1.0.1 -> 3.0.0
+* @actions/core: 1.2.4 -> 1.9.0
+* @actions/exec 1.0.4 -> 1.1.1
+* @actions/glob 0.1.0 -> 0.3.0
+* @actions/http-client 1.0.8 -> 2.0.1
+* @actions/io 1.0.2 -> 1.1.2
+* @actions/tool-cache 1.6.0 -> 2.0.1
+* @octokit/request-error 2.0.2 -> 3.0.0
+* @octokit/types 5.4.0 -> 6.39.0
+* @octokit/webhooks 7.9.3 -> 10.0.8
+* nodejs: 12.18.3 -> 16.16.0
+
+Thanks to https://github.com/infomiho for https://github.com/burrunan/gradle-cache-action/pull/49
+
 ## 2022-07-06: v1.11 🚑 add home-directory property to override $HOME location
 
 When Docker executes under root user, it will use `/root` as home directory,

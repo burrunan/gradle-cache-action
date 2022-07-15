@@ -38,7 +38,8 @@ suspend fun exec(
             options()
             if (captureOutput) {
                 listeners!!.stdout = {
-                    stdout.add(it.toString())
+                    // it.toString() results in [...] for unknown reason
+                    stdout.add("" + it.unsafeCast<String>())
                 }
             }
         }

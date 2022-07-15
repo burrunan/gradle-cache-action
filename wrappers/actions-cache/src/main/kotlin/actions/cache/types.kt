@@ -20,3 +20,4 @@ typealias ValidationError = Error
 
 typealias ReserveCacheError = Error
 
+typealias HttpClientError = Error

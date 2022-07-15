@@ -15,6 +15,7 @@
  */
 package com.github.burrunan.gradle.cache
 
+import actions.cache.internal.*
 import actions.core.debug
 import com.github.burrunan.wrappers.js.suspendWithCallback
 import com.github.burrunan.wrappers.nodejs.exists

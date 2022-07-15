@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 @file:JsModule("@actions/cache/lib/internal/constants")
-package com.github.burrunan.gradle.cache
+package actions.cache.internal
+
+import actions.cache.HttpClientError
+import actions.httpclient.ITypedResponse
 
 external interface GetCacheParams {
     val keys: String
@@ -24,6 +27,7 @@ external interface GetCacheParams {
 external interface ReserveCacheRequest {
     val key: String
     val version: String?
+    var cacheSize: Number?
 }
 
 external interface ReserveCacheResponse {
@@ -43,6 +47,7 @@ external interface CommitCacheRequest {
 
 external interface InternalCacheOptions {
     var compressionMethod: CompressionMethod?
+    var cacheSize: Number?
 }
 
 external enum class CompressionMethod {
@@ -52,4 +57,8 @@ external enum class CompressionMethod {
     // This enum is for earlier version of zstd that does not have --long support
     ZstdWithoutLong,
     Zstd
+}
+
+external interface ITypedResponseWithError<T>: ITypedResponse<T> {
+    val error: HttpClientError?
 }

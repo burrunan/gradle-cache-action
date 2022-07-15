@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:octokit-types"))
-    api(npm("@octokit/request-error", "2.0.2"))
+    api(npm("@octokit/request-error", "3.0.0"))
 }

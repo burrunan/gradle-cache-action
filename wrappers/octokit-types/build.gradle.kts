@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:nodejs"))
-    api(npm("@octokit/types", "5.4.0"))
+    api(npm("@octokit/types", "6.39.0"))
 }

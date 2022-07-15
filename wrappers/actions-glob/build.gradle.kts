@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:nodejs"))
-    api(npm("@actions/glob", "0.1.0"))
+    api(npm("@actions/glob", "0.3.0"))
 }

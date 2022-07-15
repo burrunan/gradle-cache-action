@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api(npm("@actions/io", "1.0.2"))
+    api(npm("@actions/io", "1.1.2"))
 }

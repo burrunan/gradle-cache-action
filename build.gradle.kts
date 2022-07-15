@@ -22,7 +22,7 @@ val String.v: String get() = rootProject.extra["$this.version"] as String
 
 plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
     configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
-        nodeVersion = "12.18.3"
+        nodeVersion = "16.16.0"
     }
 }
 
@@ -84,6 +84,7 @@ allprojects {
                         testTask {
                             useMocha {
                                 timeout = "10000"
+                                environment("RUNNER_TOOL_CACHE", layout.buildDirectory.dir("tool-cache").get().asFile.toString())
                             }
                         }
                     }
