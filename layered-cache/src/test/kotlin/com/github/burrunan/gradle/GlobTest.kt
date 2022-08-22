@@ -20,8 +20,8 @@ import com.github.burrunan.formatBytes
 import com.github.burrunan.hashing.hashFilesDetailed
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import fs2.promises.writeFile
-import path.path
+import node.fs.writeFile
+import node.path.path
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

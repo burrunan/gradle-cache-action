@@ -20,13 +20,17 @@ import actions.core.warning
 import actions.glob.Globber
 import actions.glob.glob
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import com.github.burrunan.wrappers.nodejs.pipe
-import com.github.burrunan.wrappers.nodejs.use
-import crypto.createHash
-import fs.createReadStream
-import fs2.promises.stat
+import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import kotlinx.js.jso
 import kotlinx.serialization.Serializable
-import process
+import node.WritableStream
+import node.crypto.BinaryToTextEncoding
+import node.crypto.createHash
+import node.fs.Stats
+import node.fs.createReadStream
+import node.fs.stat
+import node.process.process
+import node.stream.Transform
 
 @Serializable
 class HashDetails(
@@ -78,7 +82,7 @@ suspend fun hashFilesDetailed(
     val files = mutableMapOf<String, FileDetails>()
     val overallHash = createHash(algorithm)
     for (name in fileNames) {
-        val statSync = stat(name)
+        val statSync = stat(name).unsafeCast<Stats>()
         if (statSync.isDirectory()) {
             continue
         }
@@ -100,14 +104,12 @@ suspend fun hashFilesDetailed(
             else -> {
                 val hash = createHash(algorithm)
                 try {
-                    createReadStream(name).use {
-                        it.pipe(hash)
-                    }
+                    createReadStream(name).pipeAndWait(hash.unsafeCast<WritableStream>(), end = true)
                 } catch (e: Throwable) {
                     warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
                     continue
                 }
-                hash.digest().toString("hex")
+                hash.digest(BinaryToTextEncoding.hex)
             }
         }
         files[key] = FileDetails(fileSize, digest)
@@ -118,7 +120,7 @@ suspend fun hashFilesDetailed(
         overallHash.update(digest)
     }
     HashDetails(
-        HashInfo(totalBytes, overallHash.digest("hex"), files.size),
+        HashInfo(totalBytes, overallHash.digest(BinaryToTextEncoding.hex), files.size),
         HashContents(files),
     )
 } catch (e: Throwable) {

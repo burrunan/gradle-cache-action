@@ -18,9 +18,10 @@
 
 package actions.exec
 
-import Buffer
-import NodeJS.ProcessEnv
-import stream.Writable
+import node.buffer.Buffer
+import node.process.ProcessEnv
+
+import node.stream.Writable
 
 external interface ExecListeners {
     var stdout: ((data: Buffer) -> Unit)?

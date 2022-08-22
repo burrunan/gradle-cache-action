@@ -15,24 +15,23 @@
  */
 package com.github.burrunan.wrappers.nodejs
 
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+import kotlinx.js.jso
+import node.fs.MakeDirectoryOptions
+import node.fs.existsSync
+import node.fs.mkdir
 
 suspend fun mkdir(path: String) {
     if (!exists(path)) {
-        fs2.promises.mkdir(path)
+        mkdir(path, jso<MakeDirectoryOptions> { recursive = true })
     }
 }
 
-suspend fun exists(path: String) =
-    suspendCoroutine<Boolean> { cont ->
-        fs.exists(path.normalizedPath) {
-            cont.resume(it)
-        }
-    }
+@Deprecated(message = "catch errors instead", level = DeprecationLevel.WARNING)
+fun exists(path: String) =
+    existsSync(path.normalizedPath)
 
 val String.normalizedPath: String
     get() = when {
-        startsWith("~") -> os.homedir() + substring(1)
+        startsWith("~") -> node.os.homedir() + substring(1)
         else -> this
     }

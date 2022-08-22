@@ -23,8 +23,10 @@ import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.gradle.cache.LayeredCache
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import fs2.promises.readFile
-import fs2.promises.writeFile
+import node.buffer.BufferEncoding
+import node.fs.readFile
+import node.fs.unlink
+import node.fs.writeFile
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -45,7 +47,7 @@ class CacheServerTest {
         cacheService {
             saveAndLog(patterns, primaryKey, "1-")
 
-            fs2.promises.unlink(file)
+            unlink(file)
 
             assertEquals(
                 RestoreType.Exact(primaryKey),
@@ -59,7 +61,7 @@ class CacheServerTest {
             )
 
             assertEquals(
-                readFile(file),
+                readFile(file, BufferEncoding.utf8),
                 contents,
                 "Contents after restore should match",
             )
@@ -76,7 +78,7 @@ class CacheServerTest {
             )
 
             assertEquals(
-                readFile(file),
+                readFile(file, BufferEncoding.utf8),
                 contents,
                 "Contents after restore should match",
             )

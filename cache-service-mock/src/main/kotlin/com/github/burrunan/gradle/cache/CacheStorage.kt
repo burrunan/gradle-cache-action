@@ -15,7 +15,7 @@
  */
 package com.github.burrunan.gradle.cache
 
-import Buffer
+import node.buffer.Buffer
 
 class CacheStorage {
     private val storage = mutableMapOf<String, CacheEntry>()

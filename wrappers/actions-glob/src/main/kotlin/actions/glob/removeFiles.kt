@@ -16,9 +16,9 @@
 
 package actions.glob
 
-import fs2.promises.unlink
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
+import node.fs.unlink
 
 suspend fun removeFiles(files: List<String>) {
     if (files.isEmpty()) {

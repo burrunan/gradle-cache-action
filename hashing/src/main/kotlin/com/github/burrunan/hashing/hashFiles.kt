@@ -20,10 +20,16 @@ import actions.core.warning
 import actions.glob.Globber
 import actions.glob.glob
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import com.github.burrunan.wrappers.nodejs.pipe
-import com.github.burrunan.wrappers.nodejs.use
-import crypto.createHash
-import process
+import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import kotlinx.js.jso
+import node.WritableStream
+import node.buffer.BufferEncoding
+import node.crypto.BinaryToTextEncoding
+import node.crypto.createHash
+import node.fs.Stats
+import node.fs.createReadStream
+import node.fs.stat
+import node.process.process
 
 data class HashResult(
     val hash: String,
@@ -47,7 +53,7 @@ suspend fun hashFiles(
     var totalBytes = 0
     var numFiles = 0
     for (name in fileNames) {
-        val statSync = fs2.promises.stat(name)
+        val statSync = stat(name).unsafeCast<Stats>()
         if (statSync.isDirectory()) {
             continue
         }
@@ -64,21 +70,19 @@ suspend fun hashFiles(
         // Add filename
 
         try {
-            fs.createReadStream(name).use {
-                it.pipe(hash, end = false)
-            }
+            createReadStream(name).pipeAndWait(hash.unsafeCast<WritableStream>(), end = false)
         } catch (e: Throwable) {
             warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
             continue
         }
 
         if (includeFileName) {
-            hash.update(key, "utf8")
+            hash.update(key, BufferEncoding.utf8)
         }
     }
-    hash.end()
+    hash.unsafeCast<WritableStream>().end()
     HashResult(
-        hash = hash.digest("hex"),
+        hash = hash.digest(BinaryToTextEncoding.hex),
         numFiles = numFiles,
         totalBytes = totalBytes,
     )

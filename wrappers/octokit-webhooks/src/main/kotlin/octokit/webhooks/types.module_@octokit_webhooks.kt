@@ -1,6 +1,6 @@
 @file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
 
-import tsstdlib.IterableIterator
+//import tsstdlib.IterableIterator
 
 external interface WebhookEvent<T> {
     var id: String
@@ -22,11 +22,11 @@ external interface `T$74` {
     var event: WebhookEvent__0
 }
 
-external interface WebhookEventHandlerError : AggregateError<Error /* Error & Any & `T$74` */> {
-    var event: WebhookEvent__0
-    var errors: Array<Error /* Error & Any & `T$74` */>
-}
-
-open external class AggregateError<T: Error> : tsstdlib.Iterable<T> {
-    fun iterator(): IterableIterator<T>
-}
+//external interface WebhookEventHandlerError : AggregateError<Error /* Error & Any & `T$74` */> {
+//    var event: WebhookEvent__0
+//    var errors: Array<Error /* Error & Any & `T$74` */>
+//}
+//
+//open external class AggregateError<T: Error> : tsstdlib.Iterable<T> {
+//    fun iterator(): IterableIterator<T>
+//}

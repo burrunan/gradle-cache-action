@@ -27,9 +27,12 @@ import com.github.burrunan.launcher.install
 import com.github.burrunan.launcher.launchGradle
 import com.github.burrunan.launcher.resolveDistribution
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import fs2.promises.writeFile
+import kotlinx.js.globalThis
+import kotlinx.js.set
+import node.fs.writeFile
 import octokit.currentTrigger
-import path.path
+import node.path.path
+import node.process.process
 
 fun String.splitLines() =
     split(Regex("\\s*[\r\n]+\\s*"))
@@ -41,7 +44,7 @@ fun String.splitLines() =
 
 fun isMochaRunning() =
     arrayOf("afterEach", "after", "beforeEach", "before", "describe", "it").all {
-        global.asDynamic()[it] is Function<*>
+        globalThis[it] is Function<*>
     }
 
 suspend fun main() {

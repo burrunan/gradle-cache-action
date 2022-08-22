@@ -21,11 +21,12 @@ import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import fs2.promises.copyFile
-import fs2.promises.writeFile
-import kotlinx.serialization.json.encodeToDynamic
+import kotlinx.js.get
 import kotlinx.serialization.json.Json
-import process
+import kotlinx.serialization.json.encodeToDynamic
+import node.fs.copyFile
+import node.fs.writeFile
+import node.process.process
 import kotlin.test.Test
 import kotlin.test.assertTrue
 import kotlin.test.fail
@@ -104,7 +105,6 @@ class CacheProxyTest {
                     silent = true
                     ignoreReturnCode = true
                 }
-                println("d: ${out.exitCode}")
                 if (out.exitCode != 0) {
                     fail("Unable to execute :props task: STDOUT: ${out.stdout}, STDERR: ${out.stderr}")
                 }

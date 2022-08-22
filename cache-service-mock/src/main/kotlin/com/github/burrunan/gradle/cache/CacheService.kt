@@ -21,11 +21,16 @@ import com.github.burrunan.wrappers.js.suspendWithCallback
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.readJson
 import com.github.burrunan.wrappers.nodejs.readToBuffer
-import http.IncomingMessage
-import http.ServerResponse
-import kotlinext.js.jsObject
-import process
-import url.UrlWithParsedQuery
+import kotlinx.js.get
+import kotlinx.js.jso
+import kotlinx.js.set
+import node.http.IncomingMessage
+import node.http.OutgoingHttpHeaders
+import node.http.ServerResponse
+import node.net.AddressInfo
+import node.process.process
+import node.querystring.ParsedUrlQuery
+import node.url.Url
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -36,8 +41,8 @@ class CacheService {
 
     private val storage = CacheStorage()
 
-    private val server = http.createServer { req, res ->
-        val query = url.parse(req.url, true)
+    private val server = node.http.createServer { req, res ->
+        val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
         res.handle {
             when {
@@ -54,12 +59,12 @@ class CacheService {
         }
     }
 
-    private fun getContents(query: UrlWithParsedQuery, res: ServerResponse) {
-        val key = query.query["key"] as String
+    private fun getContents(query: Url, res: ServerResponse) {
+        val key = query.query.unsafeCast<ParsedUrlQuery>()["key"] as String
         val entry = storage.getValue(key)
         res.writeHead(
             200, "Ok",
-            jsObject {
+            jso<OutgoingHttpHeaders> {
                 this["content-length"] = entry.value.length
             },
         )
@@ -72,7 +77,7 @@ class CacheService {
         else -> throw HttpException.notImplemented("Unknown method: ${req.method}")
     }
 
-    private fun getCache(query: UrlWithParsedQuery, res: ServerResponse) {
+    private fun getCache(query: Url, res: ServerResponse) {
         val request = query.query.unsafeCast<GetCacheParams>()
         var resultKey: String? = null
         var resultEntry: CacheEntry? = null
@@ -98,7 +103,7 @@ class CacheService {
 
         res.write(
             JSON.stringify(
-                jsObject<ArtifactCacheEntry> {
+                jso<ArtifactCacheEntry> {
                     cacheKey = resultKey
                     scope = "refs/origin/main"
                     creationTime = resultEntry?.creationTime?.toString()
@@ -135,7 +140,7 @@ class CacheService {
         res.writeHead(200, "Reserve Cache OK")
         res.write(
             JSON.stringify(
-                jsObject<ReserveCacheResponse> {
+                jso<ReserveCacheResponse> {
                     this.cacheId = cacheId
                 },
             ),
@@ -160,12 +165,12 @@ class CacheService {
 
         val runnerTemp = "runner_temp"
         if (!exists(runnerTemp)) {
-            fs2.promises.mkdir(runnerTemp)
+            com.github.burrunan.wrappers.nodejs.mkdir(runnerTemp)
         }
 
         process.env["ACTIONS_RUNTIME_TOKEN"] = "42"
         process.env["RUNNER_TEMP"] = process.cwd() + "/" + runnerTemp
-        process.env["ACTIONS_CACHE_URL"] = "http://localhost:${server.address().port}/"
+        process.env["ACTIONS_CACHE_URL"] = "http://localhost:${(server.address().unsafeCast<AddressInfo>()).port}/"
     }
 
     suspend fun stop() {

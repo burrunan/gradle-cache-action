@@ -16,7 +16,8 @@
 package octokit
 
 import actions.core.ActionsEnvironment
-import fs2.promises.readFile
+import node.buffer.BufferEncoding
+import node.fs.readFile
 import octokit.webhooks.WebhookPayloadPullRequest
 import octokit.webhooks.WebhookPayloadPush
 import octokit.webhooks.WebhookPayloadWorkflowDispatch
@@ -30,7 +31,7 @@ sealed class ActionsTrigger(val name: String, open val event: Any) {
 }
 
 suspend fun currentTrigger(): ActionsTrigger {
-    val eventString = readFile(ActionsEnvironment.GITHUB_EVENT_PATH, "utf8")
+    val eventString = readFile(ActionsEnvironment.GITHUB_EVENT_PATH, BufferEncoding.utf8)
     val event = JSON.parse<Any>(eventString)
     @Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
     return when (val eventName = ActionsEnvironment.GITHUB_EVENT_NAME) {

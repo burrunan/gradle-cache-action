@@ -18,7 +18,8 @@ package com.github.burrunan.test
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.promise
-import process
+import kotlinx.js.set
+import node.process.process
 
 fun runTest(block: suspend () -> Unit): dynamic = GlobalScope.promise {
     process.env["RUNNER_OS"] = "macos"

@@ -18,11 +18,11 @@ package com.github.burrunan.gradle.cache
 import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import fs2.promises.readFile
-import fs2.promises.rename
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
+import node.buffer.BufferEncoding
+import node.fs.*
 
 class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, private val extension: String = ".json") {
     companion object {
@@ -31,9 +31,9 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
 
         init {
             val path = ROOT_FOLDER.normalizedPath
-            if (!fs.existsSync(path)) {
+            if (!existsSync(path)) {
                 try {
-                    fs.mkdirSync(path)
+                    mkdirSync(path)
                 } catch (ignored: Throwable) {
                 }
             }
@@ -67,7 +67,7 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
         return try {
             Json.decodeFromString(
                 serializer,
-                readFile(uniqueName)
+                readFile(uniqueName, BufferEncoding.utf8)
             )
         } catch (e: SerializationException) {
             warning("$cachedName: error deserializing $uniqueName with ${serializer.descriptor.serialName}, message: $e")
@@ -76,10 +76,10 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
     }
 
     suspend fun encode(value: T) {
-        fs2.promises.writeFile(
+        writeFile(
             cachedName.normalizedPath,
             Json.encodeToString(serializer, value),
-            "utf8",
+            BufferEncoding.utf8,
         )
     }
 }

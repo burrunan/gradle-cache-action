@@ -18,12 +18,12 @@
 
 package actions.glob
 
-import AsyncGenerator__2
+//import AsyncGenerator__2
 import kotlin.js.Promise
 
 external interface Globber {
     fun getSearchPaths(): Array<String>
     @JsName("glob")
     fun globAsync(): Promise<Array<String>>
-    fun globGenerator(): AsyncGenerator__2<String, Unit>
+//    fun globGenerator(): AsyncGenerator__2<String, Unit>
 }

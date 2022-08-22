@@ -35,14 +35,6 @@ subprojects {
 allprojects {
     repositories {
         mavenCentral()
-        jcenter {
-            content {
-                // https://github.com/JetBrains/kotlin-wrappers/issues/279
-                includeModule("org.jetbrains", "kotlin-extensions")
-                // https://github.com/Kotlin/kotlinx-nodejs/issues/16
-                includeModule("org.jetbrains.kotlinx", "kotlinx-nodejs")
-            }
-        }
     }
     plugins.withId("org.jetbrains.kotlin.js") {
         tasks {
@@ -63,7 +55,9 @@ allprojects {
                 "api"("org.jetbrains.kotlinx:kotlinx-serialization-json:${"kotlinx-serialization".v}")
             }
             "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:${"kotlinx-coroutines".v}")
-            "implementation"("org.jetbrains:kotlin-extensions:${"kotlin-wrappers".v}")
+            "implementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:${"kotlin-wrappers".v}"))
+            "apiDependenciesMetadata"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:${"kotlin-wrappers".v}"))
+            "implementation"("org.jetbrains.kotlin-wrappers:kotlin-extensions")
             if (project.path != ":test-library") {
                 "testImplementation"(project(":test-library"))
             }

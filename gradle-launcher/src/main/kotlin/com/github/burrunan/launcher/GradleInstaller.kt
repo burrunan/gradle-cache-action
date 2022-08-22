@@ -28,13 +28,16 @@ import actions.toolcache.downloadTool
 import actions.toolcache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
-import fs2.promises.chmod
-import fs2.promises.readFile
-import kotlinext.js.jsObject
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import path.path
+import kotlinx.js.jso
+import node.buffer.BufferEncoding
+import node.fs.Mode
+import node.fs.chmod
+import node.fs.readFile
+import node.path.path
+import node.process.Platform
 
 suspend fun install(distribution: GradleDistribution): String {
     val cachedTool = actions.toolcache.find("gradle", distribution.version)
@@ -61,14 +64,14 @@ suspend fun install(distribution: GradleDistribution): String {
             }
         }
     }
-    return path.join(gradleDir, "bin", if (os.platform() == "win32") "gradle.bat" else "gradle").also {
-        if (os.platform() != "win32") {
-            chmod(it, "755")
+    return path.join(gradleDir, "bin", if (node.os.platform() == Platform.win32) "gradle.bat" else "gradle").also {
+        if (node.os.platform() != Platform.win32) {
+            chmod(it, "755" as Mode)
         }
     }
 }
 
-private val HTTP_AGENT = jsObject<IHeaders> { set("User-Agent", "burrunan/gradle-cache-action") }
+private val HTTP_AGENT = jso<IHeaders> { set("User-Agent", "burrunan/gradle-cache-action") }
 
 suspend fun GradleVersion.Official.findUrl(): GradleDistribution {
     val url = "https://services.gradle.org/versions/all"
@@ -109,7 +112,7 @@ suspend fun findVersionFromWrapper(projectPath: String, enableDistributionSha256
         warning("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.\nWill use the current release Gradle version")
         return GradleVersion.Current.findUrl()
     }
-    val propString = readFile(gradleWrapperProperties)
+    val propString = readFile(gradleWrapperProperties, BufferEncoding.utf8)
     val props = javaproperties.parseString(propString).run {
         getKeys().associateWith { getFirst(it)!! }
     }

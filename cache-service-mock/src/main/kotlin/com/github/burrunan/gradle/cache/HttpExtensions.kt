@@ -15,7 +15,7 @@
  */
 package com.github.burrunan.gradle.cache
 
-import http.ServerResponse
+import node.http.ServerResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

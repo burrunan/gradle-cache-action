@@ -21,17 +21,24 @@ import actions.core.debug
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.*
 import com.github.burrunan.wrappers.nodejs.mkdir
-import com.github.burrunan.wrappers.nodejs.use
-import fs.createReadStream
-import fs.createWriteStream
-import http.IncomingMessage
-import http.ServerResponse
-import kotlinext.js.jsObject
+import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import node.fs.createReadStream
+import node.fs.createWriteStream
+import node.http.IncomingMessage
+import node.http.ServerResponse
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import path.path
-import process
+import kotlinx.js.jso
+import kotlinx.js.set
+import node.fs.Stats
+import node.fs.stat
+import node.http.OutgoingHttpHeaders
+import node.net.AddressInfo
+import node.path.path
+import node.process.process
+import node.stream.Readable
+import node.stream.Writable
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -45,8 +52,8 @@ class CacheProxy {
 
     val cacheUrl: String? get() = _cacheUrl
 
-    private val server = http.createServer { req, res ->
-        val query = url.parse(req.url, true)
+    private val server = node.http.createServer { req, res ->
+        val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
         res.handle {
             val id = path.removePrefix("/")
@@ -58,14 +65,12 @@ class CacheProxy {
         }
     }
 
-    private val compression = jsObject<InternalCacheOptions> { compressionMethod = CompressionMethod.Gzip }
+    private val compression = jso<InternalCacheOptions> { compressionMethod = CompressionMethod.Gzip }
 
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         try {
-            req.use {
-                it.pipe(createWriteStream(fileName))
-            }
+            req.pipeAndWait(createWriteStream(fileName))
             res.writeHead(200, "OK")
         } finally {
             GlobalScope.launch {
@@ -75,7 +80,7 @@ class CacheProxy {
                     val cacheId = response.result?.cacheId
                         ?: when {
                             response.statusCode == 400 -> throw Throwable(
-                                "Cache $fileName size of ${fs.statSync(fileName).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
+                                "Cache $fileName size of ${stat(fileName).unsafeCast<Stats>().size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
                             )
                             else -> throw Throwable(
                                 "Can't reserve cache for id $id, another job might be creating this cache: ${response.error?.message}"
@@ -85,7 +90,6 @@ class CacheProxy {
                     saveCache(cacheId, fileName).await()
                 } finally {
                     removeFiles(listOf(fileName))
-
                 }
             }
         }
@@ -102,13 +106,11 @@ class CacheProxy {
             downloadCache(archiveLocation, fileName).await()
             res.writeHead(
                 200, "Ok",
-                jsObject {
-                    this["content-length"] = fs2.promises.stat(fileName).size
+                jso<OutgoingHttpHeaders> {
+                    this["content-length"] = stat(fileName).unsafeCast<Stats>().size
                 },
             )
-            createReadStream(fileName).use {
-                it.pipe(res)
-            }
+            createReadStream(fileName).pipeAndWait(res)
         } finally {
             removeFiles(listOf(fileName))
         }
@@ -202,7 +204,7 @@ class CacheProxy {
         }
 
         mkdir(TEMP_DIR)
-        val url = "http://localhost:${server.address().port}/"
+        val url = "http://localhost:${(server.address().unsafeCast<AddressInfo>()).port}/"
         _cacheUrl = url
         process.env[GHA_CACHE_URL] = url
     }

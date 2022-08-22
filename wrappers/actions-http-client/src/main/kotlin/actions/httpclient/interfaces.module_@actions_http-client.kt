@@ -19,10 +19,10 @@
 
 package actions.httpclient
 
-import NodeJS.ReadableStream
-import http.IncomingMessage
-import http.RequestOptions
-import url.Url
+import node.http.IncomingMessage
+import node.http.RequestOptions
+import node.stream.ReadableStream
+import node.url.Url
 import kotlin.js.Promise
 
 external interface IHeaders {

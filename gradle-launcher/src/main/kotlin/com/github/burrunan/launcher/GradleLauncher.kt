@@ -21,9 +21,8 @@ import actions.core.setOutput
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
-import kotlinext.js.jsObject
-import path.path
-import process
+import kotlinx.js.jso
+import node.process.process
 
 class GradleResult(
     val buildScanUrl: String?,
@@ -45,7 +44,7 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
     ) {
         cwd = params.projectPath
         ignoreReturnCode = true
-        listeners = jsObject {
+        listeners = jso {
             stdline = {
                 val str = it.trimEnd()
                 if (str.startsWith("https://gradle.com/s/")) {

@@ -1,3 +1,11 @@
+## Next release
+
+* bump @actions/core: 1.9.0 -> 1.9.1
+* bump @actions/cache: 3.0.0 -> 3.0.4
+* Move from kotlinx-node to kotlin-wrappers/node
+* Print stacktrace on cache proxy server failure
+* Bump Gradle to 7.5.1
+
 ## 2022-07-15: v1.12 ⬆️ bump bump dependencies
 
 * Kotlin 1.4.31 legacy -> 1.7.10 IR

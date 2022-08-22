@@ -16,39 +16,29 @@
 
 package com.github.burrunan.wrappers.nodejs
 
-import Buffer
-import NodeJS.ReadableStream
-import NodeJS.WritableStream
-import com.github.burrunan.wrappers.js.suspendWithCallback
-import kotlinext.js.jsObject
-import stream.Duplex
-import stream.internal
+import kotlinx.js.jso
+import node.ReadableStream
+import node.WritableStream
+import node.buffer.Buffer
+import node.buffer.BufferEncoding
+import node.stream.finished
 
-suspend fun <T> ReadableStream.readJson(): T = JSON.parse(readToBuffer().toString("utf8"))
+suspend fun <T> ReadableStream.readJson(): T = JSON.parse(readToBuffer().toString(BufferEncoding.utf8))
 
 suspend fun ReadableStream.readToBuffer(): Buffer {
     val data = mutableListOf<Buffer>()
-    use {
-        it.on("data") { chunk: Any ->
-            data += chunk as Buffer
-        }
+    on("data") { chunk: Any ->
+        data += chunk as Buffer
     }
+    finished(this)
     return Buffer.concat(data.toTypedArray())
 }
 
-suspend fun <T : ReadableStream, R : Any> T.use(action: suspend (T) -> R): R {
-    try {
-        return action(this)
-    } finally {
-        finished()
+suspend fun <T : ReadableStream, D: WritableStream> T.pipeAndWait(destination: D, end : Boolean = false) {
+    if (end) {
+        pipe(destination = destination, options = jso { this.end = true })
+    } else {
+        pipe(destination = destination)
     }
+    finished(this)
 }
-
-suspend fun ReadableStream.finished() =
-    suspendWithCallback {
-        internal.finished(this@finished, it)
-    }
-
-@Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
-fun <T : Duplex> ReadableStream.pipe(duplex: T, end: Boolean = true): WritableStream =
-    pipe(duplex as WritableStream, jsObject { this.end = end })

@@ -16,17 +16,17 @@
 
 package actions.io
 
-import kotlinext.js.jsObject
 import kotlinx.coroutines.await
+import kotlinx.js.jso
 
 suspend fun cp(source: String, dest: String, recursive: Boolean = false, force: Boolean = false) =
-    cpAsync(source, dest, jsObject {
+    cpAsync(source, dest, jso {
         this.recursive = recursive
         this.force = force
     }).await()
 
 suspend fun mv(source: String, dest: String, force: Boolean = false) =
-    mvAsync(source, dest, jsObject {
+    mvAsync(source, dest, jso {
         this.force = force
     }).await()
 

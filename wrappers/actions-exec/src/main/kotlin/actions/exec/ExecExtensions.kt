@@ -15,7 +15,7 @@
  */
 package actions.exec
 
-import kotlinext.js.jsObject
+import kotlinx.js.jso
 import kotlinx.coroutines.await
 
 class ExecResult(
@@ -34,9 +34,9 @@ suspend fun exec(
     val exitCode = exec(
         commandLine,
         args.copyOf(),
-        jsObject {
+        jso {
             // TODO: add custom interface for ExecOptions for [captureOutput]
-            listeners = jsObject()
+            listeners = jso()
             options()
             if (captureOutput) {
                 listeners!!.stdout = {
