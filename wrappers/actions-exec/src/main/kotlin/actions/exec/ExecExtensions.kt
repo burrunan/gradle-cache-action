@@ -21,6 +21,7 @@ import kotlinx.coroutines.await
 class ExecResult(
     val exitCode: Int,
     val stdout: String,
+    val stderr: String,
 )
 
 suspend fun exec(
@@ -29,6 +30,7 @@ suspend fun exec(
     options: ExecOptions.() -> Unit = {}
 ): ExecResult {
     val stdout = mutableListOf<String>()
+    val stderr = mutableListOf<String>()
     val exitCode = exec(
         commandLine,
         args.copyOf(),
@@ -41,11 +43,16 @@ suspend fun exec(
                     // it.toString() results in [...] for unknown reason
                     stdout.add("" + it.unsafeCast<String>())
                 }
+                listeners!!.stderr = {
+                    // it.toString() results in [...] for unknown reason
+                    stderr.add("" + it.unsafeCast<String>())
+                }
             }
         }
     ).await()
     return ExecResult(
         exitCode = exitCode.toInt(),
-        stdout = stdout.joinToString("\n")
+        stdout = stdout.joinToString("\n"),
+        stderr = stderr.joinToString("\n")
     )
 }

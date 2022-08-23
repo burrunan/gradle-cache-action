@@ -102,9 +102,11 @@ class CacheProxyTest {
                 val out = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
+                    ignoreReturnCode = true
                 }
+                println("d: ${out.exitCode}")
                 if (out.exitCode != 0) {
-                    fail("Unable to execute :props task: ${out.stdout}")
+                    fail("Unable to execute :props task: STDOUT: ${out.stdout}, STDERR: ${out.stderr}")
                 }
                 assertTrue(
                     "1 actionable task: 1 executed" in out.stdout,
@@ -115,9 +117,10 @@ class CacheProxyTest {
                 val out2 = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
+                    ignoreReturnCode = true
                 }
                 if (out.exitCode != 0) {
-                    fail("Unable to execute :props task: ${out.stdout}")
+                    fail("Unable to execute :props task: STDOUT: ${out.stdout}, STDERR: ${out.stderr}")
                 }
                 assertTrue("1 actionable task: 1 from cache" in out2.stdout, out2.stdout)
             }
