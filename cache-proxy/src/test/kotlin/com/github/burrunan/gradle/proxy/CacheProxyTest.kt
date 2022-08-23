@@ -62,6 +62,7 @@ class CacheProxyTest {
                     "$dir/settings.gradle",
                     """
                         rootProject.name = 'sample'
+                        boolean gradle6Plus = org.gradle.util.GradleVersion.current() >= org.gradle.util.GradleVersion.version('6.0')
                         buildCache {
                             local {
                                 // Only remote cache should be used
@@ -70,6 +71,9 @@ class CacheProxyTest {
                             remote(HttpBuildCache) {
                                 url = '${process.env["GHA_CACHE_URL"]}'
                                 push = true
+                                if (gradle6Plus) {
+                                    allowInsecureProtocol = true
+                                }
                             }
                         }
                     """.trimIndent(),
