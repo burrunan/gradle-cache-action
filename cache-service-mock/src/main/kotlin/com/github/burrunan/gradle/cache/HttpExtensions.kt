@@ -30,6 +30,7 @@ fun ServerResponse.handle(action: suspend CoroutineScope.() -> Unit) =
         } catch (e: HttpException) {
             writeHead(e.code, e.message ?: "no message")
         } catch (e: Throwable) {
+            e.printStackTrace()
             writeHead(500, "Error processing ${e.message}")
         } finally {
             end()
