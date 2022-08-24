@@ -15,7 +15,7 @@
  */
 
 dependencies {
-    api(npm("@actions/cache", "3.0.0"))
+    api(npm("@actions/cache", "3.0.4"))
     implementation(project(":wrappers:actions-core"))
     api(project(":wrappers:actions-http-client"))
 }
