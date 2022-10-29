@@ -1,3 +1,7 @@
+## 2022-10-29: v1.14 ⬆️ bump dependencies
+* bump @actions/core: 1.9.1 -> 1.10.0 (fix set-state warning)
+* bump @actions/cache: 3.0.4 -> 3.0.6
+
 ## 2022-08-24: v1.13 ⬆️ bump dependencies
 
 * bump @actions/core: 1.9.0 -> 1.9.1

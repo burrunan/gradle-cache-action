@@ -15,6 +15,6 @@
  */
 
 dependencies {
-    api(npm("@actions/core", "1.9.1"))
+    api(npm("@actions/core", "1.10.0"))
     implementation(project(":wrappers:nodejs"))
 }
