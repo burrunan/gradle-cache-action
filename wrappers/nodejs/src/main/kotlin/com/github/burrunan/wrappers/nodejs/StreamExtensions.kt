@@ -35,10 +35,6 @@ suspend fun ReadableStream.readToBuffer(): Buffer {
 }
 
 suspend fun <T : ReadableStream, D: WritableStream> T.pipeAndWait(destination: D, end : Boolean = false) {
-    if (end) {
-        pipe(destination = destination, options = jso { this.end = true })
-    } else {
-        pipe(destination = destination)
-    }
+    pipe(destination = destination, options = jso { this.end = end })
     finished(this)
 }
