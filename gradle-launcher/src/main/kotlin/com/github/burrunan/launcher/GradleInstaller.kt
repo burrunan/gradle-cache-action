@@ -66,7 +66,7 @@ suspend fun install(distribution: GradleDistribution): String {
     }
     return path.join(gradleDir, "bin", if (node.os.platform() == Platform.win32) "gradle.bat" else "gradle").also {
         if (node.os.platform() != Platform.win32) {
-            chmod(it, "755" as Mode)
+            chmod(it, "755".toInt(8))
         }
     }
 }
