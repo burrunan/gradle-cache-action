@@ -6159,22 +6159,22 @@
      var globalVersionParsed_major = +globalVersionMatch[1], globalVersionParsed_minor = +globalVersionMatch[2], globalVersionParsed_patch = +globalVersionMatch[3];
      return null != globalVersionMatch[4] || ownVersionParsed_major !== globalVersionParsed_major ? _reject(globalVersion) : 0 === ownVersionParsed_major ? ownVersionParsed_minor === globalVersionParsed_minor && ownVersionParsed_patch <= globalVersionParsed_patch ? _accept(globalVersion) : _reject(globalVersion) : ownVersionParsed_minor <= globalVersionParsed_minor ? _accept(globalVersion) : _reject(globalVersion);
     };
-   }("1.3.0"), major = "1.3.0".split(".")[0], GLOBAL_OPENTELEMETRY_API_KEY = Symbol.for("opentelemetry.js.api." + major), _global = _globalThis;
+   }("1.4.0"), major = "1.4.0".split(".")[0], GLOBAL_OPENTELEMETRY_API_KEY = Symbol.for("opentelemetry.js.api." + major), _global = _globalThis;
    function registerGlobal(type, instance, diag, allowOverride) {
     var _a;
     void 0 === allowOverride && (allowOverride = !1);
     var api = _global[GLOBAL_OPENTELEMETRY_API_KEY] = null !== (_a = _global[GLOBAL_OPENTELEMETRY_API_KEY]) && void 0 !== _a ? _a : {
-     version: "1.3.0"
+     version: "1.4.0"
     };
     if (!allowOverride && api[type]) {
      var err = new Error("@opentelemetry/api: Attempted duplicate registration of API: " + type);
      return diag.error(err.stack || err.message), !1;
     }
-    if ("1.3.0" !== api.version) {
+    if ("1.4.0" !== api.version) {
      err = new Error("@opentelemetry/api: All API registration versions must match");
      return diag.error(err.stack || err.message), !1;
     }
-    return api[type] = instance, diag.debug("@opentelemetry/api: Registered a global for " + type + " v1.3.0."), 
+    return api[type] = instance, diag.debug("@opentelemetry/api: Registered a global for " + type + " v1.4.0."), 
     !0;
    }
    function getGlobal(type) {
@@ -6182,7 +6182,7 @@
     if (globalVersion && isCompatible(globalVersion)) return null === (_b = _global[GLOBAL_OPENTELEMETRY_API_KEY]) || void 0 === _b ? void 0 : _b[type];
    }
    function unregisterGlobal(type, diag) {
-    diag.debug("@opentelemetry/api: Unregistering a global for " + type + " v1.3.0.");
+    diag.debug("@opentelemetry/api: Unregistering a global for " + type + " v1.4.0.");
     var api = _global[GLOBAL_OPENTELEMETRY_API_KEY];
     api && delete api[type];
    }
@@ -6459,7 +6459,7 @@
    var contextApi = ContextAPI.getInstance(), NoopTracer = function() {
     function NoopTracer() {}
     return NoopTracer.prototype.startSpan = function(name, options, context) {
-     if (Boolean(null == options ? void 0 : options.root)) return new NonRecordingSpan;
+     if (void 0 === context && (context = contextApi.active()), Boolean(null == options ? void 0 : options.root)) return new NonRecordingSpan;
      var spanContext, parentFromContext = context && getSpanContext(context);
      return "object" == typeof (spanContext = parentFromContext) && "string" == typeof spanContext.spanId && "string" == typeof spanContext.traceId && "number" == typeof spanContext.traceFlags && isSpanContextValid(parentFromContext) ? new NonRecordingSpan(parentFromContext) : new NonRecordingSpan;
     }, NoopTracer.prototype.startActiveSpan = function(name, arg2, arg3, arg4) {
@@ -16724,8 +16724,8 @@
        const errorHandler = err => {
         const msg = `Error "${err}" occurred while parsing the response body - ${operationResponse.bodyAsText}.`, errCode = err.code || RestError.PARSE_ERROR, e = new RestError(msg, errCode, operationResponse.status, operationResponse.request, operationResponse);
         return Promise.reject(e);
-       };
-       if (!(null === (_a = operationResponse.request.streamResponseStatusCodes) || void 0 === _a ? void 0 : _a.has(operationResponse.status)) && !operationResponse.request.streamResponseBody && operationResponse.bodyAsText) {
+       }, streaming = (null === (_a = operationResponse.request.streamResponseStatusCodes) || void 0 === _a ? void 0 : _a.has(operationResponse.status)) || operationResponse.request.streamResponseBody;
+       if (!streaming && operationResponse.bodyAsText) {
         const text = operationResponse.bodyAsText, contentType = operationResponse.headers.get("Content-Type") || "", contentComponents = contentType ? contentType.split(";").map((component => component.toLowerCase())) : [];
         if (0 === contentComponents.length || contentComponents.some((component => -1 !== jsonContentTypes.indexOf(component)))) return new Promise((resolve => {
          operationResponse.parsedBody = JSON.parse(text), resolve(operationResponse);
@@ -16761,11 +16761,11 @@
         return result;
        }(parsedResponse), {error, shouldReturnResponse} = function(parsedResponse, operationSpec, responseSpec) {
         var _a;
-        const isSuccessByStatus = 200 <= parsedResponse.status && parsedResponse.status < 300;
-        if (function(operationSpec) {
+        const isSuccessByStatus = 200 <= parsedResponse.status && parsedResponse.status < 300, isExpectedStatusCode = function(operationSpec) {
          const expectedStatusCodes = Object.keys(operationSpec.responses);
          return 0 === expectedStatusCodes.length || 1 === expectedStatusCodes.length && "default" === expectedStatusCodes[0];
-        }(operationSpec) ? isSuccessByStatus : responseSpec) {
+        }(operationSpec) ? isSuccessByStatus : !!responseSpec;
+        if (isExpectedStatusCode) {
          if (!responseSpec) return {
           error: null,
           shouldReturnResponse: !1
@@ -16775,7 +16775,7 @@
           shouldReturnResponse: !1
          };
         }
-        const errorResponseSpec = null != responseSpec ? responseSpec : operationSpec.responses.default, initialErrorMessage = (null === (_a = parsedResponse.request.streamResponseStatusCodes) || void 0 === _a ? void 0 : _a.has(parsedResponse.status)) || parsedResponse.request.streamResponseBody ? `Unexpected status code: ${parsedResponse.status}` : parsedResponse.bodyAsText, error = new RestError(initialErrorMessage, void 0, parsedResponse.status, parsedResponse.request, parsedResponse);
+        const errorResponseSpec = null != responseSpec ? responseSpec : operationSpec.responses.default, streaming = (null === (_a = parsedResponse.request.streamResponseStatusCodes) || void 0 === _a ? void 0 : _a.has(parsedResponse.status)) || parsedResponse.request.streamResponseBody, initialErrorMessage = streaming ? `Unexpected status code: ${parsedResponse.status}` : parsedResponse.bodyAsText, error = new RestError(initialErrorMessage, void 0, parsedResponse.status, parsedResponse.request, parsedResponse);
         if (!errorResponseSpec) throw error;
         const defaultBodyMapper = errorResponseSpec.bodyMapper, defaultHeadersMapper = errorResponseSpec.headersMapper;
         try {
@@ -18391,7 +18391,7 @@
      let response = null;
      const abort = function() {
       let error = new AbortError("The user aborted a request.");
-      reject(error), request.body && request.body instanceof external_stream_.Readable && request.body.destroy(error), 
+      reject(error), request.body && request.body instanceof external_stream_.Readable && destroyStream(request.body, error), 
       response && response.body && response.body.emit("error", error);
      };
      if (signal && signal.aborted) return void abort();
@@ -18409,7 +18409,30 @@
       }), request.timeout);
      })), req.on("error", (function(err) {
       reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, "system", err)), 
-      finalize();
+      response && response.body && destroyStream(response.body, err), finalize();
+     })), function(request, errorCallback) {
+      let socket;
+      request.on("socket", (function(s) {
+       socket = s;
+      })), request.on("response", (function(response) {
+       const headers = response.headers;
+       "chunked" !== headers["transfer-encoding"] || headers["content-length"] || response.once("close", (function(hadError) {
+        if (socket.listenerCount("data") > 0 && !hadError) {
+         const err = new Error("Premature close");
+         err.code = "ERR_STREAM_PREMATURE_CLOSE", errorCallback(err);
+        }
+       }));
+      }));
+     }(req, (function(err) {
+      signal && signal.aborted || destroyStream(response.body, err);
+     })), parseInt(process.version.substring(1)) < 14 && req.on("socket", (function(s) {
+      s.addListener("close", (function(hadError) {
+       const hasDataListener = s.listenerCount("data") > 0;
+       if (response && hasDataListener && !hadError && (!signal || !signal.aborted)) {
+        const err = new Error("Premature close");
+        err.code = "ERR_STREAM_PREMATURE_CLOSE", response.body.emit("error", err);
+       }
+      }));
      })), req.on("response", (function(res) {
       clearTimeout(reqTimeout);
       const headers = function(obj) {
@@ -18458,13 +18481,14 @@
         if (!function(destination, original) {
          const orig = new URL$1(original).hostname, dest = new URL$1(destination).hostname;
          return orig === dest || "." === orig[orig.length - dest.length - 1] && orig.endsWith(dest);
-        }(request.url, locationURL)) for (const name of [ "authorization", "www-authenticate", "cookie", "cookie2" ]) requestOpts.headers.delete(name);
+        }(request.url, locationURL) || (destination = request.url, new URL$1(locationURL).protocol !== new URL$1(destination).protocol)) for (const name of [ "authorization", "www-authenticate", "cookie", "cookie2" ]) requestOpts.headers.delete(name);
         return 303 !== res.statusCode && request.body && null === getTotalBytes(request) ? (reject(new FetchError("Cannot follow redirect with body being a readable stream", "unsupported-redirect")), 
         void finalize()) : (303 !== res.statusCode && (301 !== res.statusCode && 302 !== res.statusCode || "POST" !== request.method) || (requestOpts.method = "GET", 
         requestOpts.body = void 0, requestOpts.headers.delete("content-length")), resolve(fetch(new Request(locationURL, requestOpts))), 
         void finalize());
        }
       }
+      var destination;
       res.once("end", (function() {
        signal && signal.removeEventListener("abort", abortAndFinalize);
       }));
@@ -18486,22 +18510,27 @@
       };
       if ("gzip" == codings || "x-gzip" == codings) return body = body.pipe(external_zlib_namespaceObject.createGunzip(zlibOptions)), 
       response = new Response(body, response_options), void resolve(response);
-      if ("deflate" != codings && "x-deflate" != codings) {
-       if ("br" == codings && "function" == typeof external_zlib_namespaceObject.createBrotliDecompress) return body = body.pipe(external_zlib_namespaceObject.createBrotliDecompress()), 
-       response = new Response(body, response_options), void resolve(response);
-       response = new Response(body, response_options), resolve(response);
-      } else {
-       res.pipe(new PassThrough$1).once("data", (function(chunk) {
+      if ("deflate" == codings || "x-deflate" == codings) {
+       const raw = res.pipe(new PassThrough$1);
+       return raw.once("data", (function(chunk) {
         body = 8 == (15 & chunk[0]) ? body.pipe(external_zlib_namespaceObject.createInflate()) : body.pipe(external_zlib_namespaceObject.createInflateRaw()), 
         response = new Response(body, response_options), resolve(response);
+       })), void raw.on("end", (function() {
+        response || (response = new Response(body, response_options), resolve(response));
        }));
       }
+      if ("br" == codings && "function" == typeof external_zlib_namespaceObject.createBrotliDecompress) return body = body.pipe(external_zlib_namespaceObject.createBrotliDecompress()), 
+      response = new Response(body, response_options), void resolve(response);
+      response = new Response(body, response_options), resolve(response);
      })), function(dest, instance) {
       const body = instance.body;
       null === body ? dest.end() : isBlob(body) ? body.stream().pipe(dest) : Buffer.isBuffer(body) ? (dest.write(body), 
       dest.end()) : body.pipe(dest);
      }(req, request);
     }));
+   }
+   function destroyStream(stream, err) {
+    stream.destroy ? stream.destroy(err) : (stream.emit("error", err), stream.end());
    }
    fetch.isRedirect = function(code) {
     return 301 === code || 302 === code || 303 === code || 307 === code || 308 === code;
@@ -19130,7 +19159,8 @@
         return async function(policy, urlPrefix, provider, originalRequest) {
          const postUrl = `${urlPrefix}providers/${provider}/register?api-version=2016-02-01`, getUrl = `${urlPrefix}providers/${provider}?api-version=2016-02-01`, reqOptions = getRequestEssentials(originalRequest);
          reqOptions.method = "POST", reqOptions.url = postUrl;
-         if (200 !== (await policy._nextPolicy.sendRequest(reqOptions)).status) throw new Error(`Autoregistration of ${provider} failed. Please try registering manually.`);
+         const response = await policy._nextPolicy.sendRequest(reqOptions);
+         if (200 !== response.status) throw new Error(`Autoregistration of ${provider} failed. Please try registering manually.`);
          return getRegistrationStatus(policy, getUrl, originalRequest);
         }(policy, urlPrefix, rpName, request).catch((() => !1)).then((registrationStatus => registrationStatus ? (request.headers.set("x-ms-client-request-id", generateUuid()), 
         policy._nextPolicy.sendRequest(request.clone())) : response));
@@ -19885,7 +19915,8 @@
     if (void 0 === sharedKeyCredential && void 0 !== accountName && (userDelegationKeyCredential = new UserDelegationKeyCredential(accountName, sharedKeyCredentialOrUserDelegationKey)), 
     void 0 === sharedKeyCredential && void 0 === userDelegationKeyCredential) throw TypeError("Invalid sharedKeyCredential, userDelegationKey or accountName.");
     if (version >= "2020-12-06") return void 0 !== sharedKeyCredential ? function(blobSASSignatureValues, sharedKeyCredential) {
-     if (!((blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
+     if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+     !(blobSASSignatureValues.identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
      let verifiedPermissions, resource = "c", timestamp = blobSASSignatureValues.snapshotTime;
      blobSASSignatureValues.blobName && (resource = "b", blobSASSignatureValues.snapshotTime ? resource = "bs" : blobSASSignatureValues.versionId && (resource = "bv", 
      timestamp = blobSASSignatureValues.versionId));
@@ -19893,7 +19924,8 @@
      const stringToSign = [ verifiedPermissions || "", blobSASSignatureValues.startsOn ? truncatedISO8061Date(blobSASSignatureValues.startsOn, !1) : "", blobSASSignatureValues.expiresOn ? truncatedISO8061Date(blobSASSignatureValues.expiresOn, !1) : "", getCanonicalName(sharedKeyCredential.accountName, blobSASSignatureValues.containerName, blobSASSignatureValues.blobName), blobSASSignatureValues.identifier, blobSASSignatureValues.ipRange ? ipRangeToString(blobSASSignatureValues.ipRange) : "", blobSASSignatureValues.protocol ? blobSASSignatureValues.protocol : "", blobSASSignatureValues.version, resource, timestamp, blobSASSignatureValues.encryptionScope, blobSASSignatureValues.cacheControl ? blobSASSignatureValues.cacheControl : "", blobSASSignatureValues.contentDisposition ? blobSASSignatureValues.contentDisposition : "", blobSASSignatureValues.contentEncoding ? blobSASSignatureValues.contentEncoding : "", blobSASSignatureValues.contentLanguage ? blobSASSignatureValues.contentLanguage : "", blobSASSignatureValues.contentType ? blobSASSignatureValues.contentType : "" ].join("\n"), signature = sharedKeyCredential.computeHMACSHA256(stringToSign);
      return new SASQueryParameters(blobSASSignatureValues.version, signature, verifiedPermissions, void 0, void 0, blobSASSignatureValues.protocol, blobSASSignatureValues.startsOn, blobSASSignatureValues.expiresOn, blobSASSignatureValues.ipRange, blobSASSignatureValues.identifier, resource, blobSASSignatureValues.cacheControl, blobSASSignatureValues.contentDisposition, blobSASSignatureValues.contentEncoding, blobSASSignatureValues.contentLanguage, blobSASSignatureValues.contentType, void 0, void 0, void 0, blobSASSignatureValues.encryptionScope);
     }(blobSASSignatureValues, sharedKeyCredential) : function(blobSASSignatureValues, userDelegationKeyCredential) {
-     if (!(blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
+     if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+     !blobSASSignatureValues.permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
      let verifiedPermissions, resource = "c", timestamp = blobSASSignatureValues.snapshotTime;
      blobSASSignatureValues.blobName && (resource = "b", blobSASSignatureValues.snapshotTime ? resource = "bs" : blobSASSignatureValues.versionId && (resource = "bv", 
      timestamp = blobSASSignatureValues.versionId));
@@ -19902,7 +19934,8 @@
      return new SASQueryParameters(blobSASSignatureValues.version, signature, verifiedPermissions, void 0, void 0, blobSASSignatureValues.protocol, blobSASSignatureValues.startsOn, blobSASSignatureValues.expiresOn, blobSASSignatureValues.ipRange, blobSASSignatureValues.identifier, resource, blobSASSignatureValues.cacheControl, blobSASSignatureValues.contentDisposition, blobSASSignatureValues.contentEncoding, blobSASSignatureValues.contentLanguage, blobSASSignatureValues.contentType, userDelegationKeyCredential.userDelegationKey, blobSASSignatureValues.preauthorizedAgentObjectId, blobSASSignatureValues.correlationId, blobSASSignatureValues.encryptionScope);
     }(blobSASSignatureValues, userDelegationKeyCredential);
     if (version >= "2018-11-09") return void 0 !== sharedKeyCredential ? function(blobSASSignatureValues, sharedKeyCredential) {
-     if (!((blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
+     if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+     !(blobSASSignatureValues.identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
      let verifiedPermissions, resource = "c", timestamp = blobSASSignatureValues.snapshotTime;
      blobSASSignatureValues.blobName && (resource = "b", blobSASSignatureValues.snapshotTime ? resource = "bs" : blobSASSignatureValues.versionId && (resource = "bv", 
      timestamp = blobSASSignatureValues.versionId));
@@ -19910,7 +19943,8 @@
      const stringToSign = [ verifiedPermissions || "", blobSASSignatureValues.startsOn ? truncatedISO8061Date(blobSASSignatureValues.startsOn, !1) : "", blobSASSignatureValues.expiresOn ? truncatedISO8061Date(blobSASSignatureValues.expiresOn, !1) : "", getCanonicalName(sharedKeyCredential.accountName, blobSASSignatureValues.containerName, blobSASSignatureValues.blobName), blobSASSignatureValues.identifier, blobSASSignatureValues.ipRange ? ipRangeToString(blobSASSignatureValues.ipRange) : "", blobSASSignatureValues.protocol ? blobSASSignatureValues.protocol : "", blobSASSignatureValues.version, resource, timestamp, blobSASSignatureValues.cacheControl ? blobSASSignatureValues.cacheControl : "", blobSASSignatureValues.contentDisposition ? blobSASSignatureValues.contentDisposition : "", blobSASSignatureValues.contentEncoding ? blobSASSignatureValues.contentEncoding : "", blobSASSignatureValues.contentLanguage ? blobSASSignatureValues.contentLanguage : "", blobSASSignatureValues.contentType ? blobSASSignatureValues.contentType : "" ].join("\n"), signature = sharedKeyCredential.computeHMACSHA256(stringToSign);
      return new SASQueryParameters(blobSASSignatureValues.version, signature, verifiedPermissions, void 0, void 0, blobSASSignatureValues.protocol, blobSASSignatureValues.startsOn, blobSASSignatureValues.expiresOn, blobSASSignatureValues.ipRange, blobSASSignatureValues.identifier, resource, blobSASSignatureValues.cacheControl, blobSASSignatureValues.contentDisposition, blobSASSignatureValues.contentEncoding, blobSASSignatureValues.contentLanguage, blobSASSignatureValues.contentType);
     }(blobSASSignatureValues, sharedKeyCredential) : version >= "2020-02-10" ? function(blobSASSignatureValues, userDelegationKeyCredential) {
-     if (!(blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
+     if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+     !blobSASSignatureValues.permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
      let verifiedPermissions, resource = "c", timestamp = blobSASSignatureValues.snapshotTime;
      blobSASSignatureValues.blobName && (resource = "b", blobSASSignatureValues.snapshotTime ? resource = "bs" : blobSASSignatureValues.versionId && (resource = "bv", 
      timestamp = blobSASSignatureValues.versionId));
@@ -19918,7 +19952,8 @@
      const stringToSign = [ verifiedPermissions || "", blobSASSignatureValues.startsOn ? truncatedISO8061Date(blobSASSignatureValues.startsOn, !1) : "", blobSASSignatureValues.expiresOn ? truncatedISO8061Date(blobSASSignatureValues.expiresOn, !1) : "", getCanonicalName(userDelegationKeyCredential.accountName, blobSASSignatureValues.containerName, blobSASSignatureValues.blobName), userDelegationKeyCredential.userDelegationKey.signedObjectId, userDelegationKeyCredential.userDelegationKey.signedTenantId, userDelegationKeyCredential.userDelegationKey.signedStartsOn ? truncatedISO8061Date(userDelegationKeyCredential.userDelegationKey.signedStartsOn, !1) : "", userDelegationKeyCredential.userDelegationKey.signedExpiresOn ? truncatedISO8061Date(userDelegationKeyCredential.userDelegationKey.signedExpiresOn, !1) : "", userDelegationKeyCredential.userDelegationKey.signedService, userDelegationKeyCredential.userDelegationKey.signedVersion, blobSASSignatureValues.preauthorizedAgentObjectId, void 0, blobSASSignatureValues.correlationId, blobSASSignatureValues.ipRange ? ipRangeToString(blobSASSignatureValues.ipRange) : "", blobSASSignatureValues.protocol ? blobSASSignatureValues.protocol : "", blobSASSignatureValues.version, resource, timestamp, blobSASSignatureValues.cacheControl, blobSASSignatureValues.contentDisposition, blobSASSignatureValues.contentEncoding, blobSASSignatureValues.contentLanguage, blobSASSignatureValues.contentType ].join("\n"), signature = userDelegationKeyCredential.computeHMACSHA256(stringToSign);
      return new SASQueryParameters(blobSASSignatureValues.version, signature, verifiedPermissions, void 0, void 0, blobSASSignatureValues.protocol, blobSASSignatureValues.startsOn, blobSASSignatureValues.expiresOn, blobSASSignatureValues.ipRange, blobSASSignatureValues.identifier, resource, blobSASSignatureValues.cacheControl, blobSASSignatureValues.contentDisposition, blobSASSignatureValues.contentEncoding, blobSASSignatureValues.contentLanguage, blobSASSignatureValues.contentType, userDelegationKeyCredential.userDelegationKey, blobSASSignatureValues.preauthorizedAgentObjectId, blobSASSignatureValues.correlationId);
     }(blobSASSignatureValues, userDelegationKeyCredential) : function(blobSASSignatureValues, userDelegationKeyCredential) {
-     if (!(blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
+     if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+     !blobSASSignatureValues.permissions || !blobSASSignatureValues.expiresOn) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when generating user delegation SAS.");
      let verifiedPermissions, resource = "c", timestamp = blobSASSignatureValues.snapshotTime;
      blobSASSignatureValues.blobName && (resource = "b", blobSASSignatureValues.snapshotTime ? resource = "bs" : blobSASSignatureValues.versionId && (resource = "bv", 
      timestamp = blobSASSignatureValues.versionId));
@@ -19928,7 +19963,8 @@
     }(blobSASSignatureValues, userDelegationKeyCredential);
     if (version >= "2015-04-05") {
      if (void 0 !== sharedKeyCredential) return function(blobSASSignatureValues, sharedKeyCredential) {
-      if (!((blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues)).identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
+      if (blobSASSignatureValues = SASSignatureValuesSanityCheckAndAutofill(blobSASSignatureValues), 
+      !(blobSASSignatureValues.identifier || blobSASSignatureValues.permissions && blobSASSignatureValues.expiresOn)) throw new RangeError("Must provide 'permissions' and 'expiresOn' for Blob SAS generation when 'identifier' is not provided.");
       let verifiedPermissions, resource = "c";
       blobSASSignatureValues.blobName && (resource = "b");
       blobSASSignatureValues.permissions && (verifiedPermissions = blobSASSignatureValues.blobName ? BlobSASPermissions.parse(blobSASSignatureValues.permissions.toString()).toString() : ContainerSASPermissions.parse(blobSASSignatureValues.permissions.toString()).toString());
@@ -26487,7 +26523,7 @@
     ucs2decode: () => ucs2decode,
     ucs2encode: () => ucs2encode
    });
-   const maxInt = 2147483647, regexPunycode = /^xn--/, regexNonASCII = /[^\0-\x7E]/, regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, errors = {
+   const maxInt = 2147483647, regexPunycode = /^xn--/, regexNonASCII = /[^\0-\x7F]/, regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, errors = {
     overflow: "Overflow: input needs wider integers to process",
     "not-basic": "Illegal input >= 0x80 (not a basic code point)",
     "invalid-input": "Invalid input"
@@ -26495,16 +26531,16 @@
    function error(type) {
     throw new RangeError(errors[type]);
    }
-   function mapDomain(string, fn) {
-    const parts = string.split("@");
+   function mapDomain(domain, callback) {
+    const parts = domain.split("@");
     let result = "";
-    parts.length > 1 && (result = parts[0] + "@", string = parts[1]);
-    const encoded = function(array, fn) {
+    parts.length > 1 && (result = parts[0] + "@", domain = parts[1]);
+    const encoded = function(array, callback) {
      const result = [];
      let length = array.length;
-     for (;length--; ) result[length] = fn(array[length]);
+     for (;length--; ) result[length] = callback(array[length]);
      return result;
-    }((string = string.replace(regexSeparators, ".")).split("."), fn).join(".");
+    }((domain = domain.replace(regexSeparators, ".")).split("."), callback).join(".");
     return result + encoded;
    }
    function ucs2decode(string) {
@@ -26521,7 +26557,7 @@
     }
     return output;
    }
-   const ucs2encode = array => String.fromCodePoint(...array), digitToBasic = function(digit, flag) {
+   const ucs2encode = codePoints => String.fromCodePoint(...codePoints), digitToBasic = function(digit, flag) {
     return digit + 22 + 75 * (digit < 26) - ((0 != flag) << 5);
    }, adapt = function(delta, numPoints, firstTime) {
     let k = 0;
@@ -26534,11 +26570,12 @@
     for (let j = 0; j < basic; ++j) input.charCodeAt(j) >= 128 && error("not-basic"), 
     output.push(input.charCodeAt(j));
     for (let index = basic > 0 ? basic + 1 : 0; index < inputLength; ) {
-     let oldi = i;
+     const oldi = i;
      for (let w = 1, k = 36; ;k += 36) {
       index >= inputLength && error("invalid-input");
-      const digit = (codePoint = input.charCodeAt(index++)) - 48 < 10 ? codePoint - 22 : codePoint - 65 < 26 ? codePoint - 65 : codePoint - 97 < 26 ? codePoint - 97 : 36;
-      (digit >= 36 || digit > floor((maxInt - i) / w)) && error("overflow"), i += digit * w;
+      const digit = (codePoint = input.charCodeAt(index++)) >= 48 && codePoint < 58 ? codePoint - 48 + 26 : codePoint >= 65 && codePoint < 91 ? codePoint - 65 : codePoint >= 97 && codePoint < 123 ? codePoint - 97 : 36;
+      digit >= 36 && error("invalid-input"), digit > floor((maxInt - i) / w) && error("overflow"), 
+      i += digit * w;
       const t = k <= bias ? 1 : k >= bias + 26 ? 26 : k - bias;
       if (digit < t) break;
       const baseMinusT = 36 - t;
@@ -26551,10 +26588,11 @@
     var codePoint;
     return String.fromCodePoint(...output);
    }, encode = function(input) {
-    const output = [];
-    let inputLength = (input = ucs2decode(input)).length, n = 128, delta = 0, bias = 72;
+    const output = [], inputLength = (input = ucs2decode(input)).length;
+    let n = 128, delta = 0, bias = 72;
     for (const currentValue of input) currentValue < 128 && output.push(stringFromCharCode(currentValue));
-    let basicLength = output.length, handledCPCount = basicLength;
+    const basicLength = output.length;
+    let handledCPCount = basicLength;
     for (basicLength && output.push("-"); handledCPCount < inputLength; ) {
      let m = maxInt;
      for (const currentValue of input) currentValue >= n && currentValue < m && (m = currentValue);
@@ -26562,7 +26600,7 @@
      m - n > floor((maxInt - delta) / handledCPCountPlusOne) && error("overflow"), delta += (m - n) * handledCPCountPlusOne, 
      n = m;
      for (const currentValue of input) if (currentValue < n && ++delta > maxInt && error("overflow"), 
-     currentValue == n) {
+     currentValue === n) {
       let q = delta;
       for (let k = 36; ;k += 36) {
        const t = k <= bias ? 1 : k >= bias + 26 ? 26 : k - bias;
@@ -26570,7 +26608,7 @@
        const qMinusT = q - t, baseMinusT = 36 - t;
        output.push(stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))), q = floor(qMinusT / baseMinusT);
       }
-      output.push(stringFromCharCode(digitToBasic(q, 0))), bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength), 
+      output.push(stringFromCharCode(digitToBasic(q, 0))), bias = adapt(delta, handledCPCountPlusOne, handledCPCount === basicLength), 
       delta = 0, ++handledCPCount;
      }
      ++delta, ++n;
@@ -33730,9 +33768,8 @@
      if (!this.f1p_1.o()) {
       var tmp, tmp0_elvis_lhs = this.f1p_1.f2(ErrorHeader_WHAT_WENT_WRONG_getInstance()), message = null == tmp0_elvis_lhs ? "Unknown error" : tmp0_elvis_lhs, tmp1_plusAssign = this.b1p_1, tmp2_safe_receiver = this.f1p_1.f2(ErrorHeader_WHERE_getInstance());
       if (null == tmp2_safe_receiver) tmp = null; else {
-       var tmp_0, tmp0_safe_receiver = Regex_init_$Create$("^Build file '(.+)' line: (\\d+)$").xc(tmp2_safe_receiver);
-       tmp_0 = null == tmp0_safe_receiver ? null : GradleError_init_$Create$(message, tmp0_safe_receiver.c6().j(1), toInt_0(tmp0_safe_receiver.c6().j(2)), null, 8, null), 
-       tmp = tmp_0;
+       var tmp0_safe_receiver = Regex_init_$Create$("^Build file '(.+)' line: (\\d+)$").xc(tmp2_safe_receiver);
+       tmp = null == tmp0_safe_receiver ? null : GradleError_init_$Create$(message, tmp0_safe_receiver.c6().j(1), toInt_0(tmp0_safe_receiver.c6().j(2)), null, 8, null);
       }
       var tmp3_elvis_lhs = tmp, tmp2_plusAssign = null == tmp3_elvis_lhs ? GradleError_init_$Create$(message, null, null, null, 14, null) : tmp3_elvis_lhs;
       tmp1_plusAssign.a(tmp2_plusAssign);
@@ -33775,16 +33812,14 @@
      if (startsWith$default(line, "e: ", !1, 2, null)) {
       var tmp0_safe_receiver = get_KOTLIN_COMPILE_ERROR().xc(line);
       if (null == tmp0_safe_receiver) ; else {
-       var tmp$ret$4, tmp1_plusAssign = this.v1o_1, tmp_1 = this.x1o_1 + " " + tmp0_safe_receiver.c6().j(4), tmp_2 = tmp0_safe_receiver.c6().j(1), tmp_3 = toInt_0(tmp0_safe_receiver.c6().j(2)), tmp0_takeIf = tmp0_safe_receiver.c6().j(3), tmp2_plusAssign = (tmp$ret$4 = isBlank(tmp0_takeIf) ? null : tmp0_takeIf, 
-       new GradleError(tmp_1, tmp_2, tmp_3, null == tmp$ret$4 ? null : toInt_0(tmp$ret$4)));
+       var tmp$ret$4, tmp1_plusAssign = this.v1o_1, tmp_1 = this.x1o_1 + " " + tmp0_safe_receiver.c6().j(4), tmp_2 = tmp0_safe_receiver.c6().j(1), tmp_3 = toInt_0(tmp0_safe_receiver.c6().j(2)), tmp0_takeIf = tmp0_safe_receiver.c6().j(3), tmp2_plusAssign = new GradleError(tmp_1, tmp_2, tmp_3, null == (tmp$ret$4 = isBlank(tmp0_takeIf) ? null : tmp0_takeIf) ? null : toInt_0(tmp$ret$4));
        tmp1_plusAssign.a(tmp2_plusAssign), Unit_getInstance();
       }
       return Unit_getInstance();
      }
      var tmp1_safe_receiver_0 = get_CHECKSTYLE_ERROR().xc(line);
      if (null == tmp1_safe_receiver_0) ; else {
-      var tmp$ret$8, tmp1_plusAssign_0 = this.v1o_1, tmp_5 = this.x1o_1 + " " + removePrefix("[" + tmp1_safe_receiver_0.c6().j(5) + "] ", "[] ") + tmp1_safe_receiver_0.c6().j(4), tmp_6 = tmp1_safe_receiver_0.c6().j(1), tmp_7 = toInt_0(tmp1_safe_receiver_0.c6().j(2)), tmp0_takeIf_0 = tmp1_safe_receiver_0.c6().j(3), tmp2_plusAssign_0 = (tmp$ret$8 = isBlank(tmp0_takeIf_0) ? null : tmp0_takeIf_0, 
-      new GradleError(tmp_5, tmp_6, tmp_7, null == tmp$ret$8 ? null : toInt_0(tmp$ret$8)));
+      var tmp$ret$8, tmp1_plusAssign_0 = this.v1o_1, tmp_5 = this.x1o_1 + " " + removePrefix("[" + tmp1_safe_receiver_0.c6().j(5) + "] ", "[] ") + tmp1_safe_receiver_0.c6().j(4), tmp_6 = tmp1_safe_receiver_0.c6().j(1), tmp_7 = toInt_0(tmp1_safe_receiver_0.c6().j(2)), tmp0_takeIf_0 = tmp1_safe_receiver_0.c6().j(3), tmp2_plusAssign_0 = new GradleError(tmp_5, tmp_6, tmp_7, null == (tmp$ret$8 = isBlank(tmp0_takeIf_0) ? null : tmp0_takeIf_0) ? null : toInt_0(tmp$ret$8));
       tmp1_plusAssign_0.a(tmp2_plusAssign_0), Unit_getInstance();
      }
      processJavaError(this, line);
@@ -36751,8 +36786,7 @@
       var item_0 = tmp0_iterator_1.e(), tmp1 = index;
       index = tmp1 + 1 | 0;
       var tmp, tmp$ret$4, tmp_0, tmp0__anonymous__q1qw7t = checkIndexOverflow(tmp1);
-      if (0 !== tmp0__anonymous__q1qw7t && tmp0__anonymous__q1qw7t !== lastIndex || !isBlank(item_0)) tmp$ret$4 = drop(item_0, minCommonIndent), 
-      tmp_0 = null == tmp$ret$4 ? null : tmp2_reindent(tmp$ret$4), tmp = null == tmp_0 ? item_0 : tmp_0; else tmp = null;
+      if (0 !== tmp0__anonymous__q1qw7t && tmp0__anonymous__q1qw7t !== lastIndex || !isBlank(item_0)) tmp = null == (tmp_0 = null == (tmp$ret$4 = drop(item_0, minCommonIndent)) ? null : tmp2_reindent(tmp$ret$4)) ? item_0 : tmp_0; else tmp = null;
       var tmp0_safe_receiver_0 = tmp;
       null == tmp0_safe_receiver_0 || (tmp1_mapIndexedNotNullTo.a(tmp0_safe_receiver_0), 
       Unit_getInstance());
@@ -37951,9 +37985,8 @@
      default:
       var tmp_2;
       if (isBooleanArray(e)) tmp_2 = PrimitiveClasses_getInstance().gb_1; else if (isCharArray(e)) tmp_2 = PrimitiveClasses_getInstance().hb_1; else if (isByteArray(e)) tmp_2 = PrimitiveClasses_getInstance().ib_1; else if (isShortArray(e)) tmp_2 = PrimitiveClasses_getInstance().jb_1; else if (isIntArray(e)) tmp_2 = PrimitiveClasses_getInstance().kb_1; else if (isLongArray(e)) tmp_2 = PrimitiveClasses_getInstance().lb_1; else if (isFloatArray(e)) tmp_2 = PrimitiveClasses_getInstance().mb_1; else if (isDoubleArray(e)) tmp_2 = PrimitiveClasses_getInstance().nb_1; else if (isInterface(e, KClass)) tmp_2 = getKClass(KClass); else if (isArray(e)) tmp_2 = PrimitiveClasses_getInstance().db_1; else {
-       var tmp_3, constructor = Object.getPrototypeOf(e).constructor;
-       tmp_3 = constructor === Object ? PrimitiveClasses_getInstance().ua_1 : constructor === Error ? PrimitiveClasses_getInstance().fb_1 : getKClass1(constructor), 
-       tmp_2 = tmp_3;
+       var constructor = Object.getPrototypeOf(e).constructor;
+       tmp_2 = constructor === Object ? PrimitiveClasses_getInstance().ua_1 : constructor === Error ? PrimitiveClasses_getInstance().fb_1 : getKClass1(constructor);
       }
       tmp = tmp_2;
      }
@@ -44651,9 +44684,8 @@
      return toString_0(_this__u8e3s4);
     }
     function createDefaultDispatcher() {
-     var tmp, tmp_0, tmp_1;
-     isJsdom() ? tmp = NodeDispatcher_getInstance() : (tmp_1 = "undefined" != typeof window && null != window, 
-     tmp_0 = !!tmp_1 && !(void 0 === window.addEventListener), tmp = tmp_0 ? asCoroutineDispatcher(window) : "undefined" == typeof process || void 0 === process.nextTick ? SetTimeoutDispatcher_getInstance() : NodeDispatcher_getInstance());
+     var tmp;
+     isJsdom() ? tmp = NodeDispatcher_getInstance() : tmp = !!("undefined" != typeof window && null != window) && !(void 0 === window.addEventListener) ? asCoroutineDispatcher(window) : "undefined" == typeof process || void 0 === process.nextTick ? SetTimeoutDispatcher_getInstance() : NodeDispatcher_getInstance();
      return tmp;
     }
     function isJsdom() {
