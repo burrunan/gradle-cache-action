@@ -1,8 +1,14 @@
+## 2022-11-27: v1.15 ⬆️ bump dependencies
+Includes all the fixes from 1.13 and 1.14.
+
 ## 2022-10-29: v1.14 ⬆️ bump dependencies
+*Unreleased*: the code was not compatible with `kotlin-wrappers/node`, so it did not work. Use 1.15 instead.
+
 * bump @actions/core: 1.9.1 -> 1.10.0 (fix set-state warning)
 * bump @actions/cache: 3.0.4 -> 3.0.6
 
 ## 2022-08-24: v1.13 ⬆️ bump dependencies
+*Unreleased*: the code was not compatible with `kotlin-wrappers/node`, so it did not work.  Use 1.15 instead.
 
 * bump @actions/core: 1.9.0 -> 1.9.1
 * bump @actions/cache: 3.0.0 -> 3.0.4
