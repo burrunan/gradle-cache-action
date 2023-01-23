@@ -39,7 +39,8 @@ jobs:
         git checkout release
         cp cache-action-entrypoint/build/distributions/cache-action-entrypoint.js* dist/
         git checkout main action.yml
-        git add dist/ action.yml
+        git checkout main action-types.yml
+        git add dist/ action.yml action-types.yml
         if git diff --staged --quiet; then
           echo Everything is UP-TO-DATE
         else
