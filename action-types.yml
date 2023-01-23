@@ -1,0 +1,51 @@
+# See https://github.com/krzema12/github-actions-typing
+outputs:
+  build-scan-url:
+    type: string
+inputs:
+  job-id:
+    type: string
+  build-root-directory:
+    type: string
+  home-directory:
+    type: string
+  gradle-version:
+    type: string
+  read-only:
+    type: boolean
+  save-generated-gradle-jars:
+    type: boolean
+  save-local-build-cache:
+    type: boolean
+  multi-cache-enabled:
+    type: boolean
+  multi-cache-version:
+    type: string
+  multi-cache-repository:
+    type: string
+  multi-cache-group-id-filter:
+    type: string
+  save-gradle-dependencies-cache:
+    type: boolean
+  execution-only-caches:
+    type: boolean
+  remote-build-cache-proxy-enabled:
+    type: boolean
+  gradle-dependencies-cache-key:
+    type: string
+  save-maven-dependencies-cache:
+    type: boolean
+  maven-local-ignore-paths:
+    type: string
+  debug:
+    type: boolean
+  concurrent:
+    type: boolean
+  arguments:
+    type: string
+  properties:
+    type: string
+  gradle-build-scan-report:
+    type: boolean
+  gradle-distribution-sha-256-sum-warning:
+    type: boolean
