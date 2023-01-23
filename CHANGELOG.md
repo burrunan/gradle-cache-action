@@ -2,7 +2,7 @@
 
 See https://github.com/burrunan/gradle-cache-action/issues/58
 
-Thanks to [Vamprire](https://github.com/Vampire) for the contribution.
+Thanks to [Vampire](https://github.com/Vampire) for the contribution.
 
 ## 2022-11-27: v1.15 ⬆️ bump dependencies
 Includes all the fixes from 1.13 and 1.14.
