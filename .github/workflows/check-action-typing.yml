@@ -1,0 +1,16 @@
+name: Check Action Typing
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    check_action_typing:
+        name: Check Action Typing
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Check Action Typing
+              uses: krzema12/github-actions-typing@v0
