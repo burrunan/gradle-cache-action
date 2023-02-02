@@ -32,19 +32,31 @@ inputs:
   remote-build-cache-proxy-enabled:
     type: boolean
   gradle-dependencies-cache-key:
-    type: string
+    type: list
+    separator: "\n"
+    list-item:
+      type: string
   save-maven-dependencies-cache:
     type: boolean
   maven-local-ignore-paths:
-    type: string
+    type: list
+    separator: "\n"
+    list-item:
+      type: string
   debug:
     type: boolean
   concurrent:
     type: boolean
   arguments:
-    type: string
+    type: list
+    separator: "\n"
+    list-item:
+      type: string
   properties:
-    type: string
+    type: list
+    separator: "\n"
+    list-item:
+      type: string
   gradle-build-scan-report:
     type: boolean
   gradle-distribution-sha-256-sum-warning:
