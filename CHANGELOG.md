@@ -1,3 +1,10 @@
+## 2023-02-03: v1.17 🚀 better types for list arguments in github-workflows-kt
+
+* Mark list arguments better: https://github.com/burrunan/gradle-cache-action/pull/61
+* Add gradle/libs.versions.toml to the default dependency paths: https://github.com/burrunan/gradle-cache-action/pull/62
+
+Thanks to [Vampire](https://github.com/Vampire) for the contribution.
+
 ## 2023-01-23: v1.16 🚀 added types for github-workflows-kt
 
 See https://github.com/burrunan/gradle-cache-action/issues/58
