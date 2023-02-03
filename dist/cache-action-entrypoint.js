@@ -34603,7 +34603,7 @@
      this.j1w_1 = get_normalizedPath(this.i1w_1);
     }
     function gradleDependenciesCache(trigger, path, gradleDependenciesCacheKey, $cont) {
-     for (var tmp = listOf([ "~/.gradle/caches/modules-2/*", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties", path + "/gradle/libs.versions.toml" ]), tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10)), tmp0_iterator = gradleDependenciesCacheKey.c(); tmp0_iterator.d(); ) {
+     for (var tmp = listOf([ "~/.gradle/caches/modules-2/*", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties", path + "/**/gradle/libs.versions.toml" ]), tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10)), tmp0_iterator = gradleDependenciesCacheKey.c(); tmp0_iterator.d(); ) {
       var tmp$ret$1, tmp$ret$0, item = tmp0_iterator.e(), tmp_2 = (startsWith$default(item, "!", !1, 2, null) ? "!" : "") + path + "/**/";
       tmp$ret$0 = toString(trim(isCharSequence(item) ? item : THROW_CCE())), tmp$ret$1 = tmp_2 + trimStart(tmp$ret$0, charArrayOf([ _Char___init__impl__6a9atx(33) ])), 
       tmp0_mapTo.a(tmp$ret$1);
