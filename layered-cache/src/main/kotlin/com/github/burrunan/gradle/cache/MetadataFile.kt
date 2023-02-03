@@ -27,7 +27,7 @@ import node.fs.*
 class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, private val extension: String = ".json") {
     companion object {
         const val ROOT_FOLDER = "~/.gradle-cache-action"
-        val SPECIAL_CHARS = Regex("""[!@#$%^&*:;'"{}\[\]\\]""")
+        val SPECIAL_CHARS = Regex("""[!@#$%^&*:;'"{}\r\n\[\]\\]""")
 
         init {
             val path = ROOT_FOLDER.normalizedPath

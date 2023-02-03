@@ -36,7 +36,9 @@ class GradleCacheAction(
     }
 
     private val treeId = suspendingStateVariable("tree_id") {
-        exec("git", "log", "-1", "--quiet", "--format=%T", captureOutput = true).stdout
+        // Sometimes the output might include a newline, so trim it
+        // See https://github.com/burrunan/gradle-cache-action/issues/63
+        exec("git", "log", "-1", "--quiet", "--format=%T", captureOutput = true).stdout.trim()
     }
 
     suspend fun execute(stage: ActionStage) {
