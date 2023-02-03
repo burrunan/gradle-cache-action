@@ -6004,7 +6004,7 @@
      i[n] = o[n] ? function(v) {
       return (p = !p) ? {
        value: tslib_es6_await(o[n](v)),
-       done: "return" === n
+       done: !1
       } : f ? f(v) : v;
      } : f;
     }
@@ -18424,7 +18424,7 @@
        }));
       }));
      }(req, (function(err) {
-      signal && signal.aborted || destroyStream(response.body, err);
+      signal && signal.aborted || response && response.body && destroyStream(response.body, err);
      })), parseInt(process.version.substring(1)) < 14 && req.on("socket", (function(s) {
       s.addListener("close", (function(hadError) {
        const hasDataListener = s.listenerCount("data") > 0;
@@ -34603,7 +34603,7 @@
      this.j1w_1 = get_normalizedPath(this.i1w_1);
     }
     function gradleDependenciesCache(trigger, path, gradleDependenciesCacheKey, $cont) {
-     for (var tmp = listOf([ "~/.gradle/caches/modules-2/*", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties" ]), tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10)), tmp0_iterator = gradleDependenciesCacheKey.c(); tmp0_iterator.d(); ) {
+     for (var tmp = listOf([ "~/.gradle/caches/modules-2/*", "!~/.gradle/caches/modules-2/gc.properties", "!~/.gradle/caches/modules-2/modules-2.lock" ]), tmp_0 = listOf([ path + "/**/*.gradle", path + "/**/*.gradle.kts", path + "/**/gradle/dependency-locking/**", path + "/**/*.properties", path + "/gradle/libs.versions.toml" ]), tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(gradleDependenciesCacheKey, 10)), tmp0_iterator = gradleDependenciesCacheKey.c(); tmp0_iterator.d(); ) {
       var tmp$ret$1, tmp$ret$0, item = tmp0_iterator.e(), tmp_2 = (startsWith$default(item, "!", !1, 2, null) ? "!" : "") + path + "/**/";
       tmp$ret$0 = toString(trim(isCharSequence(item) ? item : THROW_CCE())), tmp$ret$1 = tmp_2 + trimStart(tmp$ret$0, charArrayOf([ _Char___init__impl__6a9atx(33) ])), 
       tmp0_mapTo.a(tmp$ret$1);
@@ -35951,17 +35951,17 @@
    }), void 0 === Math.clz32 && (Math.clz32 = (log = Math.log, LN2 = Math.LN2, function(x) {
     var asUint = x >>> 0;
     return 0 === asUint ? 32 : 31 - (log(asUint) / LN2 | 0) | 0;
-   })), void 0 === String.prototype.startsWith && Object.defineProperty(String.prototype, "startsWith", {
-    value: function(searchString, position) {
-     return position = position || 0, this.lastIndexOf(searchString, position) === position;
-    }
-   }), void 0 === String.prototype.endsWith && Object.defineProperty(String.prototype, "endsWith", {
+   })), void 0 === String.prototype.endsWith && Object.defineProperty(String.prototype, "endsWith", {
     value: function(searchString, position) {
      var subjectString = this.toString();
      (void 0 === position || position > subjectString.length) && (position = subjectString.length), 
      position -= searchString.length;
      var lastIndex = subjectString.indexOf(searchString, position);
      return -1 !== lastIndex && lastIndex === position;
+    }
+   }), void 0 === String.prototype.startsWith && Object.defineProperty(String.prototype, "startsWith", {
+    value: function(searchString, position) {
+     return position = position || 0, this.lastIndexOf(searchString, position) === position;
     }
    }), void 0 === Math.imul && (Math.imul = function(a, b) {
     return (4294901760 & a) * (65535 & b) + (65535 & a) * (0 | b) | 0;
