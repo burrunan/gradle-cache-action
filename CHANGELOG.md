@@ -1,3 +1,7 @@
+## 2023-02-03: v1.18 🚑 fix crash when git log returns a string with a newline
+
+* Trim the resulting SHA to prevent failures like in https://github.com/burrunan/gradle-cache-action/issues/63
+
 ## 2023-02-03: v1.17 🚀 better types for list arguments in github-workflows-kt
 
 * Mark list arguments better: https://github.com/burrunan/gradle-cache-action/pull/61
