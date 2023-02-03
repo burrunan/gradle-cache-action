@@ -70,6 +70,7 @@ suspend fun gradleDependenciesCache(trigger: ActionsTrigger, path: String, gradl
             "$path/**/*.gradle.kts",
             "$path/**/gradle/dependency-locking/**",
             "$path/**/*.properties",
+            "$path/gradle/libs.versions.toml",
         ) + gradleDependenciesCacheKey.map {
                 (if (it.startsWith("!")) "!" else "") +
                     "$path/**/" + it.trim().trimStart('!')
@@ -88,4 +89,3 @@ suspend fun mavenDependenciesCache(trigger: ActionsTrigger, path: String, mavenL
             "$path/**/pom.xml",
         ),
     )
-
