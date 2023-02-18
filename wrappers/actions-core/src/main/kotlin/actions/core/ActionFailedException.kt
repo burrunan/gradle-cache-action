@@ -16,6 +16,5 @@
 
 package actions.core
 
-class ActionFailedException(override val message: String, cause: Throwable?): Throwable(message, cause) {
-    constructor(message: String): this(message, null)
-}
+class ActionFailedException(override val message: String, cause: Throwable? = null) :
+    Throwable(message, cause)

@@ -19,6 +19,7 @@ import actions.cache.RestoreType
 import actions.core.ActionFailedException
 import actions.core.debug
 import actions.core.info
+import actions.core.warning
 import actions.glob.removeFiles
 import com.github.burrunan.formatBytes
 import com.github.burrunan.gradle.github.stateVariable
@@ -60,6 +61,9 @@ class LayeredCache(
         paths = listOf(layers.cachedName),
     )
 
+    override fun toString(): String =
+        "Cache $name, primaryKey=$primaryKey, restoreKeys=$restoreKeys, "
+
     private fun CacheLayer.toCache(stateKey: String) =
         DefaultCache(
             name = name,
@@ -83,7 +87,10 @@ class LayeredCache(
         if (indexRestoreType == RestoreType.None) {
             return RestoreType.None
         }
-        val cacheIndex = layers.decode() ?: throw ActionFailedException("${layers.cachedName} is not found")
+        val cacheIndex = layers.decode() ?: run {
+            warning("Unable to restore cache $this")
+            return RestoreType.Unknown
+        }
 
         var restoreType: RestoreType = when (indexRestoreType) {
             is RestoreType.Exact -> RestoreType.Exact(indexRestoreType.path.removePrefix("$version-index-"))
