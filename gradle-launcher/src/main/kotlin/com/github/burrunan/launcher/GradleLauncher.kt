@@ -65,7 +65,14 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
         failureDetected = true
         val shortFile = error.file
             ?.removePrefix(process.cwd())
-        actions.core.error(error.message, shortFile, error.line, error.col)
+        actions.core.error(
+            error.message,
+            jso {
+                file = shortFile
+                startLine = error.line
+                startColumn = error.col
+            },
+        )
     }
     if (failureDetected) {
         process.exitCode = ExitCode.Failure.unsafeCast<Number>()

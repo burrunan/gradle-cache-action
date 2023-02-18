@@ -44,7 +44,7 @@ suspend fun restoreAndLog(
     result?.removePrefix(version)?.let {
         return if (it.endsWith(primaryKey)) RestoreType.Exact(it) else RestoreType.Partial(it)
     }
-    info("Cache was not found for $primaryKey, restore keys: ${restoreKeys.joinToString(", ")}")
+    info("Cache was not found for version=$version, primaryKey=$primaryKey, restore keys=${restoreKeys.joinToString(", ")}")
     return RestoreType.None
 }
 
