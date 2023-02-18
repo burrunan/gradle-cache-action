@@ -27,8 +27,8 @@ import com.github.burrunan.launcher.install
 import com.github.burrunan.launcher.launchGradle
 import com.github.burrunan.launcher.resolveDistribution
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import kotlinx.js.globalThis
-import kotlinx.js.set
+import js.core.globalThis
+import js.core.set
 import node.fs.writeFile
 import octokit.currentTrigger
 import node.path.path

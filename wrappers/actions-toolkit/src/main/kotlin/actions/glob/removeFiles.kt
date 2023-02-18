@@ -14,11 +14,24 @@
  * limitations under the License.
  */
 
-@file:JsModule("@actions/exec")
-@file:Suppress("INTERFACE_WITH_SUPERCLASS", "OVERRIDING_FINAL_MEMBER", "RETURN_TYPE_MISMATCH_ON_OVERRIDE", "CONFLICTING_OVERLOADS")
+package actions.glob
 
-package actions.exec
+import kotlinx.coroutines.await
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
+import node.fs.unlink
 
-import kotlin.js.Promise
-
-external fun exec(commandLine: String, args: Array<String> = definedExternally, options: ExecOptions = definedExternally): Promise<Number>
+suspend fun removeFiles(files: List<String>) {
+    if (files.isEmpty()) {
+        return
+    }
+    val globber = create(files.joinToString("\n"))
+    val fileNames = globber.glob().await()
+    supervisorScope {
+        for (file in fileNames) {
+            launch {
+                unlink(file)
+            }
+        }
+    }
+}

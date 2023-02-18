@@ -17,7 +17,6 @@ package actions.cache
 
 import actions.core.info
 import actions.core.warning
-import kotlinx.coroutines.await
 
 suspend fun restoreAndLog(
     paths: List<String>, primaryKey: String,
@@ -32,7 +31,7 @@ suspend fun restoreAndLog(
                 version + primaryKey,
                 restoreKeys.map { version + it }.toTypedArray(),
             )
-        }.await()
+        }
     } catch (t: Throwable) {
         when (t.asDynamic().name) {
             "ValidationError" -> throw t
@@ -55,7 +54,7 @@ suspend fun saveAndLog(
     version: String,
 ) {
     try {
-        saveCache(paths.toTypedArray(), version + key).await()
+        saveCache(paths.toTypedArray(), version + key)
     } catch (t: Throwable) {
         // TODO: propagate error
         when (t.asDynamic().name) {

@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:octokit-types"))
-    api(npm("@octokit/request-error", "3.0.0"))
+    api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
 }

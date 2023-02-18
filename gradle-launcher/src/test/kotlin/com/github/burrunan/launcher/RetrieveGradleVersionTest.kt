@@ -17,7 +17,7 @@
 package com.github.burrunan.launcher
 
 import actions.core.info
-import actions.toolcache.findAllVersions
+import actions.tool.cache.findAllVersions
 import com.github.burrunan.test.runTest
 import kotlin.test.Test
 

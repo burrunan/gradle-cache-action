@@ -16,10 +16,16 @@
 
 package actions.core
 
-import kotlinext.js.js
+import js.core.jso
 
-inline fun issueCommand(command: String, message: String, properties: dynamic.() -> Unit = {}) =
-    issueCommandRaw(command, js(properties), message)
+external interface TypedCommandProperties : CommandProperties {
+    var file: String
+    var line: Int
+    var col: Int
+}
+
+inline fun issueCommand(command: String, message: String, properties: TypedCommandProperties.() -> Unit = {}) =
+    issueCommand(command, jso(properties), message)
 
 fun warning(message: String, file: String? = null, line: Int? = null, col: Int? = null) {
     if (file == null) {

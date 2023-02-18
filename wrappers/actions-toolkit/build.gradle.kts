@@ -15,5 +15,6 @@
  */
 
 dependencies {
-    api(npm("@actions/io", "1.1.2"))
+    api(project(":wrappers:nodejs"))
+    api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
 }

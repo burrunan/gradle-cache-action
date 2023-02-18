@@ -18,8 +18,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":wrappers:actions-core"))
-    implementation(project(":wrappers:actions-glob"))
+    implementation(project(":wrappers:actions-toolkit"))
     implementation(project(":wrappers:js"))
     implementation(project(":wrappers:nodejs"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")

@@ -20,9 +20,7 @@ import org.jetbrains.kotlin.gradle.targets.js.testing.mocha.KotlinMocha
 dependencies {
     implementation(project(":cache-service-mock"))
     implementation(project(":wrappers:actions-cache"))
-    implementation(project(":wrappers:actions-core"))
-    implementation(project(":wrappers:actions-exec"))
-    implementation(project(":wrappers:actions-glob"))
+    implementation(project(":wrappers:actions-toolkit"))
     implementation(project(":wrappers:nodejs"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")

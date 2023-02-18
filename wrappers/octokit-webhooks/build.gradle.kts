@@ -17,5 +17,5 @@
 dependencies {
     api(project(":wrappers:octokit-request-error"))
     api(npm("@octokit/webhooks", "10.0.8"))
-    implementation(project(":wrappers:actions-core"))
+    implementation(project(":wrappers:actions-toolkit"))
 }

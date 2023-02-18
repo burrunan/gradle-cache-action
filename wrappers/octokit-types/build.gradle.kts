@@ -16,5 +16,5 @@
 
 dependencies {
     api(project(":wrappers:nodejs"))
-    api(npm("@octokit/types", "6.39.0"))
+    api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
 }

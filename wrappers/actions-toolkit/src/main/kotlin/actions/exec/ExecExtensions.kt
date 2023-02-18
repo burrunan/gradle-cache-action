@@ -15,8 +15,7 @@
  */
 package actions.exec
 
-import kotlinx.js.jso
-import kotlinx.coroutines.await
+import js.core.jso
 
 class ExecResult(
     val exitCode: Int,
@@ -49,7 +48,7 @@ suspend fun exec(
                 }
             }
         }
-    ).await()
+    )
     return ExecResult(
         exitCode = exitCode.toInt(),
         stdout = stdout.joinToString("\n"),

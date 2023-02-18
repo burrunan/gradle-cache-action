@@ -1,6 +1,6 @@
 package actions.core.ext
 
-import kotlinx.js.jso
+import js.core.jso
 
 fun getInput(name: String, required: Boolean = false): String =
     actions.core.getInput(name, jso { this.required = required })

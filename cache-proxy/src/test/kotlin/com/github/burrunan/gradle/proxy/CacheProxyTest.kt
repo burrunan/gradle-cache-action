@@ -21,7 +21,7 @@ import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import kotlinx.js.get
+import js.core.get
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToDynamic
 import node.fs.copyFile
