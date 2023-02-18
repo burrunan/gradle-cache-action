@@ -21,7 +21,7 @@ import actions.core.setOutput
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
-import kotlinx.js.jso
+import js.core.jso
 import node.process.process
 
 class GradleResult(

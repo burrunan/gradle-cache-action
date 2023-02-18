@@ -17,7 +17,6 @@
 package actions.cache.internal
 
 import actions.cache.HttpClientError
-import actions.httpclient.ITypedResponse
 
 external interface GetCacheParams {
     val keys: String
@@ -57,6 +56,12 @@ external enum class CompressionMethod {
     // This enum is for earlier version of zstd that does not have --long support
     ZstdWithoutLong,
     Zstd
+}
+
+external interface ITypedResponse<T> {
+    var statusCode: Number
+    var result: T?
+    var headers: Any
 }
 
 external interface ITypedResponseWithError<T>: ITypedResponse<T> {

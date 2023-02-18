@@ -19,28 +19,26 @@ package com.github.burrunan.launcher
 import actions.core.ActionFailedException
 import actions.core.info
 import actions.core.warning
-import actions.httpclient.HttpClient
-import actions.httpclient.HttpCodes
-import actions.httpclient.IHeaders
+import actions.http.client.HttpClient
+import actions.http.client.HttpCodes
 import actions.io.rmRF
-import actions.toolcache.cacheDir
-import actions.toolcache.downloadTool
-import actions.toolcache.extractZip
+import actions.tool.cache.cacheDir
+import actions.tool.cache.downloadTool
+import actions.tool.cache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import kotlinx.js.jso
+import js.core.recordOf
 import node.buffer.BufferEncoding
-import node.fs.Mode
 import node.fs.chmod
 import node.fs.readFile
 import node.path.path
 import node.process.Platform
 
 suspend fun install(distribution: GradleDistribution): String {
-    val cachedTool = actions.toolcache.find("gradle", distribution.version)
+    val cachedTool = actions.tool.cache.find("gradle", distribution.version)
     val gradleDir = if (cachedTool.isNotEmpty()) {
         info("Detected Gradle ${distribution.version} at $cachedTool")
         cachedTool
@@ -71,7 +69,7 @@ suspend fun install(distribution: GradleDistribution): String {
     }
 }
 
-private val HTTP_AGENT = jso<IHeaders> { set("User-Agent", "burrunan/gradle-cache-action") }
+private val HTTP_AGENT = recordOf<String, Any>("User-Agent" to "burrunan/gradle-cache-action")
 
 suspend fun GradleVersion.Official.findUrl(): GradleDistribution {
     val url = "https://services.gradle.org/versions/all"

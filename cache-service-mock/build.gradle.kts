@@ -16,7 +16,7 @@
 
 dependencies {
     implementation(project(":wrappers:actions-cache"))
-    implementation(project(":wrappers:actions-core"))
+    implementation(project(":wrappers:actions-toolkit"))
     implementation(project(":wrappers:nodejs"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")

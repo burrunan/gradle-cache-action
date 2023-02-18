@@ -16,11 +16,7 @@
 
 dependencies {
     implementation(project(":hashing"))
-    implementation(project(":wrappers:actions-core"))
-    implementation(project(":wrappers:actions-exec"))
-    implementation(project(":wrappers:actions-http-client"))
-    implementation(project(":wrappers:actions-io"))
-    implementation(project(":wrappers:actions-tool-cache"))
+    implementation(project(":wrappers:actions-toolkit"))
     implementation(project(":wrappers:java-properties"))
     implementation(project(":wrappers:nodejs"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")

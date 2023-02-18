@@ -21,9 +21,9 @@ import com.github.burrunan.wrappers.js.suspendWithCallback
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.readJson
 import com.github.burrunan.wrappers.nodejs.readToBuffer
-import kotlinx.js.get
-import kotlinx.js.jso
-import kotlinx.js.set
+import js.core.get
+import js.core.jso
+import js.core.set
 import node.http.IncomingMessage
 import node.http.OutgoingHttpHeaders
 import node.http.ServerResponse
@@ -41,7 +41,7 @@ class CacheService {
 
     private val storage = CacheStorage()
 
-    private val server = node.http.createServer { req, res ->
+    private val server = node.http.createServer<IncomingMessage, ServerResponse<*>> { req, res ->
         val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
         res.handle {
@@ -59,7 +59,7 @@ class CacheService {
         }
     }
 
-    private fun getContents(query: Url, res: ServerResponse) {
+    private fun getContents(query: Url, res: ServerResponse<*>) {
         val key = query.query.unsafeCast<ParsedUrlQuery>()["key"] as String
         val entry = storage.getValue(key)
         res.writeHead(
@@ -71,13 +71,13 @@ class CacheService {
         res.write(entry.value)
     }
 
-    private suspend fun cacheOp(cacheId: Number, req: IncomingMessage, res: ServerResponse) = when (req.method) {
+    private suspend fun cacheOp(cacheId: Number, req: IncomingMessage, res: ServerResponse<*>) = when (req.method) {
         "PATCH" -> uploadCache(cacheId, req, res)
         "POST" -> commitCache(cacheId, req, res)
         else -> throw HttpException.notImplemented("Unknown method: ${req.method}")
     }
 
-    private fun getCache(query: Url, res: ServerResponse) {
+    private fun getCache(query: Url, res: ServerResponse<*>) {
         val request = query.query.unsafeCast<GetCacheParams>()
         var resultKey: String? = null
         var resultEntry: CacheEntry? = null
@@ -114,7 +114,7 @@ class CacheService {
         )
     }
 
-    private suspend fun uploadCache(cacheId: Number, req: IncomingMessage, res: ServerResponse) {
+    private suspend fun uploadCache(cacheId: Number, req: IncomingMessage, res: ServerResponse<*>) {
         val contentRange = req.headers.asDynamic()["content-range"] as String
         val (_, start, end) = contentRange.match("bytes (\\d+)-(\\d+)") ?: arrayOf("", "", "")
         if (start.isEmpty()) {
@@ -124,12 +124,12 @@ class CacheService {
         res.writeHead(200, "OK")
     }
 
-    private suspend fun commitCache(cacheId: Number, req: IncomingMessage, res: ServerResponse) {
+    private suspend fun commitCache(cacheId: Number, req: IncomingMessage, res: ServerResponse<*>) {
         storage.commitCache(cacheId, req.readJson<CommitCacheRequest>().size)
         res.writeHead(200, "OK")
     }
 
-    private suspend fun reserveCache(req: IncomingMessage, res: ServerResponse) {
+    private suspend fun reserveCache(req: IncomingMessage, res: ServerResponse<*>) {
         if (req.method != "POST") {
             throw HttpException.badRequest("Expecting POST method, got ${req.method}")
         }

@@ -15,7 +15,6 @@
  */
 
 dependencies {
-    api(npm("@actions/cache", "3.0.6"))
-    implementation(project(":wrappers:actions-core"))
-    api(project(":wrappers:actions-http-client"))
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+    implementation(project(":wrappers:actions-toolkit"))
 }

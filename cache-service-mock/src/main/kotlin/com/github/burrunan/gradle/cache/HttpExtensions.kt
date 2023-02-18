@@ -21,7 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 
-fun ServerResponse.handle(action: suspend CoroutineScope.() -> Unit) =
+fun ServerResponse<*>.handle(action: suspend CoroutineScope.() -> Unit) =
     GlobalScope.launch {
         try {
             supervisorScope {

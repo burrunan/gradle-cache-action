@@ -29,8 +29,8 @@ import node.http.ServerResponse
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import kotlinx.js.jso
-import kotlinx.js.set
+import js.core.jso
+import js.core.set
 import node.fs.Stats
 import node.fs.stat
 import node.http.OutgoingHttpHeaders
@@ -52,7 +52,7 @@ class CacheProxy {
 
     val cacheUrl: String? get() = _cacheUrl
 
-    private val server = node.http.createServer { req, res ->
+    private val server = node.http.createServer<IncomingMessage, ServerResponse<*>> { req, res ->
         val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
         res.handle {
@@ -67,7 +67,7 @@ class CacheProxy {
 
     private val compression = jso<InternalCacheOptions> { compressionMethod = CompressionMethod.Gzip }
 
-    private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse) {
+    private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         try {
             req.pipeAndWait(createWriteStream(fileName))
@@ -95,7 +95,7 @@ class CacheProxy {
         }
     }
 
-    private suspend fun getEntry(id: String, res: ServerResponse) {
+    private suspend fun getEntry(id: String, res: ServerResponse<*>) {
         val cacheEntry = getCacheEntry(arrayOf(id), arrayOf(id), compression).await()
             ?: throw HttpException.notFound("No cache entry found for $id")
         val archiveLocation = cacheEntry.archiveLocation

@@ -17,11 +17,9 @@ package com.github.burrunan.hashing
 
 import actions.core.ActionFailedException
 import actions.core.warning
-import actions.glob.Globber
-import actions.glob.glob
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
-import kotlinx.js.jso
+import kotlinx.coroutines.await
 import kotlinx.serialization.Serializable
 import node.WritableStream
 import node.crypto.BinaryToTextEncoding
@@ -70,8 +68,8 @@ suspend fun hashFilesDetailed(
     algorithm: String = "sha1",
     includeFileName: Boolean = true,
 ): HashDetails = try {
-    val globber = Globber(paths.joinToString("\n"))
-    val fileNames = globber.glob()
+    val globber = actions.glob.create(paths.joinToString("\n"))
+    val fileNames = globber.glob().await()
     // Sorting is needed for stable overall hash
     fileNames.sort()
 
