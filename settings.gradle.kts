@@ -16,11 +16,8 @@
 
 pluginManagement {
     plugins {
-        fun String.v() = extra["$this.version"].toString()
-        fun PluginDependenciesSpec.idv(id: String, key: String = id) = id(id) version key.v()
-
-        kotlin("js") version "kotlin".v()
-        kotlin("plugin.serialization") version "kotlin".v()
+        kotlin("js") version "1.8.22"
+        kotlin("plugin.serialization") version "1.8.10"
     }
 }
 
