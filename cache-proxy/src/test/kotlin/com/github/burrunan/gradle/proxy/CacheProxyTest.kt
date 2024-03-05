@@ -97,10 +97,11 @@ class CacheProxyTest {
                     """
                     org.gradle.caching=true
                     #org.gradle.caching.debug=true
+                    org.gradle.configuration-cache=true
                     """.trimIndent(),
                 )
 
-                val out = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
+                val out = exec("./gradlew", "props", "-i", "--configuration-cache", "--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
                     ignoreReturnCode = true
@@ -114,7 +115,7 @@ class CacheProxyTest {
                 )
 
                 removeFiles(listOf("$dir/$outputFile"))
-                val out2 = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
+                val out2 = exec("./gradlew", "props", "-i", "--configuration-cache","--build-cache", captureOutput = true) {
                     cwd = dir
                     silent = true
                     ignoreReturnCode = true

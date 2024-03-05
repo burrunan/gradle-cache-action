@@ -20,7 +20,7 @@ plugins {
 
 plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
     configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
-        nodeVersion = "16.16.0"
+        nodeVersion = "20.11.1"
     }
 }
 
