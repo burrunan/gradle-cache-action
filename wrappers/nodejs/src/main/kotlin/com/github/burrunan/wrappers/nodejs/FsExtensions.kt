@@ -15,7 +15,7 @@
  */
 package com.github.burrunan.wrappers.nodejs
 
-import js.core.jso
+import js.objects.jso
 import node.fs.MakeDirectoryOptions
 import node.fs.existsSync
 import node.fs.mkdir

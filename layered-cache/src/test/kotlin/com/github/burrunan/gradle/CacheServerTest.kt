@@ -39,7 +39,7 @@ class CacheServerTest {
         mkdir(dir)
         val file = "$dir/cached.txt"
         val contents = "hello, world"
-        writeFile(file, contents)
+        writeFile(file, contents, BufferEncoding.utf8)
         val patterns = listOf("$dir/**")
 
         val primaryKey = "linux-gradle-feature/123123"
@@ -91,7 +91,7 @@ class CacheServerTest {
         mkdir(dir)
         val file = "$dir/cached.txt"
         val contents = "hello, world"
-        writeFile(file, contents)
+        writeFile(file, contents, BufferEncoding.utf8)
         val patterns = listOf("$dir/**")
 
         val primaryKey = "prefix-gradle-features/cool/123123"

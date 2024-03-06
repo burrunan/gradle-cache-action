@@ -15,7 +15,6 @@
  */
 package actions.core
 
-import js.core.get
 import node.process.process
 import kotlin.reflect.KProperty
 

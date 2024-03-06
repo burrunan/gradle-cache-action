@@ -20,7 +20,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-suspend inline fun suspendWithCallback(crossinline block: ((Error?) -> Unit) -> Unit) =
+suspend inline fun suspendWithCallback(crossinline block: ((Throwable?) -> Unit) -> Unit) =
     suspendCoroutine<Nothing?> { cont ->
         block.invoke { error ->
             when (error) {
@@ -30,7 +30,7 @@ suspend inline fun suspendWithCallback(crossinline block: ((Error?) -> Unit) -> 
         }
     }
 
-suspend inline fun <T : Any> suspendWithCallback(crossinline block: ((Error?, result: T) -> Unit) -> Unit) =
+suspend inline fun <T : Any> suspendWithCallback(crossinline block: ((Throwable?, result: T) -> Unit) -> Unit) =
     suspendCoroutine<T> { cont ->
         block.invoke { error, result ->
             when (error) {

@@ -16,19 +16,19 @@
 
 package com.github.burrunan.wrappers.nodejs
 
-import js.core.jso
+import js.objects.jso
 import node.ReadableStream
 import node.WritableStream
 import node.buffer.Buffer
 import node.buffer.BufferEncoding
-import node.events.Event
+import node.stream.ReadableEvent
 import node.stream.finished
 
 suspend fun <T> ReadableStream.readJson(): T = JSON.parse(readToBuffer().toString(BufferEncoding.utf8))
 
 suspend fun ReadableStream.readToBuffer(): Buffer {
     val data = mutableListOf<Buffer>()
-    on(Event.DATA) { chunk: Any ->
+    on(ReadableEvent.DATA) { chunk: Any ->
         data += chunk as Buffer
     }
     finished(this)

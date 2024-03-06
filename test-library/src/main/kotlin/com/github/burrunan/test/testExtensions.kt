@@ -18,7 +18,6 @@ package com.github.burrunan.test
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.promise
-import js.core.set
 import node.process.process
 
 fun runTest(block: suspend () -> Unit): dynamic = GlobalScope.promise {

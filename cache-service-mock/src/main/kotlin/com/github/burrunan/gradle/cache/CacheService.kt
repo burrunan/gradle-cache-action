@@ -21,9 +21,7 @@ import com.github.burrunan.wrappers.js.suspendWithCallback
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.readJson
 import com.github.burrunan.wrappers.nodejs.readToBuffer
-import js.core.get
-import js.core.jso
-import js.core.set
+import js.objects.jso
 import node.http.IncomingMessage
 import node.http.OutgoingHttpHeaders
 import node.http.ServerResponse
@@ -99,7 +97,7 @@ class CacheService {
             throw HttpException.noContent("No entries found")
         }
 
-        res.writeHead(200, "Ok")
+        res.writeHead(200, "Ok", undefined.unsafeCast<OutgoingHttpHeaders>())
 
         res.write(
             JSON.stringify(
@@ -121,12 +119,12 @@ class CacheService {
             throw HttpException.notImplemented("Unknown content-range: $contentRange")
         }
         storage.update(cacheId, start.toInt(), end.toInt(), req.readToBuffer())
-        res.writeHead(200, "OK")
+        res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
     }
 
     private suspend fun commitCache(cacheId: Number, req: IncomingMessage, res: ServerResponse<*>) {
         storage.commitCache(cacheId, req.readJson<CommitCacheRequest>().size)
-        res.writeHead(200, "OK")
+        res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
     }
 
     private suspend fun reserveCache(req: IncomingMessage, res: ServerResponse<*>) {
@@ -137,7 +135,7 @@ class CacheService {
 
         val cacheId = storage.reserveCache(request.key, request.version!!)
             ?: throw HttpException.badRequest("Cache entry already exists")
-        res.writeHead(200, "Reserve Cache OK")
+        res.writeHead(200, "Reserve Cache OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         res.write(
             JSON.stringify(
                 jso<ReserveCacheResponse> {

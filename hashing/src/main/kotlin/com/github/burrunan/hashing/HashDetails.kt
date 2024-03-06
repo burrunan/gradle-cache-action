@@ -19,16 +19,16 @@ import actions.core.ActionFailedException
 import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
-import kotlinx.coroutines.await
+import js.promise.await
 import kotlinx.serialization.Serializable
 import node.WritableStream
+import node.buffer.BufferEncoding
 import node.crypto.BinaryToTextEncoding
 import node.crypto.createHash
-import node.fs.Stats
+import node.fs.StatSimpleOpts
 import node.fs.createReadStream
 import node.fs.stat
 import node.process.process
-import node.stream.Transform
 
 @Serializable
 class HashDetails(
@@ -80,7 +80,7 @@ suspend fun hashFilesDetailed(
     val files = mutableMapOf<String, FileDetails>()
     val overallHash = createHash(algorithm)
     for (name in fileNames) {
-        val statSync = stat(name).unsafeCast<Stats>()
+        val statSync = stat(name, undefined.unsafeCast<StatSimpleOpts>())
         if (statSync.isDirectory()) {
             continue
         }
@@ -102,7 +102,7 @@ suspend fun hashFilesDetailed(
             else -> {
                 val hash = createHash(algorithm)
                 try {
-                    createReadStream(name).pipeAndWait(hash.unsafeCast<WritableStream>(), end = true)
+                    createReadStream(name, BufferEncoding.utf8).pipeAndWait(hash.unsafeCast<WritableStream>(), end = true)
                 } catch (e: Throwable) {
                     warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
                     continue

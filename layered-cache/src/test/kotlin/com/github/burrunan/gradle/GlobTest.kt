@@ -20,6 +20,7 @@ import com.github.burrunan.formatBytes
 import com.github.burrunan.hashing.hashFilesDetailed
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
+import node.buffer.BufferEncoding
 import node.fs.writeFile
 import node.path.path
 import kotlin.test.Test
@@ -32,10 +33,10 @@ class GlobTest {
         val dotGradle = path.join(dirName, ".gradle")
         mkdir(dirName)
         mkdir(dotGradle)
-        writeFile(path.join(dirName, "settings.gradle"), "a")
-        writeFile(path.join(dirName, "good.txt"), "a")
-        writeFile(path.join(dirName, "bad.txt"), "a")
-        writeFile(path.join(dotGradle, "extra.txt"), "a")
+        writeFile(path.join(dirName, "settings.gradle"), "a", BufferEncoding.utf8)
+        writeFile(path.join(dirName, "good.txt"), "a", BufferEncoding.utf8)
+        writeFile(path.join(dirName, "bad.txt"), "a", BufferEncoding.utf8)
+        writeFile(path.join(dotGradle, "extra.txt"), "a", BufferEncoding.utf8)
 
         val hash = hashFilesDetailed(
             "$dirName/**/*.gradle",

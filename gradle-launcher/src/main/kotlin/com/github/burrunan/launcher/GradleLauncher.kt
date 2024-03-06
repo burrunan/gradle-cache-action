@@ -21,7 +21,7 @@ import actions.core.setOutput
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
-import js.core.jso
+import js.objects.jso
 import node.process.process
 
 class GradleResult(
@@ -75,7 +75,7 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
         )
     }
     if (failureDetected) {
-        process.exitCode = ExitCode.Failure.unsafeCast<Number>()
+        process.exitCode = ExitCode.Failure.unsafeCast<Double>()
     }
     if (!failureDetected && result.exitCode != 0) {
         setFailed("Gradle process finished with a non-zero exit code: ${result.exitCode}")

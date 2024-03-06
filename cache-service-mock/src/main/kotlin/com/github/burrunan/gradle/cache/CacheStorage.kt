@@ -63,7 +63,7 @@ class CacheStorage {
         val result = if (parts.size == 1 && parts[0].contents.length == size) {
             parts[0].contents
         } else {
-            Buffer.alloc(size).also {
+            Buffer.alloc(size, undefined.unsafeCast<String>()).also {
                 for (part in parts) {
                     part.contents.copy(it, part.start, 0, part.end)
                 }

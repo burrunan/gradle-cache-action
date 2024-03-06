@@ -19,26 +19,25 @@ package com.github.burrunan.gradle.proxy
 import actions.cache.internal.*
 import actions.core.debug
 import actions.glob.removeFiles
-import com.github.burrunan.gradle.cache.*
+import com.github.burrunan.gradle.cache.HttpException
+import com.github.burrunan.gradle.cache.handle
 import com.github.burrunan.wrappers.nodejs.mkdir
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
-import node.fs.createReadStream
-import node.fs.createWriteStream
-import node.http.IncomingMessage
-import node.http.ServerResponse
+import js.objects.jso
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import js.core.jso
-import js.core.set
-import node.fs.Stats
+import node.buffer.BufferEncoding
+import node.fs.StatSimpleOpts
+import node.fs.createReadStream
+import node.fs.createWriteStream
 import node.fs.stat
+import node.http.IncomingMessage
 import node.http.OutgoingHttpHeaders
+import node.http.ServerResponse
 import node.net.AddressInfo
 import node.path.path
 import node.process.process
-import node.stream.Readable
-import node.stream.Writable
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -70,8 +69,8 @@ class CacheProxy {
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         try {
-            req.pipeAndWait(createWriteStream(fileName))
-            res.writeHead(200, "OK")
+            req.pipeAndWait(createWriteStream(fileName, BufferEncoding.utf8))
+            res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
             GlobalScope.launch {
                 try {
@@ -80,7 +79,7 @@ class CacheProxy {
                     val cacheId = response.result?.cacheId
                         ?: when {
                             response.statusCode == 400 -> throw Throwable(
-                                "Cache $fileName size of ${stat(fileName).unsafeCast<Stats>().size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
+                                "Cache $fileName size of ${stat(fileName, undefined.unsafeCast<StatSimpleOpts>()).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
                             )
                             else -> throw Throwable(
                                 "Can't reserve cache for id $id, another job might be creating this cache: ${response.error?.message}"
@@ -107,10 +106,10 @@ class CacheProxy {
             res.writeHead(
                 200, "Ok",
                 jso<OutgoingHttpHeaders> {
-                    this["content-length"] = stat(fileName).unsafeCast<Stats>().size
+                    this["content-length"] = stat(fileName, undefined.unsafeCast<StatSimpleOpts>()).size
                 },
             )
-            createReadStream(fileName).pipeAndWait(res)
+            createReadStream(fileName, BufferEncoding.utf8).pipeAndWait(res)
         } finally {
             removeFiles(listOf(fileName))
         }

@@ -15,11 +15,12 @@
  */
 package com.github.burrunan.gradle.cache
 
-import node.http.ServerResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
+import node.http.OutgoingHttpHeaders
+import node.http.ServerResponse
 
 fun ServerResponse<*>.handle(action: suspend CoroutineScope.() -> Unit) =
     GlobalScope.launch {
@@ -28,10 +29,10 @@ fun ServerResponse<*>.handle(action: suspend CoroutineScope.() -> Unit) =
                 action()
             }
         } catch (e: HttpException) {
-            writeHead(e.code, e.message ?: "no message")
+            writeHead(e.code, e.message ?: "no message", undefined.unsafeCast<OutgoingHttpHeaders>())
         } catch (e: Throwable) {
             e.printStackTrace()
-            writeHead(500, "Error processing ${e.message}")
+            writeHead(500, "Error processing ${e.message}", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
             end()
         }

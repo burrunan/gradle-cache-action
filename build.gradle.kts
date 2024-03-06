@@ -49,12 +49,12 @@ allprojects {
         }
         dependencies {
             constraints {
-                "api"("org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.1")
-                "api"("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+                "api"("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
+                "api"("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
             }
-            "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-            "implementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.499"))
-            "apiDependenciesMetadata"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.499"))
+            "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            "implementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
+            "apiDependenciesMetadata"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
             "implementation"("org.jetbrains.kotlin-wrappers:kotlin-extensions")
             if (project.path != ":test-library") {
                 "testImplementation"(project(":test-library"))

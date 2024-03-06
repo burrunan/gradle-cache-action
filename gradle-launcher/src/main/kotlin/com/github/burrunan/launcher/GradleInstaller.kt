@@ -27,13 +27,14 @@ import actions.tool.cache.downloadTool
 import actions.tool.cache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
+import js.objects.jso
+import js.promise.await
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import js.core.recordOf
 import node.buffer.BufferEncoding
 import node.fs.chmod
 import node.fs.readFile
+import node.http.OutgoingHttpHeaders
 import node.path.path
 import node.process.Platform
 
@@ -69,7 +70,10 @@ suspend fun install(distribution: GradleDistribution): String {
     }
 }
 
-private val HTTP_AGENT = recordOf<String, Any>("User-Agent" to "burrunan/gradle-cache-action")
+private val HTTP_AGENT =
+    jso<OutgoingHttpHeaders> {
+        set("User-Agent", "burrunan/gradle-cache-action")
+    }
 
 suspend fun GradleVersion.Official.findUrl(): GradleDistribution {
     val url = "https://services.gradle.org/versions/all"

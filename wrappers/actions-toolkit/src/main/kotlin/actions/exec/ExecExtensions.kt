@@ -15,7 +15,7 @@
  */
 package actions.exec
 
-import js.core.jso
+import js.objects.jso
 
 class ExecResult(
     val exitCode: Int,

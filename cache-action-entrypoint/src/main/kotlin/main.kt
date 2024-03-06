@@ -27,12 +27,12 @@ import com.github.burrunan.launcher.install
 import com.github.burrunan.launcher.launchGradle
 import com.github.burrunan.launcher.resolveDistribution
 import com.github.burrunan.wrappers.nodejs.normalizedPath
-import js.core.globalThis
-import js.core.set
+import js.globals.globalThis
+import node.buffer.BufferEncoding
 import node.fs.writeFile
-import octokit.currentTrigger
 import node.path.path
 import node.process.process
+import octokit.currentTrigger
 
 fun String.splitLines() =
     split(Regex("\\s*[\r\n]+\\s*"))
@@ -152,6 +152,7 @@ suspend fun mainInternal(stage: ActionStage) {
                     multiCacheGroupIdFilter = getInput("multi-cache-group-id-filter").ifBlank { "com[.]github[.]burrunan[.]multi-?cache" },
                     push = !params.readOnly,
                 ),
+                BufferEncoding.utf8,
             )
         }
 

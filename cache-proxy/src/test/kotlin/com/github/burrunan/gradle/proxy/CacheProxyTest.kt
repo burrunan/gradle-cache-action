@@ -21,9 +21,9 @@ import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.CacheService
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
-import js.core.get
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToDynamic
+import node.buffer.BufferEncoding
 import node.fs.copyFile
 import node.fs.writeFile
 import node.process.process
@@ -78,6 +78,7 @@ class CacheProxyTest {
                             }
                         }
                     """.trimIndent(),
+                    BufferEncoding.utf8,
                 )
                 writeFile(
                     "$dir/build.gradle",
@@ -91,6 +92,7 @@ class CacheProxyTest {
                           property("hello", "world2")
                         }
                     """.trimIndent(),
+                    BufferEncoding.utf8,
                 )
                 writeFile(
                     "$dir/gradle.properties",
@@ -99,6 +101,7 @@ class CacheProxyTest {
                     #org.gradle.caching.debug=true
                     org.gradle.configuration-cache=true
                     """.trimIndent(),
+                    BufferEncoding.utf8,
                 )
 
                 val out = exec("./gradlew", "props", "-i", "--configuration-cache", "--build-cache", captureOutput = true) {
