@@ -29,6 +29,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "gradle-cache-action"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 include(
     "cache-service-mock",
     "cache-proxy",

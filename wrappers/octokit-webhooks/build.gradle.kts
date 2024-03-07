@@ -18,9 +18,9 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                api(project(":wrappers:octokit-request-error"))
+                api(projects.wrappers.octokitRequestError)
                 api(npm("@octokit/webhooks", "10.0.8"))
-                implementation(project(":wrappers:actions-toolkit"))
+                implementation(projects.wrappers.actionsToolkit)
             }
         }
     }

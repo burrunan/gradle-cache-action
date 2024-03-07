@@ -19,7 +19,7 @@ kotlin {
         jsMain {
             dependencies {
                 api(kotlin("test-js"))
-                implementation(project(":wrappers:nodejs"))
+                implementation(projects.wrappers.nodejs)
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
             }
         }

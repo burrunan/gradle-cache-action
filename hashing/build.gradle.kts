@@ -21,9 +21,9 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation(project(":wrappers:actions-toolkit"))
-                implementation(project(":wrappers:js"))
-                implementation(project(":wrappers:nodejs"))
+                implementation(projects.wrappers.actionsToolkit)
+                implementation(projects.wrappers.js)
+                implementation(projects.wrappers.nodejs)
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
             }
         }

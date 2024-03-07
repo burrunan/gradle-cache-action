@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                api(project(":wrappers:octokit-types"))
+                api(projects.wrappers.octokitTypes)
                 api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
             }
         }

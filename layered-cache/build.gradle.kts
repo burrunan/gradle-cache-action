@@ -22,12 +22,12 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation(project(":gradle-launcher"))
-                implementation(project(":hashing"))
-                implementation(project(":wrappers:actions-cache"))
-                implementation(project(":wrappers:actions-toolkit"))
-                implementation(project(":wrappers:nodejs"))
-                implementation(project(":wrappers:octokit-webhooks"))
+                implementation(projects.gradleLauncher)
+                implementation(projects.hashing)
+                implementation(projects.wrappers.actionsCache)
+                implementation(projects.wrappers.actionsToolkit)
+                implementation(projects.wrappers.nodejs)
+                implementation(projects.wrappers.octokitWebhooks)
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
@@ -35,7 +35,7 @@ kotlin {
         }
         jsTest {
             dependencies {
-                implementation(project(":cache-service-mock"))
+                implementation(projects.cacheServiceMock)
             }
         }
     }

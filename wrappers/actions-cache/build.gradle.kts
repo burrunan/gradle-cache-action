@@ -19,7 +19,7 @@ kotlin {
         jsMain {
             dependencies {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
-                implementation(project(":wrappers:actions-toolkit"))
+                implementation(projects.wrappers.actionsToolkit)
             }
         }
     }

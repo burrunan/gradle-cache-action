@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                api(project(":wrappers:nodejs"))
+                api(projects.wrappers.nodejs)
                 api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
             }
         }

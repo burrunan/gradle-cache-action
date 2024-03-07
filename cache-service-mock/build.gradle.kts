@@ -18,9 +18,9 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation(project(":wrappers:actions-cache"))
-                implementation(project(":wrappers:actions-toolkit"))
-                implementation(project(":wrappers:nodejs"))
+                implementation(projects.wrappers.actionsCache)
+                implementation(projects.wrappers.actionsToolkit)
+                implementation(projects.wrappers.nodejs)
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
             }

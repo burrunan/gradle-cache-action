@@ -74,7 +74,7 @@ allprojects {
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.6.3"))
             "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
             if (project.path != ":test-library") {
-                "jsTestImplementation"(project(":test-library"))
+                "jsTestImplementation"(rootProject.projects.testLibrary)
             }
         }
     }
