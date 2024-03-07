@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(npm("java-properties", "1.0.2"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                api(npm("java-properties", "1.0.2"))
+            }
+        }
+    }
 }

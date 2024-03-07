@@ -102,7 +102,7 @@ suspend fun hashFilesDetailed(
             else -> {
                 val hash = createHash(algorithm)
                 try {
-                    createReadStream(name, BufferEncoding.utf8).pipeAndWait(hash.unsafeCast<WritableStream>(), end = true)
+                    createReadStream(name, undefined.unsafeCast<BufferEncoding>()).pipeAndWait(hash.unsafeCast<WritableStream>(), end = true)
                 } catch (e: Throwable) {
                     warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
                     continue

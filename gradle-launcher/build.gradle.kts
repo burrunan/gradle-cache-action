@@ -14,11 +14,17 @@
  * limitations under the License.
  */
 
-dependencies {
-    implementation(project(":hashing"))
-    implementation(project(":wrappers:actions-toolkit"))
-    implementation(project(":wrappers:java-properties"))
-    implementation(project(":wrappers:nodejs"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation(project(":hashing"))
+                implementation(project(":wrappers:actions-toolkit"))
+                implementation(project(":wrappers:java-properties"))
+                implementation(project(":wrappers:nodejs"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
+            }
+        }
+    }
 }

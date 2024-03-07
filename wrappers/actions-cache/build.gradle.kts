@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-dependencies {
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
-    implementation(project(":wrappers:actions-toolkit"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+                implementation(project(":wrappers:actions-toolkit"))
+            }
+        }
+    }
 }

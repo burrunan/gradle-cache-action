@@ -14,12 +14,18 @@
  * limitations under the License.
  */
 
-dependencies {
-    implementation(project(":cache-proxy"))
-    implementation(project(":gradle-launcher"))
-    implementation(project(":layered-cache"))
-    implementation(project(":wrappers:actions-toolkit"))
-    implementation(project(":wrappers:nodejs"))
-    implementation(project(":wrappers:octokit-webhooks"))
-    implementation(npm("string-argv", "0.3.1"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation(project(":cache-proxy"))
+                implementation(project(":gradle-launcher"))
+                implementation(project(":layered-cache"))
+                implementation(project(":wrappers:actions-toolkit"))
+                implementation(project(":wrappers:nodejs"))
+                implementation(project(":wrappers:octokit-webhooks"))
+                implementation(npm("string-argv", "0.3.1"))
+            }
+        }
+    }
 }

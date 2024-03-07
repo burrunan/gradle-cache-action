@@ -17,14 +17,20 @@ import org.jetbrains.kotlin.gradle.targets.js.testing.mocha.KotlinMocha
  * limitations under the License.
  */
 
-dependencies {
-    implementation(project(":cache-service-mock"))
-    implementation(project(":wrappers:actions-cache"))
-    implementation(project(":wrappers:actions-toolkit"))
-    implementation(project(":wrappers:nodejs"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation(project(":cache-service-mock"))
+                implementation(project(":wrappers:actions-cache"))
+                implementation(project(":wrappers:actions-toolkit"))
+                implementation(project(":wrappers:nodejs"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
+            }
+        }
+    }
 }
 
 tasks.withType<KotlinJsTest>().configureEach {

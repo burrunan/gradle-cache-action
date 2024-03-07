@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:octokit-types"))
-    api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                api(project(":wrappers:octokit-types"))
+                api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+            }
+        }
+    }
 }

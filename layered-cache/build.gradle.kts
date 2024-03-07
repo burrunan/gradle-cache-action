@@ -18,16 +18,25 @@ plugins {
     kotlin("plugin.serialization")
 }
 
-dependencies {
-    implementation(project(":gradle-launcher"))
-    implementation(project(":hashing"))
-    implementation(project(":wrappers:actions-cache"))
-    implementation(project(":wrappers:actions-toolkit"))
-    implementation(project(":wrappers:nodejs"))
-    implementation(project(":wrappers:octokit-webhooks"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
-
-    testImplementation(project(":cache-service-mock"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation(project(":gradle-launcher"))
+                implementation(project(":hashing"))
+                implementation(project(":wrappers:actions-cache"))
+                implementation(project(":wrappers:actions-toolkit"))
+                implementation(project(":wrappers:nodejs"))
+                implementation(project(":wrappers:octokit-webhooks"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
+            }
+        }
+        jsTest {
+            dependencies {
+                implementation(project(":cache-service-mock"))
+            }
+        }
+    }
 }

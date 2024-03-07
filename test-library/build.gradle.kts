@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(kotlin("test-js"))
-    implementation(project(":wrappers:nodejs"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                api(kotlin("test-js"))
+                implementation(project(":wrappers:nodejs"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+            }
+        }
+    }
 }

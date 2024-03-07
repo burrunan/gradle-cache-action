@@ -69,7 +69,7 @@ class CacheProxy {
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         try {
-            req.pipeAndWait(createWriteStream(fileName, BufferEncoding.utf8))
+            req.pipeAndWait(createWriteStream(fileName, undefined.unsafeCast<BufferEncoding>()))
             res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
             GlobalScope.launch {
@@ -109,7 +109,7 @@ class CacheProxy {
                     this["content-length"] = stat(fileName, undefined.unsafeCast<StatSimpleOpts>()).size
                 },
             )
-            createReadStream(fileName, BufferEncoding.utf8).pipeAndWait(res)
+            createReadStream(fileName, undefined.unsafeCast<BufferEncoding>()).pipeAndWait(res)
         } finally {
             removeFiles(listOf(fileName))
         }

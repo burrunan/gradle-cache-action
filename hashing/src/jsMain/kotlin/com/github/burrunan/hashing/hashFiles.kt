@@ -68,7 +68,7 @@ suspend fun hashFiles(
         // Add filename
 
         try {
-            createReadStream(name, BufferEncoding.utf8).pipeAndWait(hash.unsafeCast<WritableStream>(), end = false)
+            createReadStream(name, undefined.unsafeCast<BufferEncoding>()).pipeAndWait(hash.unsafeCast<WritableStream>(), end = false)
         } catch (e: Throwable) {
             warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
             continue

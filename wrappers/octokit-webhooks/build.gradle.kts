@@ -14,8 +14,14 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:octokit-request-error"))
-    api(npm("@octokit/webhooks", "10.0.8"))
-    implementation(project(":wrappers:actions-toolkit"))
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                api(project(":wrappers:octokit-request-error"))
+                api(npm("@octokit/webhooks", "10.0.8"))
+                implementation(project(":wrappers:actions-toolkit"))
+            }
+        }
+    }
 }

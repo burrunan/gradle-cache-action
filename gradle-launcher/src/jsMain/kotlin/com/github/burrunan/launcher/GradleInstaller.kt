@@ -114,7 +114,7 @@ suspend fun findVersionFromWrapper(projectPath: String, enableDistributionSha256
         warning("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.\nWill use the current release Gradle version")
         return GradleVersion.Current.findUrl()
     }
-    val propString = readFile(gradleWrapperProperties, BufferEncoding.utf8)
+    val propString = readFile(gradleWrapperProperties, undefined.unsafeCast<BufferEncoding>())
     val props = javaproperties.parseString(propString).run {
         getKeys().associateWith { getFirst(it)!! }
     }

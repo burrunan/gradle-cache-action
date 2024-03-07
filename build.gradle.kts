@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
 plugins {
-    kotlin("js") apply false
+    kotlin("multiplatform") apply false
 }
 
 plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
@@ -26,15 +28,12 @@ plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin>
 
 subprojects {
     if (path != ":wrappers") {
-        apply(plugin = "org.jetbrains.kotlin.js")
+        apply(plugin = "org.jetbrains.kotlin.multiplatform")
     }
 }
 
 allprojects {
-    repositories {
-        mavenCentral()
-    }
-    plugins.withId("org.jetbrains.kotlin.js") {
+    plugins.withId("org.jetbrains.kotlin.multiplatform") {
         tasks {
             withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEach {
                 kotlinOptions {
@@ -47,20 +46,7 @@ allprojects {
                 }
             }
         }
-        dependencies {
-            constraints {
-                "api"("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
-                "api"("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-            }
-            "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-            "implementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
-            "apiDependenciesMetadata"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
-            "implementation"("org.jetbrains.kotlin-wrappers:kotlin-extensions")
-            if (project.path != ":test-library") {
-                "testImplementation"(project(":test-library"))
-            }
-        }
-        configure<org.jetbrains.kotlin.gradle.dsl.KotlinJsProjectExtension> {
+        configure<KotlinMultiplatformExtension> {
             js {
                 if (project.name.endsWith("-entrypoint")) {
                     browser {
@@ -81,6 +67,14 @@ allprojects {
                         }
                     }
                 }
+            }
+        }
+        dependencies {
+            "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.8.0"))
+            "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.6.3"))
+            "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.709"))
+            if (project.path != ":test-library") {
+                "jsTestImplementation"(project(":test-library"))
             }
         }
     }

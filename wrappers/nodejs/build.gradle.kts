@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-dependencies {
-    api(project(":wrappers:js"))
-    api("org.jetbrains.kotlin-wrappers:kotlin-node")
+kotlin {
+    sourceSets {
+        jsMain {
+            dependencies {
+                api(project(":wrappers:js"))
+                api("org.jetbrains.kotlin-wrappers:kotlin-node")
+            }
+        }
+    }
 }
