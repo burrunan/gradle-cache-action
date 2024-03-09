@@ -36,7 +36,7 @@ jobs:
       run: |
         git fetch origin refs/heads/release:release
         git checkout release
-        cp cache-action-entrypoint/build/distributions/cache-action-entrypoint.js* dist/
+        cp cache-action-entrypoint/build/dist/js/productionExecutable/cache-action-entrypoint.js* dist/
         git checkout main action.yml
         git checkout main action-types.yml
         git add dist/ action.yml action-types.yml
