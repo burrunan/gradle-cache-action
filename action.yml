@@ -96,7 +96,7 @@ inputs:
     required: false
     default: 'true'
 runs:
-  using: node16
+  using: node20
   main: dist/cache-action-entrypoint.js
   post: dist/cache-action-entrypoint.js
 branding:
