@@ -2,7 +2,13 @@ name: Check Action Typing
 
 on:
     push:
+      paths:
+        - 'action.yml'
+        - 'action-types.yml'
     pull_request:
+      paths:
+        - 'action.yml'
+        - 'action-types.yml'
 
 jobs:
     check_action_typing:
