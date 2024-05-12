@@ -28,7 +28,6 @@ import actions.tool.cache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
 import js.objects.jso
-import js.promise.await
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import node.buffer.BufferEncoding
@@ -114,7 +113,7 @@ suspend fun findVersionFromWrapper(projectPath: String, enableDistributionSha256
         warning("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.\nWill use the current release Gradle version")
         return GradleVersion.Current.findUrl()
     }
-    val propString = readFile(gradleWrapperProperties, undefined.unsafeCast<BufferEncoding>())
+    val propString = readFile(gradleWrapperProperties, BufferEncoding.utf8)
     val props = javaproperties.parseString(propString).run {
         getKeys().associateWith { getFirst(it)!! }
     }
