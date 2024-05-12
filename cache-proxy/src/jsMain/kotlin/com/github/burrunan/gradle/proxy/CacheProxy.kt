@@ -27,8 +27,6 @@ import js.objects.jso
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
-import node.buffer.BufferEncoding
-import node.fs.StatSimpleOpts
 import node.fs.createReadStream
 import node.fs.createWriteStream
 import node.fs.stat
@@ -69,7 +67,7 @@ class CacheProxy {
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         try {
-            req.pipeAndWait(createWriteStream(fileName, undefined.unsafeCast<BufferEncoding>()))
+            req.pipeAndWait(createWriteStream(fileName))
             res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
             GlobalScope.launch {
@@ -79,7 +77,7 @@ class CacheProxy {
                     val cacheId = response.result?.cacheId
                         ?: when {
                             response.statusCode == 400 -> throw Throwable(
-                                "Cache $fileName size of ${stat(fileName, undefined.unsafeCast<StatSimpleOpts>()).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
+                                "Cache $fileName size of ${stat(fileName).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
                             )
                             else -> throw Throwable(
                                 "Can't reserve cache for id $id, another job might be creating this cache: ${response.error?.message}"
@@ -106,10 +104,10 @@ class CacheProxy {
             res.writeHead(
                 200, "Ok",
                 jso<OutgoingHttpHeaders> {
-                    this["content-length"] = stat(fileName, undefined.unsafeCast<StatSimpleOpts>()).size
+                    this["content-length"] = stat(fileName).size
                 },
             )
-            createReadStream(fileName, undefined.unsafeCast<BufferEncoding>()).pipeAndWait(res)
+            createReadStream(fileName).pipeAndWait(res)
         } finally {
             removeFiles(listOf(fileName))
         }

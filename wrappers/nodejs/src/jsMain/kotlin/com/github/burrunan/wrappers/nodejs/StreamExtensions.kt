@@ -21,14 +21,16 @@ import node.ReadableStream
 import node.WritableStream
 import node.buffer.Buffer
 import node.buffer.BufferEncoding
+import node.events.on
+import node.stream.Readable
 import node.stream.ReadableEvent
 import node.stream.finished
 
-suspend fun <T> ReadableStream.readJson(): T = JSON.parse(readToBuffer().toString(BufferEncoding.utf8))
+suspend fun <T> Readable.readJson(): T = JSON.parse(readToBuffer().toString(BufferEncoding.utf8))
 
-suspend fun ReadableStream.readToBuffer(): Buffer {
+suspend fun Readable.readToBuffer(): Buffer {
     val data = mutableListOf<Buffer>()
-    on(ReadableEvent.DATA) { chunk: Any ->
+    on(ReadableEvent.data()) { (chunk: Any?) ->
         data += chunk as Buffer
     }
     finished(this)

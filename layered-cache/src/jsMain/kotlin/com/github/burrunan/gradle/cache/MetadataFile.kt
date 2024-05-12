@@ -33,7 +33,7 @@ class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, priv
             val path = ROOT_FOLDER.normalizedPath
             if (!existsSync(path)) {
                 try {
-                    mkdirSync(path, undefined.unsafeCast<Mode>())
+                    mkdirSync(path)
                 } catch (ignored: Throwable) {
                 }
             }

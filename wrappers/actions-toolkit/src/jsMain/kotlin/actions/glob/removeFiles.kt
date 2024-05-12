@@ -16,7 +16,6 @@
 
 package actions.glob
 
-import js.promise.await
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import node.fs.unlink
