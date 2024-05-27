@@ -70,7 +70,7 @@ allprojects {
             }
         }
         dependencies {
-            "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.8.0"))
+            "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.8.1"))
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.6.3"))
             "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.712"))
             if (project.path != ":test-library") {
