@@ -106,7 +106,7 @@ The default configuration should suit most of the cases, however, there are extr
   env:
     VARIABLE: VALUE
   with:
-    # If you have multiple jobs, use distinct job-id in in case you want to split caches
+    # If you have multiple jobs, use distinct job-id in case you want to split caches
     # For instance, jobs with different JDK versions can't share caches
     # RUNNER_OS is added to job-id automatically
     job-id: jdk8
