@@ -19,12 +19,10 @@ import actions.core.ActionFailedException
 import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
-import js.promise.await
 import node.WritableStream
 import node.buffer.BufferEncoding
 import node.crypto.BinaryToTextEncoding
 import node.crypto.createHash
-import node.fs.StatSimpleOpts
 import node.fs.createReadStream
 import node.fs.stat
 import node.process.process
@@ -51,7 +49,7 @@ suspend fun hashFiles(
     var totalBytes = 0
     var numFiles = 0
     for (name in fileNames) {
-        val statSync = stat(name, undefined.unsafeCast<StatSimpleOpts>())
+        val statSync = stat(name)
         if (statSync.isDirectory()) {
             continue
         }
@@ -68,7 +66,7 @@ suspend fun hashFiles(
         // Add filename
 
         try {
-            createReadStream(name, undefined.unsafeCast<BufferEncoding>()).pipeAndWait(hash.unsafeCast<WritableStream>(), end = false)
+            createReadStream(name).pipeAndWait(hash, end = false)
         } catch (e: Throwable) {
             warning("Unable to hash $name, will ignore the file: ${e.stackTraceToString()}")
             continue
