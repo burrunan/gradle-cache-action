@@ -2,7 +2,6 @@
 
 [![CI Status](https://github.com/burrunan/gradle-cache-action/workflows/CI/badge.svg)](https://github.com/burrunan/gradle-cache-action/actions)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/burrunan/gradle-cache-action?label=release)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.7.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
 
 This is a GitHub Action for caching Gradle caches.
 In other words, this is [@actions/cache](https://github.com/actions/cache) customized for Gradle.
