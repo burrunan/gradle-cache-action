@@ -23997,12 +23997,18 @@
      } else val += this.buildTextValNode(jObj[key], key, "", level);
     } else if (Array.isArray(jObj[key])) {
      const arrLen = jObj[key].length;
-     let listTagVal = "";
+     let listTagVal = "", listTagAttr = "";
      for (let j = 0; j < arrLen; j++) {
       const item = jObj[key][j];
-      void 0 === item || (null === item ? "?" === key[0] ? val += this.indentate(level) + "<" + key + "?" + this.tagEndChar : val += this.indentate(level) + "<" + key + "/" + this.tagEndChar : "object" == typeof item ? this.options.oneListGroup ? listTagVal += this.j2x(item, level + 1).val : listTagVal += this.processTextOrObjNode(item, key, level) : listTagVal += this.buildTextValNode(item, key, "", level));
+      if (void 0 === item) ; else if (null === item) "?" === key[0] ? val += this.indentate(level) + "<" + key + "?" + this.tagEndChar : val += this.indentate(level) + "<" + key + "/" + this.tagEndChar; else if ("object" == typeof item) if (this.options.oneListGroup) {
+       const result = this.j2x(item, level + 1);
+       listTagVal += result.val, this.options.attributesGroupName && item.hasOwnProperty(this.options.attributesGroupName) && (listTagAttr += result.attrStr);
+      } else listTagVal += this.processTextOrObjNode(item, key, level); else if (this.options.oneListGroup) {
+       let textValue = this.options.tagValueProcessor(key, item);
+       textValue = this.replaceEntitiesValue(textValue), listTagVal += textValue;
+      } else listTagVal += this.buildTextValNode(item, key, "", level);
      }
-     this.options.oneListGroup && (listTagVal = this.buildObjectNode(listTagVal, key, "", level)), 
+     this.options.oneListGroup && (listTagVal = this.buildObjectNode(listTagVal, key, listTagAttr, level)), 
      val += listTagVal;
     } else if (this.options.attributesGroupName && key === this.options.attributesGroupName) {
      const Ks = Object.keys(jObj[key]), L = Ks.length;
@@ -24751,7 +24757,8 @@
    }, exports.useColors = function() {
     if ("undefined" != typeof window && window.process && ("renderer" === window.process.type || window.process.__nwjs)) return !0;
     if ("undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) return !1;
-    return "undefined" != typeof document && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || "undefined" != typeof window && window.console && (window.console.firebug || window.console.exception && window.console.table) || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+    let m;
+    return "undefined" != typeof document && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || "undefined" != typeof window && window.console && (window.console.firebug || window.console.exception && window.console.table) || "undefined" != typeof navigator && navigator.userAgent && (m = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m[1], 10) >= 31 || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
    }, exports.storage = function() {
     try {
      return localStorage;
@@ -25075,7 +25082,8 @@
    }, exports.useColors = function() {
     if ("undefined" != typeof window && window.process && ("renderer" === window.process.type || window.process.__nwjs)) return !0;
     if ("undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) return !1;
-    return "undefined" != typeof document && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || "undefined" != typeof window && window.console && (window.console.firebug || window.console.exception && window.console.table) || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+    let m;
+    return "undefined" != typeof document && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || "undefined" != typeof window && window.console && (window.console.firebug || window.console.exception && window.console.table) || "undefined" != typeof navigator && navigator.userAgent && (m = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m[1], 10) >= 31 || "undefined" != typeof navigator && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
    }, exports.storage = function() {
     try {
      return localStorage;
@@ -41428,10 +41436,10 @@
     initMetadataForClass(AbstractCollection, "AbstractCollection", VOID, VOID, [ Collection ]), 
     initMetadataForClass(AbstractMutableCollection, "AbstractMutableCollection", VOID, AbstractCollection, [ AbstractCollection, Collection ]), 
     initMetadataForClass(IteratorImpl, "IteratorImpl"), initMetadataForClass(ListIteratorImpl, "ListIteratorImpl", VOID, IteratorImpl), 
-    initMetadataForClass(AbstractMutableList, "AbstractMutableList", VOID, AbstractMutableCollection, [ AbstractMutableCollection, Collection, KtList ]), 
+    initMetadataForClass(AbstractMutableList, "AbstractMutableList", VOID, AbstractMutableCollection, [ AbstractMutableCollection, KtList, Collection ]), 
     initMetadataForClass(AbstractMap, "AbstractMap", VOID, VOID, [ KtMap ]), initMetadataForClass(AbstractMutableMap, "AbstractMutableMap", VOID, AbstractMap, [ AbstractMap, KtMutableMap ]), 
     initMetadataForClass(AbstractMutableSet, "AbstractMutableSet", VOID, AbstractMutableCollection, [ AbstractMutableCollection, KtSet, Collection ]), 
-    initMetadataForCompanion(Companion_1), initMetadataForClass(ArrayList, "ArrayList", ArrayList_init_$Create$, AbstractMutableList, [ AbstractMutableList, Collection, KtList ]), 
+    initMetadataForCompanion(Companion_1), initMetadataForClass(ArrayList, "ArrayList", ArrayList_init_$Create$, AbstractMutableList, [ AbstractMutableList, KtList, Collection ]), 
     initMetadataForClass(HashMap, "HashMap", HashMap_init_$Create$, AbstractMutableMap, [ AbstractMutableMap, KtMutableMap ]), 
     initMetadataForClass(HashMapKeys, "HashMapKeys", VOID, AbstractMutableSet, [ KtSet, Collection, AbstractMutableSet ]), 
     initMetadataForClass(HashMapValues, "HashMapValues", VOID, AbstractMutableCollection, [ Collection, AbstractMutableCollection ]), 
@@ -43961,7 +43969,7 @@
    !function(_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_atomicfu) {
     "use strict";
     var Active_instance, properties_initialized_CancellableContinuationImpl_kt_xtzb03, Key_instance_0, Key_instance_1, GlobalScope_instance, CoroutineStart_DEFAULT_instance, CoroutineStart_LAZY_instance, CoroutineStart_entriesInitialized, ThreadLocalEventLoop_instance, Key_instance_2, NonDisposableHandle_instance, COMPLETING_ALREADY, COMPLETING_WAITING_CHILDREN, COMPLETING_RETRY, TOO_LATE_TO_CANCEL, SEALED, EMPTY_NEW, EMPTY_ACTIVE, properties_initialized_JobSupport_kt_5iq8a4, Unconfined_instance, Key_instance_3, UNDEFINED, REUSABLE_CLAIMED, properties_initialized_DispatchedContinuation_kt_2siadq, counter, DEBUG, NodeDispatcher_instance, Dispatchers_instance, platformExceptionHandlers_, properties_initialized_CoroutineExceptionHandlerImpl_kt_qhrgvx, SetTimeoutDispatcher_instance, imul = Math.imul, Unit_instance = kotlin_kotlin.$_$.w1, protoOf = kotlin_kotlin.$_$.t5, THROW_CCE = kotlin_kotlin.$_$.r7, Element = kotlin_kotlin.$_$.g4, Continuation = kotlin_kotlin.$_$.c4, initMetadataForClass = kotlin_kotlin.$_$.e5, VOID = kotlin_kotlin.$_$.c, EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.t1, createCoroutineUnintercepted = kotlin_kotlin.$_$.u3, UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.k1, isInterface = kotlin_kotlin.$_$.l5, toString = kotlin_kotlin.$_$.v5, IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.c1, toString_0 = kotlin_kotlin.$_$.g8, atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c, atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b, get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.t3, initMetadataForInterface = kotlin_kotlin.$_$.h5, initMetadataForObject = kotlin_kotlin.$_$.j5, hashCode = kotlin_kotlin.$_$.d5, equals = kotlin_kotlin.$_$.x4, atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a, CancellationException_init_$Create$ = kotlin_kotlin.$_$.r, Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.q1, _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.r1, _Result___init__impl__xyqfz8 = (kotlin_kotlin.$_$.v1, 
-    kotlin_kotlin.$_$.p1), createFailure = kotlin_kotlin.$_$.w7, AbstractCoroutineContextKey = kotlin_kotlin.$_$.y3, Key_instance = kotlin_kotlin.$_$.s1, AbstractCoroutineContextElement = kotlin_kotlin.$_$.x3, get = kotlin_kotlin.$_$.z3, minusKey = kotlin_kotlin.$_$.a4, ContinuationInterceptor = kotlin_kotlin.$_$.b4, RuntimeException_init_$Create$ = kotlin_kotlin.$_$.i1, addSuppressed = kotlin_kotlin.$_$.u7, Enum = kotlin_kotlin.$_$.l7, startCoroutine = kotlin_kotlin.$_$.l4, noWhenBranchMatchedException = kotlin_kotlin.$_$.b8, Long = kotlin_kotlin.$_$.p7, ArrayDeque_init_$Create$ = kotlin_kotlin.$_$.f, RuntimeException = kotlin_kotlin.$_$.q7, RuntimeException_init_$Init$ = kotlin_kotlin.$_$.h1, captureStack = kotlin_kotlin.$_$.q4, Error_0 = kotlin_kotlin.$_$.m7, Error_init_$Init$ = kotlin_kotlin.$_$.x, StringBuilder_init_$Create$ = kotlin_kotlin.$_$.w, throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.f8, ArrayList_init_$Create$ = kotlin_kotlin.$_$.g, CancellationException = kotlin_kotlin.$_$.s3, ArrayList = kotlin_kotlin.$_$.x1, IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.d1, plus = kotlin_kotlin.$_$.h4, get_0 = kotlin_kotlin.$_$.e4, fold = kotlin_kotlin.$_$.d4, minusKey_0 = kotlin_kotlin.$_$.f4, anyToString = kotlin_kotlin.$_$.n4, UnsupportedOperationException = kotlin_kotlin.$_$.t7, Exception = kotlin_kotlin.$_$.n7, IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.a1, ensureNotNull = kotlin_kotlin.$_$.x7, intercepted = kotlin_kotlin.$_$.v3, getKClassFromExpression = kotlin_kotlin.$_$.a, CancellationException_init_$Init$ = kotlin_kotlin.$_$.s, getStringHashCode = kotlin_kotlin.$_$.c5, HashSet_init_$Create$ = kotlin_kotlin.$_$.l, RuntimeException_init_$Init$_0 = kotlin_kotlin.$_$.g1, LinkedHashSet_init_$Create$ = kotlin_kotlin.$_$.q, removeFirstOrNull = kotlin_kotlin.$_$.g3, Collection = kotlin_kotlin.$_$.y1, KtList = kotlin_kotlin.$_$.a2, UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.j1;
+    kotlin_kotlin.$_$.p1), createFailure = kotlin_kotlin.$_$.w7, AbstractCoroutineContextKey = kotlin_kotlin.$_$.y3, Key_instance = kotlin_kotlin.$_$.s1, AbstractCoroutineContextElement = kotlin_kotlin.$_$.x3, get = kotlin_kotlin.$_$.z3, minusKey = kotlin_kotlin.$_$.a4, ContinuationInterceptor = kotlin_kotlin.$_$.b4, RuntimeException_init_$Create$ = kotlin_kotlin.$_$.i1, addSuppressed = kotlin_kotlin.$_$.u7, Enum = kotlin_kotlin.$_$.l7, startCoroutine = kotlin_kotlin.$_$.l4, noWhenBranchMatchedException = kotlin_kotlin.$_$.b8, Long = kotlin_kotlin.$_$.p7, ArrayDeque_init_$Create$ = kotlin_kotlin.$_$.f, RuntimeException = kotlin_kotlin.$_$.q7, RuntimeException_init_$Init$ = kotlin_kotlin.$_$.h1, captureStack = kotlin_kotlin.$_$.q4, Error_0 = kotlin_kotlin.$_$.m7, Error_init_$Init$ = kotlin_kotlin.$_$.x, StringBuilder_init_$Create$ = kotlin_kotlin.$_$.w, throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.f8, ArrayList_init_$Create$ = kotlin_kotlin.$_$.g, CancellationException = kotlin_kotlin.$_$.s3, ArrayList = kotlin_kotlin.$_$.x1, IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.d1, plus = kotlin_kotlin.$_$.h4, get_0 = kotlin_kotlin.$_$.e4, fold = kotlin_kotlin.$_$.d4, minusKey_0 = kotlin_kotlin.$_$.f4, anyToString = kotlin_kotlin.$_$.n4, UnsupportedOperationException = kotlin_kotlin.$_$.t7, Exception = kotlin_kotlin.$_$.n7, IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.a1, ensureNotNull = kotlin_kotlin.$_$.x7, intercepted = kotlin_kotlin.$_$.v3, getKClassFromExpression = kotlin_kotlin.$_$.a, CancellationException_init_$Init$ = kotlin_kotlin.$_$.s, getStringHashCode = kotlin_kotlin.$_$.c5, HashSet_init_$Create$ = kotlin_kotlin.$_$.l, RuntimeException_init_$Init$_0 = kotlin_kotlin.$_$.g1, LinkedHashSet_init_$Create$ = kotlin_kotlin.$_$.q, removeFirstOrNull = kotlin_kotlin.$_$.g3, KtList = kotlin_kotlin.$_$.a2, Collection = kotlin_kotlin.$_$.y1, UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.j1;
     function AbstractCoroutine(parentContext, initParentJob, active) {
      JobSupport.call(this, active), initParentJob && this.kf(parentContext.i7(Key_instance_2)), 
      this.nf_1 = parentContext.ud(this);
@@ -44745,7 +44753,7 @@
     initMetadataForClass(DispatchedContinuation, "DispatchedContinuation", VOID, DispatchedTask, [ DispatchedTask, Continuation ]), 
     initMetadataForClass(Symbol, "Symbol"), initMetadataForClass(SetTimeoutBasedDispatcher, "SetTimeoutBasedDispatcher", VOID, CoroutineDispatcher, VOID, [ 1 ]), 
     initMetadataForObject(NodeDispatcher, "NodeDispatcher", VOID, SetTimeoutBasedDispatcher, VOID, [ 1 ]), 
-    initMetadataForClass(MessageQueue, "MessageQueue", VOID, VOID, [ Collection, KtList ]), 
+    initMetadataForClass(MessageQueue, "MessageQueue", VOID, VOID, [ KtList, Collection ]), 
     initMetadataForClass(ScheduledMessageQueue, "ScheduledMessageQueue", VOID, MessageQueue), 
     initMetadataForClass(WindowMessageQueue, "WindowMessageQueue", VOID, MessageQueue), 
     initMetadataForObject(Dispatchers, "Dispatchers"), initMetadataForClass(JsMainDispatcher, "JsMainDispatcher", VOID, MainCoroutineDispatcher), 
