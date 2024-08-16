@@ -14,6 +14,12 @@ Key improvements over [@actions/cache](https://github.com/actions/cache) and [gr
 - 🔗 Link to Build Scan in build results
 - 💡 Gradle build failure markers added to the diff view (e.g. `compileJava` or `compileKotlin` markers right in the commit diff)
 
+## Version notes
+
+`v1` uses `node16` which has been deprecated, so consider upgrading to `v2`.
+The upgrade requires only changing the version, however the newer `node20` might be missing
+if you use an old runner.
+
 ## Usage
 
 Add the following code to your workflow file in the `.github/workflows` directory.
@@ -29,7 +35,7 @@ In other words, to avoid accidental tag update, you might want to use
 Please see releases page to find out the commit ids: https://github.com/burrunan/gradle-cache-action/releases
 
 You might use the following references are:
-* `v1` -- this is a *moving* qualifier. It points to the latest release among `v1.x`
+* `v1`, `v2` -- this is a *moving* qualifier. It points to the latest release among `v1.x`
 * `v1.0`, `v1.1`, ... -- those are fixed versions. They won't change over time
 
 For the best security you might want to use `burrunan/gradle-cache-action@v1` (see the ids at https://github.com/burrunan/gradle-cache-action/releases)

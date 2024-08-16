@@ -1,3 +1,31 @@
+## 2024-07-25: v2, v1.21 🚀 Move to node20
+
+* Bump `node16` to `node20`. This resolves "node16 is deprecated" warning.
+
+* Bump Gradle to 8.8
+* Bump kotlinx-coroutines to 1.8.1
+* Bump kotlin-serialization to 1.7.1
+* Bump wrapper-validation-action to v3
+* Bump setup-java, checkout to v4
+
+## 2023-02-18: v1.21 🚑 bump dependencies
+
+* Add wrapper-validation-action
+* Bump checkout and setup-java to v3
+
+## 2023-02-18: v1.20 🚑 Avoid crash on missing layer-..json file
+
+* fix: avoid failure when index restore misses layer-..json file
+* Migrate to kotlin-wrappers:kotlin-actions-toolkit for better Kotlin wrappers https://github.com/burrunan/gradle-cache-action/pull/65
+* Bump Gradle to 8.0.1
+* Bump Kotlin to 1.8.10
+
+## 2023-02-03: v1.19 🚑 Support nested version catalogs
+
+* Also consider nested version catalogs in default dependency paths: https://github.com/burrunan/gradle-cache-action/issues/63
+
+Thanks to [Vampire](https://github.com/Vampire) for the contribution.
+
 ## 2023-02-03: v1.18 🚑 fix crash when git log returns a string with a newline
 
 * Trim the resulting SHA to prevent failures like in https://github.com/burrunan/gradle-cache-action/issues/63
