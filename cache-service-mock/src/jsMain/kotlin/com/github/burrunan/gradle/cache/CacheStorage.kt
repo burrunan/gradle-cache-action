@@ -49,7 +49,7 @@ class CacheStorage {
             .filterValues { it.version == version }
             .maxByOrNull { it.value.creationTime.toDouble() }
 
-    fun update(cacheId: Number, start: Int, end: Int, buffer: Buffer) {
+    fun update(cacheId: Number, start: Int, end: Int, buffer: Buffer<*>) {
         caches.getValue(cacheId).parts.add(UploadPart(start, end, buffer))
     }
 
@@ -73,7 +73,7 @@ class CacheStorage {
     }
 }
 
-class CacheEntry(val version: String, val value: Buffer, val creationTime: Number)
+class CacheEntry(val version: String, val value: Buffer<*>, val creationTime: Number)
 
 class CacheReservation(val number: Number, val version: String)
 
@@ -81,4 +81,4 @@ class TemporaryCache(val key: String) {
     val parts = mutableListOf<UploadPart>()
 }
 
-class UploadPart(val start: Int, val end: Int, val contents: Buffer)
+class UploadPart(val start: Int, val end: Int, val contents: Buffer<*>)

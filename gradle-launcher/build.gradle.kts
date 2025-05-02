@@ -22,6 +22,9 @@ kotlin {
                 implementation(projects.wrappers.actionsToolkit)
                 implementation(projects.wrappers.javaProperties)
                 implementation(projects.wrappers.nodejs)
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-http-client")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-tool-cache")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-io")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core")
             }

@@ -15,13 +15,14 @@
  */
 package com.github.burrunan.launcher
 
+import actions.core.AnnotationProperties
 import actions.core.ExitCode
 import actions.core.setFailed
 import actions.core.setOutput
+import actions.exec.ExecListeners
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
-import js.objects.jso
 import node.process.process
 
 class GradleResult(
@@ -42,22 +43,24 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
             params.properties.map { "-P${it.key}=${it.value}" } +
             params.arguments).toTypedArray(),
     ) {
-        cwd = params.projectPath
-        ignoreReturnCode = true
-        listeners = jso {
-            stdline = {
-                val str = it.trimEnd()
-                if (str.startsWith("https://gradle.com/s/")) {
-                    setOutput("build-scan-url", str)
-                    buildScanUrl = str
-                }
-                outCollector.process(str)
-            }
-            errline = {
-                errorCollector.process(it)
-                outCollector.process(it)
-            }
-        }
+        it.copy(
+            cwd = params.projectPath,
+            ignoreReturnCode = true,
+            listeners = ExecListeners(
+                stdline = {
+                    val str = it.trimEnd()
+                    if (str.startsWith("https://gradle.com/s/")) {
+                        setOutput("build-scan-url", str)
+                        buildScanUrl = str
+                    }
+                    outCollector.process(str)
+                },
+                errline = {
+                    errorCollector.process(it)
+                    outCollector.process(it)
+                },
+            )
+        )
     }
     errorCollector.done()
     outCollector.done()
@@ -67,11 +70,11 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
             ?.removePrefix(process.cwd())
         actions.core.error(
             error.message,
-            jso {
-                file = shortFile
-                startLine = error.line
-                startColumn = error.col
-            },
+            AnnotationProperties(
+                file = shortFile,
+                startLine = error.line,
+                startColumn = error.col,
+            ),
         )
     }
     if (failureDetected) {

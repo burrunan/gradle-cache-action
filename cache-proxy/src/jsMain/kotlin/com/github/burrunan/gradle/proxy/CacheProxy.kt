@@ -16,16 +16,15 @@
 
 package com.github.burrunan.gradle.proxy
 
-import actions.cache.internal.*
-import actions.core.debug
+import actions.cache.RestoreType
+import actions.cache.restoreAndLog
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.HttpException
 import com.github.burrunan.gradle.cache.handle
 import com.github.burrunan.wrappers.nodejs.mkdir
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
-import js.objects.jso
+import js.objects.unsafeJso
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.await
 import kotlinx.coroutines.launch
 import node.fs.createReadStream
 import node.fs.createWriteStream
@@ -43,6 +42,7 @@ class CacheProxy {
     companion object {
         const val GHA_CACHE_URL = "GHA_CACHE_URL"
         private const val TEMP_DIR = ".cache-proxy"
+        private val cacheVersion = "1-"
     }
 
     private var _cacheUrl: String? = null
@@ -62,7 +62,7 @@ class CacheProxy {
         }
     }
 
-    private val compression = jso<InternalCacheOptions> { compressionMethod = CompressionMethod.Gzip }
+//    private val compression = jso<InternalCacheOptions> { compressionMethod = CompressionMethod.Gzip }
 
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
@@ -72,19 +72,7 @@ class CacheProxy {
         } finally {
             GlobalScope.launch {
                 try {
-                    val cacheIdRequest = reserveCache(id, arrayOf(id), compression)
-                    val response = cacheIdRequest.await()
-                    val cacheId = response.result?.cacheId
-                        ?: when {
-                            response.statusCode == 400 -> throw Throwable(
-                                "Cache $fileName size of ${stat(fileName).size.toLong() / 1024 / 1024} MB is over the limit, not saving cache"
-                            )
-                            else -> throw Throwable(
-                                "Can't reserve cache for id $id, another job might be creating this cache: ${response.error?.message}"
-                            )
-                        }
-                    console.log("cacheid: ${cacheId}")
-                    saveCache(cacheId, fileName).await()
+                    actions.cache.saveAndLog(listOf(fileName), id, cacheVersion)
                 } finally {
                     removeFiles(listOf(fileName))
                 }
@@ -93,24 +81,19 @@ class CacheProxy {
     }
 
     private suspend fun getEntry(id: String, res: ServerResponse<*>) {
-        val cacheEntry = getCacheEntry(arrayOf(id), arrayOf(id), compression).await()
-            ?: throw HttpException.notFound("No cache entry found for $id")
-        val archiveLocation = cacheEntry.archiveLocation
-            ?: throw HttpException.notFound("No archive location for $id")
-        val fileName = path.join(TEMP_DIR, "dl-$id")
-        debug { "Found ${cacheEntry.cacheKey}, ${cacheEntry.scope} $archiveLocation" }
-        try {
-            downloadCache(archiveLocation, fileName).await()
-            res.writeHead(
-                200, "Ok",
-                jso<OutgoingHttpHeaders> {
-                    this["content-length"] = stat(fileName).size
-                },
-            )
-            createReadStream(fileName).pipeAndWait(res)
-        } finally {
-            removeFiles(listOf(fileName))
+        val fileName = path.join(TEMP_DIR, "bc-$id")
+        println("!!!GET $id")
+        val restoreType = restoreAndLog(listOf(fileName), id, restoreKeys = listOf(), version = cacheVersion)
+        if (restoreType == RestoreType.None) {
+            throw HttpException.notFound("No cache entry found for $id")
         }
+        res.writeHead(
+            200, "Ok",
+            unsafeJso<OutgoingHttpHeaders> {
+                contentLength = stat(fileName).size
+            },
+        )
+        createReadStream(fileName).pipeAndWait(res)
     }
 
     private val pluginId = "com.github.burrunan.multi-cache"

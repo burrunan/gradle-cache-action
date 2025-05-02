@@ -19,7 +19,7 @@ kotlin {
         jsMain {
             dependencies {
                 api(projects.wrappers.octokitRequestError)
-                api(npm("@octokit/webhooks", "10.0.8"))
+                api(npm("@octokit/webhooks", "13.8.2"))
                 implementation(projects.wrappers.actionsToolkit)
             }
         }

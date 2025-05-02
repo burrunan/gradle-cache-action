@@ -21,7 +21,7 @@ import com.github.burrunan.wrappers.js.suspendWithCallback
 import com.github.burrunan.wrappers.nodejs.exists
 import com.github.burrunan.wrappers.nodejs.readJson
 import com.github.burrunan.wrappers.nodejs.readToBuffer
-import js.objects.jso
+import js.objects.unsafeJso
 import node.http.IncomingMessage
 import node.http.OutgoingHttpHeaders
 import node.http.ServerResponse
@@ -62,8 +62,8 @@ class CacheService {
         val entry = storage.getValue(key)
         res.writeHead(
             200, "Ok",
-            jso<OutgoingHttpHeaders> {
-                this["content-length"] = entry.value.length
+            unsafeJso<OutgoingHttpHeaders> {
+                contentLength = entry.value.length
             },
         )
         res.write(entry.value)
@@ -101,7 +101,7 @@ class CacheService {
 
         res.write(
             JSON.stringify(
-                jso<ArtifactCacheEntry> {
+                unsafeJso<ArtifactCacheEntry> {
                     cacheKey = resultKey
                     scope = "refs/origin/main"
                     creationTime = resultEntry?.creationTime?.toString()
@@ -138,7 +138,7 @@ class CacheService {
         res.writeHead(200, "Reserve Cache OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         res.write(
             JSON.stringify(
-                jso<ReserveCacheResponse> {
+                unsafeJso<ReserveCacheResponse> {
                     this.cacheId = cacheId
                 },
             ),

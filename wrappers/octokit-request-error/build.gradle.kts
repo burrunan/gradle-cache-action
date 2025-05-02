@@ -19,7 +19,7 @@ kotlin {
         jsMain {
             dependencies {
                 api(projects.wrappers.octokitTypes)
-                api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+//                api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
             }
         }
     }

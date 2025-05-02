@@ -15,8 +15,6 @@
  */
 package actions.exec
 
-import js.objects.jso
-
 class ExecResult(
     val exitCode: Int,
     val stdout: String,
@@ -26,28 +24,30 @@ class ExecResult(
 suspend fun exec(
     commandLine: String, vararg args: String,
     captureOutput: Boolean = false,
-    options: ExecOptions.() -> Unit = {}
+    options: (ExecOptions) -> ExecOptions = { it }
 ): ExecResult {
     val stdout = mutableListOf<String>()
     val stderr = mutableListOf<String>()
-    val exitCode = exec(
-        commandLine,
-        args.copyOf(),
-        jso {
-            // TODO: add custom interface for ExecOptions for [captureOutput]
-            listeners = jso()
-            options()
-            if (captureOutput) {
-                listeners!!.stdout = {
+    val execOptions = if (!captureOutput) {
+        ExecOptions()
+    } else {
+        ExecOptions(
+            listeners = ExecListeners(
+                stdout = {
                     // it.toString() results in [...] for unknown reason
                     stdout.add("" + it.unsafeCast<String>())
-                }
-                listeners!!.stderr = {
+                },
+                stderr = {
                     // it.toString() results in [...] for unknown reason
                     stderr.add("" + it.unsafeCast<String>())
                 }
-            }
-        }
+            )
+        )
+    }
+    val exitCode = exec(
+        commandLine,
+        args.copyOf(),
+        options(execOptions),
     )
     return ExecResult(
         exitCode = exitCode.toInt(),

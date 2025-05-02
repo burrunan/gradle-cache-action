@@ -16,28 +16,20 @@
 
 package com.github.burrunan.wrappers.nodejs
 
-import js.objects.jso
+import js.objects.unsafeJso
 import node.ReadableStream
 import node.WritableStream
 import node.buffer.Buffer
-import node.buffer.BufferEncoding
-import node.events.on
 import node.stream.Readable
-import node.stream.ReadableEvent
+import node.stream.consumers.buffer
+import node.stream.consumers.json
 import node.stream.finished
 
-suspend fun <T> Readable.readJson(): T = JSON.parse(readToBuffer().toString(BufferEncoding.utf8))
+suspend fun <T> Readable.readJson(): T = json(this) as T
 
-suspend fun Readable.readToBuffer(): Buffer {
-    val data = mutableListOf<Buffer>()
-    on(ReadableEvent.data()) { (chunk: Any?) ->
-        data += chunk as Buffer
-    }
-    finished(this)
-    return Buffer.concat(data.toTypedArray())
-}
+suspend fun Readable.readToBuffer(): Buffer<*> = buffer(this)
 
 suspend fun <T : ReadableStream, D: WritableStream> T.pipeAndWait(destination: D, end : Boolean = false) {
-    pipe(destination = destination, options = jso { this.end = end })
+    pipe(destination = destination, options = unsafeJso { this.end = end })
     finished(this)
 }

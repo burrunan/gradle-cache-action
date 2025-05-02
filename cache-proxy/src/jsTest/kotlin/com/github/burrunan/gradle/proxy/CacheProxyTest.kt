@@ -28,7 +28,7 @@ import node.fs.copyFile
 import node.fs.writeFile
 import node.process.process
 import kotlin.test.Test
-import kotlin.test.assertTrue
+import kotlin.test.assertContains
 import kotlin.test.fail
 
 class CacheProxyTest {
@@ -104,28 +104,32 @@ class CacheProxyTest {
                     BufferEncoding.utf8,
                 )
                 val out = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
-                    cwd = dir
-                    silent = true
-                    ignoreReturnCode = true
+                    it.copy(
+                        cwd = dir,
+                        silent = true,
+                        ignoreReturnCode = true,
+                    )
                 }
                 if (out.exitCode != 0) {
                     fail("Unable to execute :props task: STDOUT: ${out.stdout}, STDERR: ${out.stderr}")
                 }
-                assertTrue(
-                    "1 actionable task: 1 executed" in out.stdout,
-                    "Output should include <<1 actionable task: 1 executed>>, got: " + out.stdout,
+                assertContains(
+                    out.stdout,
+                    "1 actionable task: 1 executed",
                 )
 
                 removeFiles(listOf("$dir/$outputFile"))
                 val out2 = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
-                    cwd = dir
-                    silent = true
-                    ignoreReturnCode = true
+                    it.copy(
+                        cwd = dir,
+                        silent = true,
+                        ignoreReturnCode = true,
+                    )
                 }
                 if (out.exitCode != 0) {
                     fail("Unable to execute :props task: STDOUT: ${out.stdout}, STDERR: ${out.stderr}")
                 }
-                assertTrue("1 actionable task: 1 from cache" in out2.stdout, out2.stdout)
+                assertContains(out2.stdout, "1 actionable task: 1 from cache")
             }
         }
     }

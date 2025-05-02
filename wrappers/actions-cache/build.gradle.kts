@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         jsMain {
             dependencies {
-                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
+                api("org.jetbrains.kotlin-wrappers:kotlin-actions-cache")
                 implementation(projects.wrappers.actionsToolkit)
             }
         }

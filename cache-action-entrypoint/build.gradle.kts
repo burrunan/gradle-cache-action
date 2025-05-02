@@ -24,6 +24,7 @@ kotlin {
                 implementation(projects.wrappers.actionsToolkit)
                 implementation(projects.wrappers.nodejs)
                 implementation(projects.wrappers.octokitWebhooks)
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-actions-io")
                 implementation(npm("string-argv", "0.3.1"))
             }
         }

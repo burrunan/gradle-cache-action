@@ -15,14 +15,14 @@
  */
 package com.github.burrunan.wrappers.nodejs
 
-import js.objects.jso
+import js.objects.unsafeJso
 import node.fs.MakeDirectoryOptions
 import node.fs.existsSync
 import node.fs.mkdir
 
 suspend fun mkdir(path: String) {
     if (!exists(path)) {
-        mkdir(path, jso<MakeDirectoryOptions> { recursive = true })
+        mkdir(path, unsafeJso<MakeDirectoryOptions> { recursive = true })
     }
 }
 

@@ -27,7 +27,7 @@ import actions.tool.cache.downloadTool
 import actions.tool.cache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
-import js.objects.jso
+import js.objects.unsafeJso
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import node.buffer.BufferEncoding
@@ -70,7 +70,7 @@ suspend fun install(distribution: GradleDistribution): String {
 }
 
 private val HTTP_AGENT =
-    jso<OutgoingHttpHeaders> {
+    unsafeJso<OutgoingHttpHeaders> {
         set("User-Agent", "burrunan/gradle-cache-action")
     }
 

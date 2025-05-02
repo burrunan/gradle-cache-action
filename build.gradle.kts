@@ -21,8 +21,8 @@ plugins {
 }
 
 plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
-    configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
-        nodeVersion = "20.11.1"
+    configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec> {
+        version = "22.0.0"
     }
 }
 
@@ -34,12 +34,12 @@ subprojects {
 
 allprojects {
     plugins.withId("org.jetbrains.kotlin.multiplatform") {
-        tasks {
-            withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEach {
-                kotlinOptions {
-                    moduleKind = "commonjs"
-                }
+        configure<KotlinMultiplatformExtension> {
+            js {
+                useCommonJs()
             }
+        }
+        tasks {
             withType<AbstractTestTask>().configureEach {
                 testLogging {
                     showStandardStreams = true
@@ -72,7 +72,7 @@ allprojects {
         dependencies {
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0"))
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.7.3"))
-            "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.814"))
+            "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:2025.5.2"))
             if (project.path != ":test-library") {
                 "jsTestImplementation"(rootProject.projects.testLibrary)
             }
