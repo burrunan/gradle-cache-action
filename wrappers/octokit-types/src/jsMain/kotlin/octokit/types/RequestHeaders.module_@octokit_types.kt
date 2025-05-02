@@ -6,7 +6,7 @@ external interface RequestHeaders {
     var accept: String?
     var authorization: String?
     @nativeGetter
-    operator fun get(header: String): dynamic /* String? | Number? */
+    operator fun get(header: String): Any? /* String? | Number? */
     @nativeSetter
     operator fun set(header: String, value: String?)
     @nativeSetter
