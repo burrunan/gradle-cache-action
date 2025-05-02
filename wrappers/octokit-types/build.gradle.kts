@@ -19,7 +19,6 @@ kotlin {
         jsMain {
             dependencies {
                 api(projects.wrappers.nodejs)
-//                api("org.jetbrains.kotlin-wrappers:kotlin-actions-toolkit")
             }
         }
     }
