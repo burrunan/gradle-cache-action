@@ -38,10 +38,10 @@ You might use the following references are:
 * `v1`, `v2` -- this is a *moving* qualifier. It points to the latest release among `v1.x`
 * `v1.0`, `v1.1`, ... -- those are fixed versions. They won't change over time
 
-For the best security you might want to use `burrunan/gradle-cache-action@v1` (see the ids at https://github.com/burrunan/gradle-cache-action/releases)
+For the best security you might want to use `burrunan/gradle-cache-action@v3` (see the ids at https://github.com/burrunan/gradle-cache-action/releases)
 
 ```yaml
-- uses: burrunan/gradle-cache-action@v1
+- uses: burrunan/gradle-cache-action@v3
   name: Build PROJECT_NAME
   # Extra environment variables for Gradle execution (regular GitHub Actions feature)
   # Note: env must be outside of "with"
@@ -105,7 +105,7 @@ Here's how you can integrate build cache to existing projects:
 The default configuration should suit most of the cases, however, there are extra knobs:
 
 ```yaml
-- uses: burrunan/gradle-cache-action@v1
+- uses: burrunan/gradle-cache-action@v3
   name: Cache .gradle
   # Extra environment variables for Gradle execution (regular GitHub Actions feature)
   env:

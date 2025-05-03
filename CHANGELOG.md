@@ -1,3 +1,12 @@
+## 2024-05-03: v3 🚀 Move to actions/cache@v4 API, resolve "Cache service responded with 422"
+* Bump to actions/cache@v4 API
+
+* Bump Gradle to 8.14
+* Bump to Kotlin 2.1.20
+* Bump kotlinx-coroutines to 1.10.2
+* Bump kotlin-serialization to 1.8.1
+* Bump kotlin-wrappers to 2025.5.2
+
 ## 2024-07-25: v2, v1.21 🚀 Move to node20
 
 * Bump `node16` to `node20`. This resolves "node16 is deprecated" warning.
