@@ -82,7 +82,6 @@ class CacheProxy {
 
     private suspend fun getEntry(id: String, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
-        println("!!!GET $id")
         val restoreType = restoreAndLog(listOf(fileName), id, restoreKeys = listOf(), version = cacheVersion)
         if (restoreType == RestoreType.None) {
             throw HttpException.notFound("No cache entry found for $id")
