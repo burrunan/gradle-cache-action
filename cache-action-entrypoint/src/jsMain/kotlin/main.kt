@@ -131,6 +131,7 @@ suspend fun mainInternal(stage: ActionStage) {
         }
         val launchParams = LaunchParams(
             gradle = install(gradleDistribution),
+            daemon = getInput("daemon").ifBlank { "false" }.toBoolean(),
             projectPath = params.path,
             arguments = args,
             properties = getInput("properties").splitLines(),

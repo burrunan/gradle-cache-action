@@ -136,6 +136,9 @@ The default configuration should suit most of the cases, however, there are extr
     # Makes all non-main branch builds to use read-only caching
     read-only: ${{ github.ref != 'refs/heads/main' }}
 
+    # Uncomment to keep Gradle Daemon after the build
+    # daemon: true
+
     # Arguments for Gradle execution
     arguments: build jacocoReport
 

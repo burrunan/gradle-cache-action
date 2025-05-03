@@ -77,6 +77,10 @@ inputs:
     description: Shows extra logging to debug the action
     required: false
     default: 'true'
+  daemon:
+    description: Enables or disables Gradle Daemon (--no-daemon). Defaults to false as typically the build executes only once in CI, so there's no much value in keeping the daemon
+    required: false
+    default: 'false'
   concurrent:
     description: Enables concurent cache download and upload (disabled by default for better log output)
     required: false

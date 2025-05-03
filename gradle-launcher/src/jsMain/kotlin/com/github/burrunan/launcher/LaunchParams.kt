@@ -18,6 +18,7 @@ package com.github.burrunan.launcher
 
 class LaunchParams(
     val gradle: String,
+    val daemon: Boolean,
     val projectPath: String,
     val arguments: List<String>,
     val properties: Map<String, String>,

@@ -39,7 +39,7 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
     @Suppress("REDUNDANT_SPREAD_OPERATOR_IN_NAMED_FORM_IN_FUNCTION")
     val result = exec(
         params.gradle,
-        args = *(listOf("--no-daemon") +
+        args = *(listOf(if (params.daemon) "" else "--no-daemon") +
             params.properties.map { "-P${it.key}=${it.value}" } +
             params.arguments).toTypedArray(),
     ) {
