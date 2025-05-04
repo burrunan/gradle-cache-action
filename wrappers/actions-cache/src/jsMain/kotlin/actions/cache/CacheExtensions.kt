@@ -15,13 +15,16 @@
  */
 package actions.cache
 
+import actions.core.LogLevel
 import actions.core.info
+import actions.core.log
 import actions.core.warning
 
 suspend fun restoreAndLog(
     paths: List<String>, primaryKey: String,
     restoreKeys: List<String> = listOf(),
     version: String,
+    logLevel: LogLevel = LogLevel.INFO,
 ): RestoreType {
     val result = try {
         when {
@@ -44,7 +47,7 @@ suspend fun restoreAndLog(
     result?.removePrefix(version)?.let {
         return if (it.endsWith(primaryKey)) RestoreType.Exact(it) else RestoreType.Partial(it)
     }
-    info("Cache was not found for version=$version, primaryKey=$primaryKey, restore keys=${restoreKeys.joinToString(", ")}")
+    log(logLevel) { "Cache was not found for version=$version, primaryKey=$primaryKey, restore keys=${restoreKeys.joinToString(", ")}" }
     return RestoreType.None
 }
 
@@ -52,6 +55,7 @@ suspend fun saveAndLog(
     paths: List<String>,
     key: String,
     version: String,
+    logLevel: LogLevel = LogLevel.INFO,
 ) {
     try {
         saveCache(paths.toTypedArray(), version + key)
@@ -62,7 +66,7 @@ suspend fun saveAndLog(
             "ReserveCacheError" -> info(t.message ?: "Unknown ReserveCacheError")
             else -> when {
                 t.message?.contains("Cache already exists") == true ->
-                    info("Error while uploading $key: ${t.message}")
+                    log(logLevel) { "Error while uploading $key: ${t.message}" }
                 else ->
                     warning("Error while uploading $key: ${t.message}")
             }

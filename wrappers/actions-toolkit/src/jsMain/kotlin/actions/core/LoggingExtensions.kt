@@ -20,3 +20,11 @@ inline fun debug(message: () -> String) {
         debug(message())
     }
 }
+
+inline fun log(logLevel: LogLevel, message: () -> String) {
+    when(logLevel) {
+        LogLevel.DEBUG -> debug(message)
+        LogLevel.INFO -> info(message())
+        LogLevel.NONE -> Unit
+    }
+}

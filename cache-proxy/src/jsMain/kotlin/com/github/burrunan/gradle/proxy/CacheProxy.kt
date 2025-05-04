@@ -18,6 +18,7 @@ package com.github.burrunan.gradle.proxy
 
 import actions.cache.RestoreType
 import actions.cache.restoreAndLog
+import actions.core.LogLevel
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.HttpException
 import com.github.burrunan.gradle.cache.handle
@@ -72,7 +73,7 @@ class CacheProxy {
         } finally {
             GlobalScope.launch {
                 try {
-                    actions.cache.saveAndLog(listOf(fileName), id, cacheVersion)
+                    actions.cache.saveAndLog(listOf(fileName), id, cacheVersion, logLevel = LogLevel.DEBUG)
                 } finally {
                     removeFiles(listOf(fileName))
                 }
@@ -82,7 +83,7 @@ class CacheProxy {
 
     private suspend fun getEntry(id: String, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
-        val restoreType = restoreAndLog(listOf(fileName), id, restoreKeys = listOf(), version = cacheVersion)
+        val restoreType = restoreAndLog(listOf(fileName), id, restoreKeys = listOf(), version = cacheVersion, logLevel = LogLevel.DEBUG)
         if (restoreType == RestoreType.None) {
             throw HttpException.notFound("No cache entry found for $id")
         }
