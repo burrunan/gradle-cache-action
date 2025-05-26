@@ -45,6 +45,8 @@ inputs:
       type: string
   debug:
     type: boolean
+  daemon:
+    type: boolean
   concurrent:
     type: boolean
   arguments:
