@@ -22,7 +22,10 @@ import com.github.burrunan.gradle.GradleCacheAction
 import com.github.burrunan.gradle.Parameters
 import com.github.burrunan.gradle.github.stateVariable
 import com.github.burrunan.gradle.proxy.CacheProxy
+import com.github.burrunan.launcher.GradleVersion
+import com.github.burrunan.launcher.GradleWrapperNotFound
 import com.github.burrunan.launcher.LaunchParams
+import com.github.burrunan.launcher.findUrl
 import com.github.burrunan.launcher.install
 import com.github.burrunan.launcher.launchGradle
 import com.github.burrunan.launcher.resolveDistribution
@@ -106,13 +109,23 @@ suspend fun mainInternal(stage: ActionStage) {
         readOnly = getInput("read-only").ifBlank { "false" }.toBoolean(),
     )
 
-    val gradleDistribution = resolveDistribution(
-        versionSpec = getInput("gradle-version").ifBlank { "wrapper" },
-        projectPath = params.path,
-        distributionUrl = getInput("gradle-distribution-url").ifBlank { null },
-        distributionSha256Sum = getInput("gradle-distribution-sha-256-sum").ifBlank { null },
-        enableDistributionSha256SumWarning = getInput("gradle-distribution-sha-256-sum-warning").ifBlank { "true" }.toBoolean(),
-    )
+    val gradleDistribution = try {
+        resolveDistribution(
+            versionSpec = getInput("gradle-version").ifBlank { "wrapper" },
+            projectPath = params.path,
+            distributionUrl = getInput("gradle-distribution-url").ifBlank { null },
+            distributionSha256Sum = getInput("gradle-distribution-sha-256-sum").ifBlank { null },
+            enableDistributionSha256SumWarning = getInput("gradle-distribution-sha-256-sum-warning").ifBlank { "true" }.toBoolean(),
+        )
+    } catch (e: GradleWrapperNotFound) {
+        if (gradleStartArguments.isNotEmpty()) {
+            warning("${e.message}\nWill use the current release Gradle version")
+            GradleVersion.Current.findUrl()
+        } else {
+            // Do nothing
+            return
+        }
+    }
 
     if (stage == ActionStage.MAIN || stage == ActionStage.POST) {
         val cacheAction = GradleCacheAction(currentTrigger(), params, gradleDistribution)
