@@ -72,7 +72,7 @@ allprojects {
         dependencies {
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"))
             "commonMainApi"(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.9.0"))
-            "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:2025.5.8"))
+            "jsMainImplementation"(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:2025.12.7"))
             if (project.path != ":test-library") {
                 "jsTestImplementation"(rootProject.projects.testLibrary)
             }
