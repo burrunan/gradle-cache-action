@@ -36,7 +36,9 @@ allprojects {
     plugins.withId("org.jetbrains.kotlin.multiplatform") {
         configure<KotlinMultiplatformExtension> {
             js {
-                useCommonJs()
+                compilerOptions {
+                    target = "es2015"
+                }
             }
         }
         tasks {

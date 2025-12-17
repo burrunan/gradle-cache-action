@@ -20,6 +20,7 @@ import actions.core.ExitCode
 import actions.core.setFailed
 import actions.core.setOutput
 import actions.exec.ExecListeners
+import actions.exec.ExecOptions
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
@@ -43,7 +44,8 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
             params.properties.map { "-P${it.key}=${it.value}" } +
             params.arguments).toTypedArray(),
     ) {
-        it.copy(
+        ExecOptions.copy(
+            it,
             cwd = params.projectPath,
             ignoreReturnCode = true,
             listeners = ExecListeners(
