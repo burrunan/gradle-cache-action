@@ -100,7 +100,7 @@ inputs:
     required: false
     default: 'true'
 runs:
-  using: node20
+  using: node24
   main: dist/cache-action-entrypoint.js
   post: dist/cache-action-entrypoint.js
 branding:
