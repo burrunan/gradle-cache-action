@@ -85,11 +85,11 @@ class CacheProxyTest {
                     "$dir/build.gradle",
                     """
                         tasks.create('props', WriteProperties) {
-                          outputFile = file("$outputFile")
+                          destinationFile = file("$outputFile")
                           property("hello", "world")
                         }
                         tasks.create('props2', WriteProperties) {
-                          outputFile = file("${outputFile}2")
+                          destinationFile = file("${outputFile}2")
                           property("hello", "world2")
                         }
                     """.trimIndent(),
