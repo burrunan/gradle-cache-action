@@ -5,6 +5,8 @@
   ],
   "automerge": true,
   "platformAutomerge": true,
+  "automergeSchedule": ["at any time"],
+  "rebaseWhen": "behind-base-branch",
   "labels": ["dependencies"],
   "schedule": ["every 1 weeks on Monday"]
 }
