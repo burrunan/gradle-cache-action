@@ -22,6 +22,7 @@ import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.*
 
 class MetadataFile<T>(name: String, private val serializer: KSerializer<T>, private val extension: String = ".json") {

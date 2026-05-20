@@ -22,8 +22,10 @@ import com.github.burrunan.wrappers.nodejs.pipeAndWait
 import js.promise.await
 import node.WritableStream
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.crypto.BinaryToTextEncoding
 import node.crypto.createHash
+import node.crypto.hex
 import node.fs.createReadStream
 import node.fs.stat
 import node.process.process

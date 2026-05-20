@@ -32,6 +32,7 @@ import com.github.burrunan.launcher.resolveDistribution
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import js.globals.globalThis
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.writeFile
 import node.path.path
 import node.process.process

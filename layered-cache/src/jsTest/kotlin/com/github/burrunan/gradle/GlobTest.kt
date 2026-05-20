@@ -21,6 +21,7 @@ import com.github.burrunan.hashing.hashFilesDetailed
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.writeFile
 import node.path.path
 import kotlin.test.Test

@@ -17,6 +17,7 @@ package octokit
 
 import actions.core.ActionsEnvironment
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.readFile
 import octokit.webhooks.WebhookPayloadPullRequest
 import octokit.webhooks.WebhookPayloadPush

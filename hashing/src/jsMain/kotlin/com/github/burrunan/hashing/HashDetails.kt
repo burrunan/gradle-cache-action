@@ -23,6 +23,7 @@ import js.promise.await
 import kotlinx.serialization.Serializable
 import node.crypto.BinaryToTextEncoding
 import node.crypto.createHash
+import node.crypto.hex
 import node.fs.createReadStream
 import node.fs.stat
 import node.process.process

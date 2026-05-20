@@ -24,6 +24,7 @@ import com.github.burrunan.gradle.cache.LayeredCache
 import com.github.burrunan.test.runTest
 import com.github.burrunan.wrappers.nodejs.mkdir
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.readFile
 import node.fs.unlink
 import node.fs.writeFile
