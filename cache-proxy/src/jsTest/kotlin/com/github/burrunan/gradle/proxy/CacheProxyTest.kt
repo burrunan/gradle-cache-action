@@ -25,6 +25,7 @@ import com.github.burrunan.wrappers.nodejs.mkdir
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.encodeToDynamic
 import node.buffer.BufferEncoding
+import node.buffer.utf8
 import node.fs.copyFile
 import node.fs.writeFile
 import node.process.process
