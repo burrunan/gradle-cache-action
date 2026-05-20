@@ -19,6 +19,7 @@ import actions.core.ActionFailedException
 import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import js.promise.await
 import kotlinx.serialization.Serializable
 import node.crypto.BinaryToTextEncoding
 import node.crypto.createHash

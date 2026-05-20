@@ -16,6 +16,7 @@
 
 package com.github.burrunan.gradle.proxy
 
+import actions.exec.ExecOptions
 import actions.exec.exec
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.CacheService
@@ -104,7 +105,7 @@ class CacheProxyTest {
                     BufferEncoding.utf8,
                 )
                 val out = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
-                    it.copy(
+                    ExecOptions.copy(it,
                         cwd = dir,
                         silent = true,
                         ignoreReturnCode = true,
@@ -120,7 +121,7 @@ class CacheProxyTest {
 
                 removeFiles(listOf("$dir/$outputFile"))
                 val out2 = exec("./gradlew", "props", "-i", "--build-cache", captureOutput = true) {
-                    it.copy(
+                    ExecOptions.copy(it,
                         cwd = dir,
                         silent = true,
                         ignoreReturnCode = true,

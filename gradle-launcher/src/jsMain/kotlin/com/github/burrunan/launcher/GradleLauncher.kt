@@ -20,6 +20,7 @@ import actions.core.ExitCode
 import actions.core.setFailed
 import actions.core.setOutput
 import actions.exec.ExecListeners
+import actions.exec.ExecOptions
 import actions.exec.exec
 import com.github.burrunan.launcher.internal.GradleErrorCollector
 import com.github.burrunan.launcher.internal.GradleOutErrorCollector
@@ -39,11 +40,12 @@ suspend fun launchGradle(params: LaunchParams): GradleResult {
     @Suppress("REDUNDANT_SPREAD_OPERATOR_IN_NAMED_FORM_IN_FUNCTION")
     val result = exec(
         params.gradle,
-        args = *(listOf(if (params.daemon) "" else "--no-daemon") +
+        args = *(if (params.daemon) emptyList() else listOf("--no-daemon") +
             params.properties.map { "-P${it.key}=${it.value}" } +
             params.arguments).toTypedArray(),
     ) {
-        it.copy(
+        ExecOptions.copy(
+            it,
             cwd = params.projectPath,
             ignoreReturnCode = true,
             listeners = ExecListeners(

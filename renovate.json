@@ -1,8 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:best-practices"
   ],
+  "automerge": true,
+  "platformAutomerge": true,
   "labels": ["dependencies"],
-  "schedule": ["every 3 weeks on Monday"]
+  "schedule": ["every 1 weeks on Monday"]
 }

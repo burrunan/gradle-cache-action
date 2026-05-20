@@ -19,6 +19,7 @@ import actions.core.ActionFailedException
 import actions.core.warning
 import com.github.burrunan.wrappers.nodejs.normalizedPath
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import js.promise.await
 import node.WritableStream
 import node.buffer.BufferEncoding
 import node.crypto.BinaryToTextEncoding

@@ -28,6 +28,7 @@ import actions.tool.cache.extractZip
 import com.github.burrunan.hashing.hashFiles
 import com.github.burrunan.wrappers.nodejs.exists
 import js.objects.unsafeJso
+import js.promise.await
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import node.buffer.BufferEncoding
