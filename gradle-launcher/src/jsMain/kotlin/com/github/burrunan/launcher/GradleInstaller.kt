@@ -38,6 +38,9 @@ import node.http.OutgoingHttpHeaders
 import node.path.path
 import node.process.Platform
 
+class GradleWrapperNotFound(override val message: String, cause: Throwable? = null) :
+    Throwable(message, cause)
+
 suspend fun install(distribution: GradleDistribution): String {
     val cachedTool = actions.tool.cache.find("gradle", distribution.version)
     val gradleDir = if (cachedTool.isNotEmpty()) {
@@ -111,8 +114,7 @@ suspend fun GradleVersionResponse.resolveChecksum() =
 suspend fun findVersionFromWrapper(projectPath: String, enableDistributionSha256SumWarning: Boolean): GradleDistribution {
     val gradleWrapperProperties = path.join(projectPath, "gradle", "wrapper", "gradle-wrapper.properties")
     if (!exists(gradleWrapperProperties)) {
-        warning("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.\nWill use the current release Gradle version")
-        return GradleVersion.Current.findUrl()
+        throw GradleWrapperNotFound("Gradle wrapper configuration is not found at ${path.resolve(gradleWrapperProperties)}.")
     }
     val propString = readFile(gradleWrapperProperties, BufferEncoding.utf8)
     val props = javaproperties.parseString(propString).run {
