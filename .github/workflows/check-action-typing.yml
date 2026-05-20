@@ -19,4 +19,4 @@ jobs:
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
             - name: Check Action Typing
-              uses: krzema12/github-actions-typing@00bdd654abadab98ae7076697f91bb722fd63666 # v0
+              uses: krzema12/github-actions-typing@9ddf35b71a482be7d8922b28e8d00df16b77e315 # v2.2.2
