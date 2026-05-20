@@ -38,6 +38,7 @@ import node.fs.readFile
 import node.http.OutgoingHttpHeaders
 import node.path.path
 import node.process.Platform
+import node.process.win32
 
 class GradleWrapperNotFound(override val message: String, cause: Throwable? = null) :
     Throwable(message, cause)
