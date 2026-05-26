@@ -6,27 +6,25 @@
 This is a GitHub Action for caching Gradle caches.
 In other words, this is [@actions/cache](https://github.com/actions/cache) customized for Gradle.
 
-Key improvements over [@actions/cache](https://github.com/actions/cache) and [gradle-command-action](https://github.com/eskatos/gradle-command-action) are:
-- 🚀 Gradle remote build cache backend (pulls only the needed entries from GitHub cache)
-- 🎉 Support multiple remote caches via [gradle-multi-cache](https://github.com/burrunan/gradle-multi-cache) (e.g. GitHub Actions + S3)
-- 👋 Simplified configuration (action name + gradle command is enough for most case)
-- 👾 Less space usage (GitHub imposes overall 5GiB limit by default, so cache space matters)
-- 🔗 Link to Build Scan in build results
-- 💡 Gradle build failure markers added to the diff view (e.g. `compileJava` or `compileKotlin` markers right in the commit diff)
+Key improvements over [@actions/cache](https://github.com/actions/cache) and the official [gradle/actions/setup-gradle](https://github.com/gradle/actions/blob/main/docs/setup-gradle.md) are:
+- 🆓 100% MIT-licensed. Since `setup-gradle@v6`, the default `enhanced` caching uses the proprietary `gradle-actions-caching` library. `gradle-cache-action` stays open source end to end.
+- 🚀 Real Gradle remote build cache backend (pulls only the entries the build needs). `setup-gradle` snapshots the whole Gradle User Home, including `caches/build-cache-1`, as a single blob.
+- 🎉 Multiple remote caches via [gradle-multi-cache](https://github.com/burrunan/gradle-multi-cache), so GitHub Actions cache can run alongside S3 or any other backend.
+- 👾 Layered cache cuts upload time and storage, which matters because GitHub imposes a 10 GB cache limit per repository by default.
+- 💡 Gradle build failure markers in the pull request diff view (e.g. `compileJava` or `compileKotlin` markers right next to the offending line).
 
 ## Version notes
 
-`v1` uses `node16` which has been deprecated, so consider upgrading to `v2`.
-The upgrade requires only changing the version, however the newer `node20` might be missing
-if you use an old runner.
+- `v3` is the current line and runs on `node24`. Use it on GitHub-hosted runners and on self-hosted runners that ship Node 24.
+- `v2` runs on `node20` and remains available for runners that do not yet ship Node 24.
+- `v1` runs on `node16`, which GitHub has deprecated. Upgrade by changing the version reference.
 
 ## Usage
 
 Add the following code to your workflow file in the `.github/workflows` directory.
 
-Note: Like with [gradle-command-action](https://github.com/eskatos/gradle-command-action), you can
-specify `gradle-version: release` to test with the current release version of Gradle, `gradle-version: nightly` for testing Gradle nightly builds,
-an so on (see `gradle-version` below).
+Note: You can specify `gradle-version: release` to test with the current release version of Gradle,
+`gradle-version: nightly` for Gradle nightly builds, and so on (see `gradle-version` below).
 
 Note: For the [security reasons](https://julienrenaux.fr/2019/12/20/github-actions-security-risk/)
 you might want to use Git SHA rather than branch name or tag name.
@@ -48,7 +46,7 @@ For the best security you might want to use `burrunan/gradle-cache-action@v3` (s
   env:
     VARIABLE: VALUE
   with:
-    # If you have multiple jobs, use distinct job-id in in case you want to split caches
+    # If you have multiple jobs, use a distinct job-id when you want to split caches
     # For instance, jobs with different JDK versions can't share caches
     # RUNNER_OS is added to job-id automatically
     job-id: jdk8
@@ -57,12 +55,12 @@ For the best security you might want to use `burrunan/gradle-cache-action@v3` (s
     arguments: build
     # arguments can be multi-line for better readability
     # arguments: |
-    #  --no-paralell
+    #  --no-parallel
     #  build
     #  -x test
     # Gradle version to use for execution:
     #   wrapper (default), current, rc, nightly, release-nightly, or
-    #   versions like 6.6 (see https://services.gradle.org/versions/all)
+    #   versions like 9.0 (see https://services.gradle.org/versions/all)
     gradle-version: wrapper
     # Properties are passed as -Pname=value
     properties: |
@@ -92,13 +90,11 @@ buildCache {
 
 ## Sample integrations
 
-Here's how you can integrate build cache to existing projects:
+Reference pull requests that wire `gradle-cache-action` into existing projects:
 
 * Apache Calcite: https://github.com/apache/calcite/pull/2114
 * Apache JMeter: https://github.com/apache/jmeter/pull/611
 * pgjdbc: https://github.com/pgjdbc/pgjdbc/pull/1862
-* junit-pioneer: https://github.com/junit-pioneer/junit-pioneer/pull/325
-* opentelemetry-java-instrumentation: https://github.com/open-telemetry/opentelemetry-java-instrumentation/pull/1054
 
 ## Configuration
 
@@ -130,8 +126,8 @@ The default configuration should suit most of the cases, however, there are extr
     # Note: this argument specifies the version for Gradle execution (if `arguments` is present)
     # Supported values:
     #   wrapper (default), current, rc, nightly, release-nightly, or
-    #   versions like 6.6 (see https://services.gradle.org/versions/all)
-    gradle-version: 6.5.1-custom
+    #   versions like 9.0 (see https://services.gradle.org/versions/all)
+    gradle-version: 9.0-custom
 
     # Makes all non-main branch builds to use read-only caching
     read-only: ${{ github.ref != 'refs/heads/main' }}
@@ -195,8 +191,8 @@ The cache can't be updated, so it does not work very good for caches like "Gradl
 
 `gradle-cache-action` creates a layered cache, and it uses a small "index" cache to identify the required layers.
 If only a small fraction of files changes, then the action reuses the existing caches, and it adds a layer on top of it.
-That enables to save cache space (GitHub has a default limit of 5 GiB), and it reduces upload time as only
-the cache receives only the updated files.
+That saves cache space (GitHub has a default limit of 10 GB per repository), and it reduces upload time because the
+cache only receives the updated files.
 
 ## How does GitHub Actions-based Gradle remote build cache work?
 
@@ -223,47 +219,57 @@ The multi-cache feature can be disabled via `multi-cache-enabled: false`.
 
 ## How to enable build scans?
 
-1. Read and agree to the terms of service: https://gradle.com/terms-of-service
-1. Add `--scan` to `arguments:`, and add the following to `settings.gradle.kts`
+1. Read and agree to the terms of use: https://gradle.com/help/legal-terms-of-use
+1. Add `--scan` to `arguments:`, and add the following to `settings.gradle.kts`:
 
 ```kotlin
+// settings.gradle.kts
 plugins {
-    `gradle-enterprise`
+    id("com.gradle.develocity") version "3.18.2"
 }
 
 val isCiServer = System.getenv().containsKey("CI")
 
-if (isCiServer) {
-    gradleEnterprise {
-        buildScan {
-            termsOfServiceUrl = "https://gradle.com/terms-of-service"
-            termsOfServiceAgree = "yes"
+develocity {
+    buildScan {
+        termsOfUseUrl = "https://gradle.com/help/legal-terms-of-use"
+        termsOfUseAgree = "yes"
+        if (isCiServer) {
             tag("CI")
         }
+        publishing.onlyIf { isCiServer }
     }
 }
 ```
 
-## Why another action instead of gradle-command-action?
+Note: the `com.gradle.develocity` plugin replaces the older `com.gradle.enterprise` plugin starting from Develocity Gradle plugin 3.17.
 
-`gradle-command-action` was started as a Kotlin/JS experiment for making a customized
-[@actions/cache](https://github.com/actions/cache) that would make Gradle builds faster.
+## Why use this instead of gradle/actions/setup-gradle?
 
-Then it turned out there's a proxy remote cache requests to the `@actions/cache` API can be used when the caching
-action executes Gradle, so the `gradle-cache-action` got a Gradle execution feature.
+`gradle/actions/setup-gradle` is the official action and works well for many projects.
+Pick `gradle-cache-action` when one of these matters:
 
-Of course, the same could have been made in [gradle-command-action](https://github.com/eskatos/gradle-command-action),
-however:
-- The author was not familiar with TypeScript ecosystem (stdlib, typical libraries, testing libraries, etc.)
-- Caching logic is collections-heavy, and Kotlin stdlib shines here.
+- **100% MIT-licensed.** Since `setup-gradle@v6`, the default `enhanced` caching is provided by the proprietary
+  `gradle-actions-caching` library. Switching to its `basic` provider drops most of the advanced caching features.
+  `gradle-cache-action` is open source end to end.
+- **Real Gradle remote build cache backend.** The action runs a small proxy that speaks the Gradle build cache protocol
+  and forwards entries to the GitHub Actions cache, so builds fetch only the entries they need. `setup-gradle` instead
+  snapshots the whole Gradle User Home (including `caches/build-cache-1`) as a single blob.
+- **Multiple remote caches.** Combine the GitHub Actions cache with S3 or any other backend via
+  [gradle-multi-cache](https://github.com/burrunan/gradle-multi-cache) and
+  [gradle-s3-build-cache](https://github.com/burrunan/gradle-s3-build-cache).
+- **Layered cache cuts upload time and storage.** Cache entries are split into small layers that are reused across runs.
+  `setup-gradle` docs explicitly note that a layered cache is not supported.
+- **Build failure markers in the pull request diff view.** Compile errors from `compileJava`, `compileKotlin`, and
+  similar tasks appear inline next to the offending source line.
 
-  For instance, in Kotlin `list + list` adds lists, and `array.associateWith { valueFor(it) }` converts arrays to maps.
-  This is easy to write without consulting StackOverflow, the code is readable, and it does not require
-  you [to fight with the compiler](https://blog.johnnyreilly.com/2016/06/create-es2015-map-from-array-in-typescript.html).
+### Historical note
 
-- A single language helps when building connected components.
-  `gradle-cache-action` integrates with [gradle-multi-cache](https://github.com/burrunan/gradle-multi-cache) and
-  [gradle-s3-build-cache](https://github.com/burrunan/gradle-s3-build-cache), and they all are Kotlin-based. 
+`gradle-cache-action` started as a Kotlin/JS experiment to make a customized
+[@actions/cache](https://github.com/actions/cache) for Gradle builds. The Gradle execution feature followed once the
+proxy-based remote cache idea proved out. The implementation is Kotlin throughout, which lines up with the related
+[gradle-multi-cache](https://github.com/burrunan/gradle-multi-cache) and
+[gradle-s3-build-cache](https://github.com/burrunan/gradle-s3-build-cache) projects.
 
 ## Can I use the caching part of the action only?
 
