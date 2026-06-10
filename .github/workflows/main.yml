@@ -25,7 +25,7 @@ jobs:
       with:
         java-version: 17
         distribution: liberica
-    - uses: burrunan/gradle-cache-action@663fbad34e03c8f12b27f4999ac46e3d90f87eca # v3
+    - uses: burrunan/gradle-cache-action@4b67497abd37a511d6c1dc6299bdd84ff39f7bf5 # v3
       name: Cache .gradle
     - name: Build
       run: ./gradlew --no-parallel --no-daemon --build-cache build
