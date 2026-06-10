@@ -276,6 +276,31 @@ proxy-based remote cache idea proved out. The implementation is Kotlin throughou
 Yes, you can. If you omit `arguments:`, then the action runs in `cache-only` mode.
 It won't launch Gradle.
 
+## Is the Gradle distribution itself cached?
+
+The action does not cache the downloaded Gradle distribution (`~/.gradle/wrapper/dists`).
+It caches the parts of the Gradle User Home that builds reuse: dependencies (`caches/modules-2`),
+the local build cache (`caches/build-cache-1`), generated Gradle jars, and the Maven repository (`~/.m2/repository`).
+
+How the distribution is handled depends on how you run Gradle:
+
+- **You run `./gradlew` yourself** (no `arguments:`). The wrapper downloads and unpacks the distribution on every run,
+  and the action does not cache it.
+- **The action runs Gradle** (`arguments:` is set). Gradle is installed into the runner tool cache (`RUNNER_TOOL_CACHE`).
+  Self-hosted runners keep that cache between runs, so the distribution is reused without another download.
+  GitHub-hosted runners start clean each run, so it is downloaded again.
+
+Caching the distribution rarely pays off: both a fresh download and a cache restore still unpack an archive of similar
+size, so the only difference is the download source. If your case is different, you can try a separate `actions/cache`
+step. Open an issue if it measurably helps, so we can understand when distribution caching is worthwhile:
+
+```yaml
+- uses: actions/cache@v4
+  with:
+    path: ~/.gradle/wrapper/dists
+    key: gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+```
+
 ## Can I call multiple different Gradle builds in the same job?
 
 This might be complicated, see https://github.com/burrunan/gradle-cache-action/issues/15.
