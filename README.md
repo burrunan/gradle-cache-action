@@ -291,8 +291,10 @@ How the distribution is handled depends on how you run Gradle:
   GitHub-hosted runners start clean each run, so it is downloaded again.
 
 Caching the distribution rarely pays off: both a fresh download and a cache restore still unpack an archive of similar
-size, so the only difference is the download source. If your case is different, you can try a separate `actions/cache`
-step. Open an issue if it measurably helps, so we can understand when distribution caching is worthwhile:
+size, so the only difference is the download source. It also competes for the 10 GB per-repository GitHub Actions cache
+limit, where the distribution can crowd out more valuable entries such as `modules-2` and `build-cache-1`. If your case
+is different, you can try a separate `actions/cache` step. Open an issue if it measurably helps, so we can understand
+when distribution caching is worthwhile:
 
 ```yaml
 - uses: actions/cache@v4
