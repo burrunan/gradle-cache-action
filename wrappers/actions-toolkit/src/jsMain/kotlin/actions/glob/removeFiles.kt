@@ -16,10 +16,12 @@
 
 package actions.glob
 
+import js.objects.unsafeJso
 import js.promise.await
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
-import node.fs.unlink
+import node.fs.RmOptions
+import node.fs.rm
 
 suspend fun removeFiles(files: List<String>) {
     if (files.isEmpty()) {
@@ -30,7 +32,9 @@ suspend fun removeFiles(files: List<String>) {
     supervisorScope {
         for (file in fileNames) {
             launch {
-                unlink(file)
+                // Concurrent cleanups can share a path, so a file may already be gone by the time
+                // this coroutine runs. force ignores that, whereas unlink would reject with ENOENT.
+                rm(file, unsafeJso<RmOptions> { force = true })
             }
         }
     }

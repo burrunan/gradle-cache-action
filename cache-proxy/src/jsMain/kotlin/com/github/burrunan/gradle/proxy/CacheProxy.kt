@@ -19,12 +19,14 @@ package com.github.burrunan.gradle.proxy
 import actions.cache.RestoreType
 import actions.cache.restoreAndLog
 import actions.core.LogLevel
+import actions.core.warning
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.HttpException
 import com.github.burrunan.gradle.cache.handle
 import com.github.burrunan.wrappers.nodejs.mkdir
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
 import js.objects.unsafeJso
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import node.fs.createReadStream
@@ -50,6 +52,14 @@ class CacheProxy {
 
     val cacheUrl: String? get() = _cacheUrl
 
+    // The store runs detached so the PUT can be answered before the upload finishes, which leaves
+    // its failures with nowhere to go: without a handler they reach the uncaught-coroutine handler
+    // and terminate the process along with the Gradle build the action is running. A build cache
+    // entry that fails to store is not worth failing a build over.
+    private val storeExceptionHandler = CoroutineExceptionHandler { _, e ->
+        warning("Unable to store the build cache entry: ${e.message}")
+    }
+
     private val server = node.http.createServer<IncomingMessage, ServerResponse<*>> { req, res ->
         val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
@@ -71,7 +81,7 @@ class CacheProxy {
             req.pipeAndWait(createWriteStream(fileName))
             res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
-            GlobalScope.launch {
+            GlobalScope.launch(storeExceptionHandler) {
                 try {
                     actions.cache.saveAndLog(listOf(fileName), id, cacheVersion, logLevel = LogLevel.DEBUG)
                 } finally {
