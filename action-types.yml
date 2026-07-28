@@ -31,6 +31,8 @@ inputs:
     type: boolean
   remote-build-cache-proxy-enabled:
     type: boolean
+  remote-build-cache-proxy-port:
+    type: integer
   gradle-dependencies-cache-key:
     type: list
     separator: "\n"

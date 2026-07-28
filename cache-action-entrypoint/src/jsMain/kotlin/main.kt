@@ -151,7 +151,7 @@ suspend fun mainInternal(stage: ActionStage) {
             properties = getInput("properties").splitLines(),
         )
 
-        val cacheProxy = CacheProxy()
+        val cacheProxy = CacheProxy(port = getInput("remote-build-cache-proxy-port").ifBlank { "0" }.toInt())
 
         if (cacheProxyEnabled) {
             info("Starting remote cache proxy, adding it via ~/.gradle/init.gradle")

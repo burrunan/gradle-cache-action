@@ -121,6 +121,12 @@ The default configuration should suit most of the cases, however, there are extr
     # Disable remote cache that proxies requests to GitHub Actions cache
     remote-build-cache-proxy-enabled: false
 
+    # Pin the port the remote build cache proxy listens on. Default is 0, an ephemeral port.
+    # The port is written into the generated ~/.gradle/init.gradle, and Gradle fingerprints init
+    # script content, so an ephemeral port invalidates the configuration cache on every run. Pin it
+    # to reuse configuration cache entries across runs, keeping it unique per build on a shared machine
+    remote-build-cache-proxy-port: 34567
+
     # Set the cache key for Gradle version (e.g. in case multiple jobs use different versions)
     # By default the value is `wrapper`, so the version is determined from the gradle-wrapper.properties   
     # Note: this argument specifies the version for Gradle execution (if `arguments` is present)

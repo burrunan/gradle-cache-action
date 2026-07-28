@@ -39,7 +39,13 @@ import node.process.process
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class CacheProxy {
+/**
+ * @param port port to listen on, or 0 to pick an ephemeral one. The port ends up in the init script
+ * the proxy generates, and Gradle fingerprints init script content as a configuration input, so a
+ * port that changes between runs invalidates the configuration cache every time. Builds that want to
+ * reuse a configuration cache entry across runs need to pin it.
+ */
+class CacheProxy(private val port: Int = 0) {
     companion object {
         const val GHA_CACHE_URL = "GHA_CACHE_URL"
         private const val TEMP_DIR = ".cache-proxy"
@@ -178,7 +184,7 @@ class CacheProxy {
 
     suspend fun start() {
         suspendCoroutine<Nothing?> { cont ->
-            server.listen(0) {
+            server.listen(port) {
                 cont.resume(null)
             }
         }
