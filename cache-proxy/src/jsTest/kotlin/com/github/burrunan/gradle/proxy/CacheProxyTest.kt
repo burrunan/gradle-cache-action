@@ -31,6 +31,9 @@ import node.fs.writeFile
 import node.process.process
 import kotlin.test.Test
 import kotlin.test.assertContains
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class CacheProxyTest {
@@ -44,6 +47,27 @@ class CacheProxyTest {
     fun abc() = runTest {
         val z = mapOf("a" to 4, "b" to 6)
         println("json: " + JSON.stringify(Json.encodeToDynamic(z)))
+    }
+
+    @Test
+    fun pinnedPortReachesTheGeneratedInitScript() = runTest {
+        val port = 34567
+        val pinnedProxy = CacheProxy(port = port)
+        pinnedProxy {
+            assertEquals("http://localhost:$port/", pinnedProxy.cacheUrl)
+            assertContains(pinnedProxy.getMultiCacheConfiguration(), "url = 'http://localhost:$port/'")
+        }
+    }
+
+    @Test
+    fun ephemeralPortIsUsedByDefault() = runTest {
+        val ephemeralProxy = CacheProxy()
+        ephemeralProxy {
+            val url = ephemeralProxy.cacheUrl
+            assertNotNull(url)
+            val port = url.removePrefix("http://localhost:").removeSuffix("/").toInt()
+            assertTrue(port > 0, "an ephemeral port should have been assigned, got $url")
+        }
     }
 
     @Test
