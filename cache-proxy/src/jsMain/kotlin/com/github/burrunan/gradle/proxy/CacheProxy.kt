@@ -52,14 +52,6 @@ class CacheProxy {
 
     val cacheUrl: String? get() = _cacheUrl
 
-    // The store runs detached so the PUT can be answered before the upload finishes, which leaves
-    // its failures with nowhere to go: without a handler they reach the uncaught-coroutine handler
-    // and terminate the process along with the Gradle build the action is running. A build cache
-    // entry that fails to store is not worth failing a build over.
-    private val storeExceptionHandler = CoroutineExceptionHandler { _, e ->
-        warning("Unable to store the build cache entry: ${e.message}")
-    }
-
     private val server = node.http.createServer<IncomingMessage, ServerResponse<*>> { req, res ->
         val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
@@ -81,7 +73,15 @@ class CacheProxy {
             req.pipeAndWait(createWriteStream(fileName))
             res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
         } finally {
-            GlobalScope.launch(storeExceptionHandler) {
+            // The store runs detached so the PUT can be answered before the upload finishes, which
+            // leaves its failures with nowhere to go: without a handler they reach the uncaught-coroutine
+            // handler and terminate the process along with the Gradle build the action is running.
+            // A build cache entry that fails to store is not worth failing a build over.
+            GlobalScope.launch(
+                CoroutineExceptionHandler { _, e ->
+                    warning("Unable to store build cache entry $id: ${e.stackTraceToString()}")
+                },
+            ) {
                 try {
                     actions.cache.saveAndLog(listOf(fileName), id, cacheVersion, logLevel = LogLevel.DEBUG)
                 } finally {

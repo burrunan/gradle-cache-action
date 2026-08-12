@@ -16,8 +16,10 @@
 
 package actions.glob
 
+import actions.core.warning
 import js.objects.unsafeJso
 import js.promise.await
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import node.fs.RmOptions
@@ -29,13 +31,31 @@ suspend fun removeFiles(files: List<String>) {
     }
     val globber = create(files.joinToString("\n"))
     val fileNames = globber.glob().await()
+    val failures = mutableListOf<String>()
     supervisorScope {
         for (file in fileNames) {
             launch {
-                // Concurrent cleanups can share a path, so a file may already be gone by the time
-                // this coroutine runs. force ignores that, whereas unlink would reject with ENOENT.
-                rm(file, unsafeJso<RmOptions> { force = true })
+                try {
+                    // Concurrent cleanups can share a path, so a file may already be gone by the time
+                    // this coroutine runs. force ignores that, whereas unlink would reject with ENOENT.
+                    rm(file, unsafeJso<RmOptions> { force = true })
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Throwable) {
+                    // supervisorScope keeps the sibling deletes running, yet the failure still reaches
+                    // the uncaught-coroutine handler, which terminates the Node process along with the
+                    // Gradle build. Node's fs messages name the path, so the message identifies the file.
+                    failures += e.message ?: file
+                }
             }
         }
+    }
+    if (failures.isNotEmpty()) {
+        // The callers pass whole file lists, and a cause like a read-only mount fails every entry,
+        // so one warning per file would bury the log under copies of a single failure.
+        val files = if (failures.size == 1) "file" else "files"
+        warning(
+            failures.joinToString(", ", "Unable to remove ${failures.size} $files, left in place: ", limit = 5),
+        )
     }
 }
