@@ -103,6 +103,26 @@ class CacheProxyTest {
         }
     }
 
+    /**
+     * Fails when two runs pinning the same port generate different init scripts.
+     *
+     * Gradle treats init script content as a configuration input, so any part of the script that
+     * varies between runs discards the configuration cache — the symptom being
+     * `Calculating task graph as configuration cache cannot be reused because init script
+     * 'init.gradle' has changed`. The proxy URL was that varying part, and asserting the whole
+     * script rather than the URL alone means anything else that starts varying fails here too.
+     */
+    @Test
+    fun aPinnedPortKeepsTheInitScriptIdenticalAcrossRuns() = runTest {
+        withPinnedPort { port ->
+            val runs = (1..2).map {
+                val proxy = CacheProxy(port = port)
+                proxy { proxy.getMultiCacheConfiguration() }
+            }
+            assertEquals(runs[0], runs[1], "init script of two runs pinning port $port")
+        }
+    }
+
     @Test
     fun ephemeralPortsDifferBetweenConcurrentProxies() = runTest {
         val first = CacheProxy()
