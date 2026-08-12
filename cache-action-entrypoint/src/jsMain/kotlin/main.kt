@@ -46,6 +46,20 @@ fun String.splitLines() =
             values[0] to (values.getOrNull(1) ?: "")
         }
 
+/**
+ * Parses the `remote-build-cache-proxy-port` input into a TCP port number.
+ *
+ * A blank value stands for "no port given" and yields 0, which makes the proxy take an ephemeral port.
+ *
+ * @throws ActionFailedException the value is not an integer within 0..65535
+ */
+fun parseCacheProxyPort(value: String): Int =
+    value.trim().ifBlank { "0" }
+        .let { port -> port.toIntOrNull()?.takeIf { it in 0..65535 } }
+        ?: throw ActionFailedException(
+            "remote-build-cache-proxy-port must be an integer between 0 and 65535, got '$value'",
+        )
+
 fun isMochaRunning() =
     arrayOf("afterEach", "after", "beforeEach", "before", "describe", "it").all {
         globalThis[it] is Function<*>
@@ -85,6 +99,12 @@ suspend fun mainInternal(stage: ActionStage) {
 
     val gradleStartArguments = parseArgsStringToArgv(getInput("arguments")).toList()
     val cacheProxyEnabled = getInput("remote-build-cache-proxy-enabled").ifBlank { "true" }.toBoolean()
+    // Rejecting the port here rather than at the point of use keeps a typo from failing the step
+    // after the caches are restored and Gradle is installed
+    val cacheProxyPort = when {
+        cacheProxyEnabled -> parseCacheProxyPort(getInput("remote-build-cache-proxy-port"))
+        else -> 0
+    }
 
     val executionOnlyCaches = getInput("execution-only-caches").ifBlank { "false" }.toBoolean()
     val enableBuildScanReport = getInput("gradle-build-scan-report").ifBlank { "true" }.toBoolean()
@@ -151,9 +171,12 @@ suspend fun mainInternal(stage: ActionStage) {
             properties = getInput("properties").splitLines(),
         )
 
-        val cacheProxy = CacheProxy(port = getInput("remote-build-cache-proxy-port").ifBlank { "0" }.toInt())
+        val cacheProxy = when {
+            cacheProxyEnabled -> CacheProxy(port = cacheProxyPort)
+            else -> null
+        }
 
-        if (cacheProxyEnabled) {
+        if (cacheProxy != null) {
             info("Starting remote cache proxy, adding it via ~/.gradle/init.gradle")
             cacheProxy.start()
             val gradleHome = path.join("~".normalizedPath, ".gradle")
@@ -180,9 +203,7 @@ suspend fun mainInternal(stage: ActionStage) {
                 }
             }
         } finally {
-            if (cacheProxyEnabled) {
-                cacheProxy.stop()
-            }
+            cacheProxy?.stop()
         }
     }
     return

@@ -124,7 +124,10 @@ The default configuration should suit most of the cases, however, there are extr
     # Pin the port the remote build cache proxy listens on. Default is 0, an ephemeral port.
     # The port is written into the generated ~/.gradle/init.gradle, and Gradle fingerprints init
     # script content, so an ephemeral port invalidates the configuration cache on every run. Pin it
-    # to reuse configuration cache entries across runs, keeping it unique per build on a shared machine
+    # to reuse configuration cache entries across runs.
+    # The port must be free on the runner. Two jobs that share a machine and pin the same port fail
+    # with EADDRINUSE, so pick a value per job instead of reusing the one below - for example
+    # ${{ 34500 + strategy.job-index }} across a matrix
     remote-build-cache-proxy-port: 34567
 
     # Set the cache key for Gradle version (e.g. in case multiple jobs use different versions)
