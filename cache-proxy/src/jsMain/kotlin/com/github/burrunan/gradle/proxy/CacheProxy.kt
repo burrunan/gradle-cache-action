@@ -18,12 +18,14 @@ package com.github.burrunan.gradle.proxy
 
 import actions.cache.RestoreType
 import actions.cache.restoreAndLog
+import actions.core.ActionFailedException
 import actions.core.LogLevel
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.HttpException
 import com.github.burrunan.gradle.cache.handle
 import com.github.burrunan.wrappers.nodejs.mkdir
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
+import js.array.component1
 import js.objects.unsafeJso
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -37,9 +39,12 @@ import node.net.AddressInfo
 import node.path.path
 import node.process.process
 import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 /**
+ * Serves the Gradle HTTP build cache over the GitHub Actions cache.
+ *
  * @param port port to listen on, or 0 to pick an ephemeral one. The port ends up in the init script
  * the proxy generates, and Gradle fingerprints init script content as a configuration input, so a
  * port that changes between runs invalidates the configuration cache every time. Builds that want to
@@ -50,6 +55,20 @@ class CacheProxy(private val port: Int = 0) {
         const val GHA_CACHE_URL = "GHA_CACHE_URL"
         private const val TEMP_DIR = ".cache-proxy"
         private val cacheVersion = "1-"
+
+        /**
+         * Explains a failed bind, and names a remedy only when one exists.
+         *
+         * An ephemeral bind that fails leaves the user nothing to set, so mentioning the input there
+         * would point them at the one thing that is not the cause.
+         *
+         * @param reason the message Node reported for the failure, for example `listen EADDRINUSE: ...`
+         */
+        internal fun bindFailureMessage(port: Int, reason: String?): String = when (port) {
+            0 -> "Unable to start the remote build cache proxy: $reason"
+            else -> "Unable to start the remote build cache proxy on port $port: $reason. " +
+                "Set remote-build-cache-proxy-port to a free port, or to 0 for an ephemeral one"
+        }
     }
 
     private var _cacheUrl: String? = null
@@ -182,9 +201,20 @@ class CacheProxy(private val port: Int = 0) {
         """.trimIndent()
     }
 
+    /**
+     * Binds the proxy to [port] and publishes its URL through [cacheUrl] and `GHA_CACHE_URL`.
+     *
+     * @throws ActionFailedException the port is already taken, or the operating system refuses the bind
+     */
     suspend fun start() {
         suspendCoroutine<Nothing?> { cont ->
+            // Node reports a failed bind through an 'error' event rather than through the listen
+            // callback, and an unobserved 'error' terminates the process
+            val removeBindErrorHandler = server.errorEvent.addHandler { (error) ->
+                cont.resumeWithException(ActionFailedException(bindFailureMessage(port, error.message)))
+            }
             server.listen(port) {
+                removeBindErrorHandler()
                 cont.resume(null)
             }
         }

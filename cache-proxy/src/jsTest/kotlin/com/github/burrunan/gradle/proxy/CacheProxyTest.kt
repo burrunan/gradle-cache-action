@@ -16,6 +16,7 @@
 
 package com.github.burrunan.gradle.proxy
 
+import actions.core.ActionFailedException
 import actions.exec.ExecOptions
 import actions.exec.exec
 import actions.glob.removeFiles
@@ -32,8 +33,10 @@ import node.process.process
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class CacheProxyTest {
@@ -49,25 +52,98 @@ class CacheProxyTest {
         println("json: " + JSON.stringify(Json.encodeToDynamic(z)))
     }
 
+    /** Returns the port of a started proxy, so a test can pin it or occupy it. */
+    private fun CacheProxy.boundPort(): Int {
+        val url = assertNotNull(cacheUrl, "the proxy must publish its URL once started")
+        return url.removePrefix("http://localhost:").removeSuffix("/").toInt()
+    }
+
+    /**
+     * Returns a port that was free at the moment of the call.
+     *
+     * Hard-coding one would make the suite depend on a port nobody else uses, and the README example
+     * is the first value a developer running this locally would have taken.
+     */
+    private suspend fun freePort(): Int {
+        val probe = CacheProxy()
+        probe.start()
+        try {
+            return probe.boundPort()
+        } finally {
+            probe.stop()
+        }
+    }
+
+    /**
+     * Runs [block] against a pinned port, retrying when something else claims that port first.
+     *
+     * Releasing a port does not reserve it, so probing for a free one and then binding it is a
+     * check-then-act race. Only a failed bind retries: an assertion inside [block] propagates on the
+     * first attempt, so a proxy that ignored its port argument still fails here rather than looping.
+     */
+    private suspend fun withPinnedPort(attempts: Int = 5, block: suspend (Int) -> Unit) {
+        repeat(attempts - 1) {
+            try {
+                return block(freePort())
+            } catch (e: ActionFailedException) {
+                // Someone took the port between the probe and the bind, so probe again
+            }
+        }
+        block(freePort())
+    }
+
     @Test
     fun pinnedPortReachesTheGeneratedInitScript() = runTest {
-        val port = 34567
-        val pinnedProxy = CacheProxy(port = port)
-        pinnedProxy {
-            assertEquals("http://localhost:$port/", pinnedProxy.cacheUrl)
-            assertContains(pinnedProxy.getMultiCacheConfiguration(), "url = 'http://localhost:$port/'")
+        withPinnedPort { port ->
+            val pinnedProxy = CacheProxy(port = port)
+            pinnedProxy {
+                assertEquals("http://localhost:$port/", pinnedProxy.cacheUrl)
+                assertContains(pinnedProxy.getMultiCacheConfiguration(), "url = 'http://localhost:$port/'")
+            }
         }
     }
 
     @Test
-    fun ephemeralPortIsUsedByDefault() = runTest {
-        val ephemeralProxy = CacheProxy()
-        ephemeralProxy {
-            val url = ephemeralProxy.cacheUrl
-            assertNotNull(url)
-            val port = url.removePrefix("http://localhost:").removeSuffix("/").toInt()
-            assertTrue(port > 0, "an ephemeral port should have been assigned, got $url")
+    fun ephemeralPortsDifferBetweenConcurrentProxies() = runTest {
+        val first = CacheProxy()
+        val second = CacheProxy()
+        first {
+            second {
+                // Two proxies bound at the same time cannot share a port, so equal ports would mean
+                // the default stopped being ephemeral
+                assertNotEquals(first.boundPort(), second.boundPort(), "default ports of two live proxies")
+            }
         }
+    }
+
+    @Test
+    fun bindFailureNamesThePortAndTheInput() = runTest {
+        val occupant = CacheProxy()
+        occupant {
+            val port = occupant.boundPort()
+            val failure = assertFailsWith<ActionFailedException> {
+                CacheProxy(port = port).start()
+            }
+            val message = assertNotNull(failure.message)
+            assertContains(message, port.toString(), message = "the port must be named: $message")
+            assertContains(
+                message,
+                "remote-build-cache-proxy-port",
+                message = "the input that sets the port must be named: $message",
+            )
+            // The only part Node supplies, and the code action.yml promises the user
+            assertContains(message, "EADDRINUSE", message = "the reason Node gave must survive: $message")
+        }
+    }
+
+    @Test
+    fun bindFailureOnAnEphemeralPortNamesNoInput() {
+        val message = CacheProxy.bindFailureMessage(0, "listen EACCES: permission denied")
+        assertContains(message, "listen EACCES: permission denied")
+        assertFalse(
+            "remote-build-cache-proxy-port" in message,
+            "a bind that failed on an ephemeral port gives the user nothing to set: $message",
+        )
     }
 
     @Test

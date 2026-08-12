@@ -68,7 +68,7 @@ inputs:
       The port is written into the generated ~/.gradle/init.gradle, and Gradle treats init script
       content as a configuration input, so an ephemeral port invalidates the configuration cache on
       every run. Pin it to reuse configuration cache entries across runs, and make sure no two
-      builds sharing a machine pin the same port.
+      builds sharing a machine pin the same port: the second build fails with EADDRINUSE.
     required: false
     default: '0'
   gradle-dependencies-cache-key:
