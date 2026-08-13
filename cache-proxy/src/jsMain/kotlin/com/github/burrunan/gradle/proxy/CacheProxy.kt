@@ -20,10 +20,12 @@ import actions.cache.RestoreType
 import actions.cache.restoreAndLog
 import actions.core.ActionFailedException
 import actions.core.LogLevel
+import actions.core.debug
 import actions.core.warning
 import actions.glob.removeFiles
 import com.github.burrunan.gradle.cache.HttpException
 import com.github.burrunan.gradle.cache.handle
+import com.github.burrunan.wrappers.nodejs.discard
 import com.github.burrunan.wrappers.nodejs.mkdir
 import com.github.burrunan.wrappers.nodejs.pipeAndWait
 import js.array.component1
@@ -40,6 +42,7 @@ import node.http.ServerResponse
 import node.net.AddressInfo
 import node.path.path
 import node.process.process
+import node.stream.pipeline
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -57,6 +60,24 @@ class CacheProxy(private val port: Int = 0) {
         const val GHA_CACHE_URL = "GHA_CACHE_URL"
         private const val TEMP_DIR = ".cache-proxy"
         private val cacheVersion = "1-"
+
+        /**
+         * Keeps requests that share one temp file apart.
+         *
+         * Gradle stores and loads entries concurrently, and two tasks with the same inputs produce the
+         * same id, so requests for one id do overlap. The locks live next to [TEMP_DIR] rather than in
+         * the instance, since two proxies in one process address the same files.
+         */
+        private val entryLocks = EntryLocks()
+
+        /**
+         * Whether any request holds or waits for the temp file of [id].
+         *
+         * A request that ends without handing its id back leaves this answering `true` for the rest of
+         * the run, and that id is then lost: [putEntry] answers every later PUT for it without storing
+         * anything, and [getEntry] never answers at all.
+         */
+        internal fun holdsEntry(id: String): Boolean = entryLocks.holds(id)
 
         /**
          * Explains a failed bind, and names a remedy only when one exists.
@@ -94,10 +115,22 @@ class CacheProxy(private val port: Int = 0) {
 
     private suspend fun putEntry(id: String, req: IncomingMessage, res: ServerResponse<*>) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
-        try {
-            req.pipeAndWait(createWriteStream(fileName))
+        if (!entryLocks.beginStore(id)) {
+            // A build cache key stands for the contents stored under it, so this PUT carries what the
+            // store already under way is uploading, and the cache service rejects a second save of one
+            // key anyway. Writing the temp file again would leave that store archiving a file that
+            // changed underneath it.
+            debug { "A store for build cache entry $id is already under way, dropping the duplicate" }
+            req.discard()
             res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
-        } finally {
+            return
+        }
+        var storeStarted = false
+        try {
+            // pipeline closes the temp file and waits for the last byte to reach the disk, which is
+            // what makes the archive below hold the whole payload
+            pipeline(req, createWriteStream(fileName))
+            res.writeHead(200, "OK", undefined.unsafeCast<OutgoingHttpHeaders>())
             // The store runs detached so the PUT can be answered before the upload finishes, which
             // leaves its failures with nowhere to go: without a handler they reach the uncaught-coroutine
             // handler and terminate the process along with the Gradle build the action is running.
@@ -110,13 +143,31 @@ class CacheProxy(private val port: Int = 0) {
                 try {
                     actions.cache.saveAndLog(listOf(fileName), id, cacheVersion, logLevel = LogLevel.DEBUG)
                 } finally {
-                    removeFiles(listOf(fileName))
+                    finishStore(id, fileName)
                 }
+            }
+            storeStarted = true
+        } finally {
+            // The store owns the id from here on, and hands it back when it ends. A PUT that never got
+            // that far has to hand it back itself, or every later request for the id waits forever.
+            // Its temp file goes too: a body that stopped short would archive as a valid entry holding
+            // a truncated payload.
+            if (!storeStarted) {
+                finishStore(id, fileName)
             }
         }
     }
 
-    private suspend fun getEntry(id: String, res: ServerResponse<*>) {
+    /** Removes the temp file the store of [id] wrote, and hands the id on to whoever waits for it. */
+    private suspend fun finishStore(id: String, fileName: String) {
+        try {
+            removeFiles(listOf(fileName))
+        } finally {
+            entryLocks.endStore(id)
+        }
+    }
+
+    private suspend fun getEntry(id: String, res: ServerResponse<*>) = entryLocks.withEntry(id) {
         val fileName = path.join(TEMP_DIR, "bc-$id")
         val restoreType = restoreAndLog(listOf(fileName), id, restoreKeys = listOf(), version = cacheVersion, logLevel = LogLevel.DEBUG)
         if (restoreType == RestoreType.None) {

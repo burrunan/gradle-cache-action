@@ -39,6 +39,15 @@ class CacheService {
 
     private val storage = CacheStorage()
 
+    /**
+     * Runs before a key is reserved, so a test can hold a save of that key in flight for as long as it
+     * likes.
+     *
+     * A save reserves the key once it has archived the files it was given, which makes this the point
+     * where the caller has finished with its own files and is waiting on the cache service.
+     */
+    var beforeReserveCache: suspend (key: String) -> Unit = {}
+
     private val server = node.http.createServer<IncomingMessage, ServerResponse<*>> { req, res ->
         val query = node.url.parse(req.url!!, true)
         val path = query.pathname ?: ""
@@ -133,6 +142,7 @@ class CacheService {
         }
         val request = req.readJson<ReserveCacheRequest>()
 
+        beforeReserveCache(request.key)
         val cacheId = storage.reserveCache(request.key, request.version!!)
             ?: throw HttpException.badRequest("Cache entry already exists")
         res.writeHead(200, "Reserve Cache OK", undefined.unsafeCast<OutgoingHttpHeaders>())

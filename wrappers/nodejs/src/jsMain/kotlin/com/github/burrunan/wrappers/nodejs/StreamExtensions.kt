@@ -29,6 +29,17 @@ suspend fun <T> Readable.readJson(): T = json(this) as T
 
 suspend fun Readable.readToBuffer(): Buffer<*> = buffer(this)
 
+/**
+ * Reads the stream to its end and throws away what it carries.
+ *
+ * A server that answers a request without reading its body leaves the rest of that body in the socket,
+ * and Node then has to destroy the connection instead of keeping it alive for the next request.
+ */
+suspend fun Readable.discard() {
+    resume()
+    finished(this)
+}
+
 suspend fun <T : ReadableStream, D: WritableStream> T.pipeAndWait(destination: D, end : Boolean = false) {
     pipe(destination = destination, options = unsafeJso { this.end = end })
     finished(this)
